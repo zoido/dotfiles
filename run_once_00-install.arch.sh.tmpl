@@ -1,0 +1,45 @@
+#! /bin/bash
+
+# {{ if ne .chezmoi.osRelease.id "arch" -}}
+# Not and Archlinux installation exiting.
+exit 0
+# {{ end }}
+
+
+packages=(
+    bazel
+    fzf
+    go
+    jq
+    k9s
+    logo-ls
+    man-db
+    mc
+    most
+    openssh
+    protobuf
+    python
+    reflector
+    starship
+    tmux
+    traefik
+    unzip
+    vim
+    vpnc
+    zsh
+)
+
+
+# Install yay
+install_yay() {
+    tmp=$(mktemp -d)
+    trap "rm -f ${tmp}" EXIT
+    pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay.git "${tmp}"
+    cd "${tmp}" || exit 1
+    makepkg -si
+}
+
+pacman -Qs yay > /dev/null || install_yay
+
+yay -Syu --needed --noconfirm ${packages[*]}
