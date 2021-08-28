@@ -1,0 +1,65 @@
+################################################################################
+# ZSH SETTINGS
+################################################################################
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# # sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to display red dots whilst waiting for
+# completion.
+COMPLETION_WAITING_DOTS="true"
+HISTORY_SUBSTRING_SEARCH_FUZZY=1
+################################################################################
+# Homeshick
+################################################################################
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+[ -e "$HOME/.homesick/repos/homeshick/homeshick.sh" ] && \
+    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+################################################################################
+# zgen
+################################################################################
+source "${HOME}/.zgen/zgen.zsh"
+
+# if the init scipt doesn't exist
+if ! zgen saved; then
+    echo "Creating a zgen save"
+
+    zgen oh-my-zsh
+
+    zgen load "${HOME}/.zsh/pyenv"
+
+    # plugins
+    zgen oh-my-zsh plugins/bgnotify
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/golang
+    zgen oh-my-zsh plugins/gradle
+    zgen oh-my-zsh plugins/httpie
+    zgen oh-my-zsh plugins/mercurial
+    zgen oh-my-zsh plugins/npm
+    zgen oh-my-zsh plugins/pip
+    zgen oh-my-zsh plugins/python
+    zgen oh-my-zsh plugins/systemd
+    zgen oh-my-zsh plugins/thefuck
+    zgen oh-my-zsh plugins/ubuntu
+
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-autosuggestions
+
+    zgen load djui/alias-tips
+    zgen load Tarrasch/zsh-bd
+
+    zgen load "${HOME}/.zsh/alias"
+    zgen load "${HOME}/.zsh/completion"
+    zgen load "${HOME}/.zsh/fzf"
+    zgen load "${HOME}/.zsh/zoxide"
+
+    # completions
+    zgen load zsh-users/zsh-completions src
+
+    # theme
+    zgen load "${HOME}/.zsh/prompt"
+
+    # save all to init script
+    zgen save
+fi

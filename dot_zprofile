@@ -1,0 +1,26 @@
+# Pager
+
+# Use a verbose prompt, Vim like 'smartcase' search, and interpret color codes
+# and escape sequences.
+export LESS='-M -i -R'
+# Display multi-byte characters.
+export LESSCHARSET=utf-8
+# Remember upto 1000 history items.
+export LESSHISTSIZE=1000
+# Use less as the standard pager.
+export PAGER=less
+# Use less for viewing man pages.
+export MANPAGER=$PAGER
+
+export EDITOR=vim
+
+export PATH="${HOME}/go/bin:${HOME}/.local/google-cloud-sdk/bin:${HOME}/bin/:${HOME}/.local/bin:/sbin/:$PATH"
+export LANG=en_US.UTF-8
+
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
+
+################################################################################
+# python
+################################################################################
+export PYTHONSTARTUP=$HOME/.pythonstartup

@@ -1,0 +1,37 @@
+
+# Personal ####################################################################
+Host blackbox.hacienda.hcsvnt.zone
+	Hostname hcsvnt.zone
+	Port 26022
+	User zoid
+
+Host blackbox
+	Hostname 10.0.0.253
+	Port 22
+	User zoid
+
+Host hydra
+	Hostname 10.0.10.254
+	Port 22
+	User zoid
+
+Host octopod
+	Hostname 10.0.0.254
+	User root
+
+Host capricorn
+    User zoid
+    Hostname 10.0.100.102
+
+# Git ########################################################################
+
+# Set alternative acces for Git repos for the environments where normal SSH
+# is blocked.
+
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+
+Host bitbucket.org
+    Hostname altssh.bitbucket.org
+    Port 443

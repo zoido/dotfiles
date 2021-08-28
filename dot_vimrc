@@ -1,0 +1,115 @@
+set nocompatible    " Don't try to be vi compatible
+filetype off    " Helps force plugins to load correctly when it is turned back on below
+
+
+" Load plugins here (pathogen or vundle)
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'  " let Vundle manage Vundle, required
+Plugin 'crusoexia/vim-monokai'
+Plugin 'phanviet/vim-monokai-pro'
+Plugin 'nvie/vim-flake8'
+Plugin 'sjl/vitality.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'plytophogy/vim-virtualenv'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'sheerun/vim-polyglot'
+
+call vundle#end()
+
+" Vigor
+if filereadable("/google/data/ro/projects/vigor/vigor.vim")
+    source /google/data/ro/projects/vigor/vigor.vim
+end
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='wombat'
+
+let python_highlight_all=1
+syntax on   " Turn on syntax highlighting
+
+" For plugins to load correctly
+filetype plugin indent on
+
+set modelines=0 " Security
+set number  " Show line numbers
+set ruler   " Show file stats
+set visualbell  " Blink cursor on error instead of beeping (grr)
+set encoding=utf-8
+
+
+" Whitespace
+set wrap
+set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set noshiftround
+
+" splitting
+set splitbelow
+set splitright
+
+" Cursor motion
+set scrolloff=3
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
+
+
+" Move up/down editor lines
+nnoremap j gj
+nnoremap k gk
+
+" Allow hidden buffers
+set hidden
+
+" Rendering
+set ttyfast
+
+" Status bar
+set laststatus=2
+
+" Last line
+"set showmode
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+" Searching
+" nnoremap / /\v
+" vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+map <leader><space> :let @/=''<cr> " clear search
+
+" Remap help key.
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
+
+" Textmate holdouts
+
+" Formatting
+map <leader>q gqip
+
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+" Uncomment this to enable by default:
+" set list " To enable by default
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
+
+" Color scheme (terminal)
+set t_Co=256
+set background=dark
+" colorscheme monokai
+" set termguicolors
+colorscheme monokai_pro

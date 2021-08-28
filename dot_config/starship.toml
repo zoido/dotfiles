@@ -1,0 +1,40 @@
+add_newline = true
+
+[aws]
+disabled = true
+
+[cmd_duration]
+disabled = false
+min_time = 4000
+
+[directory]
+truncation_length = 3
+
+[line_break]
+disabled = false
+
+[golang]
+symbol = "ﳑ "
+
+[gcloud]
+disabled = true
+
+[java]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true
+
+[python]
+symbol = "py:"
+
+[time]
+disabled = false
+style = "bold black"
+format = "[$time]($style) "
