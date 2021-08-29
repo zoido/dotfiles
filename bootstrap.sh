@@ -10,7 +10,7 @@ mkdir -p "${BIN_DIR}"
 
 sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "${BIN_DIR}"
 
-curl "${OP_URL}" --output "${OP}"
+curl "${OP_URL}" --f --output "${OP}"
 chmod +x "${OP}"
 
 echo -n "Enter 1password account e-mail"
