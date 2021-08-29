@@ -3,23 +3,20 @@
 set -euxo pipefail
 
 OP_URL="https://raw.githubusercontent.com/zoido/dotfiles/main/dot_local/bin/executable_op"
-OP_SIG_URL="https://raw.githubusercontent.com/zoido/dotfiles/main/dot_local/bin/op.sig"
+BIN_DIR="${HOME}/.local/bin"
+OP="${BIN_DIR}/op"
 
-go install "github.com/twpayne/chezmoi@latest"
-# gpg --receive-keys 3FEF9748469ADBE15DA7CA80AC2D62742012EA22
+mkdir -p "${BIN_DIR}"
 
-mkdir -p "${HOME}/.local/bin"
-curl "${OP_URL}" --output "${HOME}/.local/bin/op"
-curl "${OP_SIG_URL}" --output "${HOME}/.local/bin/op.sig"
+sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "${BIN_DIR}"
 
-# gpg --verify \
-#     "${HOME}/.local/bin/op.sig" \
-#     "${HOME}/.local/bin/op"
+curl "${OP_URL}" --output "${OP}"
+chmod +x "${OP}"
 
 echo -n "Enter 1password account e-mail"
 read -r OP_EMAIL
 
-"${HOME}/.local/bin/op" op signin my "${OP_EMAIL}"
-eval "$(${HOME}/.local/bin/op signin my)"
+"${OP}" signin my "${OP_EMAIL}"
+eval "$(${OP} signin my)"
 
-${HOME}/go/bin/chezmoi init --apply zoido
+"${BIN_DIR}/chezmoi" init --apply zoido
