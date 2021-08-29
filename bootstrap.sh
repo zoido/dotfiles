@@ -22,12 +22,12 @@ while ! "${OP}" signin my "${OP_EMAIL}"; do
     echo "Try again."
 done
 
+set +e
 while true; do
     op="$(${OP} signin my)"
     [ "$?" -ne 0 ] && echo "Try again." && continue
     eval "${op}"
+    break
 done
-
-eval "$(${OP} signin my)"
 
 "${BIN_DIR}/chezmoi" init --apply zoido
