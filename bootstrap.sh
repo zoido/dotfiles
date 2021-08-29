@@ -5,7 +5,7 @@ set -euxo pipefail
 OP_URL="https://raw.githubusercontent.com/zoido/dotfiles/main/dot_local/bin/executable_op"
 OP_SIG_URL="https://raw.githubusercontent.com/zoido/dotfiles/main/dot_local/bin/op.sig"
 
-go install "github.com/twpayne/chezmoi@latest"
+sh -c "$(curl -fsLS git.io/chezmoi)"
 gpg --receive-keys 3FEF9748469ADBE15DA7CA80AC2D62742012EA22
 
 mkdir -p "${HOME}/.local/bin"
