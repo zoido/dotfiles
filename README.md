@@ -8,6 +8,7 @@ Prerequisites:
 
 - Go
 - GnuPG
+- gcc
 
 ```sh
 sh -c "$(curl -fsLS https://raw.githubusercontent.com/zoido/dotfiles/main/bootstrap.sh)"
