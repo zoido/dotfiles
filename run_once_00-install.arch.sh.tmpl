@@ -42,6 +42,6 @@ install_yay() {
 
 pacman -Qs yay > /dev/null || install_yay
 
-yay -Sy --needed --noconfirm ${packages[*]}
+yay -Sy --needed --noconfirm --sudoloop ${packages[*]}
 
 # {{ end }}
