@@ -12,3 +12,10 @@ onepassword:
 onepassword:
     command: {{ . }}/.local/bin/op
 {{ end -}}
+
+{{- $codespaces:= env "CODESPACES" | not | not -}}
+sourceDir: {{ .chezmoi.sourceDir }}
+
+data:
+    codespaces: {{ $codespaces }}
+    private: {{ not $codespaces }}

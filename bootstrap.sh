@@ -6,6 +6,7 @@ OP_URL="https://raw.githubusercontent.com/zoido/dotfiles/main/dot_local/bin/exec
 BIN_DIR="${HOME}/.local/bin"
 OP="${BIN_DIR}/op"
 CHEZMOI="${BIN_DIR}/chezmoi"
+SCRIPT_DIR="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
 install_chezmoi() {
     sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "${BIN_DIR}"
@@ -47,4 +48,4 @@ if [ "${CODESPACES}" != "true" ]; then
     signin_op
 fi
 
-"${CHEZMOI}" init --apply zoido
+"${CHEZMOI}" init --apply zoido --source="$SCRIPT_DIR"
