@@ -7,18 +7,17 @@ BIN_DIR="${HOME}/.local/bin"
 OP="${BIN_DIR}/op"
 CHEZMOI="${BIN_DIR}/chezmoi"
 
-mkdir -p "${BIN_DIR}"
 
-if [ ! -f "${CHEZMOI}" ]; then
+install_chezmoi() {
     sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "${BIN_DIR}"
-fi
+}
 
-if [ ! -f "${OP}" ]; then
+download_op() {
     curl "${OP_URL}" -f --output "${OP}"
     chmod +x "${OP}"
-fi
+}
 
-if [ ! -f "${HOME}/.config/op/config" ]; then
+bootstrap_op() {
     echo
     echo -n "Enter 1password account e-mail: "
     read -r OP_EMAIL
@@ -27,10 +26,9 @@ if [ ! -f "${HOME}/.config/op/config" ]; then
     while ! "${OP}" signin my "${OP_EMAIL}"; do
         echo "Try again."
     done
-fi
+}
 
-
-if ! "${OP}" get account; then
+signin_op() {
     set +e
     while true; do
         op="$(${OP} signin)"
@@ -38,6 +36,14 @@ if ! "${OP}" get account; then
         eval "${op}"
         break
     done
-fi
+}
+
+mkdir -p "${BIN_DIR}"
+
+[ ! -f "${CHEZMOI}" ] && install_chezmoi
+[ ! -f "${OP}" ] && download_op
+
+[ ! -f "${HOME}/.config/op/config" ] && bootstrap_op
+"${OP}" get account || signin_op
 
 "${CHEZMOI}" init --apply zoido
