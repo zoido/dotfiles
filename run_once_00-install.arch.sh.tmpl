@@ -1,4 +1,4 @@
-# {{ if eq .chezmoi.osRelease.id "arch" -}}
+{{- if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/bash
 
 set -e
@@ -31,15 +31,13 @@ packages=(
     zsh
 )
 
-
-# Install yay
 install_yay() {
     tmp=$(mktemp -d)
-    trap "rm -f ${tmp}" EXIT
+    trap "rm -rf ${tmp}" EXIT
     sudo pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git "${tmp}"
     cd "${tmp}" || exit 1
-    sudo makepkg -si
+    makepkg -si
 }
 
 pacman -Qs yay > /dev/null || install_yay
