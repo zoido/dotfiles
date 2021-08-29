@@ -18,7 +18,16 @@ echo -n "Enter 1password account e-mail: "
 read -r OP_EMAIL
 echo
 
-"${OP}" signin my "${OP_EMAIL}"
+while ! "${OP}" signin my "${OP_EMAIL}"; do
+    echo "Try again."
+done
+
+while true; do
+    op="$(${OP} signin my)"
+    [ "$?" -ne 0 ] && echo "Try again." && continue
+    eval "${op}"
+done
+
 eval "$(${OP} signin my)"
 
 "${BIN_DIR}/chezmoi" init --apply zoido
