@@ -1,3 +1,4 @@
+set nocompatible    " Don't try to be vi compatible
 filetype off    " Helps force plugins to load correctly when it is turned back on below
 
 set rtp+=~/.vim/bundle/Vundle.vim
