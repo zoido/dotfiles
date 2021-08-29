@@ -34,7 +34,7 @@ packages=(
 install_yay() {
     tmp=$(mktemp -d)
     trap "rm -rf ${tmp}" EXIT
-    sudo pacman -Sy --noconfirm --needed git base-devel
+    sudo pacman -Sy --needed git base-devel
     git clone https://aur.archlinux.org/yay.git "${tmp}"
     cd "${tmp}" || exit 1
     makepkg -si
