@@ -7,7 +7,6 @@ BIN_DIR="${HOME}/.local/bin"
 OP="${BIN_DIR}/op"
 CHEZMOI="${BIN_DIR}/chezmoi"
 
-
 install_chezmoi() {
     sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "${BIN_DIR}"
 }
@@ -46,4 +45,5 @@ mkdir -p "${BIN_DIR}"
 [ ! -f "${HOME}/.config/op/config" ] && bootstrap_op
 "${OP}" get account || signin_op
 
+PATH="${BIN_DIR}:${PATH}"
 "${CHEZMOI}" init --apply zoido
