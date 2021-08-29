@@ -45,5 +45,4 @@ mkdir -p "${BIN_DIR}"
 [ ! -f "${HOME}/.config/op/config" ] && bootstrap_op
 "${OP}" get account || signin_op
 
-PATH="${BIN_DIR}:${PATH}"
 "${CHEZMOI}" init --apply zoido
