@@ -42,7 +42,9 @@ mkdir -p "${BIN_DIR}"
 [ ! -f "${CHEZMOI}" ] && install_chezmoi
 [ ! -f "${OP}" ] && download_op
 
-[ ! -f "${HOME}/.config/op/config" ] && bootstrap_op
-"${OP}" get account || signin_op
+if [ "${CODESPACES}" != "true" ]; then
+    [ ! -f "${HOME}/.config/op/config" ] && bootstrap_op
+    signin_op
+fi
 
 "${CHEZMOI}" init --apply zoido
