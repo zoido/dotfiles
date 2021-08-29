@@ -3,12 +3,12 @@ Need to use bot homedir and homeDir due to https://github.com/twpayne/chezmoi/is
 That seems not to manifest always.
 */}}
 
-{{- with (empty (get .chezmoi "homedir")) }}
+{{- with (default (get .chezmoi "homedir")) }}
 onepassword:
     command: {{ . }}/.local/bin/op
 {{ end -}}
 
-{{- with (empty (get .chezmoi "homeDir")) }}
+{{- with (default (get .chezmoi "homeDir")) }}
 onepassword:
     command: {{ . }}/.local/bin/op
 {{ end -}}
