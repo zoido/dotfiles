@@ -33,7 +33,7 @@ alias bb.="bb '...'"
 alias bb/="bb '//...'"
 alias bt="b test --test_output=errors"
 alias bt.="bt '...'"
-alias bt/="bt '...'"
+alias bt/="bt '//...'"
 alias br='b run'
 alias bq='b query'
 alias bcl='b clean'
