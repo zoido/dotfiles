@@ -2,6 +2,6 @@
 
 tmux \
     new-window -b -t 0 -n "workmode" -c ~ \
-        'sudo vpnc --no-detach {{ .chezmoi.homedir }}/.config/h2o.ai/vpnc.conf' \; \
+        'sudo vpnc --no-detach ~/.config/h2o.ai/vpnc.conf' \; \
     split-window -c ~/.config/h2o.ai/traefik 'traefik' \; \
     last-window
