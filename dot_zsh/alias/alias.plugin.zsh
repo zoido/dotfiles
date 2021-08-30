@@ -1,14 +1,19 @@
-
 alias zshconfig="${EDITOR} ${HOME}/.zshrc"
 alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
 
-which logo-ls &> /dev/null && alias logo-ls="logo-ls -T RFC3339" && alias ls='logo-ls' && alias llD='logo-ls -lD' && alias lsD='logo-ls -D'
+if [ ! "$(command -v logo-ls)" ]; then
+    alias lls="$(command -v ls)"
+    alias logo-ls="logo-ls -T RFC3339"
+    alias ls='logo-ls'
+    alias llD='logo-ls -lD'
+    alias lsD='logo-ls -D'
+fi
 
 # Weather
 alias weather='curl "wttr.in/Prague?m"'
 alias moon='curl wttr.in/Moon'
 
-# Conveniently pipe to less by appending 'L' to the command.
+# Conveniently pipes
 alias -g L='| less'
 alias -g LL="2>&1 | less"
 
@@ -19,6 +24,15 @@ alias -g B='| bat'
 alias -g BA='| bat -A'
 alias -g BB="2>&1 | bat"
 alias -g BBA="2>&1 | bat -A"
+
+# terraform
+alias tf="terraform"
+alias tfa="tf apply"
+alias tfp="tf plan"
+alias tfaaa="tfa --auto-approve"
+alias tfd="tf destroy"
+alias tfdaa="tfd --auto-approve"
+alias tfi="tf init"
 
 # Tokens
 alias nomad-admin='vault read -field=secret_id nomad/creds/admin | read NOMAD_TOKEN; export NOMAD_TOKEN'
