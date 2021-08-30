@@ -1,7 +1,7 @@
 set nocompatible    " Don't try to be vi compatible
 
 " Load plugins here (pathogen or vundle)
-source .vundle.vim
+source ~/.vundle.vim
 
 " Vigor
 if filereadable("/google/data/ro/projects/vigor/vigor.vim")
