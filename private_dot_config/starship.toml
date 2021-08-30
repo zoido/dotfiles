@@ -38,3 +38,6 @@ symbol = "py:"
 disabled = false
 style = "bold black"
 format = "[$time]($style) "
+
+[terraform]
+format = "[$symbol$workspace/$version]($style) "
