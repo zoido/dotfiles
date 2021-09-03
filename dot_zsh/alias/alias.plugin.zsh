@@ -1,7 +1,7 @@
 alias zshconfig="${EDITOR} ${HOME}/.zshrc"
 alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
 
-if [ ! "$(command -v logo-ls)" ]; then
+if [ "$(command -v logo-ls)" ]; then
     alias lls="$(command -v ls)"
     alias logo-ls="logo-ls -T RFC3339"
     alias ls='logo-ls'

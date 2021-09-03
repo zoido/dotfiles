@@ -31,11 +31,11 @@ if ! zgenom saved; then
     zgenom oh-my-zsh plugins/thefuck
     zgenom oh-my-zsh plugins/ubuntu
 
-    zgenom load zsh-users/zsh-syntax-highlighting
     zgenom load zsh-users/zsh-autosuggestions
 
     zgenom load djui/alias-tips
     zgenom load Tarrasch/zsh-bd
+    zgenom load zdharma/fast-syntax-highlighting
 
     zgenom load "${HOME}/.zsh/alias"
     zgenom load "${HOME}/.zsh/completion"
