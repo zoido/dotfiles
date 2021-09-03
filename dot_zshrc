@@ -35,6 +35,7 @@ if ! zgenom saved; then
 
     zgenom load djui/alias-tips
     zgenom load Tarrasch/zsh-bd
+    zgenom load ytakahashi/igit
     zgenom load zdharma/fast-syntax-highlighting
 
     zgenom load "${HOME}/.zsh/alias"

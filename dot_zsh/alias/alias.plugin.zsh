@@ -64,3 +64,7 @@ alias ibb.="ibb '...'"
 alias ibb/="ibb '//...'"
 
 alias ibr="ib run"
+
+
+# op
+alias opsi="eval $(op signin)"
