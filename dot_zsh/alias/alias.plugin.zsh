@@ -67,4 +67,4 @@ alias ibr="ib run"
 
 
 # op
-alias opsi="eval $(op signin)"
+alias opsi='eval $(op signin)'
