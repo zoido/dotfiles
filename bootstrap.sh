@@ -48,4 +48,5 @@ if [ "${CODESPACES}" != "true" ]; then
     signin_op
 fi
 
+set -x
 "${CHEZMOI}" init --apply zoido --source="$SCRIPT_DIR"
