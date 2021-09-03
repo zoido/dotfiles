@@ -1,19 +1,13 @@
-################################################################################
-# ZSH SETTINGS
-################################################################################
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to display red dots whilst waiting for
-# completion.
 COMPLETION_WAITING_DOTS="true"
 HISTORY_SUBSTRING_SEARCH_FUZZY=1
 
 ################################################################################
-# zgen
+# zgenom
 ################################################################################
+ZGEN_RESET_ON_CHANGE=("${HOME}/.zshrc")
 source "${HOME}/.zgenom/zgenom.zsh"
+zgenom autoupdate --background
 
 # if the init scipt doesn't exist
 if ! zgenom saved; then
