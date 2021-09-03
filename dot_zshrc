@@ -9,57 +9,51 @@ HYPHEN_INSENSITIVE="true"
 # completion.
 COMPLETION_WAITING_DOTS="true"
 HISTORY_SUBSTRING_SEARCH_FUZZY=1
-################################################################################
-# Homeshick
-################################################################################
-fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
-[ -e "$HOME/.homesick/repos/homeshick/homeshick.sh" ] && \
-    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 ################################################################################
 # zgen
 ################################################################################
-source "${HOME}/.zgen/zgen.zsh"
+source "${HOME}/.zgenom/zgenom.zsh"
 
 # if the init scipt doesn't exist
-if ! zgen saved; then
+if ! zgenom saved; then
     echo "Creating a zgen save"
 
-    zgen oh-my-zsh
+    zgenom oh-my-zsh
 
-    zgen load "${HOME}/.zsh/pyenv"
+    zgenom load "${HOME}/.zsh/pyenv"
 
     # plugins
-    zgen oh-my-zsh plugins/bgnotify
-    zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/golang
-    zgen oh-my-zsh plugins/gradle
-    zgen oh-my-zsh plugins/httpie
-    zgen oh-my-zsh plugins/mercurial
-    zgen oh-my-zsh plugins/npm
-    zgen oh-my-zsh plugins/pip
-    zgen oh-my-zsh plugins/python
-    zgen oh-my-zsh plugins/systemd
-    zgen oh-my-zsh plugins/thefuck
-    zgen oh-my-zsh plugins/ubuntu
+    zgenom oh-my-zsh plugins/bgnotify
+    zgenom oh-my-zsh plugins/git
+    zgenom oh-my-zsh plugins/golang
+    zgenom oh-my-zsh plugins/gradle
+    zgenom oh-my-zsh plugins/httpie
+    zgenom oh-my-zsh plugins/mercurial
+    zgenom oh-my-zsh plugins/npm
+    zgenom oh-my-zsh plugins/pip
+    zgenom oh-my-zsh plugins/python
+    zgenom oh-my-zsh plugins/systemd
+    zgenom oh-my-zsh plugins/thefuck
+    zgenom oh-my-zsh plugins/ubuntu
 
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load zsh-users/zsh-autosuggestions
+    zgenom load zsh-users/zsh-syntax-highlighting
+    zgenom load zsh-users/zsh-autosuggestions
 
-    zgen load djui/alias-tips
-    zgen load Tarrasch/zsh-bd
+    zgenom load djui/alias-tips
+    zgenom load Tarrasch/zsh-bd
 
-    zgen load "${HOME}/.zsh/alias"
-    zgen load "${HOME}/.zsh/completion"
-    zgen load "${HOME}/.zsh/fzf"
-    zgen load "${HOME}/.zsh/zoxide"
+    zgenom load "${HOME}/.zsh/alias"
+    zgenom load "${HOME}/.zsh/completion"
+    zgenom load "${HOME}/.zsh/fzf"
+    zgenom load "${HOME}/.zsh/zoxide"
 
     # completions
-    zgen load zsh-users/zsh-completions src
+    zgenom load zsh-users/zsh-completions src
 
     # theme
-    zgen load "${HOME}/.zsh/prompt"
+    zgenom load "${HOME}/.zsh/prompt"
 
     # save all to init script
-    zgen save
+    zgenom save
 fi
