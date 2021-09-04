@@ -15,8 +15,6 @@ if ! zgenom saved; then
 
     zgenom oh-my-zsh
 
-    zgenom load "${HOME}/.zsh/pyenv"
-
     # plugins
     zgenom oh-my-zsh plugins/bgnotify
     zgenom oh-my-zsh plugins/git
