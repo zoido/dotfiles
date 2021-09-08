@@ -1,13 +1,19 @@
 alias zshconfig="${EDITOR} ${HOME}/.zshrc"
 alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
 
+#  Better ls
 if [ "$(command -v logo-ls)" ]; then
     alias lls="$(command -v ls)"
-    alias logo-ls="logo-ls -T RFC3339"
-    alias ls='logo-ls'
-    alias llD='logo-ls -lD'
-    alias lsD='logo-ls -D'
+    alias ls='exa'
+    alias llG='exa -l --git'
+    alias lsD='exa --git'
+    alias lst='exa --tree'
+    alias lt='exa --tree'
+    alias llt='exa -l --tree'
 fi
+
+# utils
+alias fzb="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
 # Weather
 alias weather='curl "wttr.in/Prague?m"'
