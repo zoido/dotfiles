@@ -1,3 +1,4 @@
+[ "$(command -v argo)" ] && source <(argo completion zsh) || true
 [ "$(command -v chezmoi)" ] && eval "$(chezmoi completion zsh)"
 [ "$(command -v helm)" ] && source <(helm completion zsh)
 [ "$(command -v kubectl)" ] && source <(kubectl completion zsh)
