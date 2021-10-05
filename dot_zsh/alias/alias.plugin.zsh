@@ -5,8 +5,10 @@ alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
 if [ "$(command -v logo-ls)" ]; then
     alias lls="$(command -v ls)"
     alias ls='exa'
+    alias lsa='exa -a'
+    alias lla='exa -la'
     alias llG='exa -l --git'
-    alias lsD='exa --git'
+    alias lsG='exa --git'
     alias lst='exa --tree'
     alias lt='exa --tree'
     alias llt='exa -l --tree'
