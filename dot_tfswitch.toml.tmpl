@@ -3,8 +3,8 @@ Need to use bot homedir and homeDir due to https://github.com/twpayne/chezmoi/is
 That seems not to manifest always.
 */}}
 {{- with (default (get .chezmoi "homedir")) }}
-bin = {{ . }}/.local/bin/terrafrom
+bin = "{{ . }}/.local/bin/terraform"
 {{ end -}}
 {{- with (default (get .chezmoi "homeDir")) }}
-bin = {{ . }}/.local/bin/terrafrom
+bin = "{{ . }}/.local/bin/terraform"
 {{ end -}}
