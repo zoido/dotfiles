@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+kind create cluster --config "${HOME}/.config/kind/cluster.yaml"
+
+ kubectl create namespace traefik
+
+helm install --namespace traefik traefik traefik/traefik \
+    --set ingressClass.enabled=true \
+    --set ingressClass.isDefaultClass=true \
+    --set ports.traefik.expose=true \
+    --set ports.traefik.nodePort=30900 \
+    --set ports.web.nodePort=30080 \
+    --set ports.websecure.nodePort=30443 \
+    --set service.type=NodePort
+
+
+kubectl wait --namespace traefik \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/name=traefik \
+  --timeout=90s
