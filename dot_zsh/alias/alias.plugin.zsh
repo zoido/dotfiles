@@ -73,6 +73,9 @@ alias ibb/="ibb '//...'"
 
 alias ibr="ib run"
 
-
 # op
 alias opsi='eval $(op signin)'
+
+# kubernetes
+alias kube="kubectl"
+alias k="kubectl"
