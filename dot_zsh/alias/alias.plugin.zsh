@@ -79,3 +79,6 @@ alias opsi='eval $(op signin)'
 # kubernetes
 alias kube="kubectl"
 alias k="kubectl"
+
+# h2o
+alias h2o-dev="h2o --conf=~/.config/h2o.ai/cli/dev-config.toml"
