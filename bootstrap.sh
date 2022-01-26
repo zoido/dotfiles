@@ -8,7 +8,7 @@ OP="${BIN_DIR}/op"
 CHEZMOI="${BIN_DIR}/chezmoi"
 
 install_chezmoi() {
-    sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "${BIN_DIR}"
+    sh -c "$(curl -fsLS chezmoi.io/get)" -- -b "${BIN_DIR}"
 }
 
 download_op() {
