@@ -81,4 +81,5 @@ alias kube="kubectl"
 alias k="kubectl"
 
 # h2o
-alias h2o-dev="h2o --conf=~/.config/h2o.ai/cli/dev-config.toml"
+alias h2o-dev="h2o --conf=${HOME}/.config/h2o.ai/cli/dev-config.toml"
+alias h2o-qa="h2o --conf=${HOME}/.config/h2o.ai/cli/qa-config.toml"
