@@ -2,11 +2,25 @@
 
 set -e
 
+# Create cluster
 kind create cluster --config "${HOME}/.config/kind/cluster.yaml"
 
- kubectl create namespace traefik
 
-helm install --namespace traefik traefik traefik/traefik \
+# Install metrics server
+helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+
+helm upgrade --install metrics-server metrics-server/metrics-server \
+    --namespace metrics-server \
+    --create-namespace \
+    --set "args[0]=--kubelet-insecure-tls"
+
+
+# Install traefik
+helm repo add traefik https://helm.traefik.io/traefik
+
+helm upgrade --install traefik traefik/traefik\
+    --namespace traefik \
+    --create-namespace \
     --set ingressClass.enabled=true \
     --set ingressClass.isDefaultClass=true \
     --set ports.traefik.expose=true \
