@@ -28,9 +28,3 @@ helm upgrade --install traefik traefik/traefik \
     --set ports.web.nodePort=30080 \
     --set ports.websecure.nodePort=30443 \
     --set service.type=NodePort
-
-
-kubectl wait --namespace traefik \
-  --for=condition=ready pod \
-  --selector=app.kubernetes.io/name=traefik \
-  --timeout=90s
