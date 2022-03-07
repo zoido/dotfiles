@@ -18,6 +18,7 @@ pipx_packages=(
     polysh
     ptpython
     pytest
+    rich-cli
     thefuck
     tox
     yapf
