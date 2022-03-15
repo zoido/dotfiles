@@ -5,6 +5,21 @@
 # `zellij setup --check`
 # It should show current config locations and features that are enabled.
 
+themes:
+  default:
+    fg: 15
+    bg: 0
+    black: 0
+    gray: 8
+    red: 1
+    green: 2
+    yellow: 3
+    blue: 4
+    magenta: 5
+    cyan: 6
+    white: 15
+    orange: 9
+
 keybinds:
     unbind: true
     normal:
