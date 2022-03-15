@@ -8,7 +8,7 @@
 themes:
   default:
     fg: 15
-    bg: 0
+    bg: 8
     black: 0
     gray: 8
     red: 1
