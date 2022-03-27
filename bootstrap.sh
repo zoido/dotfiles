@@ -16,36 +16,11 @@ download_op() {
     chmod +x "${OP}"
 }
 
-bootstrap_op() {
-    echo
-    echo -n "Enter 1password account e-mail: "
-    read -r OP_EMAIL
-    echo
-
-    while ! "${OP}" signin my "${OP_EMAIL}"; do
-        echo "Try again."
-    done
-}
-
-signin_op() {
-    set +e
-    while true; do
-        op="$(${OP} signin)"
-        [ "$?" -ne 0 ] && echo "Try again." && continue
-        eval "${op}"
-        break
-    done
-}
 
 mkdir -p "${BIN_DIR}"
 
 [ ! -f "${CHEZMOI}" ] && install_chezmoi
 [ ! -f "${OP}" ] && download_op
-
-if [ "${CODESPACES}" != "true" ]; then
-    [ ! -f "${HOME}/.config/op/config" ] && bootstrap_op
-    signin_op
-fi
 
 if [ "${CODESPACES}" == "true" ]; then
     SCRIPT_DIR="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"

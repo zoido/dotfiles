@@ -76,12 +76,14 @@ alias ibr="ib run"
 # op
 alias opsi='eval $(op signin)'
 
+alias aws="op run --env-file=$HOME/.config/h2o.ai/aws.op.env -- aws"
+
 # kubernetes
 alias kube="kubectl"
 alias k="kubectl"
 
 # h2o
-alias h2o-dev="h2o --conf=${HOME}/.config/h2o.ai/cli/dev-config.toml"
-alias h2o-qa="h2o --conf=${HOME}/.config/h2o.ai/cli/qa-config.toml"
-alias h2o-internal="h2o --conf=${HOME}/.config/h2o.ai/cli/internal-config.toml"
-alias h2o-mc="h2o --conf=${HOME}/.config/h2o.ai/cli/mc-config.toml"
+alias h2o-dev="env=dev h2oc"
+alias h2o-qa="env=qa h2oc"
+alias h2o-internal="env=internal h2oc"
+alias h2o-managed="env=managed h2oc"

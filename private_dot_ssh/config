@@ -1,6 +1,6 @@
 # Git ########################################################################
 
-# Set alternative acces for Git repos for the environments where normal SSH
+# Set alternative access for Git repos for the environments where normal SSH
 # is blocked.
 
 Host github.com
