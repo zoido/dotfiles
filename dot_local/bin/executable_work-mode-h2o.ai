@@ -2,8 +2,5 @@
 
 set -e
 
-tmux \
-    new-window -b -t 0 -n "workmode" -c ~ \
-        'op inject -i ~/.config/h2o.ai/vpnc.conf | sudo vpnc --no-detach /dev/stdin' \; \
-    split-window -c ~/.config/h2o.ai/traefik 'traefik' \; \
-    last-window
+(op inject -i ~/.config/h2o.ai/vpnc.conf | sudo vpnc --no-detach /dev/stdin)&
+cd ~/.config/h2o.ai/traefik && traefik
