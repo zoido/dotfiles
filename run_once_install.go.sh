@@ -1,12 +1,13 @@
 #!/bin/bash
 
 packages=(
-    github.com/ktr0731/evans@latest
-    github.com/bufbuild/buf/cmd/buf@v1.0.0-rc11
+    github.com/bufbuild/buf/cmd/buf@latest
     github.com/fullstorydev/grpcui/cmd/grpcui@latest
-    sigs.k8s.io/kind@v0.11.1
+    github.com/ktr0731/evans@latest
+    github.com/terraform-docs/terraform-docs@latest
+    sigs.k8s.io/kind@latest
 )
 
-for package in ${packages[*]}; do
+for package in "${packages[@]}"; do
     go install "${package}"
 done
