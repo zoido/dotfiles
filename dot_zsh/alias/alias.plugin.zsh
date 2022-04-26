@@ -81,7 +81,7 @@ alias kube="kubectl"
 alias k="kubectl"
 
 # h2o
-alias op-h2o-dd-env="eval $(op inject -i $HOME/.config/h2o.ai/dd.op.env); export DD_API_KEY DD_APP_KEY"
+alias op-h2o-dd-env='eval $(op inject -i $HOME/.config/h2o.ai/dd.op.env); export DD_API_KEY DD_APP_KEY'
 
 alias h2o-dev="env=dev h2oc"
 alias h2o-qa="env=qa h2oc"
