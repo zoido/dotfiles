@@ -4,6 +4,7 @@ packages=(
     github.com/bufbuild/buf/cmd/buf@latest
     github.com/fullstorydev/grpcui/cmd/grpcui@latest
     github.com/ktr0731/evans@latest
+    github.com/mitranim/gow@latest
     github.com/terraform-docs/terraform-docs@latest
     sigs.k8s.io/kind@latest
 )
