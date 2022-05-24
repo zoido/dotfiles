@@ -53,6 +53,7 @@ if ! zgenom saved; then
     zgenom load "${HOME}/.zsh/alias"
     zgenom load "${HOME}/.zsh/completion"
     zgenom load "${HOME}/.zsh/fzf"
+    zgenom load "${HOME}/.zsh/op_session"
     zgenom load "${HOME}/.zsh/zoxide"
 
     # completions
