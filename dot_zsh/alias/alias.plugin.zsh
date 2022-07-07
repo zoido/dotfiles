@@ -74,7 +74,7 @@ alias ibb/="ibb '//...'"
 alias ibr="ib run"
 
 # op
-alias opsi='umask 177; eval $(op signin | tee $HOME/.op_session)'
+alias opsi='(umask 177 && touch $HOME/.op_session); eval $(op signin | tee $HOME/.op_session)'
 
 # kubernetes
 alias kube="kubectl"
