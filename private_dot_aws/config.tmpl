@@ -8,8 +8,8 @@ Need to use bot homedir and homeDir due to https://github.com/twpayne/chezmoi/is
 That seems not to manifest always.
 */}}
 {{- with (default (get .chezmoi "homedir")) }}
-credential_process = op inject -i {{ . }}/.config/h2o.ai/aws.credentials.json
+credential_process = op --cache inject -i {{ . }}/.config/h2o.ai/aws.credentials.json
 {{ end -}}
 {{- with (default (get .chezmoi "homeDir")) }}
-credential_process = op inject -i {{ . }}/.config/h2o.ai/aws.credentials.json
+credential_process = op --cache inject -i {{ . }}/.config/h2o.ai/aws.credentials.json
 {{ end -}}
