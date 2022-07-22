@@ -79,6 +79,8 @@ alias opsi='(umask 177 && touch $HOME/.op_session); eval $(op signin | tee $HOME
 # kubernetes
 alias kube="kubectl"
 alias k="kubectl"
+alias kctx="kubectx"
+alias kns="kubens"
 
 # h2o
 alias op-h2o-dd-env='eval $(op inject -i $HOME/.config/h2o.ai/dd.op.env); export DD_API_KEY DD_APP_KEY'
