@@ -4,9 +4,9 @@ featureGates:
   EphemeralContainers: true
 nodes:
   - role: control-plane
-    image: kindest/node:v1.22.9@sha256:6e57a6b0c493c7d7183a1151acff0bfa44bf37eb668826bf00da5637c55b6d5e
+    image: kindest/node:v1.22.13@sha256:4904eda4d6e64b402169797805b8ec01f50133960ad6c19af45173a27eadf959
   - role: worker
-    image: kindest/node:v1.22.9@sha256:6e57a6b0c493c7d7183a1151acff0bfa44bf37eb668826bf00da5637c55b6d5e
+    image: kindest/node:v1.22.13@sha256:4904eda4d6e64b402169797805b8ec01f50133960ad6c19af45173a27eadf959
     kubeadmConfigPatches:
       - |
         kind: InitConfiguration
