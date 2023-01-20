@@ -6,7 +6,7 @@ packages=(
     github.com/grpc-ecosystem/grpcdebug@latest
     github.com/kevwan/tproxy@latest
     github.com/ktr0731/evans@latest
-    github.com/mitranim/gow@latest
+    github.com/noborus/ov@latest
     github.com/terraform-docs/terraform-docs@latest
     sigs.k8s.io/kind@latest
 )

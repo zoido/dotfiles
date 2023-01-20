@@ -33,6 +33,9 @@ alias -g BA='| bat -A'
 alias -g BB="2>&1 | bat"
 alias -g BBA="2>&1 | bat -A"
 
+alias -g O='| ov'
+alias -g OO="2>&1 | ov"
+
 # terraform
 alias tf="terraform"
 alias tfa="tf apply"
