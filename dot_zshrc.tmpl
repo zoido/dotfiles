@@ -4,12 +4,12 @@ HISTORY_SUBSTRING_SEARCH_FUZZY=1
 
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 pasteinit() {
-  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+    OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+    zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
 }
 
 pastefinish() {
-  zle -N self-insert $OLD_SELF_INSERT
+    zle -N self-insert $OLD_SELF_INSERT
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
@@ -55,6 +55,13 @@ if ! zgenom saved; then
     zgenom load "${HOME}/.zsh/fzf"
     zgenom load "${HOME}/.zsh/op_session"
     zgenom load "${HOME}/.zsh/zoxide"
+
+    {{ if eq .chezmoi.os "linux" }}
+    {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    zgenom load "${HOME}/.zsh/wsl_agent_bridge"
+    zgenom load "${HOME}/.zsh/wsl_home"
+    {{   end }}
+    {{ end }}
 
     # completions
     zgenom load zsh-users/zsh-completions src

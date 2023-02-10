@@ -1,8 +1,3 @@
-{{/*
-Need to use both homedir and homeDir due to https://github.com/twpayne/chezmoi/issues/463
-That seems not to manifest always.
-*/}}
-
 {{- $codespaces:= env "CODESPACES" | not | not -}}
 sourceDir: {{ .chezmoi.sourceDir }}
 

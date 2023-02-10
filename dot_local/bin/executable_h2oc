@@ -7,7 +7,8 @@ CONF_FILE="${CONF_DIR}/config.toml"
 
 mkdir -p "${CONF_DIR}"
 
+trap 'rm -f "${CONF_FILE}"' EXIT
+trap 'rm -f "${CONF_FILE}"' ERR
+
 op --debug inject --force -i ~/.config/h2o.ai/cli/config.toml -o "${CONF_FILE}" \
 && h2o --conf="${CONF_FILE}" "$@"
-
-trap 'rm -f "${CONF_FILE}"' EXIT

@@ -1,0 +1,29 @@
+[user]
+	email = zoido@users.noreply.github.com
+	name = Luboš Pokorný
+
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOtIkSyfNlUzkURE+RgpMyz6tAfLQrFqMQjk9GxoMSBK
+
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
+
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+{{/*
+Need to use bot homedir and homeDir due to https://github.com/twpayne/chezmoi/issues/463
+That seems not to manifest always.
+*/}}
+{{- with (default (get .chezmoi "homedir")) }}
+    program = "{{ . }}/.local/bin/op-ssh-sign"
+{{ end -}}
+{{- with (default (get .chezmoi "homeDir")) }}
+    program = "{{ . }}/.local/bin/op-ssh-sign"
+{{ end -}}
+
+
+[commit]
+  gpgsign = true

@@ -38,6 +38,7 @@ packages=(
     reflector
     s3cmd
     skaffold
+    socat
     starship
     step-cli
     terraform
@@ -49,7 +50,6 @@ packages=(
     vim
     vpnc
     wget
-    zellij
     zsh
 )
 
@@ -64,6 +64,14 @@ install_yay() {
 
 pacman -Qs yay > /dev/null || install_yay
 
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+yay -Sy --needed --noconfirm --sudoloop ${packages[*]}  --assume-installed docker
+{{   else }}
 yay -Sy --needed --noconfirm --sudoloop ${packages[*]}
+{{   end }}
+{{ end }}
+
 
 # {{ end }}

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+${WIN_HOME}/AppData/Local/1Password/app/8/op-ssh-sign.exe "$@"
+{{   else }}
+op-ssh-sign "$@"
+{{   end }}
+{{ end }}
