@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -e
-
-(op inject -i ~/.config/h2o.ai/vpnc.conf | sudo vpnc --no-detach /dev/stdin)&
-cd ~/.config/h2o.ai/traefik && traefik
