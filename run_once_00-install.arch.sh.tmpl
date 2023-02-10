@@ -67,11 +67,10 @@ pacman -Qs yay > /dev/null || install_yay
 
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-yay -Sy --needed --noconfirm --sudoloop ${packages[*]}  --assume-installed docker
-{{   else }}
-yay -Sy --needed --noconfirm --sudoloop ${packages[*]}
+yay  --needed --noconfirm --sudoloop -U ~/.local/share/chezmoi/dot_archlinux/fake-docker-1.0.0-1-any.pkg.tar.zst
 {{   end }}
 {{ end }}
 
+yay -Sy --needed --noconfirm --sudoloop ${packages[*]}
 
 # {{ end }}
