@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+File=$1
+
+if [[ -z $File ]]; then
+    Error "No file specified"
+fi
+
+
+if [[ -e $File ]]; then
+    FilePath=$(readlink -f "$File")
+    FileWin=$(wslpath -w "$FilePath")
+elif [[ $File == file://* ]]; then
+    FilePath=$(readlink -f "${File##*://}")
+    FileWin=$(wslpath -w "$FilePath")
+elif [[ $File == *://* ]]; then
+    # If "file" input is a link, just pass it directly
+    FileWin=$File
+else
+    Error "File/directory does not exist: $File"
+fi
+
+explorer.exe "${FileWin}"
