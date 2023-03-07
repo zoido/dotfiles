@@ -1,8 +1,12 @@
 alias zshconfig="${EDITOR} ${HOME}/.zshrc"
+
+
+# development conveniences
 alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
+alias gofumpt-split-lines='GOFUMPT_SPLIT_LONG_LINES="on" gofumpt -w .'
 
 #  Better ls
-if [ "$(command -v logo-ls)" ]; then
+if [ "$(command -v exa)" ]; then
     alias lls="$(command -v ls)"
     alias ls='exa'
     alias lsa='exa -a'
@@ -44,12 +48,6 @@ alias tfaaa="tfa --auto-approve"
 alias tfd="tf destroy"
 alias tfdaa="tfd --auto-approve"
 alias tfi="tf init"
-
-# Tokens
-alias nomad-admin='vault read -field=secret_id nomad/creds/admin | read NOMAD_TOKEN; export NOMAD_TOKEN'
-alias consul-admin='vault read -field token consul/creds/admin | sed p | tr \n \  | read CONSUL_HTTP_TOKEN CONSUL_TOKEN; export CONSUL_TOKEN; export CONSUL_HTTP_TOKEN'
-alias vault-admin-token='vault token create --ttl=10m -role=vault-root'
-alias terraform-wrapper-token='vault token create -field=token -ttl=30m -role=terraform-wrapper | read VAULT_TERRAFORM_WRAPPER_TOKEN; export VAULT_TERRAFORM_WRAPPER_TOKEN'
 
 # Bazel
 alias b='bazel'
