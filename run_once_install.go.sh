@@ -9,6 +9,7 @@ packages=(
     github.com/noborus/ov@latest
     github.com/terraform-docs/terraform-docs@latest
     sigs.k8s.io/kind@latest
+    mvdan.cc/gofumpt@latest
 )
 
 for package in "${packages[@]}"; do
