@@ -1,5 +1,6 @@
 {{ if ne .chezmoi.os "linux" }}
 {{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 xdg-open
+notify-send
 {{   end }}
 {{ end }}
