@@ -3,6 +3,9 @@ add_newline = true
 [aws]
 disabled = true
 
+[buf]
+disabled = true
+
 [cmd_duration]
 disabled = false
 min_time = 4000
@@ -14,7 +17,8 @@ truncation_length = 3
 disabled = false
 
 [golang]
-symbol = "ﳑ "
+symbol = "go:"
+# symbol = "ﳑ "
 
 [gcloud]
 disabled = true
@@ -23,7 +27,9 @@ disabled = true
 disabled = true
 
 [kubernetes]
-disabled = true
+disabled = false
+symbol = "k:"
+style = "blue"
 
 [nodejs]
 disabled = true
@@ -36,8 +42,8 @@ symbol = "py:"
 
 [time]
 disabled = false
-style = "bold black"
 format = "[$time]($style) "
+style = "bold black"
 
 [terraform]
 format = "[$symbol$workspace/$version]($style) "
