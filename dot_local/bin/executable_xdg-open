@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/bin/zsh
 
 set -e
 
 File=$1
 
 if [[ -z $File ]]; then
-    Error "No file specified"
+    echo "No file specified" 1>&2
+    exit 1
 fi
 
 
@@ -15,11 +16,8 @@ if [[ -e $File ]]; then
 elif [[ $File == file://* ]]; then
     FilePath=$(readlink -f "${File##*://}")
     FileWin=$(wslpath -w "$FilePath")
-elif [[ $File == *://* ]]; then
-    # If "file" input is a link, just pass it directly
-    FileWin=$File
 else
-    Error "File/directory does not exist: $File"
+    FileWin=$File
 fi
 
 explorer.exe "${FileWin}"
