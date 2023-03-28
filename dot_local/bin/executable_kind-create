@@ -6,6 +6,8 @@ set -e
 kind create cluster --config "${HOME}/.config/kind/cluster.yaml"
 
 
+helm repo update
+
 # Install metrics server
 helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
 
