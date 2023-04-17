@@ -1,3 +1,5 @@
+[ "$(command -v fd)" ] && FZF_DEFAULT_COMMAND='fd --type f'
+
 FZF_DEFAULT_OPTS="
     --height 20%
     --ansi
