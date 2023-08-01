@@ -7,6 +7,7 @@ pip_packages=(
 pipx_packages=(
     black
     flake8
+    git-machete
     http-prompt
     httpie
     ipython
@@ -24,7 +25,7 @@ pipx_packages=(
     yapf
 )
 
-pip3 install --user --upgrade --force-reinstall "${pip_packages[*]}" || exit 1
+pip3 install --break-system-packages --user --upgrade --force-reinstall "${pip_packages[*]}" || exit 1
 
 for package in ${pipx_packages[*]}; do
     pipx install --force $package
