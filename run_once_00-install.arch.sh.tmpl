@@ -25,7 +25,6 @@ packages=(
     hyperfine
     jq
     k9s
-    kind
     kubectl
     kubectx
     lazydocker
@@ -54,6 +53,13 @@ packages=(
     vpnc
     wget
     zsh
+
+{{- if eq .chezmoi.os "linux" }}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    wslu
+{{-   end }}
+{{- end }}
+
 )
 
 install_yay() {

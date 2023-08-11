@@ -2,6 +2,5 @@
 {{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 notify-send
 npiperelay.exe
-xdg-open
 {{   end }}
 {{ end }}
