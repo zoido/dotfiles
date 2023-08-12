@@ -18,10 +18,13 @@ echo "Setting up pacman..."
 pacman-key --init
 sudo pacman-key --populate
 pacman -Syy --needed --noconfirm archlinux-keyring
+
 cat <<-"EOF" >> /etc/pacman.conf
 [wslutilities]
 Server = https://pkg.wslutiliti.es/arch/
 EOF
+curl https://pkg.wslutiliti.es/public.key | sudo pacman-key --add /dev/stdin
+
 pacman -Syyu --noconfirm
 pacman -S --noconfirm zsh
 
