@@ -1,4 +1,4 @@
-=#!/bin/bash
+#!/bin/bash
 
 HOME_=${HOME}
 HOME= git clone https://github.com/tmux-plugins/tpm ${HOME_}/.tmux/plugins/tpm
