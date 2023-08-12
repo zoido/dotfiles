@@ -27,48 +27,51 @@ zgenom autoupdate --background
 if ! zgenom saved; then
     echo "Creating a zgen save"
 
-    ZGENOM=GIT_CONFIG_GLOBAL='' zgenom
-    ${ZGENOM} oh-my-zsh
+
+    function zgenom_() {
+        GIT_CONFIG_GLOBAL='' zgenom "$@"
+    }
+    zgenom_ oh-my-zsh
 
     # plugins
-    ${ZGENOM} oh-my-zsh plugins/git
-    ${ZGENOM} oh-my-zsh plugins/golang
-    ${ZGENOM} oh-my-zsh plugins/gradle
-    ${ZGENOM} oh-my-zsh plugins/httpie
-    ${ZGENOM} oh-my-zsh plugins/mercurial
-    ${ZGENOM} oh-my-zsh plugins/npm
-    ${ZGENOM} oh-my-zsh plugins/pip
-    ${ZGENOM} oh-my-zsh plugins/python
-    ${ZGENOM} oh-my-zsh plugins/systemd
-    ${ZGENOM} oh-my-zsh plugins/thefuck
-    ${ZGENOM} oh-my-zsh plugins/ubuntu
+    zgenom_ oh-my-zsh plugins/git
+    zgenom_ oh-my-zsh plugins/golang
+    zgenom_ oh-my-zsh plugins/gradle
+    zgenom_ oh-my-zsh plugins/httpie
+    zgenom_ oh-my-zsh plugins/mercurial
+    zgenom_ oh-my-zsh plugins/npm
+    zgenom_ oh-my-zsh plugins/pip
+    zgenom_ oh-my-zsh plugins/python
+    zgenom_ oh-my-zsh plugins/systemd
+    zgenom_ oh-my-zsh plugins/thefuck
+    zgenom_ oh-my-zsh plugins/ubuntu
 
-    ${ZGENOM} load zsh-users/zsh-autosuggestions
+    zgenom_ load zsh-users/zsh-autosuggestions
 
-    ${ZGENOM} load djui/alias-tips
-    ${ZGENOM} load Tarrasch/zsh-bd
-    ${ZGENOM} load ytakahashi/igit
-    ${ZGENOM} load zdharma-continuum/fast-syntax-highlighting
+    zgenom_ load djui/alias-tips
+    zgenom_ load Tarrasch/zsh-bd
+    zgenom_ load ytakahashi/igit
+    zgenom_ load zdharma-continuum/fast-syntax-highlighting
 
-    ${ZGENOM} load "${HOME}/.zsh/alias"
-    ${ZGENOM} load "${HOME}/.zsh/completion"
-    ${ZGENOM} load "${HOME}/.zsh/fzf"
-    ${ZGENOM} load "${HOME}/.zsh/op_session"
-    ${ZGENOM} load "${HOME}/.zsh/zoxide"
+    zgenom_ load "${HOME}/.zsh/alias"
+    zgenom_ load "${HOME}/.zsh/completion"
+    zgenom_ load "${HOME}/.zsh/fzf"
+    zgenom_ load "${HOME}/.zsh/op_session"
+    zgenom_ load "${HOME}/.zsh/zoxide"
 
     {{ if eq .chezmoi.os "linux" }}
     {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-    ${ZGENOM} load "${HOME}/.zsh/wsl_agent_bridge"
-    ${ZGENOM} load "${HOME}/.zsh/wsl_home"
+    zgenom_ load "${HOME}/.zsh/wsl_agent_bridge"
+    zgenom_ load "${HOME}/.zsh/wsl_home"
     {{   end }}
     {{ end }}
 
     # completions
-    ${ZGENOM} load zsh-users/zsh-completions src
+    zgenom_ load zsh-users/zsh-completions src
 
     # theme
-    ${ZGENOM} load "${HOME}/.zsh/prompt"
+    zgenom_ load "${HOME}/.zsh/prompt"
 
     # save all to init script
-    ${ZGENOM} save
+    zgenom_ save
 fi
