@@ -27,47 +27,48 @@ zgenom autoupdate --background
 if ! zgenom saved; then
     echo "Creating a zgen save"
 
-    zgenom oh-my-zsh
+    ZGENOM=GIT_CONFIG_GLOBAL='' zgenom
+    ${ZGENOM} oh-my-zsh
 
     # plugins
-    zgenom oh-my-zsh plugins/git
-    zgenom oh-my-zsh plugins/golang
-    zgenom oh-my-zsh plugins/gradle
-    zgenom oh-my-zsh plugins/httpie
-    zgenom oh-my-zsh plugins/mercurial
-    zgenom oh-my-zsh plugins/npm
-    zgenom oh-my-zsh plugins/pip
-    zgenom oh-my-zsh plugins/python
-    zgenom oh-my-zsh plugins/systemd
-    zgenom oh-my-zsh plugins/thefuck
-    zgenom oh-my-zsh plugins/ubuntu
+    ${ZGENOM} oh-my-zsh plugins/git
+    ${ZGENOM} oh-my-zsh plugins/golang
+    ${ZGENOM} oh-my-zsh plugins/gradle
+    ${ZGENOM} oh-my-zsh plugins/httpie
+    ${ZGENOM} oh-my-zsh plugins/mercurial
+    ${ZGENOM} oh-my-zsh plugins/npm
+    ${ZGENOM} oh-my-zsh plugins/pip
+    ${ZGENOM} oh-my-zsh plugins/python
+    ${ZGENOM} oh-my-zsh plugins/systemd
+    ${ZGENOM} oh-my-zsh plugins/thefuck
+    ${ZGENOM} oh-my-zsh plugins/ubuntu
 
-    zgenom load zsh-users/zsh-autosuggestions
+    ${ZGENOM} load zsh-users/zsh-autosuggestions
 
-    zgenom load djui/alias-tips
-    zgenom load Tarrasch/zsh-bd
-    zgenom load ytakahashi/igit
-    zgenom load zdharma-continuum/fast-syntax-highlighting
+    ${ZGENOM} load djui/alias-tips
+    ${ZGENOM} load Tarrasch/zsh-bd
+    ${ZGENOM} load ytakahashi/igit
+    ${ZGENOM} load zdharma-continuum/fast-syntax-highlighting
 
-    zgenom load "${HOME}/.zsh/alias"
-    zgenom load "${HOME}/.zsh/completion"
-    zgenom load "${HOME}/.zsh/fzf"
-    zgenom load "${HOME}/.zsh/op_session"
-    zgenom load "${HOME}/.zsh/zoxide"
+    ${ZGENOM} load "${HOME}/.zsh/alias"
+    ${ZGENOM} load "${HOME}/.zsh/completion"
+    ${ZGENOM} load "${HOME}/.zsh/fzf"
+    ${ZGENOM} load "${HOME}/.zsh/op_session"
+    ${ZGENOM} load "${HOME}/.zsh/zoxide"
 
     {{ if eq .chezmoi.os "linux" }}
     {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-    zgenom load "${HOME}/.zsh/wsl_agent_bridge"
-    zgenom load "${HOME}/.zsh/wsl_home"
+    ${ZGENOM} load "${HOME}/.zsh/wsl_agent_bridge"
+    ${ZGENOM} load "${HOME}/.zsh/wsl_home"
     {{   end }}
     {{ end }}
 
     # completions
-    zgenom load zsh-users/zsh-completions src
+    ${ZGENOM} load zsh-users/zsh-completions src
 
     # theme
-    zgenom load "${HOME}/.zsh/prompt"
+    ${ZGENOM} load "${HOME}/.zsh/prompt"
 
     # save all to init script
-    zgenom save
+    ${ZGENOM} save
 fi

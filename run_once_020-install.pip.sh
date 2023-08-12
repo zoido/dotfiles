@@ -22,10 +22,10 @@ pipx_packages=(
     thefuck
 )
 
-pip3 install --break-system-packages --user --upgrade --force-reinstall "${pip_packages[*]}" || exit 1
+pip3 install --break-system-packages --user --upgrade --force-reinstall "${pip_packages[@]}" || exit 1
 
 PIPX=${HOME}/.local/bin/pipx
-for package in ${pipx_packages[*]}; do
+for package in "${pipx_packages[@]}"; do
      ${PIPX} install --force $package
 done
 

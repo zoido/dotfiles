@@ -2,6 +2,5 @@
 
 # hash: {{ include "dot_vundle.vim" | sha256sum }}
 
-HOME_=${HOME}
-HOME= git clone https://github.com/VundleVim/Vundle.vim.git ${HOME_}/.vim/bundle/Vundle.vim
-HOME= vim -u "${HOME_}/.vundle.vim" +PluginInstall +qall
+GIT_CONFIG_GLOBAL='' git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
+GIT_CONFIG_GLOBAL='' vim -u "${HOME}/.vundle.vim" +PluginInstall +qall
