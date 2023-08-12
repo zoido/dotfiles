@@ -28,7 +28,7 @@ pipx_packages=(
 pip3 install --break-system-packages --user --upgrade --force-reinstall "${pip_packages[*]}" || exit 1
 
 for package in ${pipx_packages[*]}; do
-    pipx install --force $package
+    ${HOME}/.local/bin/pipx install --force $package
 done
 
 pipx inject ptpython ipython sympy pdir2 better_exceptions
