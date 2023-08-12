@@ -24,6 +24,7 @@ cat <<-"EOF" >> /etc/pacman.conf
 Server = https://pkg.wslutiliti.es/arch/
 EOF
 curl https://pkg.wslutiliti.es/public.key | sudo pacman-key --add /dev/stdin
+pacman-key --lsign-key 2D4C887EB08424F157151C493DD50AA7E055D853
 
 pacman -Syyu --noconfirm
 pacman -S --noconfirm zsh
