@@ -8,21 +8,18 @@ pipx_packages=(
     black
     flake8
     git-machete
+    hatch
     http-prompt
     httpie
     ipython
     mitmproxy
     pew
-    pipenv
-    pipenv-pipes
     poetry
     polysh
     ptpython
     pytest
     rich-cli
     thefuck
-    tox
-    yapf
 )
 
 pip3 install --break-system-packages --user --upgrade --force-reinstall "${pip_packages[*]}" || exit 1
