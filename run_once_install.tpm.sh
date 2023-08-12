@@ -1,4 +1,5 @@
 #!/bin/bash
 
-git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
-${HOME}/.tmux/plugins/tpm/bin/install_plugins
+HOME_=${HOME}
+git clone https://github.com/tmux-plugins/tpm ${HOME_}/.tmux/plugins/tpm
+${HOME_}/.tmux/plugins/tpm/bin/install_plugins
