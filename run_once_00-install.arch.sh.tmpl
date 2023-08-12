@@ -9,7 +9,7 @@ packages=(
     bat
     bazelisk
     diff-so-fancy
-    dive-bin
+    dive
     dog
     duf
     dust
@@ -53,13 +53,6 @@ packages=(
     vpnc
     wget
     zsh
-
-{{- if eq .chezmoi.os "linux" }}
-{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-    wslu
-{{-   end }}
-{{- end }}
-
 )
 
 install_yay() {
@@ -72,11 +65,12 @@ install_yay() {
 }
 
 pacman -Qs yay > /dev/null || install_yay
-
+yay -Syyu --noconfirm --sudoloop
 
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 yay  --needed --noconfirm --sudoloop -U ~/.local/share/chezmoi/dot_archlinux/fake-docker-1.0.0-1-any.pkg.tar.zst
+yay -S --needed --noconfirm --sudoloop wslu
 {{   end }}
 {{ end }}
 
