@@ -2,7 +2,6 @@
 
 set -eo pipefail
 
-OP_URL="https://raw.githubusercontent.com/zoido/dotfiles/main/dot_local/bin/executable_op"
 BIN_DIR="${HOME}/.local/bin"
 CHEZMOI="${BIN_DIR}/chezmoi"
 
