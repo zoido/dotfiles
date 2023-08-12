@@ -52,6 +52,7 @@ packages=(
     vim
     vpnc
     wget
+    zoxide
     zsh
 )
 
@@ -70,6 +71,7 @@ yay -Syyu --noconfirm --sudoloop
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 yay  --needed --noconfirm --sudoloop -U ~/.local/share/chezmoi/dot_archlinux/fake-docker-1.0.0-1-any.pkg.tar.zst
+sudo libtool --finish /usr/lib/libfakeroot
 yay -S --needed --noconfirm --sudoloop wslu
 {{   end }}
 {{ end }}
