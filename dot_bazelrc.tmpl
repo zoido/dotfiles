@@ -1,10 +1,1 @@
-{{/*
-Need to use bot homedir and homeDir due to https://github.com/twpayne/chezmoi/issues/463
-That seems not to manifest always.
-*/}}
-{{- with (default (get .chezmoi "homedir")) }}
-build --disk_cache={{ . }}/.cache/bazel-disk-cache
-{{ end -}}
-{{- with (default (get .chezmoi "homeDir")) }}
-build --disk_cache={{ . }}/.cache/bazel-disk-cache
-{{ end -}}
+build --disk_cache={{ .chezmoi.homeDir }}/.cache/bazel-disk-cache
