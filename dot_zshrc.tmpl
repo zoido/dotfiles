@@ -27,6 +27,8 @@ zgenom autoupdate --background
 if ! zgenom saved; then
     echo "Creating a zgen save"
 
+    zgenom oh-my-zsh
+
     # plugins
     zgenom oh-my-zsh plugins/git
     zgenom oh-my-zsh plugins/golang
