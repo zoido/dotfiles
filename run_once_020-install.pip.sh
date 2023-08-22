@@ -8,7 +8,6 @@ pipx_packages=(
     black
     euporie
     flake8
-    git-machete
     hatch
     http-prompt
     httpie
@@ -19,7 +18,6 @@ pipx_packages=(
     polysh
     ptpython
     pytest
-    rich-cli
     thefuck
 )
 
