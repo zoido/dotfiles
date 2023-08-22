@@ -55,15 +55,18 @@ if ! zgenom saved; then
     zgenom load "${HOME}/.zsh/op_session"
     zgenom load "${HOME}/.zsh/zoxide"
 
+    # completions
+    zgenom load zsh-users/zsh-completions src
+
     {{ if eq .chezmoi.os "linux" }}
     {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    # wsl specific plugins
     zgenom load "${HOME}/.zsh/wsl_agent_bridge"
     zgenom load "${HOME}/.zsh/wsl_home"
+    zgenom load --completion /mnt/wsl/docker-desktop/cli-tools/usr/share/zsh/vendor-completions
     {{   end }}
     {{ end }}
 
-    # completions
-    zgenom load zsh-users/zsh-completions src
 
     # theme
     zgenom load "${HOME}/.zsh/prompt"
