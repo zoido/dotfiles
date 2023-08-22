@@ -6,6 +6,7 @@ pip_packages=(
 
 pipx_packages=(
     black
+    euporie
     flake8
     git-machete
     hatch
@@ -30,4 +31,6 @@ for package in "${pipx_packages[@]}"; do
 done
 
 ${PIPX} inject ptpython ipython sympy pdir2 better_exceptions
+${PIPX} inject euporie jupyter
+
 ${PIPX} upgrade-all
