@@ -1,0 +1,6 @@
+aliases:
+    co: pr checkout
+    prC: pr create -a @me -f
+    prCD: prC --draft
+    prW: pr view --web
+    prM: pr merge --auto --squash
