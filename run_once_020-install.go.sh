@@ -7,7 +7,6 @@ packages=(
     github.com/hionay/tailer/cmd/tailer@latest
     github.com/kevwan/tproxy@latest
     github.com/loft-sh/vcluster/cmd/vclusterctl@latest
-    github.com/mikefarah/yq@latest
     github.com/noborus/ov@latest
     github.com/sachaos/viddy@latest
     github.com/terraform-docs/terraform-docs@latest
