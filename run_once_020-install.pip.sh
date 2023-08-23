@@ -19,6 +19,7 @@ pipx_packages=(
     ptpython
     pytest
     thefuck
+    tldr
 )
 
 pip3 install --break-system-packages --user --upgrade --force-reinstall "${pip_packages[@]}" || exit 1
