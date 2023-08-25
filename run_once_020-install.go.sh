@@ -2,6 +2,7 @@
 
 packages=(
     github.com/bufbuild/buf/cmd/buf@latest
+    github.com/doronbehar/pistol/cmd/pistol@latest
     github.com/fullstorydev/grpcui/cmd/grpcui@latest
     github.com/gokcehan/lf@latest
     github.com/hionay/tailer/cmd/tailer@latest
@@ -15,5 +16,5 @@ packages=(
 )
 
 for package in "${packages[@]}"; do
-    CGO_ENABLED=0 go install -ldflags="-s -w" "${package}"
+    go install -ldflags="-s -w" "${package}"
 done
