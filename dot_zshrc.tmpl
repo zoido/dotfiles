@@ -16,6 +16,8 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 
 
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
+
 ################################################################################
 # zgenom
 ################################################################################
@@ -52,6 +54,8 @@ if ! zgenom saved; then
     zgenom load "${HOME}/.zsh/lf"
     zgenom load "${HOME}/.zsh/op_session"
     zgenom load "${HOME}/.zsh/zoxide"
+
+    zgenom load zsh-users/zsh-autosuggestions
 
     # completions
     zgenom load zsh-users/zsh-completions src
