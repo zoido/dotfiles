@@ -1,0 +1,37 @@
+{
+  "mark async": {
+    "prefix": "marka",
+    "body": ["@pytest.mark.asyncio"],
+    "description": "Pytest asyncio mark decorator"
+  },
+  "pytest parametrize": {
+    "prefix": "ppara",
+    "body": ["@pytest.mark.parametrize($1)"],
+    "description": "Pytest asyncio parametrize"
+  },
+  "pytest fixture": {
+    "prefix": "@pfx",
+    "body": ["@pytest.fixture($1)"],
+    "description": "Pytest fixture decorator"
+  },
+  "pytest yielding fixture": {
+    "prefix": "@pyfx",
+    "body": ["@pytest.yield_fixture($1)"],
+    "description": "Pytest yielding fixture decorator"
+  },
+  "pytest skip": {
+    "prefix": "@psk",
+    "body": ["@pytest.mark.skip(reason=\"$1\")"],
+    "description": "Pytest skip test decorator"
+  },
+  "private property argument assignment": {
+    "prefix": "s_",
+    "body": ["self._$1 = $1"],
+    "description": "private property argument assignment used in __init__"
+  },
+  "Debug print()": {
+    "prefix": "debug",
+    "body": ["print(\">\" * 15, $1)  # XXX"],
+    "description": "Print line with >>>… prefix"
+  }
+}
