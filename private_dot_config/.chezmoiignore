@@ -1,3 +1,5 @@
+nvim_config
+
 {{- if not .private }}
 h2o.ai
 {{- end }}
