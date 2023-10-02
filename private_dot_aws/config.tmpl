@@ -2,5 +2,8 @@
 role_arn = arn:aws:iam::875909552513:role/CrossAccountAdminSignin
 source_profile = default
 
+[profile mfa]
+credential_process = awsSS
+
 [default]
 credential_process = op --cache inject -i {{ .chezmoi.homeDir }}/.config/h2o.ai/aws.credentials.json
