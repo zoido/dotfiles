@@ -23,6 +23,11 @@
 
 [core]
     pager = diff-so-fancy | less --tabs=4 -RFX
+    {{ if eq .chezmoi.os "linux" }}
+    {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    sshCommand = "ssh.exe"
+    {{   end }}
+    {{ end }}
 
 [color]
     ui = true
