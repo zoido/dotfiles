@@ -6,10 +6,10 @@ dev
 {{- end }}
 
 
-{{- if .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "linux" }}
 {{- end }}
 
 
-{{- if .chezmoi.os "windows" }}
+{{- if eq .chezmoi.os "windows" }}
 *
 {{- end }}
