@@ -4,3 +4,12 @@ bootstrap.sh
 {{- if .codespaces }}
 dev
 {{- end }}
+
+
+{{- if .chezmoi.os "linux" }}
+{{- end }}
+
+
+{{- if .chezmoi.os "windows" }}
+*
+{{- end }}
