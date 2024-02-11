@@ -1,5 +1,6 @@
 README.md
 bootstrap.sh
+
 {{- if .codespaces }}
 dev
 {{- end }}

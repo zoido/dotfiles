@@ -1,4 +1,3 @@
-{{- if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/bash
 
 set -e
@@ -72,14 +71,5 @@ install_yay() {
 pacman -Qs yay > /dev/null || install_yay
 yay -Syyu --noconfirm --sudoloop
 
-{{ if eq .chezmoi.os "linux" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-yay  --needed --noconfirm --sudoloop -U ~/.local/share/chezmoi/dot_archlinux/fake-docker-1.0.0-1-any.pkg.tar.zst
-sudo libtool --finish /usr/lib/libfakeroot
-yay -S --needed --noconfirm --sudoloop wslu
-{{   end }}
-{{ end }}
 
 yay -Sy --needed --noconfirm --sudoloop ${packages[*]}
-
-# {{ end }}

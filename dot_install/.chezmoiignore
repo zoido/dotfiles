@@ -1,0 +1,9 @@
+{{ if ne .chezmoi.os "linux" }}
+00-linux-packages
+10-linux
+{{ end }}
+
+{{ if ne .chezmoi.os "windows" }}
+00-windows-packages
+10-windows
+{{ end }}
