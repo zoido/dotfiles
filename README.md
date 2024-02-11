@@ -16,3 +16,9 @@ sh -c "$(curl -fsLS https://raw.githubusercontent.com/zoido/dotfiles/main/dot_ar
 ```sh
 sh -c "$(curl -fsLS https://raw.githubusercontent.com/zoido/dotfiles/main/bootstrap.sh)"
 ```
+
+### Windows
+
+```ps1
+(irm -useb https://raw.githubusercontent.com/zoido/dotfiles/main/dot_windows/bootstrap.bat) | powershell -c -
+```
