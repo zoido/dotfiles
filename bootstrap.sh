@@ -19,3 +19,4 @@ if [ "${CODESPACES}" == "true" ]; then
 else
     "${CHEZMOI}" init --apply zoido
 fi
+chezmoi update
