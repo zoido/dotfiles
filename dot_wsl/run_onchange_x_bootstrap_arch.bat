@@ -1,3 +1,3 @@
-%~dp0/Arch/ArchX.exe
-%~dp0/Arch/ArchX.exe runp %~dp0/bootstrap_arch.sh
-%~dp0/Arch/ArchX.exe config --default-user zoid
+%USERPROFILE%/.wsl/Arch/ArchX.exe
+%USERPROFILE%/.wsl/Arch/ArchX.exe runp %USERPROFILE%/.wsl/bootstrap_arch.sh
+%USERPROFILE%/.wsl/Arch/ArchX.exe config --default-user zoid
