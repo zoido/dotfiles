@@ -44,6 +44,3 @@ until passwd zoid; do
   echo "Command failed, retrying..."
   sleep 1
 done
-echo
-echo
-echo "Run 'Arch.exe config --default-user zoid' to set default user."

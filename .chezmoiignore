@@ -7,6 +7,8 @@ dev
 
 
 {{- if eq .chezmoi.os "linux" }}
+.windows
+.wsl
 .wslconfig
 {{- end }}
 
@@ -14,6 +16,7 @@ dev
 {{- if eq .chezmoi.os "windows" }}
 *
 !.wslconfig
-!wsl2
+!.wsl
 !.archlinux
+!.windows
 {{- end }}
