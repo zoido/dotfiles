@@ -20,5 +20,5 @@ sh -c "$(curl -fsLS https://raw.githubusercontent.com/zoido/dotfiles/main/bootst
 ### Windows
 
 ```ps1
-(irm -useb https://raw.githubusercontent.com/zoido/dotfiles/main/dot_windows/bootstrap.bat) | powershell -c -
+(irm -useb https://raw.githubusercontent.com/zoido/dotfiles/main/bootstrap.bat) | powershell -c -
 ```

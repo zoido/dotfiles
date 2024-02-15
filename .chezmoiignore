@@ -1,5 +1,6 @@
 README.md
 bootstrap.sh
+bootstrap.bat
 
 {{- if .codespaces }}
 dev
@@ -7,7 +8,6 @@ dev
 
 
 {{- if eq .chezmoi.os "linux" }}
-.windows
 .wsl
 .wslconfig
 {{- end }}
@@ -17,6 +17,4 @@ dev
 *
 !.wslconfig
 !.wsl
-!.archlinux
-!.windows
 {{- end }}
