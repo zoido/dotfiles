@@ -1,1 +1,1 @@
-powershell -c - < %USERPROFILE%/.windows/run_once_bootstrap_arch.bat
+powershell -c - < %USERPROFILE%/.windows/bootstrap_arch.ps1
