@@ -2,6 +2,8 @@
 bootstrap_wsl.sh
 {{- end }}
 
+{{- if ne .chezmoi.os "windows" }}
 {{- if ne .chezmoi.osRelease.id "arch" -}}
 fake-docker-*
+{{- end }}
 {{- end }}
