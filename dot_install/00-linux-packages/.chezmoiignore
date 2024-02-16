@@ -1,14 +1,14 @@
 {{- if ne .chezmoi.osRelease.id "arch" -}}
 
-install.arch.packages.sh
+arch-packages.sh
 
 {{ if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-install.arch.packages.wsl.sh
+arch-wsl-packages.sh
 {{ end }}
 
 {{- end }}
 
 
 {{- if not .codespaces }}
-install.codespaces.packages.sh
+codespaces-packages.sh
 {{- end }}
