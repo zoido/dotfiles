@@ -73,3 +73,5 @@ yay -Syyu --noconfirm --sudoloop
 
 
 yay -Sy --needed --noconfirm --sudoloop ${packages[*]}
+
+sudo libtool --finish /usr/lib/libfakeroot

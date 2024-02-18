@@ -15,7 +15,8 @@
     format = ssh
 
 [gpg "ssh"]
-    program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"
+    {{ if ne .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end }}
+    {{ if eq .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"{{ end }}
 
 [commit]
   gpgsign = true

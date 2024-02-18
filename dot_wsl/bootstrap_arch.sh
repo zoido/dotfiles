@@ -13,10 +13,13 @@ done
 echo "Setting up sudoers..."
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel
 
+echo "Arbitrary Pause..."
+# This helps with the keyring setup below to succeed for some reason.
+sleep 5
 
 echo "Setting up pacman..."
 pacman-key --init
-sudo pacman-key --populate
+pacman-key --populate
 pacman -Syy --needed --noconfirm archlinux-keyring
 
 

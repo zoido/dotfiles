@@ -15,6 +15,7 @@ dev
 
 {{- if eq .chezmoi.os "windows" }}
 *
+!.gitconfig
 !.wslconfig
 !.wsl
 {{- end }}
