@@ -18,4 +18,5 @@ dev
 !.gitconfig
 !.wslconfig
 !.wsl
+!.install
 {{- end }}
