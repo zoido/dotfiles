@@ -15,7 +15,7 @@
     format = ssh
 
 [gpg "ssh"]
-    {{ if ne .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end }}
+    {{ if ne .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
     {{ if eq .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"{{ end }}
 
 [commit]
@@ -23,7 +23,15 @@
 
 [core]
     pager = diff-so-fancy | less --tabs=4 -RFX
-    autocrlf =  true
+
+    {{- if ne .chezmoi.os "windows" }}
+    autocrlf = input
+    {{ end -}}
+
+    {{- if eq .chezmoi.os "windows" }}
+    autocrlf = true
+    fileMode = false
+    {{ end }}
 
 [color]
     ui = true
