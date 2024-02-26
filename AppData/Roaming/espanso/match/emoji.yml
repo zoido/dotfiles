@@ -1,0 +1,9 @@
+matches:
+  - trigger: ";;shrug"
+    replace: "¯\\_(ツ)_/¯"
+
+  - triggers: [";;tableflip", ";;flip", ";;tbflip"]
+    replace: "(╯°□°）╯︵ ┻━┻"
+
+  - trigger: ";;unflip"
+    replace: "┬─┬ ノ( ゜-゜ノ)"
