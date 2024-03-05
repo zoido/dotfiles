@@ -5,12 +5,12 @@
 
 [[snippets]]
   description = "Call gRPC service with service auth."
-  command = "grpc_cli \\\\n    -metadata \"x-h2o-service-authorization:$(< .skaffold/test-service-token):x-h2o-on-behalf-of-service:$(< .skaffold/test-service-token-hash)\" \\\\n    call localhost:9500 ai.h2o.service.v1.Service/Method \\\\n    ''"
+  command = "grpc_cli \\\n    -metadata \"x-h2o-service-authorization:$(< .skaffold/test-service-token):x-h2o-on-behalf-of-service:$(< .skaffold/test-service-token-hash)\" \\\n    call localhost:9500 ai.h2o.service.v1.Service/Method \\\n    ''"
   output = ""
   tag = ["grpc", "skaffold"]
 
 [[snippets]]
   description = "Call gRPC service with user auth."
-  command = "grpc_cli \\\\n    -metadata \"x-h2o-service-authorization:$(< .skaffold/test-service-token):authorization:Bearer $(go run ./tools/kc/get_token)\" \\\\n    call localhost:9500 ai.h2o.service.v1.Service/Method \\\\n    ''"
+  command = "grpc_cli \\\n    -metadata \"x-h2o-service-authorization:$(< .skaffold/test-service-token):authorization:Bearer $(go run ./tools/kc/get_token)\" \\\n    call localhost:9500 ai.h2o.service.v1.Service/Method \\\n    ''"
   output = ""
   tag = ["grpc", "skaffold"]
