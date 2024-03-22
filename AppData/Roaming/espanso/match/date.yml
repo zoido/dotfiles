@@ -38,3 +38,11 @@ matches:
         type: date
         params:
           format: "%s"
+
+  - trigger: ";;week"
+    replace: "{{ week }}"
+    vars:
+      - name: week
+        type: date
+        params:
+          format: "%Y-W%U"
