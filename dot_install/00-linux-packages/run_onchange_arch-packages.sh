@@ -44,15 +44,12 @@ packages=(
     socat
     starship
     step-cli
-    stern
     terraform
     tfswitch
-    tig
     tmux
     traefik
     unzip
     vim
-    vpnc
     wget
     yq
     zoxide
