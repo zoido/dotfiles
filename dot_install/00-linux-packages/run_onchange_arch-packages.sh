@@ -7,6 +7,7 @@ packages=(
     aws-cli-v2
     bat
     diff-so-fancy
+    difftastic
     dive
     dog
     duf

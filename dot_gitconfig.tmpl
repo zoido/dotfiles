@@ -35,6 +35,23 @@
     fileMode = false
     {{ end }}
 
+{{- if ne .chezmoi.os "windows" }}
+[diff]
+        tool = difftastic
+
+[difftool]
+        prompt = false
+
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+        difftool = true
+[alias]
+        dft = difftool
+        dlog = "-c diff.external=difft log -p --ext-diff"
+{{ end -}}
+
 [color]
     ui = true
 
