@@ -25,7 +25,7 @@ helm upgrade --install traefik traefik/traefik \
     --create-namespace \
     --set ingressClass.enabled=true \
     --set ingressClass.isDefaultClass=true \
-    --set ports.traefik.expose=true \
+    --set ports.traefik.expose.default=true \
     --set ports.traefik.nodePort=30900 \
     --set ports.web.nodePort=30080 \
     --set ports.websecure.nodePort=30443 \
