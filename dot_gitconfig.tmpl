@@ -35,7 +35,6 @@
     fileMode = false
     {{ end }}
 
-{{- if ne .chezmoi.os "windows" }}
 [diff]
         tool = difftastic
 
@@ -50,7 +49,6 @@
 [alias]
         dft = difftool
         dlog = "-c diff.external=difft log -p --ext-diff"
-{{ end -}}
 
 [color]
     ui = true

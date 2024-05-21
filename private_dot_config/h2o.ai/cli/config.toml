@@ -1,4 +1,0 @@
-ClientID = "op://H2O.ai/h2o-cli/$env/ClientID"
-Endpoint = "op://H2O.ai/h2o-cli/$env/Endpoint"
-OIDCAddress = "op://H2O.ai/h2o-cli/$env/OIDCAddress"
-Token = "op://H2O.ai/h2o-cli/$env/Token"
