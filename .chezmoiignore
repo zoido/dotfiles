@@ -17,8 +17,9 @@ AppData
 {{- if eq .chezmoi.os "windows" }}
 *
 !.gitconfig
-!.wslconfig
-!.wsl
 !.install
+!.ssh
+!.wsl
+!.wslconfig
 !AppData
 {{- end }}
