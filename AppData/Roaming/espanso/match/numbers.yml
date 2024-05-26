@@ -1,0 +1,57 @@
+matches:
+    - triggers: [";;1/2"]
+      replace: "½"
+
+    - triggers: [";;1/4"]
+      replace: "¼"
+
+    - triggers: [";;3/4"]
+      replace: "¾"
+
+    - triggers: [";;1/3"]
+      replace: "⅓"
+
+    - triggers: [";;2/3"]
+      replace: "⅔"
+
+    - triggers: [";;degrees", ";;degree"]
+      replace: "°"
+
+    - triggers: [";;celsius"]
+      replace: "°C"
+
+    - triggers: [";;plusminus"]
+      replace: "±"
+
+    - triggers: [";;micro"]
+      replace: "µ"
+
+    - triggers: [";;infinity"]
+      replace: "∞"
+
+    - triggers: [";;square"]
+      replace: "²"
+
+    - triggers: [";;cube"]
+      replace: "³"
+
+    - triggers: [";;sqrt"]
+      replace: "√"
+
+    - triggers: [";;pi"]
+      replace: "π"
+
+    - triggers: [";;sub1"]
+      replace: "₁"
+
+    - triggers: [";;sub2"]
+      replace: "₂"
+
+    - triggers: [";;sub3"]
+      replace: "₃"
+
+    - triggers: [";;subn"]
+      replace: "ₙ"
+
+    - triggers: [";;subx"]
+      replace: "ₓ"
