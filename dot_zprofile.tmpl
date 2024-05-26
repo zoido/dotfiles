@@ -4,10 +4,8 @@ export LESSHISTSIZE=1000
 export PAGER=less
 export EDITOR=vim
 export MANPAGER=$PAGER
-{{- if eq .chezmoi.os "linux" }}
-{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{- if .wsl }}
 export BROWSER=wslview
-{{-   end }}
 {{- end }}
 
 if [ "$(command -v ov)" ]; then

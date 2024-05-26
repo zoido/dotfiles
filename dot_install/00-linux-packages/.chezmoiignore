@@ -2,9 +2,9 @@
 
 arch-packages.sh
 
-{{ if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{ if .wsl -}}
 arch-wsl-packages.sh
-{{ end }}
+{{- end }}
 
 {{- end }}
 

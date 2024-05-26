@@ -1,6 +1,4 @@
-{{ if ne .chezmoi.os "linux" }}
-{{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{- if .wsl }}
 notify-send
 npiperelay.exe
-{{   end }}
-{{ end }}
+{{- end }}
