@@ -9,6 +9,8 @@ packages=(
     diff-so-fancy
     difftastic
     dive
+    docker
+    docker-buildx
     dog
     duf
     dust
