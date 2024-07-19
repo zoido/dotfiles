@@ -97,3 +97,7 @@ alias awsp='export AWS_PROFILE=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/conf
 func gB() {
     git branch | fzf | xargs git checkout
 }
+
+func gBD() {
+    git branch | fzf | xargs git branch -D
+}
