@@ -90,6 +90,9 @@ alias h2o-internal="env=internal h2oc"
 alias h2o-managed="env=managed h2oc"
 alias h2o-trial="env=trial h2oc"
 
+# aws
+alias awsp='export AWS_PROFILE=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config | fzf)'
+
 # git
 func gB() {
     git branch | fzf | xargs git checkout

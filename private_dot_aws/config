@@ -1,0 +1,23 @@
+[profile root]
+sso_session = default
+sso_account_id = 524466471676
+sso_role_name = DeveloperAccess
+region = us-east-1
+
+[profile shared-services]
+sso_session = public
+sso_account_id = 926522735405
+sso_role_name = H2O-SharedServicesEcrAccess
+region = us-east-1
+
+[sso-session default]
+sso_start_url = https://d-906748a3a4.awsapps.com/start
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
+region = us-east-1
+
+[sso-session public]
+sso_start_url = https://d-90676e81c2.awsapps.com/start/
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
+region = us-east-1
