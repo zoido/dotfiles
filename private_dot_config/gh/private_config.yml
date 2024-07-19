@@ -1,11 +1,9 @@
 aliases:
     pr co: pr checkout
     co: pr co
-
     pr c: pr create -a @me -f
     pr cd: pr c --draft
-
     pr m: pr merge --auto --squash
-
     pr v: pr view
     pr vw: pr view --web
+version: "1"
