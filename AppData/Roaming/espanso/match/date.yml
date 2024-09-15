@@ -1,11 +1,29 @@
 matches:
-  - trigger: ";;today"
+  - triggers: [";;date", ";;today",]
     replace: "{{ today }}"
     vars:
       - name: today
         type: date
         params:
           format: "%F"
+
+  - triggers: [";;tomorrow", ";;tmrw"]
+    replace: "{{ tomorrow }}"
+    vars:
+      - name: tomorrow
+        type: date
+        params:
+          format: "%F"
+          offset: 86400
+
+  - triggers: [";;yesterday", ";;yday"]
+    replace: "{{ yesterday }}"
+    vars:
+      - name: yesterday
+        type: date
+        params:
+          format: "%F"
+          offset: -86400
 
   - trigger: ";;now"
     replace: "{{ now }}"
