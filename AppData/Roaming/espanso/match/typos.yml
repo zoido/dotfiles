@@ -4,3 +4,6 @@ matches:
 
     - triggers: ["platfrom"]
       replace: "platform"
+
+    - triggers: ["wokrspace"]
+      replace: "workspace"
