@@ -4,7 +4,9 @@ add_newline = true
 continuation_prompt = '▶▶ '
 
 [aws]
-disabled = true
+disabled = false
+symbol = "aws:"
+format = "[$symbol$profile]($style)"
 
 [buf]
 disabled = true
@@ -16,12 +18,11 @@ show_notifications = true
 min_time_to_notify = 6_000
 
 [directory]
-truncation_length = 3
+truncation_length = 2
 truncation_symbol = "…/"
 
 [directory.substitutions]
 '/Volumes/network/path' = '/net'
-'src/com/long/java/path' = 'mypath'
 
 [line_break]
 disabled = false
@@ -38,6 +39,7 @@ disabled = true
 [kubernetes]
 disabled = false
 symbol = "k:"
+format =	'[$symbol$context(\($namespace\))]($style) in '
 style = "blue"
 
 [nodejs]
@@ -55,4 +57,5 @@ format = "[$time]($style) "
 style = "bold black"
 
 [terraform]
-format = "[$symbol$workspace/$version]($style) "
+symbol = "tf:"
+format = "[$symbol$version]($style) "
