@@ -4,7 +4,19 @@ sso_account_id = 524466471676
 sso_role_name = DeveloperAccess
 region = us-east-1
 
-[profile shared-services]
+[profile cloud-dev]
+sso_session = default
+sso_account_id = 905418396056
+sso_role_name = DeveloperAccess
+region = us-east-1
+
+[profile ecr]
+sso_session = default
+sso_account_id = 353750902984
+sso_role_name = H2O-ECR-Access
+region = us-east-1
+
+[profile shared-services-ecr]
 sso_session = public
 sso_account_id = 926522735405
 sso_role_name = H2O-SharedServicesEcrAccess
