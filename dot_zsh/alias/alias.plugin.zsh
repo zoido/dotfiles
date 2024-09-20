@@ -91,7 +91,14 @@ alias h2o-managed="env=managed h2oc"
 alias h2o-trial="env=trial h2oc"
 
 # aws
-alias awsp='export AWS_PROFILE=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config | fzf)'
+func awsp() {
+    local profile
+    profile=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config | fzf)
+    if [ -n "$profile" ]; then
+        eval "$(AWS_PROFILE=$profile aws configure export-credentials --format env --profile "$profile")"
+        export AWS_PROFILE=$profile
+    fi
+}
 
 # git
 func gB() {
