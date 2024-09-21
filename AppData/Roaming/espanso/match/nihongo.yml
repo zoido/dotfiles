@@ -1,0 +1,6 @@
+matches:
+    - triggers: [";;ruby", ";;rb"]
+      replace: "<ruby>$|$</ruby>"
+
+    - triggers: [";;rt"]
+      replace: "<rt>$|$</rt>"
