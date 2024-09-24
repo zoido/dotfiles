@@ -26,3 +26,4 @@ start_wsl_agent_bridge() {
 export SCRIPT_LOCK=$HOME/.1password/script.lock
 exec 5>$SCRIPT_LOCK
 flock -n 5 && start_wsl_agent_bridge
+flock -u 5
