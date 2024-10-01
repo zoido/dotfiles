@@ -8,6 +8,12 @@ packages=(
     mvdan.cc/gofumpt@latest
     sigs.k8s.io/kind@latest
 
+    # Modern DNS client.
+    github.com/mr-karan/doggo/cmd/doggo@latest
+
+    # Conventional commits.
+    github.com/muandane/goji@latest
+
     # LF file manager and friends.
     github.com/gokcehan/lf@latest
     github.com/doronbehar/pistol/cmd/pistol@latest
@@ -15,6 +21,7 @@ packages=(
     # LOC counting.
     github.com/boyter/scc/v3@latest
 
+    # Kubernetes logs tools.
     github.com/stern/stern@latest
     github.com/hionay/tailer/cmd/tailer@latest
 
