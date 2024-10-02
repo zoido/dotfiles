@@ -83,13 +83,6 @@ alias k="kubectl"
 alias kctx="kubectx"
 alias kns="kubens"
 
-# h2o
-alias h2o-dev="env=dev h2oc"
-alias h2o-qa="env=qa h2oc"
-alias h2o-internal="env=internal h2oc"
-alias h2o-managed="env=managed h2oc"
-alias h2o-trial="env=trial h2oc"
-
 # aws
 func awsp() {
     local profile
