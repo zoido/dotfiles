@@ -11,7 +11,6 @@ packages=(
     dive
     docker
     docker-buildx
-    dog
     duf
     dust
     eksctl
