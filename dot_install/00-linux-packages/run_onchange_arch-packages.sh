@@ -55,6 +55,7 @@ packages=(
     vim
     wget
     yq
+    zellij
     zoxide
     zsh
 )
