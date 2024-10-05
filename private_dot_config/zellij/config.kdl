@@ -1,0 +1,47 @@
+keybinds {
+    normal clear-defaults=true {
+        // tmux
+        bind "Ctrl a" { SwitchToMode "Tmux"; }
+        unbind "Ctrl b"
+    }
+
+    tmux clear-defaults=true {
+        bind "Ctrl a" { Write 2; SwitchToMode "Normal"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+
+        bind "g" { SwitchToMode "Locked"; }
+        bind "l" { SwitchToMode "Locked"; }
+
+        bind "p" { SwitchToMode "Pane"; }
+        bind "t" { SwitchToMode "Tab"; }
+
+        bind "n" { SwitchToMode "Resize"; }
+        bind "r" { SwitchToMode "Resize"; }
+
+        bind "h" { SwitchToMode "Move"; }
+        bind "m" { SwitchToMode "Move"; }
+
+        bind "s" { SwitchToMode "Scroll"; }
+        bind "o" { SwitchToMode "Session"; }
+
+        bind "d" { Detach; }
+
+        bind "[" { PreviousSwapLayout; }
+        bind "]" { NextSwapLayout; }
+
+        bind "?" {
+            LaunchOrFocusPlugin "forgot" {
+                 floating true
+            }
+        }
+
+        // bind "q" { Quit; }
+    }
+
+}
+
+default_layout "compact"
+
+plugins {
+    forgot location="file:~/.config/zellij/plugins/zellij_forgot.wasm"
+}
