@@ -45,3 +45,21 @@ default_layout "compact"
 plugins {
     forgot location="file:~/.config/zellij/plugins/zellij_forgot.wasm"
 }
+
+theme "monokai-pro-octagon"
+
+themes {
+    monokai-pro-octagon {
+        bg "#3A3D4B"
+        black "#3A3D4B"
+        blue "#FF9B5E"
+        cyan "#9CD1BB"
+        fg "#EAF2F1"
+        green "#BAD761"
+        magenta "#C39AC9"
+        orange "#FF657A"
+        red "#BF616A"
+        white "#EAF2F1"
+        yellow "#FFD76D"
+    }
+}
