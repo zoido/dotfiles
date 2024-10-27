@@ -51,6 +51,7 @@ packages=(
     tmux
     traefik
     unzip
+    vale
     vim
     wget
     yq
