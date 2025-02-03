@@ -63,4 +63,22 @@ matches:
       - name: week
         type: date
         params:
-          format: "%Y-W%U"
+          format: "%Y-W%V"
+
+  - trigger: ";;nweek"
+    replace: "{{ week }}"
+    vars:
+      - name: week
+        type: date
+        params:
+          format: "%Y-W%V"
+          offset: 604800
+
+  - trigger: ";;pweek"
+    replace: "{{ week }}"
+    vars:
+      - name: week
+        type: date
+        params:
+          format: "%Y-W%V"
+          offset: -604800
