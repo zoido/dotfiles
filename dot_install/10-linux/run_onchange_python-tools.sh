@@ -6,8 +6,6 @@ pip_packages=(
 
 pipx_packages=(
     black
-    euporie
-    flake8
     hatch
     http-prompt
     httpie
@@ -16,8 +14,8 @@ pipx_packages=(
     pew
     poetry
     polysh
-    ptpython
     pytest
+    ruff
     thefuck
     tldr
 )
@@ -28,8 +26,5 @@ PIPX=${HOME}/.local/bin/pipx
 for package in "${pipx_packages[@]}"; do
      ${PIPX} install --force $package
 done
-
-${PIPX} inject ptpython ipython sympy pdir2 better_exceptions
-${PIPX} inject euporie jupyter
 
 ${PIPX} upgrade-all
