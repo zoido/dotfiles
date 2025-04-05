@@ -5,6 +5,7 @@ pip_packages=(
 )
 
 pipx_packages=(
+    aider-chat
     black
     hatch
     http-prompt

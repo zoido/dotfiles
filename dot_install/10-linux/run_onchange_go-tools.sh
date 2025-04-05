@@ -7,6 +7,7 @@ packages=(
     github.com/terraform-docs/terraform-docs@latest
     mvdan.cc/gofumpt@latest
     sigs.k8s.io/kind@latest
+    github.com/ollama/ollama@latest
 
     # Modern DNS client.
     github.com/mr-karan/doggo/cmd/doggo@latest
