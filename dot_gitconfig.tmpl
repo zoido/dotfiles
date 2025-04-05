@@ -36,7 +36,12 @@
     {{ end }}
 
 [diff]
-        tool = difftastic
+    tool = difftastic
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = copies
+    indentHeuristic = true
 
 [difftool]
         prompt = false
