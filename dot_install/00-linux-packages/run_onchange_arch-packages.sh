@@ -51,6 +51,7 @@ packages=(
     tmux
     traefik
     unzip
+    uv
     viddy
     vim
     wget
