@@ -5,7 +5,6 @@ go 1.24.2
 tool (
 	github.com/boyter/scc/v3 // SCC is a tool for counting lines of code in a project.
 	github.com/bufbuild/buf/cmd/buf // Buf is a tool for working with Protocol Buffers (protobuf) files.
-	github.com/doronbehar/pistol/cmd/pistol // pistol is a previewer for various file types.
 	github.com/fullstorydev/grpcui/cmd/grpcui // gRPC UI is a web-based UI for gRPC services.
 	github.com/gokcehan/lf // lf is a terminal file manager.
 	github.com/hionay/tailer/cmd/tailer // tailer prints timestamp rules when log activity slows down.
@@ -14,7 +13,6 @@ tool (
 	github.com/mr-karan/doggo/cmd/doggo // doggo is a command-line tool for DNS queries and testing.
 	github.com/muandane/goji // goji is a tool for generating and validating conventional commit messages.
 	github.com/noborus/ov // ov is a pager for viewing large files in the terminal.
-	github.com/ollama/ollama // ollama is a command-line tool for managing and LLMs locally.
 	github.com/stern/stern // stern is a tool for tailing multiple pods and containers in Kubernetes.
 	github.com/terraform-docs/terraform-docs // terraform-docs is a tool for generating documentation for Terraform modules.
 	mvdan.cc/gofumpt // gofumpt is a tool slightly stricter than gofmt.
@@ -46,14 +44,10 @@ require (
 	github.com/Masterminds/sprig/v3 v3.3.0 // indirect
 	github.com/Microsoft/go-winio v0.6.2 // indirect
 	github.com/Xuanwo/go-locale v1.1.3 // indirect
-	github.com/adrg/xdg v0.5.0 // indirect
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
 	github.com/aead/poly1305 v0.0.0-20180717145839-3fee0db0b635 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/agnivade/levenshtein v1.1.1 // indirect
-	github.com/alecthomas/chroma/v2 v2.14.0 // indirect
-	github.com/alexflint/go-arg v1.5.1 // indirect
-	github.com/alexflint/go-scalar v1.2.0 // indirect
 	github.com/ameshkov/dnscrypt/v2 v2.3.0 // indirect
 	github.com/ameshkov/dnsstamps v1.0.3 // indirect
 	github.com/andybalholm/brotli v1.1.0 // indirect
@@ -64,9 +58,6 @@ require (
 	github.com/awesome-gocui/gocui v1.1.0 // indirect
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/blang/semver/v4 v4.0.0 // indirect
-	github.com/bodgit/plumbing v1.3.0 // indirect
-	github.com/bodgit/sevenzip v1.5.1 // indirect
-	github.com/bodgit/windows v1.0.1 // indirect
 	github.com/boyter/gocodewalker v1.4.0 // indirect
 	github.com/boyter/scc/v3 v3.5.0 // indirect
 	github.com/briandowns/spinner v1.23.1 // indirect
@@ -108,9 +99,6 @@ require (
 	github.com/docker/docker-credential-helpers v0.9.3 // indirect
 	github.com/docker/go-connections v0.5.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
-	github.com/doronbehar/magicmime v0.1.1-0.20211127135329-3de4ff29dc49 // indirect
-	github.com/doronbehar/pistol v0.5.2 // indirect
-	github.com/dsnet/compress v0.0.2-0.20210315054119-f66993602bf5 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/eclipse/paho.mqtt.golang v1.5.0 // indirect
 	github.com/emicklei/go-restful/v3 v3.12.1 // indirect
@@ -149,7 +137,6 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/gokcehan/lf v0.0.0-20250413011400-1cb9e9d14af8 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
-	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/btree v1.1.3 // indirect
 	github.com/google/cel-go v0.24.1 // indirect
 	github.com/google/flatbuffers v24.3.25+incompatible // indirect
@@ -165,10 +152,8 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gregjones/httpcache v0.0.0-20190611155906-901d90724c79 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.3 // indirect
-	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-hclog v1.6.3 // indirect
-	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/go-plugin v1.6.1 // indirect
 	github.com/hashicorp/go-retryablehttp v0.7.7 // indirect
 	github.com/hashicorp/go-version v1.7.0 // indirect
@@ -181,7 +166,6 @@ require (
 	github.com/iancoleman/orderedmap v0.3.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jdx/go-netrc v1.0.0 // indirect
-	github.com/jedib0t/go-pretty/v6 v6.5.9 // indirect
 	github.com/jhump/protoreflect v1.17.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/jsdelivr/globalping-cli v1.3.1-0.20240925142143-6b5f0951f8e1 // indirect
@@ -207,7 +191,6 @@ require (
 	github.com/mattn/go-localereader v0.0.1 // indirect
 	github.com/mattn/go-runewidth v0.0.16 // indirect
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
-	github.com/mholt/archiver/v4 v4.0.0-alpha.8 // indirect
 	github.com/miekg/dns v1.1.62 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
@@ -239,8 +222,6 @@ require (
 	github.com/noborus/guesswidth v0.4.0 // indirect
 	github.com/noborus/ov v0.40.0 // indirect
 	github.com/noborus/tcellansi v0.0.0-20250320075053-376e9cb3c42b // indirect
-	github.com/nwaples/rardecode/v2 v2.0.0-beta.2 // indirect
-	github.com/nwidger/jsoncolor v0.3.2 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/ollama/ollama v0.6.5 // indirect
@@ -279,7 +260,6 @@ require (
 	github.com/terraform-docs/terraform-config-inspect v0.0.0-20210728164355-9c1f178932fa // indirect
 	github.com/terraform-docs/terraform-docs v0.20.0 // indirect
 	github.com/tetratelabs/wazero v1.9.0 // indirect
-	github.com/therootcompany/xz v1.0.1 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
 	github.com/ulikunitz/xz v0.5.12 // indirect
@@ -306,7 +286,6 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
 	go.uber.org/zap/exp v0.3.0 // indirect
-	go4.org v0.0.0-20230225012048-214862532bf5 // indirect
 	go4.org/unsafe/assume-no-moving-gc v0.0.0-20231121144256-b99613f794b6 // indirect
 	golang.org/x/arch v0.8.0 // indirect
 	golang.org/x/crypto v0.37.0 // indirect
