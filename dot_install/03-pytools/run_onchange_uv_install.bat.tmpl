@@ -1,2 +1,5 @@
-call %USERPROFILE%/.install/03-pytools/uv_install
+@REM hash: {{ include "dot_install/03-pytools/uv_tool_install.bat" | sha256sum }}
+
+call %USERPROFILE%/.install/03-pytools/uv_tool_install.bat
+
 exit 0

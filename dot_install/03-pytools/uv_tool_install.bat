@@ -1,3 +1,5 @@
+::# This file has .bat extension so it can be called form the Windows bat.
+
 uv tool install aider-chat
 uv tool install hatch
 uv tool install http-prompt
