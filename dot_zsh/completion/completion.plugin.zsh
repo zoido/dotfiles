@@ -7,3 +7,4 @@
 [ "$(command -v op)" ] && eval "$(op completion zsh)"
 [ "$(command -v pew)" ] && source $(pew shell_config) || true
 [ "$(command -v pipx)" ] && eval "$(register-python-argcomplete pipx)"
+[ "$(command -v uv)" ] && source <(uv generate-shell-completion zsh)
