@@ -1,0 +1,3 @@
+^!Enter::
+    Run, wt
+Return
