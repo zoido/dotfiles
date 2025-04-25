@@ -4,7 +4,7 @@ set -eo pipefail
 
 echo "Setting up pacman..."
 pacman -Sy --noconfirm reflector
-reflector --save /etc/pacman.d/mirrorlist --country Czechia,Germany,Poland --protocol https --sort rate --latest 5
+reflector --save /etc/pacman.d/mirrorlist --country Czechia --protocol https --sort rate --latest 5
 pacman -Syyu --noconfirm
 pacman -S --noconfirm sudo pwgen zsh
 
