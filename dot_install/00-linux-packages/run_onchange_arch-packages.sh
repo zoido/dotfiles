@@ -47,7 +47,6 @@ packages=(
     step-cli
     terraform
     tfswitch
-    tmux
     traefik
     unzip
     uv
