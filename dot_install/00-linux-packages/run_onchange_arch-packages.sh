@@ -4,7 +4,7 @@ set -e
 
 packages=(
     aria2
-    aws-cli-v2
+    # aws-cli-v2 # aws cli AUR packages often breaks, so I do not install it automatically.
     bat
     diff-so-fancy
     difftastic
@@ -13,7 +13,6 @@ packages=(
     docker-buildx
     duf
     dust
-    eksctl
     exa
     fd
     fx
