@@ -40,6 +40,7 @@ packages=(
     python
     python-pip
     reflector
+    ripgrep
     s3cmd
     skaffold
     socat
