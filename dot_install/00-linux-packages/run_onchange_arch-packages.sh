@@ -54,6 +54,7 @@ packages=(
     viddy
     vim
     wget
+    xdg-util
     yq
     zellij
     zoxide
