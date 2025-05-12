@@ -4,7 +4,6 @@
 
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOtIkSyfNlUzkURE+RgpMyz6tAfLQrFqMQjk9GxoMSBK
 
-
 [url "ssh://git@github.com/h2oai/"]
 	insteadOf = https://github.com/h2oai/
 
@@ -14,49 +13,12 @@
 [url "ssh://git@github.com/zoido/"]
 	insteadOf = https://github.com/zoido/
 
-[gpg]
-    format = ssh
-
-[gpg "ssh"]
-    {{ if ne .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
-    {{ if eq .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"{{ end }}
-
-[commit]
-  gpgsign = true
-
-[core]
-    {{- if ne .chezmoi.os "windows" }}
-    pager = diff-so-fancy | less --tabs=4 -RFX
-    {{ end -}}
-
-    {{- if ne .chezmoi.os "windows" }}
-    autocrlf = input
-    {{ end -}}
-
-    {{- if eq .chezmoi.os "windows" }}
-    autocrlf = true
-    fileMode = false
-    {{ end }}
-
-[diff]
-    tool = difftastic
-	algorithm = histogram
-	colorMoved = plain
-	mnemonicPrefix = true
-	renames = copies
-    indentHeuristic = true
-
-[difftool]
-        prompt = false
-
-[difftool "difftastic"]
-        cmd = difft "$LOCAL" "$REMOTE"
-
-[pager]
-        difftool = true
 [alias]
-        dft = difftool
-        dlog = "-c diff.external=difft log -p --ext-diff"
+    dft = difftool
+    dlog = "-c diff.external=difft log -p --ext-diff"
+
+[branch]
+    sort = -committerdate
 
 [color]
     ui = true
@@ -75,3 +37,89 @@
     old = red bold
     new = green bold
     whitespace = red reverse
+
+[column]
+    ui = auto
+
+[commit]
+    gpgsign = true
+    verbose = true
+
+[core]
+    {{- if ne .chezmoi.os "windows" }}
+    pager = diff-so-fancy | less --tabs=4 -RFX
+    {{ end -}}
+
+    {{- if ne .chezmoi.os "windows" }}
+    autocrlf = input
+    {{ end -}}
+
+    {{- if eq .chezmoi.os "windows" }}
+    autocrlf = true
+    fileMode = false
+    {{ end }}
+
+    fsmonitor = true
+    untrackedCache = true
+
+    excludesfile = ~/.gitignore
+
+[diff]
+    tool = difftastic
+
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+	renames = copies
+    indentHeuristic = true
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+    {{ if ne .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
+    {{ if eq .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"{{ end }}
+
+[help]
+    autocorrect = prompt
+
+[init]
+    defaultBranch = main
+
+[merge]
+    conflictstyle = zdiff3
+
+
+[pager]
+    difftool = true
+
+[pull]
+    rebase = true
+
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
+[tag]
+    sort = version:refname
