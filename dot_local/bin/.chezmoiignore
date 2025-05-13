@@ -1,4 +1,7 @@
-{{- if .wsl }}
+{{- if not .wsl }}
 notify-send
-npiperelay.exe
+{{- end }}
+
+{{- if .wsl }}
+zellij-wsl-session
 {{- end }}
