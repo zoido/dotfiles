@@ -4,6 +4,7 @@ set -e
 
 packages=(
     aria2
+    atuin
     # aws-cli-v2 # aws cli AUR packages often breaks, so I do not install it automatically.
     bat
     diff-so-fancy

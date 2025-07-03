@@ -1,0 +1,9 @@
+workspaces = true
+style = "auto"
+enter_accept = false
+
+history_filter = [
+   "^cd ",
+   "^z ",
+   "^zi ",
+]
