@@ -1,6 +1,7 @@
 workspaces = true
 style = "auto"
 enter_accept = false
+sync_frequency = "5m"
 
 history_filter = [
    "^cd ",
