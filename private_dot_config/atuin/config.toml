@@ -5,6 +5,8 @@ sync_frequency = "5m"
 
 history_filter = [
    "^cd ",
+   "^ll",
+   "^ls",
    "^z ",
    "^zi ",
 ]
