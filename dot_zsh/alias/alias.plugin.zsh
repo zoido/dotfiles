@@ -94,8 +94,10 @@ func awsp() {
 }
 
 # git
+alias -- --='git switch -'
+
 func gB() {
-    git branch | fzf | xargs git checkout
+    git branch | fzf | xargs git switch
 }
 
 func gBD() {
