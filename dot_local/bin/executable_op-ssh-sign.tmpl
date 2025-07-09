@@ -3,7 +3,7 @@
 set -e
 
 {{- if .wsl }}
-${WIN_HOME}/AppData/Local/1Password/app/8/op-ssh-sign.exe "$@"
+"${WIN_HOME}/AppData/Local/1Password/app/8/op-ssh-sign-wsl" "$@"
 {{- else }}
 op-ssh-sign "$@"
 {{- end }}
