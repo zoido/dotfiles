@@ -1,14 +1,12 @@
 [ "$(command -v fd)" ] && FZF_DEFAULT_COMMAND='fd --type f'
 
-FZF_DEFAULT_OPTS="
-    --height 20%
-    --ansi
-    --border=top
-    --prompt='❯ '
-    --pointer='❯'
-    --marker='*'
-    --color fg:white,hl:green,fg+:yellow,bg+:bright-black,hl+:green
-    --color border:white,gutter:-1,info:gray
+export FZF_DEFAULT_OPTS="
+  --preview-window='border-rounded'
+  --prompt='❯ '
+  --pointer='❯'
+  --marker='*'
+  --layout='reverse'
+  --info='right'
 "
 
 [ -e /usr/share/fzf/completion.zsh ] && . /usr/share/fzf/completion.zsh

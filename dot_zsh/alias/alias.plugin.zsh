@@ -101,5 +101,5 @@ func gB() {
 }
 
 func gBD() {
-    git branch | fzf | xargs git branch -D
+    git branch | fzf -m | xargs git branch -D
 }
