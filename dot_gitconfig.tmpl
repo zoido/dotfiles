@@ -61,6 +61,10 @@
     untrackedCache = true
 
     excludesfile = ~/.gitignore
+    {{- if eq .chezmoi.os "windows" }}
+    sshCommand = "C:\\\\Windows\\\\System32\\\\OpenSSH\\\\ssh"
+    {{- end }}
+
 
 [diff]
     tool = difftastic
@@ -87,7 +91,7 @@
 
 [gpg "ssh"]
     {{ if ne .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
-    {{ if eq .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}\\AppData\\Local\\1Password\\app\\8\\op-ssh-sign.exe"{{ end }}
+    {{ if eq .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}\\\\AppData\\\\Local\\\\1Password\\\\app\\\\8\\\\op-ssh-sign.exe"{{ end }}
 
 [help]
     autocorrect = prompt
