@@ -5,7 +5,7 @@ set -e
 packages=(
     aria2
     atuin
-    # aws-cli-v2 # aws cli AUR packages often breaks, so I do not install it automatically.
+    aws-cli-v2
     bat
     diff-so-fancy
     difftastic
@@ -18,8 +18,10 @@ packages=(
     fd
     fx
     fzf
+    github-cli
     go
     gping
+    grpc_cli
     helm
     hexyl
     htop
