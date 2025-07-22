@@ -3,5 +3,5 @@ go_install.sh
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
-go_install.bat
+go_install.psh
 {{ end }}

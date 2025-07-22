@@ -1,0 +1,17 @@
+# hash: {{ include "dot_install/02-gotools/packages.txt" | sha256sum }}
+
+$scriptPath = $PSScriptRoot
+
+$values = Get-Content -Path "$scriptPath\packages.txt" |
+    Where-Object { $_.Trim() -ne '' -and -not $_.Trim().StartsWith('#') } |
+    # Then, for each remaining line, process it
+    ForEach-Object {
+        # Split the line on the '#' character and take the first part [0]
+        # Then, trim any remaining whitespace from the result
+        ($_.Split('#')[0]).Trim()
+    }
+
+
+foreach ($value in $values) {
+    go install '$value'"
+}

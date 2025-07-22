@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# hash: {{ include "dot_install/02-gotools/go.sum" | sha256sum }}
-go install tool
+# hash: {{ include "dot_install/02-gotools/packages.txt" | sha256sum }}
 
+grep -vE '^\s*#|^\s*$' packages.txt | sed 's/\s*#.*$//' | xargs -n1 -P0 -t go install
 
-// Install packages that cannot be install on Windows
+# Install packages that cannot be install on Windows
 
-// pistol is a previewer for various file types.
+# pistol is a previewer for various file types.
 go install github.com/doronbehar/pistol/cmd/pistol@latest
