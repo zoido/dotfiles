@@ -1,8 +1,7 @@
 # hash: {{ include "dot_install/02-gotools/packages.txt" | sha256sum }}
+# Self-elevate the script if required
 
-$scriptPath = $PSScriptRoot
-
-$values = Get-Content -Path "$scriptPath\packages.txt" |
+$values = Get-Content -Path "packages.txt" |
     Where-Object { $_.Trim() -ne '' -and -not $_.Trim().StartsWith('#') } |
     # Then, for each remaining line, process it
     ForEach-Object {
@@ -13,5 +12,5 @@ $values = Get-Content -Path "$scriptPath\packages.txt" |
 
 
 foreach ($value in $values) {
-    go install '$value'"
+    go install "$value"
 }
