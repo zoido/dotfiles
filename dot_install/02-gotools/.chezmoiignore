@@ -3,5 +3,5 @@ go_install.sh
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
-go_install.psh
+go_install.ps1
 {{ end }}
