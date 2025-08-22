@@ -4,3 +4,6 @@ matches:
 
     - triggers: [";;rt"]
       replace: "<rt>$|$</rt>"
+
+    - triggers: [";;kbd"]
+      replace: "<kbd>$|$</kbd>"
