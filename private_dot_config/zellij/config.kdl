@@ -1,3 +1,19 @@
+show_startup_tips false
+show_release_notes false
+
+compact-bar location="zellij:compact-bar" {
+    tooltip "F1"
+}
+
+default_layout "compact"
+
+ui {
+    pane_frames {
+        rounded_corners true
+        hide_session_name true
+    }
+}
+
 keybinds {
     normal clear-defaults=true {
         // tmux
@@ -29,40 +45,138 @@ keybinds {
         bind "[" { PreviousSwapLayout; }
         bind "]" { NextSwapLayout; }
 
-        bind "?" {
-            LaunchOrFocusPlugin "forgot" {
-                 floating true
-            }
-        }
-
         // bind "q" { Quit; }
     }
 
-}
-
-default_layout "compact"
-
-plugins {
-    forgot location="file:~/.config/zellij/plugins/zellij_forgot.wasm"
 }
 
 theme "monokai-pro-octagon"
 
 themes {
     monokai-pro-octagon {
-        bg "#3A3D4B"
-        black "#3A3D4B"
-        blue "#FF9B5E"
-        cyan "#9CD1BB"
-        fg "#EAF2F1"
-        green "#BAD761"
-        magenta "#C39AC9"
-        orange "#FF657A"
-        red "#BF616A"
-        white "#EAF2F1"
-        yellow "#FFD76D"
+        text_unselected {
+            base 234 242 241  // fg
+            background 58 61 75  // bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 156 209 187  // cyan
+            emphasis_2 186 215 97  // green
+            emphasis_3 255 215 109  // yellow
+        }
+        text_selected {
+            base 234 242 241  // fg
+            background 75 80 95  // lighter bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 156 209 187  // cyan
+            emphasis_2 186 215 97  // green
+            emphasis_3 255 215 109  // yellow
+        }
+        ribbon_selected {
+            base 58 61 75  // bg
+            background 186 215 97  // green
+            emphasis_0 255 101 122  // orange
+            emphasis_1 195 154 201  // magenta
+            emphasis_2 255 215 109  // yellow
+            emphasis_3 156 209 187  // cyan
+        }
+        ribbon_unselected {
+            base 234 242 241  // fg
+            background 58 61 75  // bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 195 154 201  // magenta
+            emphasis_2 186 215 97  // green
+            emphasis_3 255 101 122  // orange
+        }
+        table_title {
+            base 186 215 97  // green
+            background 58 61 75  // bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 156 209 187  // cyan
+            emphasis_2 255 215 109  // yellow
+            emphasis_3 195 154 201  // magenta
+        }
+        table_cell_selected {
+            base 234 242 241  // fg
+            background 75 80 95  // lighter bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 156 209 187  // cyan
+            emphasis_2 186 215 97  // green
+            emphasis_3 255 215 109  // yellow
+        }
+        table_cell_unselected {
+            base 234 242 241  // fg
+            background 58 61 75  // bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 156 209 187  // cyan
+            emphasis_2 186 215 97  // green
+            emphasis_3 255 215 109  // yellow
+        }
+        list_selected {
+            base 234 242 241  // fg
+            background 75 80 95  // lighter bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 156 209 187  // cyan
+            emphasis_2 186 215 97  // green
+            emphasis_3 255 215 109  // yellow
+        }
+        list_unselected {
+            base 234 242 241  // fg
+            background 58 61 75  // bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 156 209 187  // cyan
+            emphasis_2 186 215 97  // green
+            emphasis_3 255 215 109  // yellow
+        }
+        frame_selected {
+            base 186 215 97  // green
+            background 58 61 75  // bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 156 209 187  // cyan
+            emphasis_2 255 215 109  // yellow
+            emphasis_3 195 154 201  // magenta
+        }
+        frame_unselected {
+            base 90 95 115  // lighter grey
+            background 58 61 75  // bg
+            emphasis_0 255 155 94  // blue
+            emphasis_1 156 209 187  // cyan
+            emphasis_2 186 215 97  // green
+            emphasis_3 255 215 109  // yellow
+        }
+        frame_highlight {
+            base 120 125 145  // even lighter grey
+            background 58 61 75  // bg
+            emphasis_0 255 215 109  // yellow
+            emphasis_1 255 155 94  // blue
+            emphasis_2 186 215 97  // green
+            emphasis_3 195 154 201  // magenta
+        }
+        exit_code_success {
+            base 186 215 97  // green
+            background 58 61 75  // bg
+            emphasis_0 156 209 187  // cyan
+            emphasis_1 234 242 241  // fg
+            emphasis_2 255 215 109  // yellow
+            emphasis_3 255 155 94  // blue
+        }
+        exit_code_error {
+            base 191 97 106  // red
+            background 58 61 75  // bg
+            emphasis_0 255 101 122  // orange
+            emphasis_1 234 242 241  // fg
+            emphasis_2 195 154 201  // magenta
+            emphasis_3 255 215 109  // yellow
+        }
+        multiplayer_user_colors {
+            player_1 255 155 94  // blue
+            player_2 156 209 187  // cyan
+            player_3 186 215 97  // green
+            player_4 255 215 109  // yellow
+            player_5 195 154 201  // magenta
+            player_6 255 101 122  // orange
+            player_7 191 97 106  // red
+            player_8 234 242 241  // fg
+            player_9 58 61 75  // bg
+            player_10 75 80 95  // lighter bg
+        }
     }
 }
-
-show_startup_tips false
-show_release_notes false
