@@ -1,0 +1,16 @@
+matches:
+  - trigger: "[[today"
+    replace: "[[{{today}}]]"
+    vars:
+      - name: today
+        type: match
+        params:
+          trigger: ;;today
+
+  - trigger: "[[yday"
+    replace: "[[{{yday}}]]"
+    vars:
+      - name: yday
+        type: match
+        params:
+          trigger: ;;yday
