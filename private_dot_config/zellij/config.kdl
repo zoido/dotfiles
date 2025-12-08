@@ -21,13 +21,6 @@ keybinds {
     normal {
         unbind "Ctrl q" // unbind quit
         unbind "Ctrl o" // unbind switch to session mode because of lf
-        bind "Ctrl a" { SwitchToMode "Tmux"; }
-
-    }
-
-    tmux clear-defaults=true {
-        bind "Ctrl a" { Write 2; SwitchToMode "Normal"; }
-        bind "o" { SwitchToMode "Session"; }
     }
 }
 
