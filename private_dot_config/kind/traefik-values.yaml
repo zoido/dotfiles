@@ -1,0 +1,44 @@
+ingressClass:
+  enabled: true
+  isDefaultClass: true
+
+ports:
+  traefik:
+    expose:
+      default: true
+    nodePort: 30900
+  web:
+    nodePort: 30080
+  websecure:
+    nodePort: 30443
+
+service:
+  type: NodePort
+
+logs:
+  general:
+    level: DEBUG
+  access:
+    enabled: true
+
+extraObjects:
+  - apiVersion: traefik.io/v1alpha1
+    kind: Middleware
+    metadata:
+      name: cors-allow-all
+    spec:
+      headers:
+        accessControlAllowMethods:
+          - "*"
+          - "OPTIONS"
+          - "PUT"
+          - "POST"
+          - "DELETE"
+          - "PATCH"
+        accessControlAllowHeaders:
+          - "*"
+        accessControlAllowOriginList:
+          - "*"
+        accessControlMaxAge: 100
+        addVaryHeader: true
+        accessControlAllowCredentials: true
