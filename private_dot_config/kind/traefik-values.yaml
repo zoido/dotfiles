@@ -28,13 +28,10 @@ extraObjects:
       name: cors-allow-all
     spec:
       headers:
+        accessControlExposeHeaders:
+          - "*"
         accessControlAllowMethods:
           - "*"
-          - "OPTIONS"
-          - "PUT"
-          - "POST"
-          - "DELETE"
-          - "PATCH"
         accessControlAllowHeaders:
           - "*"
         accessControlAllowOriginList:
