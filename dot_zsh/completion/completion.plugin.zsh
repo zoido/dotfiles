@@ -1,5 +1,6 @@
 [ "$(command -v argo)" ] && source <(argo completion zsh) || true
 [ "$(command -v chezmoi)" ] && eval "$(chezmoi completion zsh)"
+[ "$(command -v gs)" ] && eval "$(gs shell completion zsh)"
 [ "$(command -v hatch)" ] && source <(_HATCH_COMPLETE=zsh_source hatch)
 [ "$(command -v helm)" ] && source <(helm completion zsh)
 [ "$(command -v kind)" ] && source <(kind completion zsh)
