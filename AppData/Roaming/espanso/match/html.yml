@@ -7,3 +7,15 @@ matches:
 
     - triggers: [";;kbd"]
       replace: "<kbd>$|$</kbd>"
+
+    - triggers: [";;kalt"]
+      replace: "<kbd>Alt</kbd>"
+
+    - triggers: [";;kctrl", ";;kcontrol"]
+      replace: "<kbd>Ctrl</kbd>"
+
+    - triggers: [";;kshift"]
+      replace: "<kbd>Shift</kbd>"
+
+    - triggers: [";;kwin"]
+      replace: "<kbd>Win</kbd>"
