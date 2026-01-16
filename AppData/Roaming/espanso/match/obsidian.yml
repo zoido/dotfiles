@@ -14,3 +14,35 @@ matches:
         type: match
         params:
           trigger: ;;yday
+
+  - trigger: "[[tmrw"
+    replace: "[[{{tmrw}}]]"
+    vars:
+      - name: tmrw
+        type: match
+        params:
+          trigger: ;;tmrw
+
+  - trigger: "[[week"
+    replace: "[[{{week}}]]"
+    vars:
+      - name: week
+        type: match
+        params:
+          trigger: ;;week
+
+  - trigger: "[[pweek"
+    replace: "[[{{pweek}}]]"
+    vars:
+      - name: pweek
+        type: match
+        params:
+          trigger: ;;pweek
+
+  - trigger: "[[nweek"
+    replace: "[[{{nweek}}]]"
+    vars:
+      - name: nweek
+        type: match
+        params:
+          trigger: ;;nweek
