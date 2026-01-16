@@ -2,7 +2,6 @@ alias zshconfig="${EDITOR} ${HOME}/.zshrc"
 
 
 # development conveniences
-alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
 alias gofumpt-split-lines='GOFUMPT_SPLIT_LONG_LINES="on" gofumpt -w .'
 
 #  Better ls
@@ -94,6 +93,8 @@ func awsp() {
 }
 
 # git
+alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
+alias gFC='git-fullclean'
 alias -- --='git switch -'
 
 func gB() {
