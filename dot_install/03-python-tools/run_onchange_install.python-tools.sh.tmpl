@@ -1,0 +1,5 @@
+#!/bin/bash
+
+{{- range .packages.python -}}
+uv tool install {{ . }}
+{{- end }}

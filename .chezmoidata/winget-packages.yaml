@@ -1,0 +1,24 @@
+packages:
+  winget:
+    ids:
+    - "AgileBits.1Password.CLI"
+    - "AgileBits.1Password"
+    - "astral-sh.uv"
+    - "AutoHotkey.AutoHotkey"
+    - "BlastApps.FluentSearch"
+    - "Espanso.Espanso"
+    - "Git.Git"
+    - "GoLang.Go"
+    - "M2Team.NanaZip"
+    - "Microsoft.PowerToys"
+    - "Microsoft.VisualStudioCode.CLI"
+    - "Microsoft.VisualStudioCode"
+    - "Microsoft.WindowsTerminal"
+    - "Microsoft.WSL"
+    - "Mozilla.Firefox"
+    - "Obsidian.Obsidian"
+    - "Qalculate.Qalculate"
+    - "SumatraPDF.SumatraPDF"
+    - "Wilfred.difftastic"
+    monikers:
+    - "python3"

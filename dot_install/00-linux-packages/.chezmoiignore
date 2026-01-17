@@ -1,14 +1,9 @@
-{{- if ne .chezmoi.osRelease.id "arch" -}}
+*
 
-arch-packages.sh
-
-{{ if .wsl -}}
-arch-wsl-packages.sh
+{{- if .archlinux }}
+!install-arch-packages.sh
 {{- end }}
 
-{{- end }}
-
-
-{{- if not .codespaces }}
-codespaces-packages.sh
+{{- if .codespaces }}
+!install-codespaces-packages.sh
 {{- end }}

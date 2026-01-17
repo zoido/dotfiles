@@ -1,7 +1,0 @@
-{{ if ne .chezmoi.os "linux" }}
-go_install.sh
-{{ end }}
-
-{{ if ne .chezmoi.os "windows" }}
-go_install.ps1
-{{ end }}

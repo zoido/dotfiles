@@ -1,0 +1,13 @@
+packages:
+  python:
+    - aider-chat
+    - hatch
+    - http-prompt
+    - httpie
+    - ipython
+    - mitmproxy
+    - pew
+    - poetry
+    - polysh
+    - pytest
+    - ruff

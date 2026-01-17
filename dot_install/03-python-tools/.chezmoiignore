@@ -1,0 +1,9 @@
+*
+
+{{- if ne .chezmoi.os "linux" }}
+!install-python-packages.sh
+{{- end }}
+
+{{- if ne .chezmoi.os "windows" }}
+!install-python-packages.bat
+{{- end }}

@@ -1,0 +1,10 @@
+{{- range .packages.winget.ids -}}
+winget install -e --source winget --id "{{ . }}"
+{{- end }}
+
+{{- range .packages.winget.monikers -}}
+winget install -e --source winget --moniker "{{ . }}"
+{{- end }}
+
+@REM Don't exit with error when there's not update for the last package.
+exit 0

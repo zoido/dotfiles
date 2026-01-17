@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# hash: {{ include "dot_install/02-gotools/packages.txt" | sha256sum }}
-
-grep -vE '^\s*#|^\s*$' packages.txt | sed 's/\s*#.*$//' | xargs -n1 -P0 -t go install
+{{- range .packages.go -}}
+go install {{ . }}
+{{- end }}
 
 # Install packages that cannot be install on Windows
 

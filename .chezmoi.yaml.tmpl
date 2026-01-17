@@ -1,9 +1,10 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
 {{- $wsl := and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- $archlinux := eq .chezmoi.osRelease.id "arch" -}}
 
 sourceDir: {{ .chezmoi.sourceDir }}
 
 data:
+    archlinux: {{ $archlinux }}
     codespaces: {{ $codespaces }}
-    private: {{ not $codespaces }}
     wsl: {{ $wsl }}
