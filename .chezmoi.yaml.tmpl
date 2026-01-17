@@ -1,6 +1,6 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
 {{- $wsl := and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-{{- $archlinux := eq .chezmoi.osRelease.id "arch" -}}
+{{- $archlinux := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
 
 sourceDir: {{ .chezmoi.sourceDir }}
 
