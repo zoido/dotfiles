@@ -15,10 +15,10 @@ packages:
     - "Microsoft.VisualStudioCode"
     - "Microsoft.WindowsTerminal"
     - "Microsoft.WSL"
-    - "Mozilla.Firefox"
     - "Obsidian.Obsidian"
     - "Qalculate.Qalculate"
     - "SumatraPDF.SumatraPDF"
+    - "Waterfox.Waterfox"
     - "Wilfred.difftastic"
     monikers:
     - "python3"
