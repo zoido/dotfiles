@@ -46,3 +46,27 @@ matches:
         type: match
         params:
           trigger: ;;nweek
+
+  - trigger: "[[year"
+    replace: "[[{{year}}]]"
+    vars:
+      - name: year
+        type: match
+        params:
+          trigger: ;;year
+
+  - trigger: "[[pyear"
+    replace: "[[{{pyear}}]]"
+    vars:
+      - name: pyear
+        type: match
+        params:
+          trigger: ;;pyear
+
+  - trigger: "[[nyear"
+    replace: "[[{{nyear}}]]"
+    vars:
+      - name: nyear
+        type: match
+        params:
+          trigger: ;;nyear

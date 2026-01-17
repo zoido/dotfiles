@@ -82,3 +82,29 @@ matches:
         params:
           format: "%Y-W%V"
           offset: -604800
+
+  - trigger: ";;year"
+    replace: "{{ year }}"
+    vars:
+      - name: year
+        type: date
+        params:
+          format: "%Y"
+
+  - trigger: ";;nyear"
+    replace: "{{ year }}"
+    vars:
+      - name: year
+        type: date
+        params:
+          format: "%Y"
+          offset: 31536000
+
+  - trigger: ";;pyear"
+    replace: "{{ year }}"
+    vars:
+      - name: year
+        type: date
+        params:
+          format: "%Y"
+          offset: -31536000
