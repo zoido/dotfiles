@@ -1,8 +1,8 @@
-{{- range .packages.winget.ids -}}
+{{- range .packages.winget.ids }}
 winget install -e --source winget --id "{{ . }}"
 {{- end }}
 
-{{- range .packages.winget.monikers -}}
+{{- range .packages.winget.monikers }}
 winget install -e --source winget --moniker "{{ . }}"
 {{- end }}
 

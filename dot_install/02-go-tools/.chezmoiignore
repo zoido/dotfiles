@@ -1,9 +1,9 @@
 *
 
-{{- if .chezmoi.os "linux" }}
-!go-install-go-tools.sh
+{{- if eq .chezmoi.os "linux" }}
+!install-go-tools.sh
 {{- end }}
 
-{{ if .chezmoi.os "windows" }}
+{{ if eq .chezmoi.os "windows" }}
 !install-go-tools.bat
 {{- end }}

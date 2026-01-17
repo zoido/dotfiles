@@ -1,6 +1,6 @@
 #!/bin/bash
 
-{{- range .packages.go -}}
+{{- range .packages.go }}
 go install {{ . }}
 {{- end }}
 

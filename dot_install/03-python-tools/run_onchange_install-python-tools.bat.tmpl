@@ -1,4 +1,5 @@
-{{- range .packages.python -}}
+
+{{- range .packages.python }}
 uv tool install {{ . }}
 {{- end }}
 

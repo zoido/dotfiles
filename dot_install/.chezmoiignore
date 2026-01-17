@@ -1,5 +1,8 @@
 *
 
+!02-go-tools
+!03-python-tools
+
 {{- if eq .chezmoi.os "linux" }}
 !00-linux-packages
 !01-zgemon
