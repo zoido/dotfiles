@@ -17,6 +17,14 @@
     dft = difftool
     dlog = "-c diff.external=difft log -p --ext-diff"
 
+[spice "submit"]
+    publish = false
+    draft = true
+    assignees = zoido
+
+[spice "branchCreate"]
+    commit = false
+
 [branch]
     sort = -committerdate
 
