@@ -6,3 +6,7 @@
 ## Go Lang Guidelines
 
 {{ template "go.instructions.md" . }}
+
+---
+
+{{ template "important.instructions.md" . }}

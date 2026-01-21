@@ -7,6 +7,7 @@
 ### Testing
 
 - Prefer black-box testing over white-box testing.
+- Prefer use of `t.Context()` where context is needed in tests.
 - Use Given-When-Then structure for tests.
   - Given: Setup the initial state.
   - When: Execute the code under test.
