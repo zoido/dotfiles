@@ -5,6 +5,9 @@
   - try `make lint` and `make test` locally before committing if it fails try language specific commands.
 - Follow best practices for code quality and maintainability.
 - Do not add deodorant or redundant comments, use clear and self-explanatory code instead.
+- All comments are full sentences with the proper capitalization and punctuation.
+- Adhere to single responsibility principle: each function, class, or module should have one clear purpose.
+- Adhere to separation of concerns principle: different functionalities should be in separate modules or classes.
 
 ## PR instructions
 
