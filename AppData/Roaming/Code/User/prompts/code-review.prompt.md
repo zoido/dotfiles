@@ -8,11 +8,28 @@ note: Based on the Claude Code Code Review Code Command
 Please perform a comprehensive code review of the current changes with the mindset of a seasoned senior engineer on the current changes:
 
 
-## Identification of Changes.
+## Identification of Changes
 
-- If there are staged changes, review only those those.
-- If there are no staged changes, review the entire uncommitted diff.
-- If there are no uncommitted changes, review the diff between the current branch and last forking point.
+Use the following priority order to identify what changes to review:
+
+1. **Staged changes** (if any exist):
+   ```sh
+   git diff --cached
+   ```
+
+2. **Uncommitted changes** (if no staged changes):
+   ```sh
+   git diff
+   ```
+
+3. **Branch diff from forking point** (if no uncommitted changes):
+   ```sh
+   git diff $(git merge-base HEAD origin/main)
+   ```
+   Or for main branch:
+   ```sh
+   git diff origin/main...HEAD
+   ```
 
 ## Review Focus Areas
 
