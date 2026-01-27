@@ -10,26 +10,10 @@ Please perform a comprehensive code review of the current changes with the minds
 
 ## Identification of Changes
 
-Use the following priority order to identify what changes to review:
-
-1. **Staged changes** (if any exist):
-   ```sh
-   git diff --cached
-   ```
-
-2. **Uncommitted changes** (if no staged changes):
-   ```sh
-   git diff
-   ```
-
-3. **Branch diff from forking point** (if no uncommitted changes):
-   ```sh
-   git diff $(git merge-base HEAD origin/main)
-   ```
-   Or for main branch:
-   ```sh
-   git diff origin/main...HEAD
-   ```
+- If there are staged changes, review only those.
+- If there are no staged changes but uncommitted changes, review those.
+- If there are no uncommitted changes review only the last commit.
+- DO NOT attempt to review the whole diff against main.
 
 ## Review Focus Areas
 
@@ -72,21 +56,55 @@ Use the following priority order to identify what changes to review:
 
 ## Review Format
 
+- Provide a clear verdict:
+   - **READY FOR REVIEW**: Changes are solid, ship it!
+   - **NEEDS CHANGES**: List the must-fix issues before committing
+   - **NEEDS REVIEW**: Suggest getting human review for complex changes
+
+
 For each issue identified:
-1. Provide the specific line number or code snippet
-2. Explain the issue clearly
-3. Rate the severity (Critical, High, Medium, Low)
-4. Provide a specific recommendation for improvement
-5. Include sample code when appropriate
+  1. Provide the specific line number and/or code snippet
+  2. Explain the issue clearly
+  3. Rate the severity (Critical, High, Medium, Low)
+  4. Provide a specific recommendation for improvement
+  5. Include sample code when appropriate
 
-## Summary
 
-Conclude with:
-1. Overall assessment (3-5 bullet points)
-2. Key strengths of the code
-3. Priority improvements (top 3)
-4. Any architectural considerations
+### Output format
+
+Structure your review as:
+
+```
+## Changes Review
+
+[What kind of changes were identified, staged, uncommitted, or branch diff ]
+
+**Files Changed:** [count] files with [+X / -Y lines]
+[list of changed files]
+
+
+### Code Quality
+[findings or "Looks good"]
+
+### Bugs & Issues
+[findings or "None found"]
+
+### Performance Considerations
+[findings or "No performance issues detected"]
+
+### Security
+[findings or "No security issues detected"]
+
+### Testing
+[findings or "Testing coverage looks adequate"]
+
+### Result
+[READY FOR REVIEW | NEEDS CHANGES | NEEDS REVIEW]
+
+[explanation and any actionable items]
+```
 
 ---
 
 Be thorough but pragmatic. Focus on real issues, not nitpicks. If changes are good, say so!
+Do not bother with positive feedback, only point out issues or confirm readiness.
