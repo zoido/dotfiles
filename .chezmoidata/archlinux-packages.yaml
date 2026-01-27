@@ -16,6 +16,7 @@ packages:
   - fx
   - fzf
   - github-cli
+  - gitu
   - go
   - gping
   - grpc_cli
