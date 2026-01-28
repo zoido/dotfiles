@@ -106,14 +106,16 @@ func gBD() {
 }
 
 func gBP() {
-    # Find the closest ancestor branch.
+    local current
     current=$(git rev-parse --abbrev-ref HEAD)
-    git for-each-ref --format='%(refname:short)' refs/heads/ | while read candidate; do
-        if [ "$candidate" == "$current" ]; then continue; fi
+    local result
+    result=$(git for-each-ref --format='%(refname:short)' refs/heads/ | while read candidate; do
+        if [ "$candidate" = "$current" ]; then continue; fi
 
         if git merge-base --is-ancestor "$candidate" HEAD; then
             distance=$(git rev-list --count "${candidate}..HEAD")
             echo "$distance $candidate"
         fi
-    done | sort -n | head -n 1 | awk '{print $2}'
+    done | sort -n | head -n 1 | awk '{print $2}')
+    echo "$result"
 }
