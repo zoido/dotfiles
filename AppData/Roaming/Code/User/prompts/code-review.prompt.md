@@ -11,9 +11,27 @@ Please perform a comprehensive code review of the current changes with the minds
 ## Identification of Changes
 
 - If there are staged changes, review only those.
+   ```sh
+   git diff --cached
+   ```
 - If there are no staged changes but uncommitted changes, review those.
-- If there are no uncommitted changes review only the last commit.
-- DO NOT attempt to review the whole diff against main.
+   ```sh
+   git diff
+   ```
+- If there are no uncommitted changes review diff between current branch and closest immediate ancestor branch.
+   - you can find the closest ancestor branch with:
+      ```sh
+      current=$(git rev-parse --abbrev-ref HEAD)
+      git for-each-ref --format='%(refname:short)' refs/heads/ | while read candidate; do
+         if [ "$candidate" == "$current" ]; then continue; fi
+
+         if git merge-base --is-ancestor "$candidate" HEAD; then
+            distance=$(git rev-list --count "${candidate}..HEAD")
+            echo "$distance $candidate"
+         fi
+      done | sort -n | head -n 1 | awk '{print $2}'
+      ```
+- If nothing from the above yields changes, ask for new changes to review.
 
 ## Review Focus Areas
 
