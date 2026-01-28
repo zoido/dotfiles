@@ -19,8 +19,8 @@ Please perform a comprehensive code review of the current changes with the minds
    git diff
    ```
 - If there are no uncommitted changes review diff between current branch and closest immediate ancestor branch.
-   - you can find the closest ancestor branch with:
-      ```sh
+   - you can find the closest ancestor branch with the following bash script:
+      ```bash
       current=$(git rev-parse --abbrev-ref HEAD)
       git for-each-ref --format='%(refname:short)' refs/heads/ | while read candidate; do
          if [ "$candidate" == "$current" ]; then continue; fi
