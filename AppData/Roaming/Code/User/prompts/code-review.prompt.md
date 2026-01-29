@@ -19,15 +19,15 @@ Please perform a comprehensive code review of the current changes with the minds
    git diff
    ```
 - If there are no uncommitted changes review diff between current branch and closest immediate ancestor branch.
-   - you can find the closest ancestor branch with the following bash script:
-      ```bash
+   - you can find the closest ancestor branch with the following script:
+      ```sh
       current=$(git rev-parse --abbrev-ref HEAD)
-      git for-each-ref --format='%(refname:short)' refs/heads/ | while read candidate; do
-         if [ "$candidate" == "$current" ]; then continue; fi
+      git for-each-ref --format='%(refname:short)' refs/heads/ | while read -r candidate; do
+         [ "$candidate" = "$current" ] && continue
 
-         if git merge-base --is-ancestor "$candidate" HEAD; then
+         if git merge-base --is-ancestor "$candidate" HEAD 2>/dev/null; then
             distance=$(git rev-list --count "${candidate}..HEAD")
-            echo "$distance $candidate"
+            printf "%s %s\n" "$distance" "$candidate"
          fi
       done | sort -n | head -n 1 | awk '{print $2}'
       ```
