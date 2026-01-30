@@ -2,6 +2,7 @@
 - Use idiomatic code style.
 - Follow "Effective Go" guidelines.
 - Follow the "Go Code Review Comments" guidelines.
+- Make sure that code uses the latest features according to the Go version in the `go.mod` file.
 
 
 ### Testing
@@ -51,3 +52,7 @@
       }
     }
   ```
+
+### Reviews
+
+Always consult with the documentation according to the Go version in the `go.mod` file when reviewing code.
