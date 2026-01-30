@@ -16,6 +16,7 @@ AppData
 
 {{- if eq .chezmoi.os "windows" }}
 *
+!.copilot
 !.gitconfig
 !.install
 !.ssh
