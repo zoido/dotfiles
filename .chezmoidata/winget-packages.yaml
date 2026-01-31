@@ -5,7 +5,6 @@ packages:
     - "AgileBits.1Password"
     - "astral-sh.uv"
     - "AutoHotkey.AutoHotkey"
-    - "BlastApps.FluentSearch"
     - "Espanso.Espanso"
     - "Git.Git"
     - "GoLang.Go"
