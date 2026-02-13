@@ -19,19 +19,10 @@ Please perform a comprehensive code review of the current changes with the minds
    git diff
    ```
 - If there are no uncommitted changes review diff between current branch and closest immediate ancestor branch.
-   - you can find the closest ancestor branch with the following script:
-      ```sh
-      current=$(git rev-parse --abbrev-ref HEAD)
-      git for-each-ref --format='%(refname:short)' refs/heads/ | while read -r candidate; do
-         [ "$candidate" = "$current" ] && continue
-
-         if git merge-base --is-ancestor "$candidate" HEAD 2>/dev/null; then
-            distance=$(git rev-list --count "${candidate}..HEAD")
-            printf "%s %s\n" "$distance" "$candidate"
-         fi
-      done | sort -n | head -n 1 | awk '{print $2}'
+      ```zsh
+      git diff $(gBP)
       ```
-- If nothing from the above yields changes, ask for new changes to review.
+- If nothing from the above yields changes, ask user what versions to review.
 
 ## Review Focus Areas
 
