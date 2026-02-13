@@ -5,6 +5,8 @@
 - Follow "Effective Go" guidelines.
 - Follow the "Go Code Review Comments" guidelines.
 - Make sure that code uses the latest features according to the Go version in the `go.mod` file.
+   - Use <https://antonz.org/which-go/> to see what features are available in which Go versions.
+   - Use `go doc` to learn about new features and how to use them.
 
 ## Testing
 
