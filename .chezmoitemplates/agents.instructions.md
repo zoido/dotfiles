@@ -30,3 +30,7 @@
 - When one feature is split into multiple branches, use the `feature=` prefix.
   - Example: `lp/awesome-feature=refactoring-module`, `lp/awesome-feature=adding-tests`
   - Example: `z/awesome-feature=mixing-stats`, `z/awesome-feature=adding-visualizations`
+
+# Planning and Task Management Instructions
+
+- Use `tk` tool via `tk-ticket-management` skill for managing tasks and tickets.
