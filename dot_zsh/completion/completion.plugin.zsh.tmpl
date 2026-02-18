@@ -1,0 +1,3 @@
+{{- if (lookPath "pew") -}}
+source {{ output "pew" "shell_config" | trim }}
+{{- end -}}

@@ -26,6 +26,7 @@ source "${HOME}/.zgenom/zgenom.zsh"
 zgenom autoupdate --background
 
 # if the init scipt doesn't exist
+
 if ! zgenom saved; then
     echo "Creating a zgen save"
 
@@ -63,6 +64,7 @@ if ! zgenom saved; then
 
     # completions
     zgenom load zsh-users/zsh-completions src
+    zgenom load --completions "${HOME}/.zsh/completions"
 
     {{ if .wsl }}
     # wsl specific plugins
