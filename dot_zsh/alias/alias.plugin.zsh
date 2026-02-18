@@ -1,9 +1,3 @@
-alias zshconfig="${EDITOR} ${HOME}/.zshrc"
-
-
-# development conveniences
-alias gofumpt-split-lines='GOFUMPT_SPLIT_LONG_LINES="on" gofumpt -w .'
-
 #  Better ls
 if [ "$(command -v exa)" ]; then
     alias lls="$(command -v ls)"
@@ -16,9 +10,6 @@ if [ "$(command -v exa)" ]; then
     alias lt='exa --tree'
     alias llt='exa -l --tree'
 fi
-
-# utils
-alias fzb="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
 # Weather
 alias weather='curl "wttr.in/Prague?m"'
@@ -47,31 +38,6 @@ alias tfaaa="tfa --auto-approve"
 alias tfd="tf destroy"
 alias tfdaa="tfd --auto-approve"
 alias tfi="tf init"
-
-# Bazel
-alias b='bazel'
-alias bb='b build'
-alias bb.="bb '...'"
-alias bb/="bb '//...'"
-alias bt="b test --test_output=errors"
-alias bt.="bt '...'"
-alias bt/="bt '//...'"
-alias br='b run'
-alias bq='b query'
-alias bcl='b clean'
-alias bclx='bcl --expunge'
-
-alias ib='ibazel'
-
-alias ibt='ib test --test_output=errors'
-alias ibt.="ibt '...'"
-alias ibt/="ibt '//...'"
-
-alias ibb='ib build '
-alias ibb.="ibb '...'"
-alias ibb/="ibb '//...'"
-
-alias ibr="ib run"
 
 # op
 alias opsi='(umask 177 && touch $HOME/.op_session); eval $(op signin | tee $HOME/.op_session)'

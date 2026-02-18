@@ -1,20 +1,48 @@
 #!/bin/zsh
-# chezmoi version: {{ output "chezmoi" "--version" | sha256sum }}
-# gs version: {{ output "gs" "--version" | sha256sum }}
-# hatch version: {{ output "hatch" "--version" | sha256sum }}
-# helm version: {{ output "helm" "version" "--short" | sha256sum }}
-# kind version: {{ output "kind" "--version" | sha256sum }}
-# kubectl version: {{ output "kubectl" "version" "--client" | sha256sum }}
-# op version: {{ output "op" "--version" | sha256sum }}
-# uv version: {{ output "uv" "--version" | sha256sum }}
 
 mkdir -p "${HOME}/.zsh/completions"
 
+{{- if lookPath "chezmoi" }}
+# chezmoi version: {{ output "chezmoi" "--version" | sha256sum }}
 chezmoi completion zsh > "${HOME}/.zsh/completions/_chezmoi"
+{{- end }}
+
+{{- if lookPath "gs" }}
+# gs version: {{ output "gs" "--version" | sha256sum }}
 gs shell completion zsh > "${HOME}/.zsh/completions/_gs"
+{{- end }}
+
+{{- if lookPath "hatch" }}
+# hatch version: {{ output "hatch" "--version" | sha256sum }}
 _HATCH_COMPLETE=zsh_source hatch > "${HOME}/.zsh/completions/_hatch"
+{{- end }}
+
+{{- if lookPath "helm" }}
+# helm version: {{ output "helm" "version" "--short" | sha256sum }}
 helm completion zsh > "${HOME}/.zsh/completions/_helm"
+{{- end }}
+
+{{- if lookPath "kind" }}
+# kind version: {{ output "kind" "--version" | sha256sum }}
 kind completion zsh > "${HOME}/.zsh/completions/_kind"
+{{- end }}
+
+{{- if lookPath "kubectl" }}
+# kubectl version: {{ output "kubectl" "version" "--client" | sha256sum }}
 kubectl completion zsh > "${HOME}/.zsh/completions/_kubectl"
+{{- end }}
+
+{{- if lookPath "op" }}
+# op version: {{ output "op" "--version" | sha256sum }}
 op completion zsh > "${HOME}/.zsh/completions/_op"
+{{- end }}
+
+{{- if lookPath "uv" }}
+# uv version: {{ output "uv" "--version" | sha256sum }}
 uv generate-shell-completion zsh > "${HOME}/.zsh/completions/_uv"
+{{- end }}
+
+{{- if lookPath "atuin" }}
+# atuin version: {{ output "atuin" "--version" | sha256sum }}
+atuin gen-completions --shell zsh > "${HOME}/.zsh/completions/_atuin"
+{{- end }}

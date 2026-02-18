@@ -19,8 +19,17 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
 ################################################################################
+# inline tool configs
+################################################################################
+
+{{ template "zsh/atuin" . }}
+{{ template "zsh/zoxide" . }}
+
+
+################################################################################
 # zgenom
 ################################################################################
+
 ZGEN_RESET_ON_CHANGE=("${HOME}/.zshrc")
 source "${HOME}/.zgenom/zgenom.zsh"
 zgenom autoupdate --background
@@ -34,7 +43,6 @@ if ! zgenom saved; then
 
     # plugins
     zgenom oh-my-zsh plugins/aliases
-    zgenom oh-my-zsh plugins/fd
     zgenom oh-my-zsh plugins/git
     zgenom oh-my-zsh plugins/golang
     zgenom oh-my-zsh plugins/httpie
@@ -53,25 +61,20 @@ if ! zgenom saved; then
     zgenom load chmouel/zsh-select-with-lf
 
     zgenom load "${HOME}/.zsh/alias"
-    zgenom load "${HOME}/.zsh/atuin"
-    zgenom load "${HOME}/.zsh/completion"
     zgenom load "${HOME}/.zsh/fzf"
     zgenom load "${HOME}/.zsh/lf"
     zgenom load "${HOME}/.zsh/op_session"
-    zgenom load "${HOME}/.zsh/zoxide"
 
     zgenom load zsh-users/zsh-autosuggestions
-
-    # completions
-    zgenom load zsh-users/zsh-completions src
-    zgenom load --completions "${HOME}/.zsh/completions"
 
     {{ if .wsl }}
     # wsl specific plugins
     zgenom load "${HOME}/.zsh/wsl_agent_bridge"
-    zgenom load "${HOME}/.zsh/wsl_home"
     {{- end }}
 
+    # completions
+    zgenom load --completion zsh-users/zsh-completions src
+    zgenom load --completion "${HOME}/.zsh/completions"
 
     # theme
     zgenom load "${HOME}/.zsh/prompt"
@@ -79,3 +82,5 @@ if ! zgenom saved; then
     # save all to init script
     zgenom save
 fi
+
+{{ template "zsh/pew" . }}

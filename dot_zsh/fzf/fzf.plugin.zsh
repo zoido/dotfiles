@@ -10,4 +10,4 @@ export FZF_DEFAULT_OPTS="
 "
 
 [ -e /usr/share/fzf/completion.zsh ] && . /usr/share/fzf/completion.zsh
-[ ! "$(command -v atuin)" ] &&[ -e /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
+[ ! "$(command -v atuin)" ] && [ -e /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh

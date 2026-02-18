@@ -1,0 +1,4 @@
+{{- if lookPath "atuin" }}
+# atuin version: {{ output "atuin" "--version" | sha256sum }}
+{{ output "atuin" "init" "zsh" "--disable-up-arrow" }}
+{{- end }}

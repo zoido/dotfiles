@@ -1,0 +1,4 @@
+{{- if lookPath "zoxide" }}
+# zoxide version: {{ output "zoxide" "--version" | sha256sum }}
+{{ output "zoxide" "init" "zsh" }}
+{{- end }}

@@ -1,9 +1,11 @@
 #!/bin/bash
 
-set -e
-
 {{- if .wsl }}
+WIN_HOME_RAW="$(cmd.exe /c "<nul set /p=%UserProfile%" 2>/dev/null)"
+WIN_HOME="$(wslpath $WIN_HOME_RAW)"
+set -e
 "${WIN_HOME}/AppData/Local/Microsoft/WindowsApps/op-ssh-sign-wsl.exe" "$@"
 {{- else }}
+set -e
 op-ssh-sign "$@"
 {{- end }}
