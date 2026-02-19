@@ -19,14 +19,6 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
 ################################################################################
-# inline tool configs
-################################################################################
-
-{{ template "zsh/atuin" . }}
-{{ template "zsh/zoxide" . }}
-
-
-################################################################################
 # zgenom
 ################################################################################
 
@@ -83,4 +75,12 @@ if ! zgenom saved; then
     zgenom save
 fi
 
+################################################################################
+# inline tool configs
+################################################################################
+
+{{ template "zsh/atuin" . }}
 {{ template "zsh/pew" . }}
+{{ template "zsh/zoxide" . }}
+
+[ "$(command -v gs)" ] && complete -C gs gs

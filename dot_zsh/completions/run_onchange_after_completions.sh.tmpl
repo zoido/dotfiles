@@ -7,11 +7,6 @@ mkdir -p "${HOME}/.zsh/completions"
 chezmoi completion zsh > "${HOME}/.zsh/completions/_chezmoi"
 {{- end }}
 
-{{- if lookPath "gs" }}
-# gs version: {{ output "gs" "--version" | sha256sum }}
-gs shell completion zsh > "${HOME}/.zsh/completions/_gs"
-{{- end }}
-
 {{- if lookPath "hatch" }}
 # hatch version: {{ output "hatch" "--version" | sha256sum }}
 _HATCH_COMPLETE=zsh_source hatch > "${HOME}/.zsh/completions/_hatch"
