@@ -1,5 +1,0 @@
-[General]
-  snippetfile = "~/.config/pet/snippet.toml"
-  selectcmd = "fzf"
-  editor = "vim"
-
