@@ -1,0 +1,25 @@
+# Pager settings
+set -gx LESS '-M -i -R'
+set -gx LESSCHARSET utf-8
+set -gx LESSHISTSIZE 1000
+set -gx PAGER less
+set -gx EDITOR helix
+set -gx MANPAGER $PAGER
+{{- if .wsl }}
+set -gx BROWSER wsl-open
+{{- end }}
+
+if command -q ov
+    set -gx PAGER ov
+    set -gx MANPAGER $PAGER
+end
+
+# PATH
+fish_add_path --path "$HOME/go/bin"
+fish_add_path --path "$HOME/bin"
+fish_add_path --path "$HOME/.local/bin"
+fish_add_path --path --append /sbin
+fish_add_path --path --append "$HOME/.krew/bin"
+
+# Locale
+set -gx LANG en_US.UTF-8

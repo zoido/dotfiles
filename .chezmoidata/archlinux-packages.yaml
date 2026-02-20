@@ -13,6 +13,7 @@ packages:
   - dust
   - exa
   - fd
+  - fish
   - fx
   - fzf
   - github-cli
@@ -20,6 +21,7 @@ packages:
   - go
   - gping
   - grpc_cli
+  - helix
   - helm
   - hexyl
   - htop

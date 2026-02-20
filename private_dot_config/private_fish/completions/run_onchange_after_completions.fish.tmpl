@@ -1,0 +1,49 @@
+#!/usr/bin/env fish
+
+set -l completions_dir "$HOME/.config/fish/completions"
+mkdir -p "$completions_dir"
+
+{{- if lookPath "chezmoi" }}
+# chezmoi version: {{ output "chezmoi" "--version" | sha256sum }}
+chezmoi completion fish > "$completions_dir/chezmoi.fish"
+{{- end }}
+
+{{- if lookPath "hatch" }}
+# hatch version: {{ output "hatch" "--version" | sha256sum }}
+_HATCH_COMPLETE=fish_source hatch > "$completions_dir/hatch.fish"
+{{- end }}
+
+{{- if lookPath "helm" }}
+# helm version: {{ output "helm" "version" "--short" | sha256sum }}
+helm completion fish > "$completions_dir/helm.fish"
+{{- end }}
+
+{{- if lookPath "kind" }}
+# kind version: {{ output "kind" "--version" | sha256sum }}
+kind completion fish > "$completions_dir/kind.fish"
+{{- end }}
+
+{{- if lookPath "kubectl" }}
+# kubectl version: {{ output "kubectl" "version" "--client" | sha256sum }}
+kubectl completion fish > "$completions_dir/kubectl.fish"
+{{- end }}
+
+{{- if lookPath "op" }}
+# op version: {{ output "op" "--version" | sha256sum }}
+op completion fish > "$completions_dir/op.fish"
+{{- end }}
+
+{{- if lookPath "uv" }}
+# uv version: {{ output "uv" "--version" | sha256sum }}
+uv generate-shell-completion fish > "$completions_dir/uv.fish"
+{{- end }}
+
+{{- if lookPath "atuin" }}
+# atuin version: {{ output "atuin" "--version" | sha256sum }}
+atuin gen-completions --shell fish > "$completions_dir/atuin.fish"
+{{- end }}
+
+{{- if lookPath "gs" }}
+# gs version: {{ output "gs" "--version" | sha256sum }}
+gs shell completion fish > "$completions_dir/gs.fish"
+{{- end }}
