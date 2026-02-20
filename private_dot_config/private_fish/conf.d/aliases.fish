@@ -42,8 +42,3 @@ alias kube='kubectl'
 alias k='kubectl'
 alias kctx='kubectx'
 alias kns='kubens'
-
-# Git
-alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
-alias gFC='git-fullclean'
-alias g-='git switch -'

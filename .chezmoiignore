@@ -1,3 +1,4 @@
+AGENTS.md
 README.md
 bootstrap.sh
 bootstrap.bat
@@ -24,3 +25,4 @@ AppData
 !.wslconfig
 !AppData
 {{- end }}
+l
