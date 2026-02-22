@@ -17,4 +17,6 @@ if status is-interactive
 
     bind ctrl-alt-left 'prevd' repaint
     bind ctrl-alt-right 'nextd' repaint
+
+
 end

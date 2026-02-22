@@ -1,3 +1,6 @@
+alias md='mkdir -p'
+alias rd='rmdir'
+
 # Better ls with exa
 if command -q exa
     alias lls=(command -v ls)
