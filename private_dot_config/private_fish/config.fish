@@ -14,4 +14,7 @@ if status is-interactive
     if command -q lf
         bind \co 'set old_tty (stty -g); stty sane; lfcd; stty $old_tty; commandline -f repaint'
     end
+
+    bind ctrl-alt-left 'prevd' repaint
+    bind ctrl-alt-right 'nextd' repaint
 end
