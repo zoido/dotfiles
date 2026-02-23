@@ -1,5 +1,6 @@
 alias md='mkdir -p'
 alias rd='rmdir'
+alias hx='helix'
 
 # Better ls with exa
 if command -q exa
