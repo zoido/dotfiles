@@ -22,6 +22,5 @@ if status is-interactive
 end
 
 if command -q "/usr/sbin/wsl2-ssh-agent"
-    /usr/sbin/wsl2-ssh-agent &> /dev/null
-    set SH_AUTH_SOCK "$HOME/.ssh/wsl2-ssh-agent.sock"
+    /usr/sbin/wsl2-ssh-agent | source
 end
