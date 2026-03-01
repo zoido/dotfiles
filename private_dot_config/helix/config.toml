@@ -1,0 +1,10 @@
+theme = "monokai_pro_octagon"
+
+[editor]
+true-color = true
+cursorline = true
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+
