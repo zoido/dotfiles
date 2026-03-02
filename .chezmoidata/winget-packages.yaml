@@ -8,6 +8,7 @@ packages:
     - "Espanso.Espanso"
     - "Git.Git"
     - "GoLang.Go"
+    - "Helix.Helix"
     - "M2Team.NanaZip"
     - "Microsoft.PowerToys"
     - "Microsoft.VisualStudioCode.CLI"
