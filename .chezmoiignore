@@ -17,6 +17,7 @@ AppData
 
 {{- if eq .chezmoi.os "windows" }}
 *
+!.config/helix
 !.copilot
 !.gitconfig
 !.install
@@ -25,4 +26,3 @@ AppData
 !.wslconfig
 !AppData
 {{- end }}
-l
