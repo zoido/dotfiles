@@ -8,3 +8,6 @@ cursorline = true
 focus-lost = true
 after-delay.enable = true
 
+[keys.normal]
+"[" = { "[" = "select_prev_sibling" }
+"]" = { "]" = "select_next_sibling" }
