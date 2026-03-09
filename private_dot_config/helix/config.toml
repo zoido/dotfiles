@@ -3,6 +3,8 @@ theme = "monokai_pro_octagon"
 [editor]
 color-modes = true
 cursorline = true
+rulers = [80, 100, 120]
+trim-trailing-whitespace = true
 true-color = true
 
 [editor.auto-save]
