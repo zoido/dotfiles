@@ -1,4 +1,8 @@
+
+[[language]]
+name = "go"
+rulers = [100]
+
 [language-server.gopls.config]
 gofumpt = true
-rulers = [100]
 "ui.diagnostic.staticcheck" = true
