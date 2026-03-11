@@ -4,7 +4,6 @@ packages:
   - atuin
   - aws-cli-v2
   - bat
-  - diff-so-fancy
   - difftastic
   - dive
   - docker
@@ -17,6 +16,7 @@ packages:
   - fisher
   - fx
   - fzf
+  - git-delta
   - github-cli
   - gitu
   - go

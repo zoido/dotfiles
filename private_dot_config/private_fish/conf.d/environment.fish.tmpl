@@ -5,6 +5,7 @@ set -gx LESSHISTSIZE 1000
 set -gx PAGER less
 set -gx EDITOR helix
 set -gx MANPAGER $PAGER
+set -gx DELTA_PAGER less
 {{- if .wsl }}
 set -gx BROWSER wsl-open
 {{- end }}

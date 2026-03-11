@@ -54,7 +54,7 @@
     verbose = true
 
 [core]
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
 
     {{- if ne .chezmoi.os "windows" }}
     autocrlf = input
@@ -73,6 +73,9 @@
     sshCommand = "C:\\\\Windows\\\\System32\\\\OpenSSH\\\\ssh"
     {{- end }}
 
+[delta]
+    navigate = true
+    syntax-theme = "Monokaj Extended"
 
 [diff]
     tool = difftastic
@@ -87,7 +90,7 @@
     prompt = false
 
 [difftool "difftastic"]
-        cmd = difft "$LOCAL" "$REMOTE"
+    cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
 
 [fetch]
     prune = true
@@ -106,6 +109,9 @@
 
 [init]
     defaultBranch = main
+
+[interactive]
+    diffFilter = delta --color-only
 
 [merge]
     conflictstyle = zdiff3

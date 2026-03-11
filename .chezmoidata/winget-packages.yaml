@@ -5,6 +5,7 @@ packages:
     - "AgileBits.1Password"
     - "astral-sh.uv"
     - "AutoHotkey.AutoHotkey"
+    - "dandavison.delta"
     - "Espanso.Espanso"
     - "Git.Git"
     - "GoLang.Go"
