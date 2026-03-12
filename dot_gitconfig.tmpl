@@ -75,16 +75,19 @@
 
 [delta]
     navigate = true
-    syntax-theme = "Monokaj Extended"
+    map-styles = bold purple => syntax magenta, bold cyan => syntax blue
+    plus-style = "syntax darkgreen"
+    plus-emph-style = "auto auto"
 
 [diff]
     tool = difftastic
 
     algorithm = histogram
-    colorMoved = plain
     mnemonicPrefix = true
 	renames = copies
     indentHeuristic = true
+
+    colorMoved = default
 
 [difftool]
     prompt = false
