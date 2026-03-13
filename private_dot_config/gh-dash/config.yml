@@ -1,0 +1,21 @@
+pager:
+  diff: diffnav
+
+defaults:
+  preview:
+    open: false
+
+prSections:
+  - title: My
+    filters: is:open author:@me
+  - title: Review Requested
+    filters: is:open review-requested:@me
+
+repoPaths:
+  h2oai/*: ~/dev/h2o.ai/*
+  zoido/*: ~/dev/zoido/*
+
+keybindings:
+  prs:
+    - key: T
+      command: gh enhance -R {{.RepoName}} {{.PrNumber}}

@@ -4,6 +4,7 @@ packages:
   - atuin
   - aws-cli-v2
   - bat
+  - diffnav
   - difftastic
   - dive
   - docker
@@ -64,4 +65,3 @@ packages:
   - yq
   - zellij
   - zoxide
-  - zsh
