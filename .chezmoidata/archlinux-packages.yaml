@@ -47,6 +47,7 @@ packages:
   - reflector
   - ripgrep
   - s3cmd
+  - hx-lsp
   - skaffold
   - socat
   - starship

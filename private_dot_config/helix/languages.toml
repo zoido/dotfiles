@@ -1,5 +1,8 @@
+[language-server.hx-lsp]
+command = "hx-lsp"
 
 [[language]]
+language-servers = ["hx-lsp", "gopls"]
 name = "go"
 rulers = [100]
 
