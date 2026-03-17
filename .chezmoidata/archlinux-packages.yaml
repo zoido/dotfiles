@@ -27,6 +27,7 @@ packages:
   - helm
   - hexyl
   - htop
+  - hx-lsp
   - hyperfine
   - jq
   - k9s
@@ -48,7 +49,6 @@ packages:
   - reflector
   - ripgrep
   - s3cmd
-  - hx-lsp
   - skaffold
   - socat
   - starship
@@ -61,6 +61,7 @@ packages:
   - viddy
   - vim
   - wget
+  - worktrunk
   - xdg-util
   - yq
   - zellij
