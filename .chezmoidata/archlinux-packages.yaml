@@ -59,7 +59,6 @@ packages:
   - unzip
   - uv
   - viddy
-  - vim
   - wget
   - worktrunk
   - xdg-util

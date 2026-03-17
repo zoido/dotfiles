@@ -69,7 +69,6 @@ alias gmc='git merge --continue'
 alias gms='git merge --squash'
 alias gmff='git merge --ff-only'
 alias gmtl='git mergetool --no-prompt'
-alias gmtlvim='git mergetool --no-prompt --tool=vimdiff'
 
 # Pull
 alias gl='git pull'

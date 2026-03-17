@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# hash: {{ include "dot_vundle.vim" | sha256sum }}
-
-[ -d ${HOME}/.vim/bundle/Vundle.vim ] || git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
-vim -u "${HOME}/.vundle.vim" +PluginInstall +qall || true
