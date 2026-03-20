@@ -1,10 +1,6 @@
 pager:
   diff: diffnav
 
-defaults:
-  preview:
-    open: false
-
 prSections:
   - title: My
     filters: is:open author:@me
@@ -17,5 +13,11 @@ repoPaths:
 
 keybindings:
   prs:
-    - key: T
+    - key: t
       command: gh enhance -R {{.RepoName}} {{.PrNumber}}
+    - key: v
+      command: gh pr view {{.PrNumber}} --repo {{.RepoName}} --web
+    - key: A
+      builtin: approve
+    - key: M
+      command: gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
