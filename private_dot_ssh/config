@@ -1,7 +1,13 @@
-# Git ########################################################################
+
+Host cetus
+    HostName localhost
+    User zoid
+    Port 2222
+    ProxyJump lubos@10.2.10.120:22
+    ForwardAgent yes
 
 # Set alternative access for Git repos for the environments where normal SSH
-# is blocked.
+# is blocked
 
 Host github.com
     Hostname ssh.github.com
