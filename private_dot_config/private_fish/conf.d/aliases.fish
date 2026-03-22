@@ -46,3 +46,9 @@ alias kube='kubectl'
 alias k='kubectl'
 alias kctx='kubectx'
 alias kns='kubens'
+
+# Worktrunk
+alias wts='wt switch'
+alias wtc='wts --create'
+alias wto='wts --execute=opencode'
+alias wtco='wtc --execute=opencode'
