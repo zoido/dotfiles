@@ -1,4 +1,9 @@
 {
   "small_model": "github-copilot/claude-haiku-4.5",
+  "permission": {
+    "external_directory": {
+      "~/dev/*/.worktrees/*": "allow"
+    }
+  },
   "$schema": "https://opencode.ai/config.json"
 }
