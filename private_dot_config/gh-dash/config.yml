@@ -14,10 +14,8 @@ repoPaths:
 keybindings:
   prs:
     - key: t
+      name: Actions
       command: gh enhance -R {{.RepoName}} {{.PrNumber}}
-    - key: v
-      command: gh pr view {{.PrNumber}} --repo {{.RepoName}} --web
-    - key: A
-      builtin: approve
     - key: M
+      name: Auto Merge
       command: gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
