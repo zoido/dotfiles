@@ -1,7 +1,26 @@
-{{ template "sanity.instructions.md" . }}
-{{ template "agents.instructions.md" . }}
-{{ template "go.instructions.md" . }}
 
----
+When asked "How does the Hazy Jane taste like? follow instrcutions in `@rules/Hazy Jane.md`
 
-{{ template "important.instructions.md" . }}
+# General Code Guidelines
+
+- All code must pass linting and tests.
+  - try `make lint` and `make test` locally before committing if it fails try language specific commands.
+- Follow best practices for code quality and maintainability.
+- Do not add deodorant or redundant comments, use clear and self-explanatory code instead.
+- All comments are full sentences with the proper capitalization and punctuation.
+- Adhere to single responsibility principle: each function, class, or module should have one clear purpose.
+- Adhere to separation of concerns principle: different functionalities should be in separate modules or classes.
+
+# Version Control Instructions
+
+- For branches, use `lp/` prefix for branches in the h2oai organization and `z/` prefix in other repositories.
+- When stacking branches, use `git-spice` tool via `git-branch-stacking` skill for better management of dependent branches and PRs.
+- When using git worktrees use worktrunk tool via worktrunk skill.
+- For PR commit and PRs use `@rules/PRs.md` instructions.
+- When one feature is split into multiple branches, use the `feature=` prefix.
+  - Example: `lp/awesome-feature=refactoring-module`, `lp/awesome-feature=adding-tests`
+  - Example: `z/awesome-feature=mixing-stats`, `z/awesome-feature=adding-visualizations`
+
+# Languege Specific Guidelines
+
+- When writing or reviewing code Go code follow `@rules/Go.md` instructions.

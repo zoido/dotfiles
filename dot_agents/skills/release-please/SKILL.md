@@ -12,7 +12,7 @@ This skill allows you to release new versions in the git/Github repository, if i
 - Make sure that that there is a Pull Request with the label `autorelease: pending` in the repository. This means that there is a new version ready to be released.
 - If there are multiple Pull Requests with the label `autorelease: pending`, ask user to select the one they want to release. User should be able to select multiple.
 - For each selected Pull Request,
-  - Checkout the branch to the worktree. Do not switch the current branch, but create a new worktree for the branch. This allows us to release multiple versions in parallel if needed.
+  - Checkout the branch to the worktree. Do not switch the current branch, but create a new worktree (use worktrunk skill) for the branch. This allows us to release multiple versions in parallel if needed.
   - Pull the latest changes.
   - Make sure that the branch is up to date with the base branch. If not, ask user if they want to update the branch.
 - Then on each branch, do the following steps to release the new version:

@@ -5,8 +5,8 @@
 - Follow "Effective Go" guidelines.
 - Follow the "Go Code Review Comments" guidelines.
 - Make sure that code uses the latest features according to the Go version in the `go.mod` file.
-   - Use <https://antonz.org/which-go/> to see what features are available in which Go versions.
-   - Use `go doc` to learn about new features and how to use them.
+  - Use <https://antonz.org/which-go/> to see what features are available in which Go versions.
+  - Use `go doc` to learn about new features and how to use them.
 
 ## Testing
 
@@ -18,15 +18,18 @@
   - When: Execute the code under test.
   - Then: Verify the results.
   - Example:
-    ```
-    func Test(t *testing.T)
-	  // Given
 
-	  // When
+    ```go
+    func Test(t *testing.T) {
+      // Given
 
-	  // Then
+      // When
+
+      // Then
     }
-  ```
+
+    ```
+
 - Assertions:
   - Use the `testify` package for assertions.
     - Prefer `require` for critical assertions that should stop the test immediately.
@@ -36,26 +39,27 @@
   - Do not call `t.Helper()` when the function does not fail the test, or does not call another function that fails the test.
 - Prefer table-driven tests when multiple test cases are needed.
   - Use this structure for table-driven tests:
-    ```
-      func Test(t *testing.T) {
-        type testCase struct {}
 
-        run := func(t *testing.T, tc testCase) {
-          // Given
+    ```go
+    func Test(t *testing.T) {
+      type testCase struct {}
 
-          // When
+      run := func(t *testing.T, tc testCase) {
+        // Given
 
-          // Then
-        }
+        // When
 
-        testCases := map[string]testCase{
-          "": {},
-        }
-
-        for name, tc := range testCases {
-          t.Run(name, func(t *testing.T) { run(t, tc) })
-        }
+        // Then
       }
+
+      testCases := map[string]testCase{
+        "": {},
+      }
+
+      for name, tc := range testCases {
+        t.Run(name, func(t *testing.T) { run(t, tc) })
+      }
+    }
     ```
 
 ## Reviews
