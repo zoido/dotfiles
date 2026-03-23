@@ -5,6 +5,7 @@ alias g='git'
 alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
 alias gFC='git-fullclean'
 alias g-='git switch -'
+alias gRP='git reset (gBP)'
 
 # Add
 alias ga='git add'

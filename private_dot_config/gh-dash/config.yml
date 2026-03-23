@@ -13,9 +13,17 @@ repoPaths:
 
 keybindings:
   prs:
-    - key: t
+    - key: T
       name: Actions
       command: gh enhance -R {{.RepoName}} {{.PrNumber}}
     - key: M
       name: Auto Merge
       command: gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
+    - key: B
+      name: New Branch
+      command: >
+        zellij run -- wt -C {{.RepoPath}} switch lp/review/{{.HeadRefName}} --create --base {{.HeadRefName}}
+    - key: Z
+      name:
+      command: >
+        zellij run -- wt -C {{.RepoPath}} switch lp/review/{{.HeadRefName}} -x fish
