@@ -1,7 +1,7 @@
 *
 
 {{- if .archlinux }}
-!install-arch-packages.sh
+!install-archlinux-packages.sh
 {{- end }}
 
 {{- if .codespaces }}
