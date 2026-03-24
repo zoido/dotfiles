@@ -9,6 +9,7 @@ packages:
   - dive
   - docker
   - docker-buildx
+  - dog
   - duf
   - dust
   - exa
