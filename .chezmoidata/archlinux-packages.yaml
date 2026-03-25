@@ -30,6 +30,7 @@ packages:
   - htop
   - hx-lsp
   - hyperfine
+  - jo
   - jq
   - k9s
   - kubectl
