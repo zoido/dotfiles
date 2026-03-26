@@ -49,6 +49,9 @@ alias kns='kubens'
 
 # Worktrunk
 alias wts='wt switch'
+alias wtm='wtm switch (git_main_branch)'
 alias wtc='wts --create'
+alias wtcm='wts --create --base (git_current_branch)'
 alias wto='wts --execute=opencode'
 alias wtco='wtc --execute=opencode'
+alias wtcmo='wtc --base (git_current_branch) --execute=opencode'
