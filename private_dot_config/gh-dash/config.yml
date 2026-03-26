@@ -20,10 +20,14 @@ keybindings:
       name: Auto Merge
       command: gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
     - key: B
-      name: New Branch
+      name: Create Review Branch
       command: >
         zellij run -- wt -C {{.RepoPath}} switch lp/review/{{.HeadRefName}} --create --base {{.HeadRefName}}
+    - key: z
+      name: New pane with pr
+      command: >
+        zellij run -- wt -C {{.RepoPath}} switch pr:{{.PrNumber}} -x fish
     - key: Z
-      name:
+      name: New pane with review branch
       command: >
         zellij run -- wt -C {{.RepoPath}} switch lp/review/{{.HeadRefName}} -x fish
