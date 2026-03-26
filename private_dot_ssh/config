@@ -1,9 +1,14 @@
 
-Host cetus
+Host cetus-wsl
     HostName localhost
     User zoid
     Port 2222
-    ProxyJump lubos@10.2.10.120:22
+    ProxyJump cetus-win
+    ForwardAgent yes
+
+Host cetus-win
+    HostName 10.2.10.120
+    User lubos
     ForwardAgent yes
 
 # Set alternative access for Git repos for the environments where normal SSH
