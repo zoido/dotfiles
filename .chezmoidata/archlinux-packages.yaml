@@ -59,6 +59,7 @@ packages:
   - tfswitch
   - traefik
   - unzip
+  - urlscan
   - uv
   - viddy
   - wget
