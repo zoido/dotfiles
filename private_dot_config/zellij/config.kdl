@@ -378,4 +378,17 @@ keybinds clear-defaults=true {
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
+
+    // Custom keybindings.
+    normal {
+        bind "Alt u" {
+            DumpScreen "/tmp/zellij-screen-dump";
+            Run "urlscan" "/tmp/zellij-screen-dump" {
+                floating true
+                move_to_focused_tab true
+                close_on_exit true
+            };
+            SwitchToMode "locked";
+        }
+    }
 }
