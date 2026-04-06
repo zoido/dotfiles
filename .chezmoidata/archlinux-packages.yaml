@@ -3,24 +3,24 @@ packages:
   - aria2
   - atuin
   - aws-cli-v2
-  - bat
+  - bat # A cat clone with syntax highlighting and Git integration.
   - diffnav
-  - difftastic
-  - dive
+  - difftastic # A structural diff tool that understands syntax and semantics of code.
+  - dive # A tool for exploring each layer in a Docker image.
   - docker
   - docker-buildx
   - dog
-  - duf
-  - dust
-  - exa
-  - fd
+  - duf # A disk usage utility written in Rust.
+  - dust # A more intuitive version of 'du' in Rust.
+  - exa # A modern replacement for 'ls'.
+  - fd # A simple, fast and user-friendly alternative to 'find'.
   - fish
-  - fisher
-  - fx
+  - fisher # A plugin manager for the Fish shell.
+  - fx # A tool for exploring and analyzing JSON data in the terminal.
   - fzf
-  - git-delta
+  - git-delta # A syntax-highlighting pager for git and diff output.
   - github-cli
-  - gitu
+  - gitu # Magit like interface for git in the terminal.
   - go
   - gping
   - grpc_cli
@@ -28,9 +28,9 @@ packages:
   - helm
   - hexyl
   - htop
-  - hx-lsp
-  - hyperfine
-  - jo
+  - hx-lsp # Snippets LSP for Helix.
+  - hyperfine # A command-line benchmarking tool.
+  - jo # Build JSON objects from the command line.
   - jq
   - k9s
   - kubectl
@@ -39,29 +39,30 @@ packages:
   - lazygit
   - libqalculate
   - man-db
-  - markdown-oxide
+  - markdown-oxide  # LSP for markdown files.
   - mc
   - most
   - openssh
-  - peco
+  - peco  # A command-line interactive filtering tool.
   - procs
   - protobuf
   - python
   - python-pip
   - reflector
-  - ripgrep
+  - ripgrep # Grep but faster.
   - s3cmd
+  - sabiql # Interactive wrapper around psql.
   - skaffold
   - socat
-  - starship
+  - starship # Prompt.
   - step-cli
   - terraform
   - tfswitch
   - traefik
   - unzip
-  - urlscan
+  - urlscan  # Read and interactively open explore URLs in the text.
   - uv
-  - viddy
+  - viddy  # Like 'watch' but with a nice UI and more features.
   - wget
   - worktrunk
   - xdg-util
