@@ -13,6 +13,7 @@ packages:
   - "github.com/muandane/goji@latest" # goji is a tool for generating and validating conventional commit messages.
   - "github.com/noborus/ov@latest" # ov is a pager for viewing large files in the terminal.
   - "github.com/pranshuparmar/witr/cmd/witr@latest" # Why is this running?
+  - "github.com/robinovitch61/kl@latest" # kl is an interactive Kubernetes log viewer for your terminal.
   - "github.com/stern/stern@latest" # stern is a tool for tailing multiple pods and containers in Kubernetes.
   - "github.com/terraform-docs/terraform-docs@latest" # terraform-docs is a tool for generating documentation for Terraform modules.
   - "go.abhg.dev/gs@latest" # gs is git tool for managing stacked branches and PRs.
