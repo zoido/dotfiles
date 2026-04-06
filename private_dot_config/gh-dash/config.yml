@@ -22,12 +22,12 @@ keybindings:
     - key: B
       name: Create Review Branch
       command: >
-        zellij run -- wt -C {{.RepoPath}} switch lp/review/{{.HeadRefName}} --create --base {{.HeadRefName}}
+        zellij run -c --cwd "{{.RepoPath}}" -- wt switch lp/review/{{.HeadRefName}} --create --base {{.HeadRefName}}
     - key: z
-      name: New pane with pr
+      name: PR Shell
       command: >
-        zellij run -- wt -C {{.RepoPath}} switch pr:{{.PrNumber}} -x fish
+        zellij run -c --cwd {{.RepoPath}} -- wt switch pr:{{.PrNumber}} -x fish
     - key: Z
-      name: New pane with review branch
+      name: Review Branch Shell
       command: >
-        zellij run -- wt -C {{.RepoPath}} switch lp/review/{{.HeadRefName}} -x fish
+        zellij run -c --cwd {{.RepoPath}} -- wt switch lp/review/{{.HeadRefName}} -x fish
