@@ -17,7 +17,7 @@ Based on the input provided, determine which type of review to perform:
 1. **No arguments (default)**:
    - Run: `git diff --cached` for staged changes and review only those if they exist.
    - Run: `git diff` for uncommitted  and `git status --short` to identify untracked (net new) files if there are no staged changes. Review those if they exist.
-   - If neither of the above yields changes, run `git diff $(gBP)` to compare the current branch to its closest immediate ancestor branch and review those changes if they exist.
+   - If neither of the above yields changes, run `fish -c "git diff (gBP)"` to compare the current branch to its closest immediate ancestor branch and review those changes if they exist.
 
 2. **Commit hash** (40-char SHA or short hash): Review that specific commit
    - Run: `git show $ARGUMENTS`
