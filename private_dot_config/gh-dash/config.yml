@@ -19,15 +19,8 @@ keybindings:
     - key: M
       name: Auto Merge
       command: gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
-    - key: B
-      name: Create Review Branch
-      command: >
-        zellij run -c --cwd "{{.RepoPath}}" -- wt switch lp/review/{{.HeadRefName}} --create --base {{.HeadRefName}}
-    - key: z
-      name: PR Shell
-      command: >
-        zellij run -c --cwd {{.RepoPath}} -- wt switch pr:{{.PrNumber}} -x fish
     - key: Z
       name: Review Branch Shell
       command: >
-        zellij run -c --cwd {{.RepoPath}} -- wt switch lp/review/{{.HeadRefName}} -x fish
+        wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} &> /dev/null;
+        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish"
