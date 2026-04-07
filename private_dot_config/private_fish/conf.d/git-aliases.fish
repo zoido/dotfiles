@@ -43,6 +43,16 @@ alias gcsm='git commit --signoff --message'
 # Config
 alias gcf='git config --list'
 
+# Diff
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias gdcw='git diff --cached --word-diff'
+alias gds='git diff --staged'
+alias gdw='git diff --word-diff'
+alias gdup='git diff @{upstream}'
+alias gdnolock='git diff $argv ":(exclude)package-lock.json" ":(exclude)*.lock"'
+alias gdt='git diff-tree --no-commit-id --name-only -r'
+
 # Fetch
 alias gf='git fetch'
 alias gfa='git fetch --all --tags --prune --jobs=10'
