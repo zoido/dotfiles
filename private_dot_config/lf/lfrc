@@ -15,12 +15,6 @@ cmd zi ${{
 }}
 
 
-# Use exa for file info.
-cmd on-select &{{
-    lf -remote "send $id set statfmt \"$(exa -ld --color=always "$f")\""
-}}
-
-
 # Git commands.
 cmd git_branch ${{
     git branch | fzf | xargs git checkout
