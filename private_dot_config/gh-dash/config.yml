@@ -19,6 +19,10 @@ keybindings:
     - key: M
       name: Auto Merge
       command: gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
+    - key: z
+      name: PR Branch Shell
+      command: >
+        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch {{.HeadRefName}} -x fish"
     - key: Z
       name: Review Branch Shell
       command: >
