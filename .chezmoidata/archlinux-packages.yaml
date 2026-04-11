@@ -5,6 +5,7 @@ packages:
   - aws-cli-v2
   - bash-language-server # LSP for bash scripts.
   - bat # A cat clone with syntax highlighting and Git integration.
+  - codebook-lsp # LSP spellchecker.
   - diffnav
   - difftastic # A structural diff tool that understands syntax and semantics of code.
   - dive # A tool for exploring each layer in a Docker image.

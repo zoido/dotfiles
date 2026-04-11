@@ -1,10 +1,17 @@
+# General use language servers.
 [language-server.hx-lsp]
 command = "hx-lsp"
+
+[language-server.codebook]
+args = ["serve"]
+command = "codebook-lsp"
+
+# Go.
 
 [[language]]
 auto-format = true
 formatter = {command = "gofumpt"}
-language-servers = ["hx-lsp", "gopls"]
+language-servers = ["hx-lsp", "codebook", "gopls"]
 name = "go"
 rulers = [100]
 
@@ -14,9 +21,17 @@ staticcheck = true
 "ui.diagnostic.staticcheck" = true
 usePlaceholders = true
 
+# Typst.
+
 [language-server.tinymist]
 command = "tinymist"
 
 [[language]]
-language-servers = ["hx-lsp", "tinymist"]
+language-servers = ["hx-lsp", "codebook", "tinymist"]
 name = "typst"
+
+# Markdown.
+
+[[language]]
+language-servers = ["codebook", "hx-lsp", "marksman", "markdown-oxide"]
+name = "markdown"
