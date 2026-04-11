@@ -7,7 +7,6 @@ args = ["serve"]
 command = "codebook-lsp"
 
 # Go.
-
 [[language]]
 auto-format = true
 formatter = {command = "gofumpt"}
@@ -22,7 +21,6 @@ staticcheck = true
 usePlaceholders = true
 
 # Typst.
-
 [language-server.tinymist]
 command = "tinymist"
 
@@ -31,7 +29,6 @@ language-servers = ["hx-lsp", "codebook", "tinymist"]
 name = "typst"
 
 # Markdown.
-
 [[language]]
 language-servers = ["codebook", "hx-lsp", "marksman", "markdown-oxide"]
 name = "markdown"
