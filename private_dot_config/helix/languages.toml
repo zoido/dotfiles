@@ -2,10 +2,21 @@
 command = "hx-lsp"
 
 [[language]]
+auto-format = true
+formatter = {command = "gofumpt"}
 language-servers = ["hx-lsp", "gopls"]
 name = "go"
 rulers = [100]
 
 [language-server.gopls.config]
 gofumpt = true
+staticcheck = true
 "ui.diagnostic.staticcheck" = true
+usePlaceholders = true
+
+[language-server.tinymist]
+command = "tinymist"
+
+[[language]]
+language-servers = ["hx-lsp", "tinymist"]
+name = "typst"

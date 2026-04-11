@@ -3,6 +3,7 @@ packages:
   - aria2
   - atuin
   - aws-cli-v2
+  - bash-language-server # LSP for bash scripts.
   - bat # A cat clone with syntax highlighting and Git integration.
   - diffnav
   - difftastic # A structural diff tool that understands syntax and semantics of code.
@@ -15,6 +16,7 @@ packages:
   - exa # A modern replacement for 'ls'.
   - fd # A simple, fast and user-friendly alternative to 'find'.
   - fish
+  - fish-lsp # LSP for Fish shell scripts.
   - fisher # A plugin manager for the Fish shell.
   - fx # A tool for exploring and analyzing JSON data in the terminal.
   - fzf
@@ -22,14 +24,18 @@ packages:
   - github-cli
   - gitu # Magit like interface for git in the terminal.
   - go
+  - golangci-lint-langserver # LSP for golangci-lint.
+  - gopls # LSP for Go files.
   - gping
   - grpc_cli
   - helix
   - helm
+  - helm-ls # LSP for helm charts.
   - hexyl
   - htop
   - hx-lsp # Snippets LSP for Helix.
   - hyperfine # A command-line benchmarking tool.
+  - jedi-language-serve # Language server for jedi that is Python autocomplete.
   - jo # Build JSON objects from the command line.
   - jq
   - k9s
@@ -39,13 +45,15 @@ packages:
   - lazygit
   - libqalculate
   - man-db
-  - markdown-oxide  # LSP for markdown files.
+  - markdown-oxide # LSP for markdown PKMs
+  - marksman # LSP for markdown files.
   - mc
   - most
   - openssh
-  - peco  # A command-line interactive filtering tool.
+  - peco # A command-line interactive filtering tool.
   - procs
   - protobuf
+  - protols # LSP for protobuf files.
   - python
   - python-pip
   - reflector
@@ -56,16 +64,23 @@ packages:
   - socat
   - starship # Prompt.
   - step-cli
+  - systemd-lsp # LSP for systemd unit files.
+  - taplo-cli # LSP for TOML files.
   - terraform
   - tfswitch
+  - tinymist # LSP for typst
+  - tombi # TOML formatter and linter.
   - traefik
+  - ty # Python type checker and language server
+  - typst
   - unzip
-  - urlscan  # Read and interactively open explore URLs in the text.
+  - urlscan # Read and interactively open explore URLs in the text.
   - uv
-  - viddy  # Like 'watch' but with a nice UI and more features.
+  - viddy # Like 'watch' but with a nice UI and more features.
   - wget
   - worktrunk
   - xdg-util
+  - yaml-language-server # LSP for YAML files.
   - yq
   - zellij
   - zoxide

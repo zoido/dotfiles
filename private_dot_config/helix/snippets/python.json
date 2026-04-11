@@ -1,0 +1,12 @@
+{
+  "private property argument assignment": {
+    "prefix": "s_",
+    "body": ["self._$1 = $1"],
+    "description": "private property argument assignment used in __init__"
+  },
+  "Debug print()": {
+    "prefix": "debug",
+    "body": ["print(\">\" * 15, $1)  # XXX"],
+    "description": "Print line with >>>… prefix"
+  }
+}

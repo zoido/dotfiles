@@ -15,6 +15,20 @@ focus-lost = true
 "[" = {"[" = "select_prev_sibling"}
 "]" = {"]" = "select_next_sibling"}
 
-[keys.normal.space]
+# Custom Commands
+[keys.normal.space.space]
+# Run git blame for the current file in a new zellij pane.
+B = ":sh zellij run --stacked -c -- git blame %{buffer_name} > /dev/null"
+# Show git blame for the current line at the footer.
 b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
-B = ":sh zellij run -c -- git blame %{buffer_name}"
+# On/Off whitespace rendering.
+w = ":toggle whitespace.render all none"
+# On/Off soft-wrap.
+z = ":toggle soft-wrap.enable"
+
+# Default binding conflicts with zellij.
+k = "remove_selections"
+
+[keys.select.space.space]
+# Default binding conflicts with zellij.
+k = "remove_selections"
