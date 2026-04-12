@@ -1,3 +1,7 @@
+---
+name: go-code-guidelines
+description: Use when writing, reviewing, or testing Go code. Covers idiomatic style, testing patterns with testify, and table-driven tests.
+---
 
 # Go Code Style and Testing Guidelines
 

@@ -1,7 +1,9 @@
+---
+name: pr-guidelines
+description: Use when creating commits, PRs, or reviewing PR messages. Covers conventional commits with gitmoji and PR sizing guidelines.
+---
 
-# PR instructions
-
-Instructions for creating PRs and commits.
+# PR and Commits instructions
 
 - PR or commit must follow conventional commit guidelines.
   - Do not use scope by default.
