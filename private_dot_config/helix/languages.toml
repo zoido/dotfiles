@@ -17,7 +17,6 @@ rulers = [100]
 [language-server.gopls.config]
 gofumpt = true
 staticcheck = true
-"ui.diagnostic.staticcheck" = true
 usePlaceholders = true
 
 # Typst.
