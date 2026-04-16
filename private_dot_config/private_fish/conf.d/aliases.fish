@@ -40,7 +40,6 @@ alias tfd='tf destroy'
 alias tfdaa='tfd --auto-approve'
 alias tfi='tf init'
 
-
 # Kubernetes
 alias kube='kubectl'
 alias k='kubectl'
@@ -49,7 +48,7 @@ alias kns='kubens'
 
 # Worktrunk
 alias wts='wt switch'
-alias wtm='wtm switch (git_main_branch)'
+alias wtm='wt switch (git_main_branch)'
 alias wtc='wts --create'
 alias wtcm='wts --create --base (git_main_branch)'
 alias wto='wts --execute=opencode'
