@@ -3,8 +3,11 @@
 set -e
 
 # Create cluster
-kind create cluster --config "${HOME}/.config/kind/cluster.yaml"
-
+vcluster create --driver docker vcluster \
+    --set "controlPlane.distro.k8s.apiServer.extraArgs[0]=--service-account-jwks-uri=https://kubernetes.default.svc.cluster.local/openid/v1/jwks" \
+    --set "experimental.docker.ports[0]=80:30080" \
+    --set "experimental.docker.ports[1]=443:30443" \
+    --set "experimental.docker.ports[2]=9000:30900"
 
 helm repo update || true
 
@@ -23,4 +26,4 @@ helm repo add traefik https://helm.traefik.io/traefik
 helm upgrade --install traefik traefik/traefik \
     --namespace traefik \
     --create-namespace \
-    --values "${HOME}/.config/kind/traefik-values.yaml"
+    --values "${HOME}/.config/traefik-values.yaml"
