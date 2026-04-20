@@ -54,3 +54,10 @@ alias wtcm='wts --create --base (git_main_branch)'
 alias wto='wts --execute=opencode'
 alias wtco='wtc --execute=opencode'
 alias wtcmo='wtc --base (git_main_branch) --execute=opencode'
+
+# Opencode
+alias oc='opencode'
+alias occ='oc --continue'
+alias ocp='oc --prompt'
+alias ocr='oc run'
+alias ocrc='oc run --continue'
