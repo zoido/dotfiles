@@ -7,3 +7,4 @@ aliases:
     pr v: pr view
     pr vw: pr view --web
 version: "1"
+telemetry: "disabled"
