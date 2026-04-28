@@ -2,10 +2,10 @@ pager:
   diff: diffnav
 
 prSections:
-  - title: My
-    filters: is:open author:@me
   - title: Review Requested
     filters: is:open review-requested:@me
+  - title: My
+    filters: is:open author:@me
 
 repoPaths:
   h2oai/*: ~/dev/h2o.ai/*
