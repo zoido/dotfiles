@@ -11,6 +11,11 @@ true-color = true
 after-delay.enable = true
 focus-lost = true
 
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
 [keys.normal]
 "[" = {"[" = "select_prev_sibling"}
 "]" = {"]" = "select_next_sibling"}
