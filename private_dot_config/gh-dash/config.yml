@@ -26,5 +26,5 @@ keybindings:
     - key: Z
       name: Review Branch Shell
       command: >
-        wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} &> /dev/null;
+        wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} --base {{.HeadRefName}} &> /dev/null;
         zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish"
