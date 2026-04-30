@@ -29,6 +29,7 @@ packages:
   - gopls # LSP for Go files.
   - gping
   - grpc_cli
+  - gum # Nice prompts for shell scripts.
   - helix
   - helm
   - helm-ls # LSP for helm charts.
@@ -61,6 +62,7 @@ packages:
   - ripgrep # Grep but faster.
   - s3cmd
   - sabiql # Interactive wrapper around psql.
+  - scooter # Interactive searc and replace tool.
   - skaffold
   - socat
   - starship # Prompt.
@@ -79,7 +81,7 @@ packages:
   - uv
   - viddy # Like 'watch' but with a nice UI and more features.
   - wget
-  - worktrunk
+  - worktrunk-bin
   - xdg-util
   - yaml-language-server # LSP for YAML files.
   - yq
