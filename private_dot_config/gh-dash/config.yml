@@ -18,13 +18,22 @@ keybindings:
       command: gh enhance -R {{.RepoName}} {{.PrNumber}}
     - key: M
       name: Auto Merge
-      command: gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
+      command: >
+        zellij run -c --height 5 --floating --cwd {{.RepoPath}} -- gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash > /dev/null &
+    - key: V
+      name: Approve & Auto Merge
+      command: >
+        zellij run -c --height 5 --floating --cwd {{.RepoPath}} -- fish -c "gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash && gh pr review {{.PrNumber}} --repo {{.RepoName}} --approve"> /dev/null &
     - key: z
       name: PR Branch Shell
       command: >
-        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch {{.HeadRefName}} -x fish"
+        cd {{.RepoPath}};
+        git fetch {{.HeadRefName}};
+        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch {{.HeadRefName}} -x fish" > /dev/null
     - key: Z
       name: Review Branch Shell
       command: >
+        cd {{.RepoPath}};
+        git fetch {{.HeadRefName}};
         wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} --base {{.HeadRefName}} &> /dev/null;
-        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish"
+        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish" > /dev/null
