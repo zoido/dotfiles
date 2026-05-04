@@ -4,6 +4,8 @@ pager:
 prSections:
   - title: Review Requested
     filters: is:open review-requested:@me
+  - title: RR (dependabot)
+    filters: is:open review-requested:@me author:dependabot[bot]
   - title: My
     filters: is:open author:@me
 
