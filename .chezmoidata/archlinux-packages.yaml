@@ -25,7 +25,7 @@ packages:
   - github-cli
   - gitu # Magit like interface for git in the terminal.
   - go
-  - golangci-lint-langserver # LSP for golangci-lint.
+  - golangci-lint-langserver-bin # LSP for golangci-lint.
   - gopls # LSP for Go files.
   - gping
   - grpc_cli
