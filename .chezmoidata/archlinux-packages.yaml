@@ -80,6 +80,7 @@ packages:
   - unzip
   - urlscan # Read and interactively open explore URLs in the text.
   - uv
+  - vcluster
   - viddy # Like 'watch' but with a nice UI and more features.
   - wget
   - worktrunk-bin
