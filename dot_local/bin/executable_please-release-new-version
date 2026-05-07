@@ -1,0 +1,140 @@
+#!/usr/bin/env bash
+#
+# please-release-new-version
+#
+# Interactive release script for repositories using release-please.
+# Finds pending release PRs, sets up worktrees for each, and runs the
+# full release sequence: activate, push, approve, and auto-merge.
+#
+# Dependencies: gh, gum, wt (worktrunk), git, jq
+#
+set -euo pipefail
+
+# Verify that all required commands are available on PATH.
+# Exits with an error listing any missing commands.
+check_dependencies() {
+    local missing=()
+    for cmd in gh gum wt git jq; do
+        command -v "$cmd" &>/dev/null || missing+=("$cmd")
+    done
+    if [[ ${#missing[@]} -gt 0 ]]; then
+        echo "Missing required commands: ${missing[*]}"
+        exit 1
+    fi
+}
+
+# Fetch pending release-please PRs as JSON.
+# Prints the JSON array to stdout. Exits with error if none are found.
+fetch_release_prs() {
+    local prs_json
+    prs_json=$(gh pr list --label "autorelease: pending" --json number,title)
+
+    if [[ $(echo "$prs_json" | jq 'length') -eq 0 ]]; then
+        gum log --level error "No pending release PRs found."
+        exit 1
+    fi
+
+    echo "$prs_json"
+}
+
+# Present an interactive picker for the given PR JSON.
+# Prints one "#number title" line per selected PR to stdout.
+choose_release_prs() {
+    local prs_json=$1
+    echo "$prs_json" | jq -r '.[] | "#\(.number) \(.title)"' \
+        | gum choose --no-limit --header "Select PRs to release"
+}
+
+# Update the PR branch with the latest changes from the base branch.
+update_pr_branch() {
+    local number=$1
+    gum spin --show-output --title "Updating PR #$number branch..." -- gh pr update-branch "$number"
+}
+
+# Set up a worktree for a PR branch.
+# Returns non-zero if the worktree could not be created.
+# Sets `wt_dir` to the worktree path on success.
+setup_worktree() {
+    local number=$1
+
+    local wt_json
+    wt_json=$(gum spin --title "Setting up worktree..." --show-output -- wt switch --no-cd --output json "pr:$number") || true
+    wt_dir=$(echo "$wt_json" | jq -r '.worktree_path // empty')
+    if [[ -z "$wt_dir" ]]; then
+        gum log --level error "Could not create worktree for PR #$number. Skipping."
+        return 1
+    fi
+}
+
+# Push an empty commit to trigger CI, then approve and auto-merge the PR.
+# The empty commit is needed because release-please PRs often have no
+# CI run until a new push event occurs.
+activate_and_merge_pr() {
+    local number=$1 wt_dir=$2
+
+    gum spin --show-output --title "Activating PR #$number..." -- bash -c '
+        git -C "$1" commit --allow-empty --message "Activate Release PR" &&
+        git -C "$1" push --force-with-lease
+    ' _ "$wt_dir"
+
+    gum spin --show-output --title "Merging PR #$number..." -- bash -c '
+        gh pr ready "$1" || true
+        gh pr review "$1" --approve &&
+        gh pr merge "$1" --auto --squash
+    ' _ "$number"
+}
+
+# Process a single release PR in a subshell.
+# Using () instead of {} runs the body in a subshell, scoping the EXIT trap
+# so this PR's worktree is cleaned up independently on success, error, or
+# interrupt -- without needing a global accumulator.
+release_pr() (
+    local choice=$1 prs_json=$2
+    local number title wt_dir=""
+
+    # Extract PR number from choice string, e.g. "#123 Some title" → 123.
+    number=$(echo "$choice" | cut -d' ' -f1 | tr -d '#')
+    title=$(echo "$prs_json" | jq -r --argjson n "$number" '.[] | select(.number == $n) | .title')
+
+    gum style --bold --foreground 39 "PR #$number: $title"
+
+    # Remove this PR's worktree when the subshell exits.
+    cleanup() {
+        [[ -n "$wt_dir" ]] || return 0
+        local branch
+        branch=$(git -C "$wt_dir" branch --show-current 2>/dev/null || echo "unknown")
+        wt remove "$branch" 2>/dev/null || true
+        gum log --level info "Removed worktree for '$branch'."
+    }
+    trap cleanup EXIT
+
+    update_pr_branch "$number"
+    setup_worktree "$number" || return 0
+    activate_and_merge_pr "$number" "$wt_dir"
+
+    gum log --level info "PR #$number released."
+)
+
+main() {
+    check_dependencies
+
+    gum style --bold --foreground 212 "Release Please"
+
+    local prs_json
+    prs_json=$(fetch_release_prs)
+
+    local chosen=()
+    while IFS= read -r line; do
+        chosen+=("$line")
+    done < <(choose_release_prs "$prs_json")
+
+    if [[ ${#chosen[@]} -eq 0 ]]; then
+        exit 0
+    fi
+
+    for choice in "${chosen[@]}"; do
+        release_pr "$choice" "$prs_json"
+    done
+}
+
+main "$@"

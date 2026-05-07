@@ -61,3 +61,6 @@ alias occ='oc --continue'
 alias ocp='oc --prompt'
 alias ocr='oc run'
 alias ocrc='oc run --continue'
+
+# Custom scripts
+abbr -a prnv please-release-new-version
