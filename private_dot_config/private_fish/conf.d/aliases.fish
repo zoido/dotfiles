@@ -44,7 +44,13 @@ alias tfi='tf init'
 alias kube='kubectl'
 alias k='kubectl'
 alias kctx='kubectx'
+alias kctxc='kctx -c'
+alias kctxu='kctx -u'
+alias kcc='kctxc'
+alias kcu='kctxu'
 alias kns='kubens'
+alias knsc='kns -c'
+alias knsu='kns -u'
 
 # Worktrunk
 alias wts='wt switch'
