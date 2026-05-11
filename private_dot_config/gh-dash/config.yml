@@ -38,13 +38,9 @@ keybindings:
     - key: z
       name: PR Branch Shell
       command: >
-        cd {{.RepoPath}};
-        git fetch {{.HeadRefName}};
-        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch {{.HeadRefName}} -x fish" > /dev/null
+        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch pr:{{.PrNumber}} -x fish" > /dev/null
     - key: Z
       name: Review Branch Shell
       command: >
-        cd {{.RepoPath}};
-        git fetch {{.HeadRefName}};
-        wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} --base {{.HeadRefName}} &> /dev/null;
+        wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} --base  pr:{{.PrNumber}} &> /dev/null;
         zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish" > /dev/null
