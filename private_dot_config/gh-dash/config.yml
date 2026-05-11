@@ -21,11 +21,20 @@ keybindings:
     - key: M
       name: Auto Merge
       command: >
-        zellij run -c --height 5 --floating --cwd {{.RepoPath}} -- gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash > /dev/null &
+        zellij run -c --floating --cwd {{.RepoPath}} --
+        fish -c "
+        gum confirm --default=no 'Auto merge PR {{.PrNumber}}?'
+        && gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
+        "
     - key: V
       name: Approve & Auto Merge
       command: >
-        zellij run -c --height 5 --floating --cwd {{.RepoPath}} -- fish -c "gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash && gh pr review {{.PrNumber}} --repo {{.RepoName}} --approve"> /dev/null &
+        zellij run -c --floating --cwd {{.RepoPath}} --
+        fish -c "
+        gum confirm --default=no 'Approve & auto merge PR {{.PrNumber}}?'
+        && gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
+        && gh pr review {{.PrNumber}} --repo {{.RepoName}} --approve
+        "
     - key: z
       name: PR Branch Shell
       command: >
