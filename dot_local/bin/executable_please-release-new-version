@@ -58,8 +58,8 @@ setup_worktree() {
     local number=$1
 
     local wt_json
-    wt_json=$(gum spin --title "Setting up worktree..." --show-output -- wt switch --no-cd --output json "pr:$number") || true
-    wt_dir=$(echo "$wt_json" | jq -r '.worktree_path // empty')
+    wt_json=$(gum spin --title "Setting up worktree..." --show-output -- wt switch --no-cd --format json "pr:$number") || true
+    wt_dir=$(echo "$wt_json" | jq -r '.path // empty')
     if [[ -z "$wt_dir" ]]; then
         gum log --level error "Could not create worktree for PR #$number. Skipping."
         return 1
@@ -96,7 +96,7 @@ release_pr() (
     number=$(echo "$choice" | cut -d' ' -f1 | tr -d '#')
     title=$(echo "$prs_json" | jq -r --argjson n "$number" '.[] | select(.number == $n) | .title')
 
-    gum style --bold --foreground 39 "PR #$number: $title"
+    gum log --level info "Processing PR #$number: $title"
 
     # Remove this PR's worktree when the subshell exits.
     cleanup() {
@@ -118,17 +118,18 @@ release_pr() (
 main() {
     check_dependencies
 
-    gum style --bold --foreground 212 "Release Please"
+    gum log --level info "Release Please"
 
     local prs_json
     prs_json=$(fetch_release_prs)
 
     local chosen=()
     while IFS= read -r line; do
-        chosen+=("$line")
+        [[ -n "$line" ]] && chosen+=("$line")
     done < <(choose_release_prs "$prs_json")
 
     if [[ ${#chosen[@]} -eq 0 ]]; then
+        gum log --level warn "No PRs selected. Nothing to do."
         exit 0
     fi
 
