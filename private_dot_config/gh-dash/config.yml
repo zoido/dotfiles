@@ -44,3 +44,20 @@ keybindings:
       command: >
         wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} --base  pr:{{.PrNumber}} &> /dev/null;
         zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish" > /dev/null
+
+theme:
+  colors:
+    text:
+      primary: "#cad3f5"
+      secondary: "#b7bdf8"
+      inverted: "#181926"
+      faint: "#b8c0e0"
+      warning: "#eed49f"
+      success: "#a6da95"
+      error: "#ed8796"
+    background:
+      selected: "#363a4f"
+    border:
+      primary: "#b7bdf8"
+      secondary: "#494d64"
+      faint: "#363a4f"
