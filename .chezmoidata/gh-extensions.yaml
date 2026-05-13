@@ -1,0 +1,6 @@
+packages:
+  gh_extensions:
+  - "dlvhdr/gh-dash" # A dashboard for PRs and issues.
+  - "dlvhdr/gh-enhance" # A terminal UI for GitHub Actions.
+  - "maximousblk/gh-fire" # Archive and push all work in progress to a new branch.
+  - "seachicken/gh-poi" # Safely clean up local branches that have been merged.

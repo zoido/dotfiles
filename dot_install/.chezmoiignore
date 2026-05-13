@@ -2,6 +2,7 @@
 
 !02-go-tools
 !03-python-tools
+!04-gh-extensions
 
 {{- if eq .chezmoi.os "linux" }}
 !00-linux-packages

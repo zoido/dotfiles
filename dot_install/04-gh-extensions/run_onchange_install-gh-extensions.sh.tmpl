@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+
+# Upgrade all existing extensions.
+gh extension upgrade --all
+
+{{- range .packages.gh_extensions }}
+gh extension install {{ . }}
+{{- end }}
