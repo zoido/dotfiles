@@ -8,6 +8,8 @@ prSections:
     filters: is:open review-requested:@me author:dependabot[bot]
   - title: My
     filters: is:open author:@me
+  - title: All Open
+    filters: is:open
 
 repoPaths:
   h2oai/*: ~/dev/h2o.ai/*
@@ -42,7 +44,9 @@ keybindings:
     - key: Z
       name: Review Branch Shell
       command: >
-        wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} --base  pr:{{.PrNumber}} &> /dev/null;
+        set output (git -C {{.RepoPath}} fetch --all 2>&1); or echo $output;
+        set output (git -C {{.RepoPath}} branch {{.HeadRefName}} 2>&1); or echo $output;
+        set output (wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} --base {{.HeadRefName}} 2>&1); or echo $output;
         zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish" > /dev/null
 
 theme:
