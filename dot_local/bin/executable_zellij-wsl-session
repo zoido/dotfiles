@@ -1,2 +1,2 @@
 #!/bin/bash
-zsh -l -c "zellij"
+fish -l -c "zellij"
