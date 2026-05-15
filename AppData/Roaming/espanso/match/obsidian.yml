@@ -70,3 +70,178 @@ matches:
         type: match
         params:
           trigger: ;;nyear
+
+  # Monday
+  - triggers: ["[[monday", "[[tmonday", "[[thismonday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;monday
+
+  - triggers: ["[[nmonday", "[[nextmonday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nmonday
+
+  - triggers: ["[[pmonday", "[[prevmonday", "[[previousmonday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;pmonday
+
+  # Tuesday
+  - triggers: ["[[tuesday", "[[ttuesday", "[[thistuesday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;tuesday
+
+  - triggers: ["[[ntuesday", "[[nexttuesday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;ntuesday
+
+  - triggers: ["[[ptuesday", "[[prevtuesday", "[[previoustuesday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;ptuesday
+
+  # Wednesday
+  - triggers: ["[[wednesday", "[[twednesday", "[[thiswednesday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;wednesday
+
+  - triggers: ["[[nwednesday", "[[nextwednesday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nwednesday
+
+  - triggers: ["[[pwednesday", "[[prevwednesday", "[[previouswednesday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;pwednesday
+
+  # Thursday
+  - triggers: ["[[thursday", "[[tthursday", "[[thisthursday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;thursday
+
+  - triggers: ["[[nthursday", "[[nextthursday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nthursday
+
+  - triggers: ["[[pthursday", "[[prevthursday", "[[previousthursday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;pthursday
+
+  # Friday
+  - triggers: ["[[friday", "[[tfriday", "[[thisfriday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;friday
+
+  - triggers: ["[[nfriday", "[[nextfriday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nfriday
+
+  - triggers: ["[[pfriday", "[[prevfriday", "[[previousfriday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;pfriday
+
+  # Saturday
+  - triggers: ["[[saturday", "[[tsaturday", "[[thissaturday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;saturday
+
+  - triggers: ["[[nsaturday", "[[nextsaturday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nsaturday
+
+  - triggers: ["[[psaturday", "[[prevsaturday", "[[previoussaturday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;psaturday
+
+  # Sunday
+  - triggers: ["[[sunday", "[[tsunday", "[[thissunday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;sunday
+
+  - triggers: ["[[nsunday", "[[nextsunday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nsunday
+
+  - triggers: ["[[psunday", "[[prevsunday", "[[previoussunday"]
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;psunday
