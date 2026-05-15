@@ -116,7 +116,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(0-d.weekday()) % 7))\""
+          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=0-d.weekday()))\""
 
   - triggers: [";;nmonday", ";;nextmonday"]
     replace: "{{output}}"
@@ -141,7 +141,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(1-d.weekday()) % 7))\""
+          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=1-d.weekday()))\""
 
   - triggers: [";;ntuesday", ";;nexttuesday"]
     replace: "{{output}}"
@@ -166,7 +166,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(2-d.weekday()) % 7))\""
+          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=2-d.weekday()))\""
 
   - triggers: [";;nwednesday", ";;nextwednesday"]
     replace: "{{output}}"
@@ -191,7 +191,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(3-d.weekday()) % 7))\""
+          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=3-d.weekday()))\""
 
   - triggers: [";;nthursday", ";;nextthursday"]
     replace: "{{output}}"
@@ -216,7 +216,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(4-d.weekday()) % 7))\""
+          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=4-d.weekday()))\""
 
   - triggers: [";;nfriday", ";;nextfriday"]
     replace: "{{output}}"
@@ -241,7 +241,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(5-d.weekday()) % 7))\""
+          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=5-d.weekday()))\""
 
   - triggers: [";;nsaturday", ";;nextsaturday"]
     replace: "{{output}}"
@@ -266,7 +266,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(6-d.weekday()) % 7))\""
+          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=6-d.weekday()))\""
 
   - triggers: [";;nsunday", ";;nextsunday"]
     replace: "{{output}}"
