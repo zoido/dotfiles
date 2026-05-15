@@ -197,7 +197,7 @@ matches:
           trigger: ;;pfriday
 
   # Saturday
-  - triggers: ["[[saturday", "[[tsaturday", "[[thissaturday"]
+  - triggers: ["[[saturday", "[[thissaturday"]
     replace: "[[{{val}}]]"
     vars:
       - name: val
@@ -222,7 +222,7 @@ matches:
           trigger: ;;psaturday
 
   # Sunday
-  - triggers: ["[[sunday", "[[tsunday", "[[thissunday"]
+  - triggers: ["[[sunday", "[[thissunday"]
     replace: "[[{{val}}]]"
     vars:
       - name: val

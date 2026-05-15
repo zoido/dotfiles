@@ -235,7 +235,7 @@ matches:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-4) % 7 or 7))\""
 
   # Saturday
-  - triggers: [";;saturday", ";;tsaturday", ";;thissaturday"]
+  - triggers: [";;saturday", ";;thissaturday"]
     replace: "{{output}}"
     vars:
       - name: output
@@ -260,7 +260,7 @@ matches:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-5) % 7 or 7))\""
 
   # Sunday
-  - triggers: [";;sunday", ";;tsunday", ";;thissunday"]
+  - triggers: [";;sunday", ";;thissunday"]
     replace: "{{output}}"
     vars:
       - name: output
