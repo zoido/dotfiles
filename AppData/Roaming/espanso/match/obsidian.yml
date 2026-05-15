@@ -72,176 +72,176 @@ matches:
           trigger: ;;nyear
 
   # Monday
-  - triggers: ["[[monday", "[[tmonday", "[[thismonday"]
+  - trigger: "[[mon"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;monday
+          trigger: ;;mon
 
-  - triggers: ["[[nmonday", "[[nextmonday"]
+  - trigger: "[[nmon"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;nmonday
+          trigger: ;;nmon
 
-  - triggers: ["[[pmonday", "[[prevmonday", "[[previousmonday"]
+  - trigger: "[[pmon"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;pmonday
+          trigger: ;;pmon
 
   # Tuesday
-  - triggers: ["[[tuesday", "[[ttuesday", "[[thistuesday"]
+  - trigger: "[[tue"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;tuesday
+          trigger: ;;tue
 
-  - triggers: ["[[ntuesday", "[[nexttuesday"]
+  - trigger: "[[ntue"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;ntuesday
+          trigger: ;;ntue
 
-  - triggers: ["[[ptuesday", "[[prevtuesday", "[[previoustuesday"]
+  - trigger: "[[ptue"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;ptuesday
+          trigger: ;;ptue
 
   # Wednesday
-  - triggers: ["[[wednesday", "[[twednesday", "[[thiswednesday"]
+  - trigger: "[[wed"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;wednesday
+          trigger: ;;wed
 
-  - triggers: ["[[nwednesday", "[[nextwednesday"]
+  - trigger: "[[nwed"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;nwednesday
+          trigger: ;;nwed
 
-  - triggers: ["[[pwednesday", "[[prevwednesday", "[[previouswednesday"]
+  - trigger: "[[pwed"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;pwednesday
+          trigger: ;;pwed
 
   # Thursday
-  - triggers: ["[[thursday", "[[tthursday", "[[thisthursday"]
+  - trigger: "[[thu"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;thursday
+          trigger: ;;thu
 
-  - triggers: ["[[nthursday", "[[nextthursday"]
+  - trigger: "[[nthu"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;nthursday
+          trigger: ;;nthu
 
-  - triggers: ["[[pthursday", "[[prevthursday", "[[previousthursday"]
+  - trigger: "[[pthu"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;pthursday
+          trigger: ;;pthu
 
   # Friday
-  - triggers: ["[[friday", "[[tfriday", "[[thisfriday"]
+  - trigger: "[[fri"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;friday
+          trigger: ;;fri
 
-  - triggers: ["[[nfriday", "[[nextfriday"]
+  - trigger: "[[nfri"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;nfriday
+          trigger: ;;nfri
 
-  - triggers: ["[[pfriday", "[[prevfriday", "[[previousfriday"]
+  - trigger: "[[pfri"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;pfriday
+          trigger: ;;pfri
 
   # Saturday
-  - triggers: ["[[saturday", "[[thissaturday"]
+  - trigger: "[[sat"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;saturday
+          trigger: ;;sat
 
-  - triggers: ["[[nsaturday", "[[nextsaturday"]
+  - trigger: "[[nsat"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;nsaturday
+          trigger: ;;nsat
 
-  - triggers: ["[[psaturday", "[[prevsaturday", "[[previoussaturday"]
+  - trigger: "[[psat"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;psaturday
+          trigger: ;;psat
 
   # Sunday
-  - triggers: ["[[sunday", "[[thissunday"]
+  - trigger: "[[sun"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;sunday
+          trigger: ;;sun
 
-  - triggers: ["[[nsunday", "[[nextsunday"]
+  - trigger: "[[nsun"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;nsunday
+          trigger: ;;nsun
 
-  - triggers: ["[[psunday", "[[prevsunday", "[[previoussunday"]
+  - trigger: "[[psun"
     replace: "[[{{val}}]]"
     vars:
       - name: val
         type: match
         params:
-          trigger: ;;psunday
+          trigger: ;;psun

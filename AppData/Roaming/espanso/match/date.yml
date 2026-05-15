@@ -110,7 +110,7 @@ matches:
           offset: -31536000
 
   # Monday
-  - triggers: [";;monday", ";;tmonday", ";;thismonday"]
+  - trigger: ";;mon"
     replace: "{{output}}"
     vars:
       - name: output
@@ -118,7 +118,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=0-d.weekday()))\""
 
-  - triggers: [";;nmonday", ";;nextmonday"]
+  - trigger: ";;nmon"
     replace: "{{output}}"
     vars:
       - name: output
@@ -126,7 +126,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(0-d.weekday()) % 7 or 7))\""
 
-  - triggers: [";;pmonday", ";;prevmonday", ";;previousmonday"]
+  - trigger: ";;pmon"
     replace: "{{output}}"
     vars:
       - name: output
@@ -135,7 +135,7 @@ matches:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-0) % 7 or 7))\""
 
   # Tuesday
-  - triggers: [";;tuesday", ";;ttuesday", ";;thistuesday"]
+  - trigger: ";;tue"
     replace: "{{output}}"
     vars:
       - name: output
@@ -143,7 +143,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=1-d.weekday()))\""
 
-  - triggers: [";;ntuesday", ";;nexttuesday"]
+  - trigger: ";;ntue"
     replace: "{{output}}"
     vars:
       - name: output
@@ -151,7 +151,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(1-d.weekday()) % 7 or 7))\""
 
-  - triggers: [";;ptuesday", ";;prevtuesday", ";;previoustuesday"]
+  - trigger: ";;ptue"
     replace: "{{output}}"
     vars:
       - name: output
@@ -160,7 +160,7 @@ matches:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-1) % 7 or 7))\""
 
   # Wednesday
-  - triggers: [";;wednesday", ";;twednesday", ";;thiswednesday"]
+  - trigger: ";;wed"
     replace: "{{output}}"
     vars:
       - name: output
@@ -168,7 +168,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=2-d.weekday()))\""
 
-  - triggers: [";;nwednesday", ";;nextwednesday"]
+  - trigger: ";;nwed"
     replace: "{{output}}"
     vars:
       - name: output
@@ -176,7 +176,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(2-d.weekday()) % 7 or 7))\""
 
-  - triggers: [";;pwednesday", ";;prevwednesday", ";;previouswednesday"]
+  - trigger: ";;pwed"
     replace: "{{output}}"
     vars:
       - name: output
@@ -185,7 +185,7 @@ matches:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-2) % 7 or 7))\""
 
   # Thursday
-  - triggers: [";;thursday", ";;tthursday", ";;thisthursday"]
+  - trigger: ";;thu"
     replace: "{{output}}"
     vars:
       - name: output
@@ -193,7 +193,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=3-d.weekday()))\""
 
-  - triggers: [";;nthursday", ";;nextthursday"]
+  - trigger: ";;nthu"
     replace: "{{output}}"
     vars:
       - name: output
@@ -201,7 +201,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(3-d.weekday()) % 7 or 7))\""
 
-  - triggers: [";;pthursday", ";;prevthursday", ";;previousthursday"]
+  - trigger: ";;pthu"
     replace: "{{output}}"
     vars:
       - name: output
@@ -210,7 +210,7 @@ matches:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-3) % 7 or 7))\""
 
   # Friday
-  - triggers: [";;friday", ";;tfriday", ";;thisfriday"]
+  - trigger: ";;fri"
     replace: "{{output}}"
     vars:
       - name: output
@@ -218,7 +218,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=4-d.weekday()))\""
 
-  - triggers: [";;nfriday", ";;nextfriday"]
+  - trigger: ";;nfri"
     replace: "{{output}}"
     vars:
       - name: output
@@ -226,7 +226,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(4-d.weekday()) % 7 or 7))\""
 
-  - triggers: [";;pfriday", ";;prevfriday", ";;previousfriday"]
+  - trigger: ";;pfri"
     replace: "{{output}}"
     vars:
       - name: output
@@ -235,7 +235,7 @@ matches:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-4) % 7 or 7))\""
 
   # Saturday
-  - triggers: [";;saturday", ";;thissaturday"]
+  - trigger: ";;sat"
     replace: "{{output}}"
     vars:
       - name: output
@@ -243,7 +243,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=5-d.weekday()))\""
 
-  - triggers: [";;nsaturday", ";;nextsaturday"]
+  - trigger: ";;nsat"
     replace: "{{output}}"
     vars:
       - name: output
@@ -251,7 +251,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(5-d.weekday()) % 7 or 7))\""
 
-  - triggers: [";;psaturday", ";;prevsaturday", ";;previoussaturday"]
+  - trigger: ";;psat"
     replace: "{{output}}"
     vars:
       - name: output
@@ -260,7 +260,7 @@ matches:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-5) % 7 or 7))\""
 
   # Sunday
-  - triggers: [";;sunday", ";;thissunday"]
+  - trigger: ";;sun"
     replace: "{{output}}"
     vars:
       - name: output
@@ -268,7 +268,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=6-d.weekday()))\""
 
-  - triggers: [";;nsunday", ";;nextsunday"]
+  - trigger: ";;nsun"
     replace: "{{output}}"
     vars:
       - name: output
@@ -276,7 +276,7 @@ matches:
         params:
           cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(6-d.weekday()) % 7 or 7))\""
 
-  - triggers: [";;psunday", ";;prevsunday", ";;previoussunday"]
+  - trigger: ";;psun"
     replace: "{{output}}"
     vars:
       - name: output
