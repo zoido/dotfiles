@@ -116,7 +116,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=0-d.weekday()))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=0-d.weekday()))\""
 
   - trigger: ";;nmon"
     replace: "{{output}}"
@@ -124,7 +124,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(0-d.weekday()) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(0-d.weekday()) % 7 or 7))\""
 
   - trigger: ";;pmon"
     replace: "{{output}}"
@@ -132,7 +132,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-0) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-0) % 7 or 7))\""
 
   # Tuesday
   - trigger: ";;tue"
@@ -141,7 +141,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=1-d.weekday()))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=1-d.weekday()))\""
 
   - trigger: ";;ntue"
     replace: "{{output}}"
@@ -149,7 +149,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(1-d.weekday()) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(1-d.weekday()) % 7 or 7))\""
 
   - trigger: ";;ptue"
     replace: "{{output}}"
@@ -157,7 +157,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-1) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-1) % 7 or 7))\""
 
   # Wednesday
   - trigger: ";;wed"
@@ -166,7 +166,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=2-d.weekday()))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=2-d.weekday()))\""
 
   - trigger: ";;nwed"
     replace: "{{output}}"
@@ -174,7 +174,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(2-d.weekday()) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(2-d.weekday()) % 7 or 7))\""
 
   - trigger: ";;pwed"
     replace: "{{output}}"
@@ -182,7 +182,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-2) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-2) % 7 or 7))\""
 
   # Thursday
   - trigger: ";;thu"
@@ -191,7 +191,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=3-d.weekday()))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=3-d.weekday()))\""
 
   - trigger: ";;nthu"
     replace: "{{output}}"
@@ -199,7 +199,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(3-d.weekday()) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(3-d.weekday()) % 7 or 7))\""
 
   - trigger: ";;pthu"
     replace: "{{output}}"
@@ -207,7 +207,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-3) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-3) % 7 or 7))\""
 
   # Friday
   - trigger: ";;fri"
@@ -216,7 +216,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=4-d.weekday()))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=4-d.weekday()))\""
 
   - trigger: ";;nfri"
     replace: "{{output}}"
@@ -224,7 +224,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(4-d.weekday()) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(4-d.weekday()) % 7 or 7))\""
 
   - trigger: ";;pfri"
     replace: "{{output}}"
@@ -232,7 +232,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-4) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-4) % 7 or 7))\""
 
   # Saturday
   - trigger: ";;sat"
@@ -241,7 +241,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=5-d.weekday()))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=5-d.weekday()))\""
 
   - trigger: ";;nsat"
     replace: "{{output}}"
@@ -249,7 +249,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(5-d.weekday()) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(5-d.weekday()) % 7 or 7))\""
 
   - trigger: ";;psat"
     replace: "{{output}}"
@@ -257,7 +257,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-5) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-5) % 7 or 7))\""
 
   # Sunday
   - trigger: ";;sun"
@@ -266,7 +266,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=6-d.weekday()))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=6-d.weekday()))\""
 
   - trigger: ";;nsun"
     replace: "{{output}}"
@@ -274,7 +274,7 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(6-d.weekday()) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(6-d.weekday()) % 7 or 7))\""
 
   - trigger: ";;psun"
     replace: "{{output}}"
@@ -282,4 +282,4 @@ matches:
       - name: output
         type: shell
         params:
-          cmd: "python3 -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-6) % 7 or 7))\""
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-6) % 7 or 7))\""
