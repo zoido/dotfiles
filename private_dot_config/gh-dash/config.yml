@@ -45,7 +45,6 @@ keybindings:
       name: Review Branch Shell
       command: >
         set output (git -C {{.RepoPath}} fetch --all 2>&1); or echo $output;
-        set output (git -C {{.RepoPath}} branch {{.HeadRefName}} 2>&1); or echo $output;
         set output (wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} --base {{.HeadRefName}} 2>&1); or echo $output;
         zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish" > /dev/null
 
