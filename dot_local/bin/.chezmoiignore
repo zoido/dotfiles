@@ -1,7 +1,5 @@
 {{- if not .wsl }}
+zellij-wsl-session
 notify-send
 {{- end }}
 
-{{- if .wsl }}
-zellij-wsl-session
-{{- end }}
