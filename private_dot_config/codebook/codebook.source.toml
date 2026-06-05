@@ -1,3 +1,9 @@
-dictionaries = ["en_us", "en_gb", "cs"]
-
-words = ["errassert"]
+dictionaries = [
+    "en_us",
+    "en_gb",
+    "cs",
+]
+words = [
+    "dsn",
+    "errassert",
+]
