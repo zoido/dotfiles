@@ -50,8 +50,11 @@ alias gdcw='git diff --cached --word-diff'
 alias gds='git diff --staged'
 alias gdw='git diff --word-diff'
 alias gdup='git diff @{upstream}'
-alias gdnolock='git diff $argv ":(exclude)package-lock.json" ":(exclude)*.lock"'
 alias gdt='git diff-tree --no-commit-id --name-only -r'
+alias gdp='git diff (gBP)'
+
+abbr --add dn --command git --command gd --command gdw --command gdp '| diffnav'
+abbr --add pb --command git --command gd --command gdw '(gBP)'
 
 # Fetch
 alias gf='git fetch'
