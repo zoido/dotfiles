@@ -28,6 +28,7 @@ packages:
   - golangci-lint
   - golangci-lint-langserver-bin # LSP for golangci-lint.
   - gopls # LSP for Go files.
+  - go-yq
   - gping
   - grpc_cli
   - gum # Nice prompts for shell scripts.
@@ -86,6 +87,5 @@ packages:
   - worktrunk-bin
   - xdg-util
   - yaml-language-server # LSP for YAML files.
-  - yq
   - zellij
   - zoxide
