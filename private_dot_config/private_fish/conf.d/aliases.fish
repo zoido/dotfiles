@@ -1,5 +1,5 @@
-alias md='mkdir -p'
-alias rd='rmdir'
+abbr -a md 'mkdir -p'
+abbr -a rd 'rmdir'
 alias hx='helix'
 
 # Better ls with exa
@@ -16,8 +16,8 @@ if command -q exa
 end
 
 # Weather
-alias weather='curl "wttr.in/Prague?m"'
-alias moon='curl wttr.in/Moon'
+abbr -a weather 'curl "wttr.in/Prague?m"'
+abbr -a moon 'curl wttr.in/Moon'
 
 # Global pipe aliases (using abbr --position anywhere)
 abbr -a L --position anywhere --set-cursor "% | less"
@@ -32,41 +32,41 @@ abbr -a O --position anywhere --set-cursor "% | ov"
 abbr -a OO --position anywhere --set-cursor "%  &| ov"
 
 # Terraform
-alias tf='terraform'
-alias tfa='tf apply'
-alias tfp='tf plan'
-alias tfaaa='tfa --auto-approve'
-alias tfd='tf destroy'
-alias tfdaa='tfd --auto-approve'
-alias tfi='tf init'
+abbr -a tf 'terraform'
+abbr -a tfa 'terraform apply'
+abbr -a tfp 'terraform plan'
+abbr -a tfaaa 'terraform apply --auto-approve'
+abbr -a tfd 'terraform destroy'
+abbr -a tfdaa 'terraform destroy --auto-approve'
+abbr -a tfi 'terraform init'
 
 # Kubernetes
-alias kube='kubectl'
-alias k='kubectl'
-alias kctx='kubectx'
-alias kctxc='kctx -c'
-alias kctxu='kctx -u'
-alias kcc='kctxc'
-alias kcu='kctxu'
-alias kns='kubens'
-alias knsc='kns -c'
-alias knsu='kns -u'
+abbr -a kube 'kubectl'
+abbr -a k 'kubectl'
+abbr -a kctx 'kubectx'
+abbr -a kctxc 'kubectx -c'
+abbr -a kctxu 'kubectx -u'
+abbr -a kcc 'kubectx -c'
+abbr -a kcu 'kubectx -u'
+abbr -a kns 'kubens'
+abbr -a knsc 'kubens -c'
+abbr -a knsu 'kubens -u'
 
 # Worktrunk
-alias wts='wt switch'
-alias wtm='wt switch (git_main_branch)'
-alias wtc='wts --create'
-alias wtcm='wts --create --base (git_main_branch)'
-alias wto='wts --execute=opencode'
-alias wtco='wtc --execute=opencode'
-alias wtcmo='wtc --base (git_main_branch) --execute=opencode'
+abbr -a wts 'wt switch'
+abbr -a wtm 'wt switch (git_main_branch)'
+abbr -a wtc 'wt switch --create'
+abbr -a wtcm 'wt switch --create --base (git_main_branch)'
+abbr -a wto 'wt switch --execute=opencode'
+abbr -a wtco 'wt switch --create --execute=opencode'
+abbr -a wtcmo 'wt switch --create --base (git_main_branch) --execute=opencode'
 
 # Opencode
-alias oc='opencode'
-alias occ='oc --continue'
-alias ocp='oc --prompt'
-alias ocr='oc run'
-alias ocrc='oc run --continue'
+abbr -a oc 'opencode'
+abbr -a occ 'opencode --continue'
+abbr -a ocp 'opencode --prompt'
+abbr -a ocr 'opencode run'
+abbr -a ocrc 'opencode run --continue'
 
 # Custom scripts
 abbr -a prnv please-release-new-version

@@ -1,164 +1,163 @@
 # Base
-alias g='git'
+abbr -a g 'git'
 
 # Custom / Personal
-alias git-fullclean='git reset HEAD && git checkout . && git clean -fd'
-alias gFC='git-fullclean'
-alias g-='git switch -'
-alias gRP='git reset (gBP)'
+abbr -a gFC 'git reset HEAD && git checkout . && git clean -fd'
+abbr -a g- 'git switch -'
+abbr -a gRP 'git reset (gBP)'
 
 # Add
-alias ga='git add'
-alias gaa='git add --all'
+abbr -a ga 'git add'
+abbr -a gaa 'git add --all'
 
 # Branch
-alias gb='git branch'
-alias gba='git branch --all'
-alias gbd='git branch --delete'
+abbr -a gb 'git branch'
+abbr -a gba 'git branch --all'
+abbr -a gbd 'git branch --delete'
 
 # Checkout
-alias gco='git checkout'
-alias gcor='git checkout --recurse-submodules'
-alias gcb='git checkout -b'
-alias gcB='git checkout -B'
+abbr -a gco 'git checkout'
+abbr -a gcor 'git checkout --recurse-submodules'
+abbr -a gcb 'git checkout -b'
+abbr -a gcB 'git checkout -B'
 
 # Switch (modern checkout for branches)
-alias gsw='git switch'
-alias gswc='git switch --create'
+abbr -a gsw 'git switch'
+abbr -a gswc 'git switch --create'
 
 # Cherry-pick
-alias gcp='git cherry-pick'
-alias gcpa='git cherry-pick --abort'
-alias gcpc='git cherry-pick --continue'
+abbr -a gcp 'git cherry-pick'
+abbr -a gcpa 'git cherry-pick --abort'
+abbr -a gcpc 'git cherry-pick --continue'
 
 # Clean / Clone
-alias gclean='git clean --interactive -d'
+abbr -a gclean 'git clean --interactive -d'
 
 # Commit
-alias gc='git commit --verbose'
-alias gca='git commit --verbose --all'
-alias gcmsg='git commit --message'
-alias gcsm='git commit --signoff --message'
+abbr -a gc 'git commit --verbose'
+abbr -a gca 'git commit --verbose --all'
+abbr -a gcmsg 'git commit --message'
+abbr -a gcsm 'git commit --signoff --message'
 
 # Config
-alias gcf='git config --list'
+abbr -a gcf 'git config --list'
 
 # Diff
-alias gd='git diff'
-alias gdca='git diff --cached'
-alias gdcw='git diff --cached --word-diff'
-alias gds='git diff --staged'
-alias gdw='git diff --word-diff'
-alias gdup='git diff @{upstream}'
-alias gdt='git diff-tree --no-commit-id --name-only -r'
-alias gdp='git diff (gBP)'
+abbr -a gd 'git diff'
+abbr -a gdca 'git diff --cached'
+abbr -a gdcw 'git diff --cached --word-diff'
+abbr -a gds 'git diff --staged'
+abbr -a gdw 'git diff --word-diff'
+abbr -a gdup 'git diff @{upstream}'
+abbr -a gdt 'git diff-tree --no-commit-id --name-only -r'
+abbr -a gdp 'git diff (gBP)'
 
 abbr --add dn --command git --command gd --command gdw --command gdp '| diffnav'
 abbr --add pb --command git --command gd --command gdw '(gBP)'
 
 # Fetch
-alias gf='git fetch'
-alias gfa='git fetch --all --tags --prune --jobs=10'
-alias gfo='git fetch origin'
+abbr -a gf 'git fetch'
+abbr -a gfa 'git fetch --all --tags --prune --jobs=10'
+abbr -a gfo 'git fetch origin'
 
 # Log
-alias glo='git log --oneline --decorate'
-alias glog='git log --oneline --decorate --graph'
-alias gloga='git log --oneline --decorate --graph --all'
-alias glol='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
-alias glola='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --all'
-alias glols='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --stat'
-alias glod='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset"'
-alias glods='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset" --date=short'
-alias glgg='git log --graph'
-alias glgga='git log --graph --decorate --all'
-alias glgm='git log --graph --max-count=10'
-alias glg='git log --stat'
-alias glgp='git log --stat --patch'
+abbr -a glo 'git log --oneline --decorate'
+abbr -a glog 'git log --oneline --decorate --graph'
+abbr -a gloga 'git log --oneline --decorate --graph --all'
+abbr -a glol 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
+abbr -a glola 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --all'
+abbr -a glols 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --stat'
+abbr -a glod 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset"'
+abbr -a glods 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset" --date=short'
+abbr -a glgg 'git log --graph'
+abbr -a glgga 'git log --graph --decorate --all'
+abbr -a glgm 'git log --graph --max-count=10'
+abbr -a glg 'git log --stat'
+abbr -a glgp 'git log --stat --patch'
 
 # Merge
-alias gm='git merge'
-alias gma='git merge --abort'
-alias gmc='git merge --continue'
-alias gms='git merge --squash'
-alias gmff='git merge --ff-only'
-alias gmtl='git mergetool --no-prompt'
+abbr -a gm 'git merge'
+abbr -a gma 'git merge --abort'
+abbr -a gmc 'git merge --continue'
+abbr -a gms 'git merge --squash'
+abbr -a gmff 'git merge --ff-only'
+abbr -a gmtl 'git mergetool --no-prompt'
 
 # Pull
-alias gl='git pull'
+abbr -a gl 'git pull'
 
 # Push
-alias gp='git push'
-alias gpd='git push --dry-run'
-alias gpv='git push --verbose'
+abbr -a gp 'git push'
+abbr -a gpd 'git push --dry-run'
+abbr -a gpv 'git push --verbose'
 
 # Rebase
-alias grb='git rebase'
-alias grba='git rebase --abort'
-alias grbc='git rebase --continue'
-alias grbi='git rebase --interactive'
-alias grbo='git rebase --onto'
-alias grbs='git rebase --skip'
+abbr -a grb 'git rebase'
+abbr -a grba 'git rebase --abort'
+abbr -a grbc 'git rebase --continue'
+abbr -a grbi 'git rebase --interactive'
+abbr -a grbo 'git rebase --onto'
+abbr -a grbs 'git rebase --skip'
 
 # Reflog
-alias grf='git reflog'
+abbr -a grf 'git reflog'
 
 # Restore
-alias grs='git restore'
-alias grss='git restore --source'
-alias grst='git restore --staged'
+abbr -a grs 'git restore'
+abbr -a grss 'git restore --source'
+abbr -a grst 'git restore --staged'
 
 # Revert
-alias grev='git revert'
-alias greva='git revert --abort'
-alias grevc='git revert --continue'
+abbr -a grev 'git revert'
+abbr -a greva 'git revert --abort'
+abbr -a grevc 'git revert --continue'
 
 # Remove
-alias grm='git rm'
-alias grmc='git rm --cached'
+abbr -a grm 'git rm'
+abbr -a grmc 'git rm --cached'
 
 # Show
-alias gsh='git show'
-alias gsps='git show --pretty=short --show-signature'
+abbr -a gsh 'git show'
+abbr -a gsps 'git show --pretty=short --show-signature'
 
 # Stash
-alias gsta='git stash push'
-alias gstall='git stash --all'
-alias gstaa='git stash apply'
-alias gstc='git stash clear'
-alias gstd='git stash drop'
-alias gstl='git stash list'
-alias gstp='git stash pop'
-alias gsts='git stash show --patch'
-alias gstu='git stash push --include-untracked'
+abbr -a gsta 'git stash push'
+abbr -a gstall 'git stash --all'
+abbr -a gstaa 'git stash apply'
+abbr -a gstc 'git stash clear'
+abbr -a gstd 'git stash drop'
+abbr -a gstl 'git stash list'
+abbr -a gstp 'git stash pop'
+abbr -a gsts 'git stash show --patch'
+abbr -a gstu 'git stash push --include-untracked'
 
 # Status
-alias gst='git status'
-alias gss='git status --short'
-alias gsb='git status --short --branch'
+abbr -a gst 'git status'
+abbr -a gss 'git status --short'
+abbr -a gsb 'git status --short --branch'
 
 # Submodule
-alias gsi='git submodule init'
-alias gsu='git submodule update'
+abbr -a gsi 'git submodule init'
+abbr -a gsu 'git submodule update'
 
 # Tag
-alias gta='git tag --annotate'
-alias gts='git tag --sign'
-alias gtv='git tag | sort -V'
-alias gdct='git describe --tags (git rev-list --tags --max-count=1)'
+abbr -a gta 'git tag --annotate'
+abbr -a gts 'git tag --sign'
+abbr -a gtv 'git tag | sort -V'
+abbr -a gdct 'git describe --tags (git rev-list --tags --max-count=1)'
 
 # Worktree
-alias gwt='git worktree'
-alias gwta='git worktree add'
-alias gwtls='git worktree list'
-alias gwtmv='git worktree move'
-alias gwtrm='git worktree remove'
+abbr -a gwt 'git worktree'
+abbr -a gwta 'git worktree add'
+abbr -a gwtls 'git worktree list'
+abbr -a gwtmv 'git worktree move'
+abbr -a gwtrm 'git worktree remove'
 
 # Misc
-alias gbl='git blame -w'
-alias gcount='git shortlog --summary --numbered'
-alias gignored='git ls-files -v | grep "^[[:lower:]]"'
-alias gfg='git ls-files | grep'
-alias gignore='git update-index --assume-unchanged'
-alias gunignore='git update-index --no-assume-unchanged'
-alias ggpur='git pull --rebase origin (git_current_branch)'
+abbr -a gbl 'git blame -w'
+abbr -a gcount 'git shortlog --summary --numbered'
+abbr -a gignored 'git ls-files -v | grep "^[[:lower:]]"'
+abbr -a gfg 'git ls-files | grep'
+abbr -a gignore 'git update-index --assume-unchanged'
+abbr -a gunignore 'git update-index --no-assume-unchanged'
+abbr -a ggpur 'git pull --rebase origin (git_current_branch)'
