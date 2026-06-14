@@ -1,10 +1,11 @@
 # Base
-abbr -a g 'git'
+abbr -a g git
 
 # Custom / Personal
 abbr -a gFC 'git reset HEAD && git checkout . && git clean -fd'
 abbr -a g- 'git switch -'
 abbr -a gRP 'git reset (gBP)'
+abbr -a GCM 'gcm && git pull && git fetch --all --tags --prune --jobs=10 && gh poi'
 
 # Add
 abbr -a ga 'git add'
