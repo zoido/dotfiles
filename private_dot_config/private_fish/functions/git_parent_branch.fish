@@ -1,4 +1,4 @@
-function gBP --description 'Find parent branch of current HEAD'
+function git_parent_branch --description 'Find parent branch of current HEAD'
     set -l current (git rev-parse --abbrev-ref HEAD)
 
     for candidate in (git for-each-ref --format='%(refname:short)' refs/heads/)

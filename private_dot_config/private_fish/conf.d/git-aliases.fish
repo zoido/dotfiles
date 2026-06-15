@@ -3,9 +3,13 @@ abbr -a g git
 
 # Custom / Personal
 abbr -a gFC 'git reset HEAD && git checkout . && git clean -fd'
-abbr -a g- 'git switch -'
-abbr -a gRP 'git reset (gBP)'
-abbr -a GCM 'gcm && git pull && git fetch --all --tags --prune --jobs=10 && gh poi'
+abbr -a ggg 'git switch -'
+abbr -a ggcm 'git switch (git_main_branch) && git pull && git fetch --all --tags --prune --jobs=10 && gh poi'
+abbr -a pb --command git '(git_parent_branch)'
+abbr -a gcm 'git switch (git_main_branch)'
+abbr -a gcd 'git switch (git_develop_branch)'
+abbr -a gswm 'git switch (git_main_branch)'
+abbr -a gswd 'git switch (git_develop_branch)'
 
 # Add
 abbr -a ga 'git add'
@@ -54,7 +58,6 @@ abbr -a gdt 'git diff-tree --no-commit-id --name-only -r'
 abbr -a gdp 'git diff (gBP)'
 
 abbr --add dn --command git --command gd --command gdw --command gdp '| diffnav'
-abbr --add pb --command git --command gd --command gdw '(gBP)'
 
 # Fetch
 abbr -a gf 'git fetch'
