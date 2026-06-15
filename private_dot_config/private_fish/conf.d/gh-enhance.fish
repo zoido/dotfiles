@@ -1,1 +1,1 @@
-set -gx ENHANCE_THEME "monokai_pro_filter_octagon"
+set -gx ENHANCE_THEME catppuccin_macchiato
