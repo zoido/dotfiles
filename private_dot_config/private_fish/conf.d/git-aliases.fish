@@ -14,6 +14,7 @@ abbr -a gswd 'git switch (git_develop_branch)'
 # Add
 abbr -a ga 'git add'
 abbr -a gaa 'git add --all'
+abbr -a gan 'git add --intent-to-add'
 
 # Branch
 abbr -a gb 'git branch'
@@ -32,20 +33,15 @@ abbr -a gswc 'git switch --create'
 
 # Cherry-pick
 abbr -a gcp 'git cherry-pick'
+abbr -a gcn 'git cherry-pick --no-commit'
 abbr -a gcpa 'git cherry-pick --abort'
 abbr -a gcpc 'git cherry-pick --continue'
-
-# Clean / Clone
-abbr -a gclean 'git clean --interactive -d'
 
 # Commit
 abbr -a gc 'git commit --verbose'
 abbr -a gca 'git commit --verbose --all'
 abbr -a gcmsg 'git commit --message'
-abbr -a gcsm 'git commit --signoff --message'
-
-# Config
-abbr -a gcf 'git config --list'
+abbr -a gcre 'git commit --reuse-message=ORIG_HEAD'
 
 # Diff
 abbr -a gd 'git diff'
@@ -68,16 +64,6 @@ abbr -a gfo 'git fetch origin'
 abbr -a glo 'git log --oneline --decorate'
 abbr -a glog 'git log --oneline --decorate --graph'
 abbr -a gloga 'git log --oneline --decorate --graph --all'
-abbr -a glol 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"'
-abbr -a glola 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --all'
-abbr -a glols 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset" --stat'
-abbr -a glod 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset"'
-abbr -a glods 'git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset" --date=short'
-abbr -a glgg 'git log --graph'
-abbr -a glgga 'git log --graph --decorate --all'
-abbr -a glgm 'git log --graph --max-count=10'
-abbr -a glg 'git log --stat'
-abbr -a glgp 'git log --stat --patch'
 
 # Merge
 abbr -a gm 'git merge'
@@ -102,6 +88,10 @@ abbr -a grbc 'git rebase --continue'
 abbr -a grbi 'git rebase --interactive'
 abbr -a grbo 'git rebase --onto'
 abbr -a grbs 'git rebase --skip'
+
+# Reset
+abbr -a gr 'git reset'
+abbr -a grh 'git reset HEAD~1'
 
 # Reflog
 abbr -a grf 'git reflog'
@@ -156,12 +146,3 @@ abbr -a gwta 'git worktree add'
 abbr -a gwtls 'git worktree list'
 abbr -a gwtmv 'git worktree move'
 abbr -a gwtrm 'git worktree remove'
-
-# Misc
-abbr -a gbl 'git blame -w'
-abbr -a gcount 'git shortlog --summary --numbered'
-abbr -a gignored 'git ls-files -v | grep "^[[:lower:]]"'
-abbr -a gfg 'git ls-files | grep'
-abbr -a gignore 'git update-index --assume-unchanged'
-abbr -a gunignore 'git update-index --no-assume-unchanged'
-abbr -a ggpur 'git pull --rebase origin (git_current_branch)'
