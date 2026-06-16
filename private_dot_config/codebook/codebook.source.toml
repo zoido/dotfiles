@@ -4,6 +4,7 @@ dictionaries = [
     "cs",
 ]
 words = [
+    "HCL",
     "dsn",
     "errassert",
     "sqlx",
