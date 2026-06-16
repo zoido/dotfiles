@@ -61,9 +61,10 @@ abbr -a gfa 'git fetch --all --tags --prune --jobs=10'
 abbr -a gfo 'git fetch origin'
 
 # Log
-abbr -a glo 'git log --oneline --decorate'
 abbr -a glog 'git log --oneline --decorate --graph'
 abbr -a gloga 'git log --oneline --decorate --graph --all'
+abbr -a glg 'git log --stat'
+abbr -a glgp 'git log --stat --patch'
 
 # Merge
 abbr -a gm 'git merge'
