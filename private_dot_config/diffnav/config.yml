@@ -1,0 +1,4 @@
+ui:
+  hideHeader: true
+  hideFooter: true
+  showDiffStats: true
