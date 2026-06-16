@@ -1,0 +1,3 @@
+[general]
+always_show_help.enabled = true
+collapsed_sections = ["recent_commits", "stashes"]

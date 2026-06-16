@@ -22,8 +22,10 @@ select = "underline"
 
 # Custom Commands
 [keys.normal.space.space]
+# Run gitu.
+g = ":sh zellij run --stacked -c -- gitu > /dev/null"
 # Run git blame for the current file in a new zellij pane.
-B = ":sh zellij run --stacked -c -- git blame %{buffer_name} > /dev/null"
+B = ":sh zellij run --stacked -c -- gitu blame %{buffer_name} > /dev/null"
 # Show git blame for the current line at the footer.
 b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 # On/Off whitespace rendering.
