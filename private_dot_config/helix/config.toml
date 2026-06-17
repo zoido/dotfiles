@@ -34,6 +34,8 @@ w = ":toggle whitespace.render all none"
 z = ":toggle soft-wrap.enable"
 # Close view.
 q = ":quit"
+# Run scooter (find and replace).
+s = ":sh zellij run --stacked -c -- scooter > /dev/null"
 
 # Default binding conflicts with zellij.
 k = "remove_selections"
