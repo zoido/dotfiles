@@ -33,7 +33,7 @@ abbr -a gswc 'git switch --create'
 
 # Cherry-pick
 abbr -a gcp 'git cherry-pick'
-abbr -a gcn 'git cherry-pick --no-commit'
+abbr -a gcpn 'git cherry-pick --no-commit'
 abbr -a gcpa 'git cherry-pick --abort'
 abbr -a gcpc 'git cherry-pick --continue'
 
@@ -42,6 +42,18 @@ abbr -a gc 'git commit --verbose'
 abbr -a gca 'git commit --verbose --all'
 abbr -a gcmsg 'git commit --message'
 abbr -a gcre 'git commit --reuse-message=ORIG_HEAD'
+abbr -a gcn 'git commit --verbose --no-edit'
+abbr -a gcan 'git commit --verbose --all --no-edit'
+abbr -a gcans 'git commit --verbose --all --signoff --no-edit'
+abbr -a gcann 'git commit --verbose --all --date=now --no-edit'
+
+# Commit (amend)
+abbr -a 'gc!' 'git commit --verbose --amend'
+abbr -a 'gca!' 'git commit --verbose --all --amend'
+abbr -a 'gcn!' 'git commit --verbose --no-edit --amend'
+abbr -a 'gcan!' 'git commit --verbose --all --no-edit --amend'
+abbr -a 'gcans!' 'git commit --verbose --all --signoff --no-edit --amend'
+abbr -a 'gcann!' 'git commit --verbose --all --date=now --no-edit --amend'
 
 # Diff
 abbr -a gd 'git diff'
