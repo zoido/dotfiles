@@ -1,11 +1,15 @@
+defaults:
+  prApproveComment: ""
 pager:
   diff: diffnav
 
 prSections:
-  - title: Review Requested
+  - title: Review
     filters: is:open review-requested:@me
-  - title: RR (dependabot)
-    filters: is:open review-requested:@me author:dependabot[bot]
+             -author:app/dependabot -author:app/github-actions
+  - title: Review (bots)
+    filters: is:open review-requested:@me
+             author:app/dependabot author:app/github-actions
   - title: My
     filters: is:open author:@me
   - title: All Open
