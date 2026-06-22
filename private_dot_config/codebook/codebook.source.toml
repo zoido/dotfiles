@@ -7,5 +7,7 @@ words = [
     "HCL",
     "dsn",
     "errassert",
+    "policyserver",
     "sqlx",
+    "svc",
 ]
