@@ -15,11 +15,11 @@ ports:
 service:
   type: NodePort
 
-logs:
-  general:
-    level: DEBUG
-  access:
-    enabled: true
+log:
+  level: DEBUG
+
+accessLog:
+  enabled: true
 
 extraObjects:
   - apiVersion: traefik.io/v1alpha1
