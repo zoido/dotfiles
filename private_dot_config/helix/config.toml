@@ -17,32 +17,44 @@ normal = "block"
 select = "underline"
 
 [keys.normal]
-"[" = {"[" = "select_prev_sibling"}
-"]" = {"]" = "select_next_sibling"}
+"[" = { "[" = "select_prev_sibling" }
+"]" = { "]" = "select_next_sibling" }
 
-# Custom Commands
 [keys.normal.space.space]
-# Run gitu.
-g = ":sh zellij run --stacked -c -- gitu > /dev/null"
-# Run git blame for the current file in a new zellij pane.
-B = ":sh zellij run --stacked -c -- gitu blame %{buffer_name} > /dev/null"
-# Show git blame for the current line at the footer.
-b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
-# On/Off whitespace rendering.
-w = ":toggle whitespace.render all none"
-# On/Off soft-wrap.
-z = ":toggle soft-wrap.enable"
-# Run scooter (find and replace).
-s = ":sh zellij run --stacked -c -- scooter > /dev/null"
+# Custom shortcuts.
 
-# Default binding conflicts with zellij.
-k = "remove_selections"
+q = ":quit"
+w = ":w"
+f = ":format"
+R = [":reload-all", ":config-reload", ":lsp-restart"]
+
+"/" = ":sh zellij run --stacked -c -- scooter > /dev/null" # Run scooter (find and replace).
+
+k = "remove_selections" # Default binding conflicts with zellij.
 
 [keys.select.space.space]
-# Default binding conflicts with zellij.
-k = "remove_selections"
+k = "remove_selections" # Default binding conflicts with zellij.
+
+
+[keys.select.space.space.r]
+# Rendering.
+
+w = ":toggle whitespace.render all none" # On/Off whitespace rendering.
+z = ":toggle soft-wrap.enable"           # On/Off soft-wrap.
+
+[keys.normal.space.space.g]
+# Git helpers
+
+g = ":sh zellij run --stacked -c -- gitu > /dev/null"
+B = ":sh zellij run --stacked -c -- gitu blame %{buffer_name} > /dev/null"
+b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+
 
 [keys.normal.space.q]
+# Close.
+
 q = ":quit"
 a = ":quit-all"
 x = ":write-quit"
+X = ":write-quit-all"
+
