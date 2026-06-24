@@ -29,6 +29,8 @@ f = ":format"
 R = [":reload-all", ":config-reload", ":lsp-restart"]
 
 "/" = ":sh zellij run --stacked -c -- scooter > /dev/null" # Run scooter (find and replace).
+L = ":sh zellij run --floating -c -- lf $(dirname %{buffer_name}) > /dev/null" # Open lf in the dir of current buffer.
+l = ":sh zellij run --floating -c -- lf > /dev/null" # Open lf.
 
 k = "remove_selections" # Default binding conflicts with zellij.
 
