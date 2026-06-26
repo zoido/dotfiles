@@ -7,6 +7,7 @@ words = [
     "HCL",
     "dsn",
     "errassert",
+    "fieldmask",
     "policyserver",
     "sqlx",
     "svc",
