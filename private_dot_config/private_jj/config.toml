@@ -1,0 +1,9 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+email = "zoido@users.noreply.github.com"
+name = "Luboš Pokorný"
+
+[ui]
+pager = "delta"
+diff-formatter = ":git"
