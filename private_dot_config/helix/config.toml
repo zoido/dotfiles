@@ -20,6 +20,9 @@ select = "underline"
 "[" = { "[" = "select_prev_sibling" }
 "]" = { "]" = "select_next_sibling" }
 
+S-up = "select_line_above"
+S-down = "select_line_below"
+
 [keys.normal.space.space]
 # Custom shortcuts.
 
