@@ -5,10 +5,16 @@ dictionaries = [
 ]
 words = [
     "HCL",
+    "Kubernetes",
+    "Tmpfs",
+    "appstore",
+    "dkr",
     "dsn",
+    "ecr",
     "errassert",
     "fieldmask",
     "policyserver",
     "sqlx",
+    "sslmode",
     "svc",
 ]
