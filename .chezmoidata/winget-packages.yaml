@@ -1,19 +1,19 @@
 packages:
   winget:
     ids:
-    - "AgileBits.1Password.CLI"
     - "AgileBits.1Password"
+    - "AgileBits.1Password.CLI"
+    - "Artempyanykh.Marksman"
     - "astral-sh.uv"
     - "AutoHotkey.AutoHotkey"
     - "dandavison.delta"
     - "Espanso.Espanso"
+    - "FelixZeller.markdown-oxide"
     - "Git.Git"
     - "GoLang.Go"
     - "Helix.Helix"
     - "M2Team.NanaZip"
     - "Microsoft.PowerToys"
-    - "Microsoft.VisualStudioCode.CLI"
-    - "Microsoft.VisualStudioCode"
     - "Microsoft.WindowsTerminal"
     - "Microsoft.WSL"
     - "Obsidian.Obsidian"
