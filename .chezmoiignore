@@ -18,6 +18,7 @@ AppData
 {{- if eq .chezmoi.os "windows" }}
 *
 !.config
+.config/fish
 !.copilot
 !.gitconfig
 !.install
