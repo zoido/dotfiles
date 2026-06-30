@@ -12,6 +12,8 @@ prSections:
              author:app/dependabot author:app/github-actions
   - title: My
     filters: is:open author:@me
+  - title: My (approved)
+    filters: is:open author:@me review:approved
   - title: All Open
     filters: is:open
 
