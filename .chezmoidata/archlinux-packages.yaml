@@ -17,8 +17,8 @@ packages:
   - exa # A modern replacement for 'ls'.
   - fd # A simple, fast and user-friendly alternative to 'find'.
   - fish
-  - fish-lsp # LSP for Fish shell scripts.
   - fisher # A plugin manager for the Fish shell.
+  - fish-lsp # LSP for Fish shell scripts.
   - fx # A tool for exploring and analyzing JSON data in the terminal.
   - fzf
   - git-delta # A syntax-highlighting pager for git and diff output.
@@ -76,13 +76,14 @@ packages:
   - tinymist # LSP for typst
   - tombi # TOML formatter and linter.
   - traefik
-  - ty # Python type checker and language server
   - typst
+  - ty # Python type checker and language server
   - unzip
   - urlscan # Read and interactively open explore URLs in the text.
   - uv
   - vcluster-bin
   - viddy # Like 'watch' but with a nice UI and more features.
+  - vscode-json-languageserver
   - wget
   - worktrunk-bin
   - xdg-util
