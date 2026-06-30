@@ -13,13 +13,23 @@
   // 	"description": "Log output to console"
   // }
   "debug print": {
-    "prefix": ["debug", "dbg"],
-    "body": ["fmt.Fprintf(os.Stderr, \">>>>> %#v\\n\", $1)"],
+    "prefix": [
+      "debug",
+      "dbg"
+    ],
+    "body": [
+      "fmt.Fprintf(os.Stderr, \">>>>> %#v\\n\", $1)"
+    ],
     "description": "debug output to console"
   },
   "debug dump (godump)": {
-    "prefix": ["dump","dmp"],
-    "body": ["godump.Fdump(os.Stderr, $1)"],
+    "prefix": [
+      "dump",
+      "dmp"
+    ],
+    "body": [
+      "godump.Fdump(os.Stderr, $1)"
+    ],
     "description": "debug dump to console using godump"
   },
   "better table driven test": {
@@ -164,6 +174,15 @@
     "prefix": "iferr",
     "body": "if err != nil {\n\t${1:return ${2:nil, }${3:err}}\n}",
     "description": "Snippet for if err != nil"
+  },
+  "if errors.Join()": {
+    "prefix": "iferrs",
+    "body": [
+      "if err := errors.Join(errs...); err != nil {",
+      "\treturn err",
+      "}"
+    ],
+    "description": "Snippet for if errors.Join()"
   },
   "fmt.Println": {
     "prefix": "fp",
