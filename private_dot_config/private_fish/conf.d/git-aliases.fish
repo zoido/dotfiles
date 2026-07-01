@@ -65,7 +65,7 @@ abbr -a gdup 'git diff @{upstream}'
 abbr -a gdt 'git diff-tree --no-commit-id --name-only -r'
 abbr -a gdp 'git diff (gBP)'
 
-abbr --add dn --command git --command gd --command gdw --command gdp '| diffnav'
+abbr -a dn --position anywhere --set-cursor "% | diffnav"
 
 # Fetch
 abbr -a gf 'git fetch'
