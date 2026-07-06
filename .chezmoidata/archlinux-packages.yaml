@@ -87,6 +87,7 @@ packages:
   - wget
   - worktrunk-bin
   - xdg-util
+  - xh # httpie compatible HTTP request CLI.
   - yaml-language-server # LSP for YAML files.
   - zellij
   - zoxide
