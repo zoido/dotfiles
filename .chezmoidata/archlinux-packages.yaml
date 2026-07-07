@@ -71,13 +71,14 @@ packages:
   - step-cli
   - systemd-lsp # LSP for systemd unit files.
   - taplo-cli # LSP for TOML files.
+  - tealdeer # TLDR client.
   - terraform
   - tfswitch
   - tinymist # LSP for typst
   - tombi # TOML formatter and linter.
   - traefik
   - typst
-  - ty # Python type checker and language server
+  - ty # Python type checker and language server.
   - unzip
   - urlscan # Read and interactively open explore URLs in the text.
   - uv
