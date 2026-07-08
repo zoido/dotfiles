@@ -23,6 +23,8 @@ repoPaths:
 
 keybindings:
   prs:
+    - key: ctrl+v
+      builtin: "approveWorkflows"
     - key: T
       name: Actions
       command: gh enhance -R {{.RepoName}} {{.PrNumber}}
