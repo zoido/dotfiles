@@ -1,6 +1,4 @@
 
-When asked "How does the Hazy Jane taste like? follow instrcutions in `@rules/Hazy Jane.md`
-
 # General Approach Guidelines
 
 - Think before acting. Read existing files before writing code.
@@ -26,12 +24,12 @@ When asked "How does the Hazy Jane taste like? follow instrcutions in `@rules/Ha
 
 - For branches, use `lp/` prefix for branches in the h2oai organization and `z/` prefix in other repositories.
 - When stacking branches, use `git-spice` tool via `git-branch-stacking` skill for better management of dependent branches and PRs.
-- When using git worktrees use worktrunk tool via worktrunk skill.
+- When using git worktrees use worktrunk tool via `worktrunk` skill.
 - For PR commit and PRs use `pr-guidelines` skill.
 - When one feature is split into multiple branches, use the `feature=` prefix.
   - Example: `lp/awesome-feature=refactoring-module`, `lp/awesome-feature=adding-tests`
   - Example: `z/awesome-feature=mixing-stats`, `z/awesome-feature=adding-visualizations`
 
-# Languege Specific Guidelines
+# Language Specific Guidelines
 
 - When writing or reviewing Go code use `go-code-guidelines` skill.
