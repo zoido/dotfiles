@@ -5,6 +5,7 @@ dictionaries = [
 ]
 words = [
     "HCL",
+    "IAM",
     "Kubernetes",
     "Newf",
     "Tmpfs",
@@ -20,4 +21,5 @@ words = [
     "sqlx",
     "sslmode",
     "svc",
+    "unkeyed",
 ]
