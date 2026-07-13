@@ -67,7 +67,6 @@ packages:
   - scooter # Interactive searc and replace tool.
   - skaffold
   - socat
-  - starship # Prompt.
   - step-cli
   - systemd-lsp # LSP for systemd unit files.
   - taplo-cli # LSP for TOML files.
