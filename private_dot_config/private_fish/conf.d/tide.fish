@@ -62,8 +62,8 @@ set -g tide_status_bg_color normal
 set -g tide_status_bg_color_failure normal
 set -g tide_status_color green
 set -g tide_status_color_failure red
-set -g tide_status_icon ✔
-set -g tide_status_icon_failure ✘
+set -g tide_status_icon ''
+set -g tide_status_icon_failure ''
 
 # Cmd duration
 set -g tide_cmd_duration_bg_color normal
