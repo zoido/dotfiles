@@ -5,7 +5,11 @@ color-modes = true
 cursorline = true
 rulers = [80, 100, 120]
 trim-trailing-whitespace = true
+insert-final-newline = true
+trim-final-newlines = false
 true-color = true
+
+preview-completion-insert = false
 
 [editor.auto-save]
 after-delay.enable = true
