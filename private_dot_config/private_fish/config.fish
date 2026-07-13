@@ -1,8 +1,8 @@
+set -g fish_key_bindings fish_default_key_bindings
+set -g fish_greeting ''
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    if command -q starship
-        starship init fish | source
-    end
 
     if command -q atuin
         atuin init fish --disable-up-arrow | source
@@ -15,12 +15,11 @@ if status is-interactive
         bind \co 'set old_tty (stty -g); stty sane; lfcd; stty $old_tty; commandline -f repaint'
     end
 
-    bind ctrl-alt-left 'prevd' repaint
-    bind ctrl-alt-right 'nextd' repaint
-
+    bind ctrl-alt-left prevd repaint
+    bind ctrl-alt-right nextd repaint
 
 end
 
-if command -q "/usr/sbin/wsl2-ssh-agent"
+if command -q /usr/sbin/wsl2-ssh-agent
     /usr/sbin/wsl2-ssh-agent | source
 end
