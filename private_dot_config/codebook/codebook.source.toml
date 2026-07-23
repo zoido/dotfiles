@@ -4,6 +4,7 @@ dictionaries = [
     "cs",
 ]
 words = [
+    "Deleter",
     "HCL",
     "IAM",
     "Kubernetes",
@@ -16,6 +17,7 @@ words = [
     "ecr",
     "errassert",
     "fieldmask",
+    "foobars",
     "grp",
     "policyserver",
     "sqlx",
