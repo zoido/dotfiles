@@ -11,8 +11,6 @@ true-color = true
 
 preview-completion-insert = false
 
-
-auto-completion = false # Testing if it'd be more or less annoying.
 [editor.smart-tab]
 supersede-menu = true
 
