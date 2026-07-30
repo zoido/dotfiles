@@ -8,6 +8,7 @@ words = [
     "HCL",
     "IAM",
     "Kubernetes",
+    "Nats",
     "Newf",
     "Tmpfs",
     "appstore",
