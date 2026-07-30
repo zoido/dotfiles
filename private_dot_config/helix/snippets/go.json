@@ -59,6 +59,19 @@
     ],
     "description": "Custom better table-driven test"
   },
+  "if errors.Join()": {
+    "prefix": "iferrs",
+    "body": [
+      "if err := errors.Join(errs...); err != nil {",
+      "\treturn err",
+      "}"
+    ],
+    "description": "Snippet for if errors.Join()"
+  },
+  "ctx context.Context": {
+    "prefix": "ctx",
+    "body": "ctx context.Context"
+  },
   // Rest of the snippets are imported from go extension for VS Code.
   "single import": {
     "prefix": "im",
@@ -174,15 +187,6 @@
     "prefix": "iferr",
     "body": "if err != nil {\n\t${1:return ${2:nil, }${3:err}}\n}",
     "description": "Snippet for if err != nil"
-  },
-  "if errors.Join()": {
-    "prefix": "iferrs",
-    "body": [
-      "if err := errors.Join(errs...); err != nil {",
-      "\treturn err",
-      "}"
-    ],
-    "description": "Snippet for if errors.Join()"
   },
   "fmt.Println": {
     "prefix": "fp",
