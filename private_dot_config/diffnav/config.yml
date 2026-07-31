@@ -2,3 +2,4 @@ ui:
   hideHeader: true
   hideFooter: true
   showDiffStats: true
+  icons: ascii
