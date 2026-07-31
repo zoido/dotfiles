@@ -27,6 +27,7 @@ packages:
   - go
   - golangci-lint
   - golangci-lint-langserver-bin # LSP for golangci-lint.
+  - goose-desktop-bin # OSS AI agent.
   - gopls # LSP for Go files.
   - go-yq
   - gping
