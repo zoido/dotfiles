@@ -20,6 +20,7 @@ words = [
     "fieldmask",
     "foobars",
     "grp",
+    "grpchealth",
     "policyserver",
     "sqlx",
     "sslmode",
