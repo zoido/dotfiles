@@ -22,6 +22,7 @@ words = [
     "grp",
     "grpchealth",
     "policyserver",
+    "prg",
     "sqlx",
     "sslmode",
     "svc",
