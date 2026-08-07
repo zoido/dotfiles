@@ -1,7 +1,7 @@
 
 # General Approach Guidelines
 
-- Think before acting. Read existing files before writing code.
+- Think before acting. Read existing files before writing code. But prefer tools, skill or lsp that can provide the info..
 - Be concise in output but thorough in reasoning.
 - Prefer editing over rewriting whole files.
 - Do not re-read files you have already read unless the file may have changed.
@@ -9,6 +9,9 @@
 - No sycophantic openers or closing fluff.
 - Keep solutions simple and direct.
 - User instructions always override this file.
+- Prefer `fd` rather than `find` if you search for files.
+- Prefer `rg` rather than `grep` if you search for patterns in files.
+
 
 # General Code Guidelines
 

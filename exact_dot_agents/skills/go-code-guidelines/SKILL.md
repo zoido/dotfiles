@@ -10,7 +10,7 @@ description: Use when writing, reviewing, or testing Go code. Covers idiomatic s
 - Follow the "Go Code Review Comments" guidelines.
 - Make sure that code uses the latest features according to the Go version in the `go.mod` file.
   - Use <https://antonz.org/which-go/> to see what features are available in which Go versions.
-  - Use `go doc` to learn about new features and how to use them.
+- Prefer to use of `go doc` or LSP when you need documentation of the function, class, interface or any symbol
 
 ## Testing
 
