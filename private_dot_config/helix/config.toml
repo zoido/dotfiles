@@ -39,6 +39,9 @@ R = [":reload-all", ":config-reload", ":lsp-restart"]
 L = ":sh zellij run --floating -c -- lf $(dirname %{buffer_name}) > /dev/null" # Open lf in the dir of current buffer.
 l = ":sh zellij run --floating -c -- lf > /dev/null" # Open lf.
 
+T = ":sh zellij run --floating -c --cwd $(dirname %{buffer_name}) -- fish > /dev/null"
+t = ":sh zellij run --floating -c -- fish > /dev/null"
+
 k = "remove_selections" # Default binding conflicts with zellij.
 
 [keys.select.space.space]
@@ -46,6 +49,12 @@ k = "remove_selections" # Default binding conflicts with zellij.
 
 
 [keys.select.space.space.r]
+# Rendering.
+
+w = ":toggle whitespace.render all none" # On/Off whitespace rendering.
+z = ":toggle soft-wrap.enable"           # On/Off soft-wrap.
+
+[keys.normal.space.space.r]
 # Rendering.
 
 w = ":toggle whitespace.render all none" # On/Off whitespace rendering.
@@ -62,8 +71,7 @@ b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 [keys.normal.space.q]
 # Close.
 
-q = ":quit"
-a = ":quit-all"
+q = ":quit-all"
+Q = ":quit-all!"
 x = ":write-quit"
-X = ":write-quit-all"
 
