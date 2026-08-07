@@ -54,7 +54,7 @@ set -g tide_git_color_stash brgreen
 set -g tide_git_color_untracked brblue
 set -g tide_git_color_upstream brgreen
 set -g tide_git_icon ''
-set -g tide_git_truncation_length 24
+set -g tide_git_truncation_length 48
 set -g tide_git_truncation_strategy ''
 
 # Status
