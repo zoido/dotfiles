@@ -1,12 +1,11 @@
 workspaces = true
-style = "auto"
+style = "compact"
 enter_accept = false
 sync_frequency = "5m"
 
-history_filter = [
-   "^cd ",
-   "^ll",
-   "^ls",
-   "^z ",
-   "^zi ",
-]
+history_filter = ["^cd ", "^ll", "^ls", "^z ", "^zi "]
+
+search_mode = "daemon-fuzzy"
+[daemon]
+enabled = true
+autostart = true
