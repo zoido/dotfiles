@@ -45,6 +45,10 @@ keybindings:
         && gh pr merge {{.PrNumber}} --repo {{.RepoName}} --auto --squash
         && gh pr review {{.PrNumber}} --repo {{.RepoName}} --approve
         "
+    - key: D
+      name: Review (tuicr)
+      command: >
+        zellij run -c --stacked --cwd {{.RepoPath}} -- fish -c "tuicr pr {{.PrNumber}}"
     - key: z
       name: PR Branch Shell
       command: >

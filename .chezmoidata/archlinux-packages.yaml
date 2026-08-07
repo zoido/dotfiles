@@ -77,6 +77,7 @@ packages:
   - tinymist # LSP for typst
   - tombi # TOML formatter and linter.
   - traefik
+  - tuicr # Code reviews from terminal.
   - typst
   - ty # Python type checker and language server.
   - unzip
