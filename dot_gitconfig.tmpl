@@ -122,6 +122,14 @@
 
 [merge]
     conflictstyle = zdiff3
+    tool = ec
+
+[mergetool]
+    prompt = false
+
+[mergetool "ec"]
+    cmd = ec "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    trustExitCode = true
 
 
 [pager]

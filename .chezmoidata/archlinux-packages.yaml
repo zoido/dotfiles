@@ -14,6 +14,7 @@ packages:
   - dog
   - duf # A disk usage utility written in Rust.
   - dust # A more intuitive version of 'du' in Rust.
+  - easy-conflict # TUI merge conflict tool
   - exa # A modern replacement for 'ls'.
   - fd # A simple, fast and user-friendly alternative to 'find'.
   - fish
