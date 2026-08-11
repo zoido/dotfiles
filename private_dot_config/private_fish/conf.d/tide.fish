@@ -55,7 +55,7 @@ set -g tide_git_color_untracked brblue
 set -g tide_git_color_upstream brgreen
 set -g tide_git_icon ''
 set -g tide_git_truncation_length 48
-set -g tide_git_truncation_strategy ''
+set -g tide_git_truncation_strategy l # Truncate from beggining
 
 # Status
 set -g tide_status_bg_color normal
