@@ -1,1 +1,3 @@
 theme = "catppuccin-macchiato"
+appearance = "system"
+diff_view = "side-by-side"
