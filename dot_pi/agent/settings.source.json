@@ -1,0 +1,9 @@
+{
+  "theme": "catppuccin-macchiato",
+  "packages": [
+    "git:github.com/otahontas/pi-coding-agent-catppuccin",
+    "git:github.com/huggingface/pi-llama",
+    "npm:@99percentpeople/pi-thinking-fold@v0.1.8"
+  ],
+  "lastChangelogVersion": "0.84.2"
+}

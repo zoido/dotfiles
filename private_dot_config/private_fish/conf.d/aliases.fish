@@ -61,11 +61,17 @@ abbr -a wtco 'wt switch --create --execute=opencode'
 abbr -a wtcmo 'wt switch --create --base (git_main_branch) --execute=opencode'
 
 # Opencode
+abbr -a opencode 'jai opencode'
 abbr -a oc 'jai opencode'
 abbr -a occ 'jai opencode --continue'
 abbr -a ocp 'jai opencode --prompt'
 abbr -a ocr 'jai opencode run'
 abbr -a ocrc 'jai opencode run --continue'
+
+# Pi
+abbr -a pi 'jai pi'
+abbr -a pic 'jai pi -c'
+abbr -a pir 'jai pi -r'
 
 # Custom scripts
 abbr -a prnv please-release-new-version
