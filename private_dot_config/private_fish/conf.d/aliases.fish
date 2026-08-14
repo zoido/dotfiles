@@ -1,6 +1,5 @@
 abbr -a md 'mkdir -p'
 abbr -a rd 'rmdir'
-alias hx='helix'
 
 # Better ls with exa
 if command -q exa
