@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+
+
+{{ range .packages.skills.remote -}}
+gh skill install {{ .repo }} {{ .skill }} --dir ~/.agents/skills --force
+{{ end -}}
+
+
+{{ $sourceDir := .chezmoi.sourceDir }}
+
+{{ range .packages.skills.local -}}
+gh skill install --from-local {{ $sourceDir }}/dot_agents/skills {{.}} --dir ~/.agents/skills --force
+{{ end -}}
+

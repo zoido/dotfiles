@@ -1,0 +1,13 @@
+packages:
+  skills:
+    remote:
+      - repo: AminBlg/SimpleEnglish
+        skill: simple-english
+      - repo: max-sixty/worktrunk
+        skill: wt-switch-create
+      - repo: max-sixty/worktrunk
+        skill: worktrunk
+    local:
+      - git-branch-stacking
+      - go-code-guidelines
+      - pr-guidelines

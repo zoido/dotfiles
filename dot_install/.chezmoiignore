@@ -6,6 +6,7 @@
 {{- if eq .chezmoi.os "linux" }}
 !00-linux-packages
 !04-gh-extensions
+!05-agent-skills
 !10-linux
 {{- end }}
 
