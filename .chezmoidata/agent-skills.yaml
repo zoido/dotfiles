@@ -7,6 +7,8 @@ packages:
         skill: wt-switch-create
       - repo: max-sixty/worktrunk
         skill: worktrunk
+      - repo: anthropics/skills
+        skill: skill-creator
     local:
       - git-branch-stacking
       - go-code-guidelines
