@@ -17,5 +17,6 @@ packages:
   - "github.com/stern/stern@latest" # stern is a tool for tailing multiple pods and containers in Kubernetes.
   - "github.com/terraform-docs/terraform-docs@latest" # terraform-docs is a tool for generating documentation for Terraform modules.
   - "go.abhg.dev/gs@latest" # gs is git tool for managing stacked branches and PRs.
+  - "github.com/zoido/gou@latest" # gou is tool for opening URLs from terminal multiplexers.
   - "mvdan.cc/gofumpt@latest" # gofumpt is a tool slightly stricter than gofmt.
   - "sigs.k8s.io/kind@latest" # kind is a tool for running Kubernetes clusters in Docker.
