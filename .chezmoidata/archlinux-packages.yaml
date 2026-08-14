@@ -40,6 +40,7 @@ packages:
   - htop
   - hx-lsp # Snippets LSP for Helix.
   - hyperfine # A command-line benchmarking tool.
+  - jai # Light-weight sandbox for AI agents
   - jedi-language-serve # Language server for jedi that is Python autocomplete.
   - jo # Build JSON objects from the command line.
   - jq

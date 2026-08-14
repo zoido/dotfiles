@@ -1,5 +1,5 @@
 abbr -a md 'mkdir -p'
-abbr -a rd 'rmdir'
+abbr -a rd rmdir
 
 # Better ls with exa
 if command -q exa
@@ -31,7 +31,7 @@ abbr -a O --position anywhere --set-cursor "% | ov"
 abbr -a OO --position anywhere --set-cursor "%  &| ov"
 
 # Terraform
-abbr -a tf 'terraform'
+abbr -a tf terraform
 abbr -a tfa 'terraform apply'
 abbr -a tfp 'terraform plan'
 abbr -a tfaaa 'terraform apply --auto-approve'
@@ -40,14 +40,14 @@ abbr -a tfdaa 'terraform destroy --auto-approve'
 abbr -a tfi 'terraform init'
 
 # Kubernetes
-abbr -a kube 'kubectl'
-abbr -a k 'kubectl'
-abbr -a kctx 'kubectx'
+abbr -a kube kubectl
+abbr -a k kubectl
+abbr -a kctx kubectx
 abbr -a kctxc 'kubectx -c'
 abbr -a kctxu 'kubectx -u'
 abbr -a kcc 'kubectx -c'
 abbr -a kcu 'kubectx -u'
-abbr -a kns 'kubens'
+abbr -a kns kubens
 abbr -a knsc 'kubens -c'
 abbr -a knsu 'kubens -u'
 
@@ -61,11 +61,11 @@ abbr -a wtco 'wt switch --create --execute=opencode'
 abbr -a wtcmo 'wt switch --create --base (git_main_branch) --execute=opencode'
 
 # Opencode
-abbr -a oc 'opencode'
-abbr -a occ 'opencode --continue'
-abbr -a ocp 'opencode --prompt'
-abbr -a ocr 'opencode run'
-abbr -a ocrc 'opencode run --continue'
+abbr -a oc 'jai opencode'
+abbr -a occ 'jai opencode --continue'
+abbr -a ocp 'jai opencode --prompt'
+abbr -a ocr 'jai opencode run'
+abbr -a ocrc 'jai opencode run --continue'
 
 # Custom scripts
 abbr -a prnv please-release-new-version
