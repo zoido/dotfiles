@@ -59,11 +59,11 @@
 [core]
     pager = delta
 
-    {{- if ne .chezmoi.os "windows" }}
+    {{- if not .windows }}
     autocrlf = input
     {{ end -}}
 
-    {{- if eq .chezmoi.os "windows" }}
+    {{- if .windows }}
     autocrlf = true
     fileMode = false
     {{ end }}
@@ -72,7 +72,7 @@
     untrackedCache = true
 
     excludesfile = ~/.gitignore
-    {{- if eq .chezmoi.os "windows" }}
+    {{- if .windows }}
     sshCommand = "C:\\\\Windows\\\\System32\\\\OpenSSH\\\\ssh"
     {{- end }}
 
@@ -108,8 +108,8 @@
     format = ssh
 
 [gpg "ssh"]
-    {{ if ne .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
-    {{ if eq .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\op-ssh-sign.exe"{{ end }}
+    {{ if not .windows }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
+    {{ if .windows }}program = "{{ .chezmoi.homeDir }}\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\op-ssh-sign.exe"{{ end }}
 
 [help]
     autocorrect = prompt

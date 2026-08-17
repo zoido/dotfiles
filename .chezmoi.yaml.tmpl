@@ -1,10 +1,16 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
-{{- $wsl := and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-{{- $archlinux := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
+{{- $linux := eq .chezmoi.os "linux" -}}
+{{- $windows := eq .chezmoi.os "windows" -}}
+{{- $wsl := and $linux (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- $archlinux := and $linux (eq (get .chezmoi.osRelease "id") "arch") -}}
+{{- $termux := and (eq .chezmoi.os "android") (.chezmoi.homeDir | contains "/com.termux/") -}}
 
 sourceDir: {{ .chezmoi.sourceDir }}
 
 data:
     archlinux: {{ $archlinux }}
     codespaces: {{ $codespaces }}
+    linux: {{ $linux }}
+    termux: {{ $termux }}
+    windows: {{ $windows }}
     wsl: {{ $wsl }}

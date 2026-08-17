@@ -1,9 +1,9 @@
 *
 
-{{- if eq .chezmoi.os "linux" }}
+{{- if or .linux .termux }}
 !install-python-tools.sh
 {{- end }}
 
-{{- if eq .chezmoi.os "windows" }}
+{{- if .windows }}
 !install-python-tools.bat
 {{- end }}

@@ -3,14 +3,14 @@
 !02-go-tools
 !03-python-tools
 
-{{- if eq .chezmoi.os "linux" }}
+{{- if or .linux .termux }}
 !00-linux-packages
 !04-gh-extensions
 !05-agent-skills
 !10-linux
 {{- end }}
 
-{{- if eq .chezmoi.os "windows" }}
+{{- if .windows }}
 !00-windows-packages
 !10-windows
 {{- end }}

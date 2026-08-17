@@ -13,8 +13,8 @@ behavior = "drop"
 backend = "ssh"
 key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOtIkSyfNlUzkURE+RgpMyz6tAfLQrFqMQjk9GxoMSBK"
 
-{{ if ne .chezmoi.os "windows" }}backends.ssh.program  = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
-{{ if eq .chezmoi.os "windows" }}backends.ssh.program  = "{{ .chezmoi.homeDir }}\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\op-ssh-sign.exe"{{ end }}
+{{ if not .windows }}backends.ssh.program  = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
+{{ if .windows }}backends.ssh.program  = "{{ .chezmoi.homeDir }}\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\op-ssh-sign.exe"{{ end }}
 
 [git]
 sign-on-push = true

@@ -7,3 +7,7 @@
 {{- if .codespaces }}
 !install-codespaces-packages.sh
 {{- end }}
+
+{{- if .termux }}
+!install-termux-packages.sh
+{{- end }}

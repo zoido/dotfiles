@@ -1,0 +1,12 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -e
+
+packages=(
+    {{ range .packages.termux -}}
+    {{ . }}
+    {{ end -}}
+)
+
+pkg upgrade -y
+pkg install -y ${packages[*]}

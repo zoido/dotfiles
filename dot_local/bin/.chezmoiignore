@@ -3,3 +3,7 @@ zellij-wsl-session
 notify-send
 {{- end }}
 
+{{- if not .archlinux }}
+hx
+{{- end }}
+

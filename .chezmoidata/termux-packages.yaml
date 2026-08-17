@@ -1,0 +1,63 @@
+packages:
+  termux:
+  - aria2
+  - atuin
+  - bat # A cat clone with syntax highlighting and Git integration.
+  - curl
+  - difftastic # A structural diff tool that understands syntax and semantics of code.
+  - duf # A disk usage utility written in Rust.
+  - dust # A more intuitive version of 'du' in Rust.
+  - eza # A modern replacement for 'ls' (successor of exa).
+  - fd # A simple, fast and user-friendly alternative to 'find'.
+  - fish
+  - fx # A tool for exploring and analyzing JSON data in the terminal.
+  - fzf
+  - gh # GitHub CLI.
+  - git
+  - git-delta # A syntax-highlighting pager for git and diff output.
+  - golang
+  - gopls # LSP for Go files.
+  - gping
+  - gum # Nice prompts for shell scripts.
+  - helix
+  - helm
+  - helm-ls # LSP for helm charts.
+  - hexyl
+  - htop
+  - hyperfine # A command-line benchmarking tool.
+  - jo # Build JSON objects from the command line.
+  - jq
+  - k9s
+  - kubectl
+  - lazygit
+  - less
+  - mandoc # Man page viewer (man-db replacement).
+  - marksman # LSP for markdown files.
+  - mc
+  - most
+  - openssh
+  - peco # A command-line interactive filtering tool.
+  - procs
+  - protobuf
+  - python
+  - python-pip
+  - qalc # Command-line calculator (libqalculate).
+  - ripgrep # Grep but faster.
+  - socat
+  - starship
+  - step-cli
+  - taplo # LSP for TOML files.
+  - tealdeer # TLDR client.
+  - termux-api
+  - termux-tools
+  - tinymist # LSP for typst
+  - typst
+  - unzip
+  - uv
+  - viddy # Like 'watch' but with a nice UI and more features.
+  - wget
+  - which
+  - xh # httpie compatible HTTP request CLI.
+  - yq # YAML processor (go-yq).
+  - zellij
+  - zoxide
