@@ -66,6 +66,7 @@ z = ":toggle soft-wrap.enable"           # On/Off soft-wrap.
 g = ":sh zellij run --stacked -c -- gitu > /dev/null"
 B = ":sh zellij run --stacked -c -- gitu blame %{buffer_name} > /dev/null"
 b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+K = ":reset-diff-change"
 
 
 [keys.normal.space.q]
