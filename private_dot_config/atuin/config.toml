@@ -3,7 +3,7 @@ style = "compact"
 enter_accept = false
 sync_frequency = "5m"
 
-history_filter = ["^cd ", "^ll", "^ls", "^z ", "^zi ", "^gco "]
+history_filter = ["^cd ", "^ll", "^ls", "^z ", "^zi ", "^gco ", "^gcp ", "^gb ", "^gm ", "^gcb ", "^gl$"]
 
 search_mode = "daemon-fuzzy"
 [daemon]
