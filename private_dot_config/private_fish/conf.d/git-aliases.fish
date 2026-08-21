@@ -115,6 +115,7 @@ abbr -a grss 'git restore --source'
 abbr -a grst 'git restore --staged'
 abbr -a ggrs 'git restore . && git clean -fd'
 abbr -a ggrst 'git restore --staged .'
+abbr -a ggso 'git restore . && git clean -fd && git restore --staged .'
 
 # Revert
 abbr -a grev 'git revert'
