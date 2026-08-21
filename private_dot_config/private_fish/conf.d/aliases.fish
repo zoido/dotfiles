@@ -53,12 +53,12 @@ abbr -a knsu 'kubens -u'
 
 # Worktrunk
 abbr -a wts 'wt switch'
+abbr -a wtsb 'wt switch --branches'
 abbr -a wtm 'wt switch (git_main_branch)'
 abbr -a wtc 'wt switch --create'
 abbr -a wtcm 'wt switch --create --base (git_main_branch)'
-abbr -a wto 'wt switch --execute=opencode'
-abbr -a wtco 'wt switch --create --execute=opencode'
-abbr -a wtcmo 'wt switch --create --base (git_main_branch) --execute=opencode'
+abbr -a wtr 'wt remove'
+abbr -a wtrf 'wt remove --force'
 
 # Opencode
 abbr -a opencode 'jai opencode'
