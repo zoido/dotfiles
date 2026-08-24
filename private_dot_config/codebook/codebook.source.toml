@@ -1,3 +1,5 @@
+min_word_length = 5
+
 dictionaries = [
     "en_us",
     "en_gb",
@@ -5,27 +7,15 @@ dictionaries = [
 ]
 words = [
     "Deleter",
-    "HCL",
-    "IAM",
     "Kubernetes",
-    "Nats",
-    "Newf",
     "Tmpfs",
     "appstore",
-    "bld",
-    "dkr",
-    "dsn",
-    "ecr",
     "errassert",
     "fieldmask",
     "foobars",
-    "grp",
     "grpchealth",
     "policyserver",
-    "prg",
-    "sqlx",
     "sslmode",
-    "svc",
     "unkeyed",
     "zoido",
 ]
