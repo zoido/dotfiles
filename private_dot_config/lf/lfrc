@@ -1,7 +1,11 @@
 set icons
 set hidden!
+set drawbox
 
 set previewer pistol
+
+map ad push %mkdir<space>-p<space>
+map af push %touch<space>
 
 # Commands to use Zoxide.
 cmd z %{{

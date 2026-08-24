@@ -88,6 +88,7 @@ packages:
   - uv
   - vcluster-bin
   - viddy # Like 'watch' but with a nice UI and more features.
+  - viu # Terminal image viewer.
   - vscode-json-languageserver
   - wget
   - worktrunk-bin
