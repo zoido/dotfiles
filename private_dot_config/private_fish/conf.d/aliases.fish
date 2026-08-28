@@ -75,3 +75,6 @@ abbr -a pir 'jai pi -r'
 
 # Custom scripts
 abbr -a prnv please-release-new-version
+
+# Televisionm
+abbr -a mmk 'tv make-targets --inline'

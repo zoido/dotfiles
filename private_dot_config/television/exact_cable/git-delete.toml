@@ -1,0 +1,14 @@
+[metadata]
+name = "git-delete"
+description = "A channel to delete git branches"
+requirements = ["git"]
+
+[source]
+command = [
+  { name = "Local", run = "git branch --format=\"%(refname:short) %(refname:short) %(HEAD)\" | grep -v '*$'" },
+]
+display = "{1}"
+output = "{0}"
+
+[preview]
+command = "git log --stat --decorate --color=always -1 '{0}' --"

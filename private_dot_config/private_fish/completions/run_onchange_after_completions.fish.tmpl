@@ -52,3 +52,8 @@ gs shell completion fish >"$completions_dir/gs.fish"
 # vcluster version: {{ output "vcluster" "--version" | sha256sum }}
 vcluster completion fish >"$completions_dir/vcluster.fish"
 {{- end }}
+
+{{- if lookPath "tv"}}
+# tv version: {{ output "tv" "--version" | sha256sum }}
+tv completions fish >"$completions_dir/tv.fish"
+{{- end }}

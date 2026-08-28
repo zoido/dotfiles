@@ -1,0 +1,23 @@
+[metadata]
+name = "git-switch"
+description = "A channel to switch git branches"
+requirements = ["git"]
+
+[source]
+command = [
+  { name = "Local", run = "git branch --format=\"%(refname:short) %(refname:short) %(HEAD)\" | grep -v '*$'" },
+  { name = "All", run = "{git branch -r --format \"%(refname:short) %(refname:strip=3)\"; git branch --format=\"%(refname:short) %(refname:short) %(HEAD)\" } | grep -v '*$'| grep -v HEAD | sort -k2 -u" },
+]
+display = "{1}"
+output = "{0}"
+
+[preview]
+command = "git log --stat --decorate --color=always -1 '{0}' --"
+
+[keybindings]
+enter = "actions:switch"
+
+[actions.switch]
+description = "Switch to the selected branch"
+command = "git switch '{1}'"
+mode = "execute"

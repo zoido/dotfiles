@@ -74,6 +74,7 @@ packages:
   - step-cli
   - systemd-lsp # LSP for systemd unit files.
   - taplo-cli # LSP for TOML files.
+  - television
   - tealdeer # TLDR client.
   - terraform
   - tfswitch

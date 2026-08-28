@@ -1,0 +1,7 @@
+default_channel = "channels"
+
+[ui]
+ui_scale = 100
+
+[ui.remote_control]
+disabled = true

@@ -5,6 +5,7 @@ abbr -a g git
 abbr -a gFC 'git reset HEAD && git checkout . && git clean -fd'
 abbr -a ggg 'git switch -'
 abbr -a ggcm 'git switch (git_main_branch) && git pull && git fetch --all --tags --prune --jobs=10 && gh poi'
+abbr -a ggsw 'tv git-switch --inline'
 abbr -a pb --command git '(git_parent_branch)'
 abbr -a gcm 'git switch (git_main_branch)'
 abbr -a gcd 'git switch (git_develop_branch)'
