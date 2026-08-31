@@ -263,7 +263,7 @@ keybinds clear-defaults=true {
     normal {
         bind "Alt u" {
             DumpScreen "/tmp/zellij-screen-dump";
-            Run "gou" "--file" "/tmp/zellij-screen-dump" {
+            Run "tv" "zellij-xurls" {
                 floating true
                 move_to_focused_tab true
                 close_on_exit true
