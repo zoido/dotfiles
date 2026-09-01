@@ -23,6 +23,7 @@ packages:
   - fx # A tool for exploring and analyzing JSON data in the terminal.
   - fzf
   - git-delta # A syntax-highlighting pager for git and diff output.
+  - git-spice-bin # Managing stacks of git branches.
   - github-cli
   - gitu # Magit like interface for git in the terminal.
   - go
