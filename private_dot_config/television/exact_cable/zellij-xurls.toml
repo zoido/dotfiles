@@ -1,6 +1,6 @@
 [metadata]
 name = "zellij-xurls"
-description = "Select a television channel"
+description = "Select URLs from zelij dump"
 requirements = ["xurls"]
 
 [source]
