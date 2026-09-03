@@ -72,7 +72,7 @@ matches:
           trigger: ;;nyear
 
   # Monday
-  - trigger: "[[mon"
+  - trigger: "[[tmon"
     replace: "[[{{val}}]]"
     vars:
       - name: val
@@ -97,7 +97,7 @@ matches:
           trigger: ;;pmon
 
   # Tuesday
-  - trigger: "[[tue"
+  - trigger: "[[ttue"
     replace: "[[{{val}}]]"
     vars:
       - name: val
@@ -122,7 +122,7 @@ matches:
           trigger: ;;ptue
 
   # Wednesday
-  - trigger: "[[wed"
+  - trigger: "[[twed"
     replace: "[[{{val}}]]"
     vars:
       - name: val
@@ -147,7 +147,7 @@ matches:
           trigger: ;;pwed
 
   # Thursday
-  - trigger: "[[thu"
+  - trigger: "[[tthu"
     replace: "[[{{val}}]]"
     vars:
       - name: val
@@ -172,7 +172,7 @@ matches:
           trigger: ;;pthu
 
   # Friday
-  - trigger: "[[fri"
+  - trigger: "[[tfri"
     replace: "[[{{val}}]]"
     vars:
       - name: val
@@ -197,7 +197,7 @@ matches:
           trigger: ;;pfri
 
   # Saturday
-  - trigger: "[[sat"
+  - trigger: "[[tsat"
     replace: "[[{{val}}]]"
     vars:
       - name: val
@@ -222,7 +222,7 @@ matches:
           trigger: ;;psat
 
   # Sunday
-  - trigger: "[[sun"
+  - trigger: "[[tsun"
     replace: "[[{{val}}]]"
     vars:
       - name: val
