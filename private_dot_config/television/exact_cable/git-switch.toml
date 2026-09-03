@@ -12,7 +12,10 @@ display = "{1}"
 output = "{0}"
 
 [preview]
-command = "git log --stat --decorate --color=always -1 '{0}' --"
+command = [
+  "git log --stat --decorate --color=always -1 '{0}' -- | delta",
+  "git log --oneline --decorate --color=always '{0}' --",
+]
 
 [keybindings]
 enter = "actions:switch"
