@@ -11,6 +11,9 @@ set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
 {{- if .wsl }}
 set -gx BROWSER wsl-open
 {{- end }}
+{{- if .termux }}
+set -gx LD_PRELOAD /data/data/com.termux/files/usr/lib/libtermux-exec.so
+{{- end }}
 
 if command -q ov
     set -gx PAGER ov
