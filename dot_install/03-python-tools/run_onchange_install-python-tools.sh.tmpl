@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 {{- range .packages.python }}
 uv tool install {{ . }}
