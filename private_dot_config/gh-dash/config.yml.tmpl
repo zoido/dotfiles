@@ -1,3 +1,4 @@
+{{/* chezmoi:template:left-delimiter=[[ right-delimiter=]] */}}
 defaults:
   prApproveComment: ""
 pager:
@@ -62,6 +63,22 @@ keybindings:
 
 theme:
   colors:
+[[- if eq .catppuccin.flavor "latte" ]]
+    text:
+      primary: "#4c4f69"
+      secondary: "#7287fd"
+      inverted: "#dce0e8"
+      faint: "#5c5f77"
+      warning: "#df8e1d"
+      success: "#40a02b"
+      error: "#d20f39"
+    background:
+      selected: "#ccd0da"
+    border:
+      primary: "#7287fd"
+      secondary: "#bcc0cc"
+      faint: "#ccd0da"
+[[- else ]]
     text:
       primary: "#cad3f5"
       secondary: "#b7bdf8"
@@ -76,3 +93,4 @@ theme:
       primary: "#b7bdf8"
       secondary: "#494d64"
       faint: "#363a4f"
+[[- end ]]

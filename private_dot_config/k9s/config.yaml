@@ -1,5 +1,0 @@
-k9s:
-  ui:
-    skin: catppuccin-macchiato-transparent
-    headless: true
-    logoless: true

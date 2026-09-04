@@ -1,3 +1,4 @@
-theme = "catppuccin-macchiato"
+theme_light = "catppuccin-latte"
+theme_dark = "catppuccin-macchiato"
 appearance = "system"
 diff_view = "side-by-side"

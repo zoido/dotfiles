@@ -5,9 +5,20 @@
 {{- $archlinux := and $linux (eq (get .chezmoi.osRelease "id") "arch") -}}
 {{- $termux := and (eq .chezmoi.os "android") (.chezmoi.homeDir | contains "/com.termux/") -}}
 
+{{- $appearance := promptChoiceOnce . "appearance" "appearance" (list "dark" "light") "dark" -}}
+
+{{- /* Catppuccin flavor bound to each appearance. */ -}}
+{{- $catppuccinLight := "latte" -}}
+{{- $catppuccinDark := "macchiato" -}}
+
 sourceDir: {{ .chezmoi.sourceDir }}
 
 data:
+    appearance: {{ $appearance }}
+    catppuccin:
+        light: {{ $catppuccinLight }}
+        dark: {{ $catppuccinDark }}
+        flavor: {{ eq $appearance "light" | ternary $catppuccinLight $catppuccinDark }}
     archlinux: {{ $archlinux }}
     codespaces: {{ $codespaces }}
     linux: {{ $linux }}

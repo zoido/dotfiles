@@ -18,6 +18,24 @@ They are organized to be modular and reusable across different environments.
 
 Add to `.chezmoidata/*.yaml` → install scripts in `dot_install/` iterate over these lists.
 
+## Theme
+
+Everything uses Catppuccin. `{{ .appearance }}` is `dark` or `light`; `{{ .catppuccin.flavor }}`
+resolves to `{{ .catppuccin.dark }}` (macchiato) or `{{ .catppuccin.light }}` (latte).
+
+Switch the appearance and re-render:
+
+```sh
+chezmoi init --prompt --promptChoice appearance=light
+chezmoi apply
+```
+
+Some tools follow the terminal or desktop on their own and ignore `.appearance`:
+bat (`--theme=auto`), zellij (`theme_dark`/`theme_light`), tuicr (`appearance = "system"`),
+opencode (the `catppuccin-adaptive` theme). Change those in their own config, not here.
+
+`gh-dash` has its own `{{ }}` syntax, so its template uses `[[ ]]` delimiters.
+
 ## Testing
 
 `chezmoi diff` to preview, `chezmoi apply -n` for dry run.

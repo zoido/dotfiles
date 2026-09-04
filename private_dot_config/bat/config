@@ -1,2 +1,4 @@
---theme="Catppuccin Macchiato"
+--theme=auto
+--theme-light="Catppuccin Latte"
+--theme-dark="Catppuccin Macchiato"
 --tabs=4
