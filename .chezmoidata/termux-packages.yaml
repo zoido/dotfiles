@@ -49,6 +49,7 @@ packages:
   - taplo # LSP for TOML files.
   - tealdeer # TLDR client.
   - termux-api
+  - termux-exec
   - termux-tools
   - tinymist # LSP for typst
   - typst
