@@ -31,7 +31,7 @@ chezmoi apply
 ```
 
 Some tools follow the terminal or desktop on their own and ignore `.appearance`:
-bat (`--theme=auto`), zellij (`theme_dark`/`theme_light`), tuicr (`appearance = "system"`),
+zellij (`theme_dark`/`theme_light`), tuicr (`appearance = "system"`),
 opencode (the `catppuccin-adaptive` theme). Change those in their own config, not here.
 
 `gh-dash` has its own `{{ }}` syntax, so its template uses `[[ ]]` delimiters.
