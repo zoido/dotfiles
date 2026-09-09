@@ -10,7 +10,20 @@ set -gx PISTOL_CHROMA_STYLE catppuccin-{{ .catppuccin.flavor }}
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
 {{- if .wsl }}
 set -gx BROWSER wsl-open
+
+# Reduce WSL interop appended paths. Only add the ones needed.
+set -l wsl_path_allow '/System32/?$' '/WindowsApps/?$' '/WinGet/Links/?$'
+set -l wsl_path_pattern (string join '|' $wsl_path_allow)
+set -l wsl_pruned_path
+for dir in $PATH
+    if string match -qr '^/mnt/' -- $dir
+        string match -qri -- $wsl_path_pattern $dir; or continue
+    end
+    set -a wsl_pruned_path $dir
+end
+set -gx PATH $wsl_pruned_path
 {{- end }}
+
 {{- if .termux }}
 set -gx LD_PRELOAD /data/data/com.termux/files/usr/lib/libtermux-exec.so
 {{- end }}
