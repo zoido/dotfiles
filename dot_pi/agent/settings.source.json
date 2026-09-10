@@ -5,5 +5,22 @@
     "git:github.com/huggingface/pi-llama",
     "npm:@99percentpeople/pi-thinking-fold@v0.1.8"
   ],
-  "lastChangelogVersion": "0.84.2"
+  "lastChangelogVersion": "0.85.1",
+  "editorPaddingX": 1,
+  "terminal": {
+    "showTerminalProgress": true,
+    "trueColor": true
+  },
+  "quietStartup": true,
+  "enableInstallTelemetry": false,
+  "enabledModels": [
+    "github-copilot/claude-sonnet-5",
+    "github-copilot/claude-opus-5",
+    "github-copilot/claude-haiku-4.5",
+    "github-copilot/claude-fable-5",
+    "llama-cpp/ggml-org/gemma-4-E2B-it-GGUF:Q8_0"
+  ],
+  "defaultProvider": "github-copilot",
+  "defaultModel": "claude-sonnet-5",
+  "collapseChangelog": false
 }
