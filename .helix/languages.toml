@@ -1,0 +1,68 @@
+# Language settings for this chezmoi source directory.
+# Template files end with `.tmpl`. Helix reads that ending and cannot find the
+# real file type. The globs below tell Helix the real file type, so it gives
+# you colors and a language server again.
+# Helix replaces the built-in list of file types with the list you write here.
+# For that reason each list repeats the plain file endings that this repository
+# uses.
+
+[[language]]
+name = "bash"
+file-types = [
+  "sh",
+  { glob = "*.sh.tmpl" },
+  { glob = "executable_op-ssh-sign.tmpl" },
+]
+
+[[language]]
+name = "toml"
+auto-format = false
+file-types = [
+  "toml",
+  { glob = "*.toml.tmpl" },
+]
+
+[[language]]
+name = "fish"
+file-types = [
+  "fish",
+  { glob = "*.fish.tmpl" },
+]
+
+[[language]]
+name = "yaml"
+file-types = [
+  "yml",
+  "yaml",
+  { glob = "*.yaml.tmpl" },
+  { glob = "*.yml.tmpl" },
+]
+
+[[language]]
+name = "json"
+file-types = [
+  "json",
+  { glob = "*.json.tmpl" },
+]
+
+[[language]]
+name = "markdown"
+file-types = [
+  "md",
+  { glob = "*.md.tmpl" },
+  { glob = "symlink_dot_goosehints.tmpl" },
+]
+
+[[language]]
+name = "git-config"
+file-types = [
+  { glob = ".gitconfig" },
+  { glob = "dot_gitconfig.tmpl" },
+]
+
+[[language]]
+name = "git-ignore"
+file-types = [
+  { glob = ".gitignore" },
+  { glob = ".chezmoiignore" },
+]
