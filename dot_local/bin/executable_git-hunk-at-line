@@ -1,0 +1,30 @@
+#!/bin/sh
+# Usage: git-hunk-at-line <file> <line>
+# Prints the git diff hunk that adds <line> (new-file numbering), or nothing.
+
+git diff -- "$1" | awk -v target="$2" '
+	# Print the buffered hunk if it added the target line, then start a new one.
+	function flush() {
+		if (matched) printf "%s", hunk
+		hunk = ""
+		matched = 0
+	}
+	# A header ends the previous hunk. Its third field is "+start,length",
+	# so n becomes the new-file number of the first body line.
+	/^@@/ {
+		flush()
+		spec = $3
+		sub(/^\+/, "", spec)
+		split(spec, a, ",")
+		n = a[1] + 0
+	}
+	# This runs for the header and every line after it, but not for the
+	# "diff --git" preamble, which comes before the first hunk.
+	hunk != "" || /^@@/ {
+		hunk = hunk $0 "\n"
+		if (/^\+/ && n == target) matched = 1
+		# Removed lines are absent from the new file, so they do not advance n.
+		if (/^[+ ]/) n++
+	}
+	END { flush() }
+'
