@@ -34,7 +34,7 @@ w = ":w"
 f = ":format"
 R = [":reload-all", ":config-reload", ":lsp-restart"]
 
-"/" = ":sh zellij run --stacked -c -- scooter > /dev/null" # Run scooter (find and replace).
+"/" = ":sh zellij run --floating --width 90%% --height 90%% -c -- scooter > /dev/null" # Run scooter (find and replace).
 L = ":sh zellij run --floating -c -- lf $(dirname %{buffer_name}) > /dev/null" # Open lf in the dir of current buffer.
 l = ":sh zellij run --floating -c -- lf > /dev/null" # Open lf.
 
@@ -62,11 +62,11 @@ z = ":toggle soft-wrap.enable"           # On/Off soft-wrap.
 [keys.normal.space.space.g]
 # Git helpers
 
-g = ":sh zellij run --stacked -c -- gitu > /dev/null"
-B = ":sh zellij run --stacked -c -- gitu blame %{buffer_name} > /dev/null"
+g = ":sh zellij run --floating --width 90%% --height 90%% -c -- gitu > /dev/null"
+B = ":sh zellij run --floating --width 90%% --height 90%% -c -- gitu blame %{buffer_name} > /dev/null"
 b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
-d = ":sh zellij run --stacked -c -- fish -c 'git --paginate diff -- %{buffer_name} | delta --paging=always' > /dev/null"
-h = ":sh zellij run --stacked -c -- fish -c 'git-hunk-at-line %{buffer_name} %{cursor_line} | delta --paging=always' > /dev/null"
+d = ":sh zellij run --floating --width 90%% --height 90%% -c -- fish -c 'git --paginate diff -- %{buffer_name} | delta --paging=always' > /dev/null"
+h = ":sh zellij run --floating --width 90%% --height 90%% -c -- fish -c 'git-hunk-at-line %{buffer_name} %{cursor_line} | delta --paging=always' > /dev/null"
 K = ":reset-diff-change"
 
 
