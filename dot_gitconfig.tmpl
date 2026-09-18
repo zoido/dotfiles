@@ -59,11 +59,11 @@
 [core]
     pager = delta
 
-    {{- if not .windows }}
+    {{- if ne .chezmoi.os "windows" }}
     autocrlf = input
     {{ end -}}
 
-    {{- if .windows }}
+    {{- if eq .chezmoi.os "windows" }}
     autocrlf = true
     fileMode = false
     {{ end }}
@@ -72,13 +72,13 @@
     untrackedCache = true
 
     excludesfile = ~/.gitignore
-    {{- if .windows }}
+    {{- if eq .chezmoi.os "windows" }}
     sshCommand = "C:\\\\Windows\\\\System32\\\\OpenSSH\\\\ssh"
     {{- end }}
 
 [delta]
     navigate = true
-	features = catppuccin-{{ .catppuccin.flavor }}
+	features = catppuccin-macchiato
     line-numbers = true
     true-color = always
     tabs = 4
@@ -108,8 +108,8 @@
     format = ssh
 
 [gpg "ssh"]
-    {{ if not .windows }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
-    {{ if .windows }}program = "{{ .chezmoi.homeDir }}\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\op-ssh-sign.exe"{{ end }}
+    {{ if ne .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
+    {{ if eq .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\op-ssh-sign.exe"{{ end }}
 
 [help]
     autocorrect = prompt

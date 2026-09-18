@@ -1,27 +1,10 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
-{{- $linux := eq .chezmoi.os "linux" -}}
-{{- $windows := eq .chezmoi.os "windows" -}}
-{{- $wsl := and $linux (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-{{- $archlinux := and $linux (eq (get .chezmoi.osRelease "id") "arch") -}}
-{{- $termux := and (eq .chezmoi.os "android") (.chezmoi.homeDir | contains "/com.termux/") -}}
-
-{{- $appearance := promptChoiceOnce . "appearance" "appearance" (list "dark" "light") "dark" -}}
-
-{{- /* Catppuccin flavor bound to each appearance. */ -}}
-{{- $catppuccinLight := "latte" -}}
-{{- $catppuccinDark := "macchiato" -}}
+{{- $wsl := and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- $archlinux := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
 
 sourceDir: {{ .chezmoi.sourceDir }}
 
 data:
-    appearance: {{ $appearance }}
-    catppuccin:
-        light: {{ $catppuccinLight }}
-        dark: {{ $catppuccinDark }}
-        flavor: {{ eq $appearance "light" | ternary $catppuccinLight $catppuccinDark }}
     archlinux: {{ $archlinux }}
     codespaces: {{ $codespaces }}
-    linux: {{ $linux }}
-    termux: {{ $termux }}
-    windows: {{ $windows }}
     wsl: {{ $wsl }}

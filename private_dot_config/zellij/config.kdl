@@ -19,9 +19,7 @@ ui {
     }
 }
 
-// Both must be set for zellij to follow the terminal's reported color palette.
-theme_dark "catppuccin-macchiato"
-theme_light "catppuccin-latte"
+theme "catppuccin-macchiato"
 
 // Using non-colliding keybindings. See below.
 default_mode "locked"

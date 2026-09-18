@@ -8,14 +8,14 @@ dev
 {{- end }}
 
 
-{{- if not .windows }}
+{{- if eq .chezmoi.os "linux" }}
 .wsl
 .wslconfig
 AppData
 {{- end }}
 
 
-{{- if .windows }}
+{{- if eq .chezmoi.os "windows" }}
 *
 !.config
 .config/fish

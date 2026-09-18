@@ -1,4 +1,4 @@
-theme = "catppuccin_{{ .catppuccin.flavor }}"
+theme = "catppuccin_macchiato"
 
 [editor]
 color-modes = true
@@ -34,9 +34,9 @@ w = ":w"
 f = ":format"
 R = [":reload-all", ":config-reload", ":lsp-restart"]
 
-"/" = ":sh zellij run --stacked -c -- scooter > /dev/null"                     # Run scooter (find and replace).
+"/" = ":sh zellij run --stacked -c -- scooter > /dev/null" # Run scooter (find and replace).
 L = ":sh zellij run --floating -c -- lf $(dirname %{buffer_name}) > /dev/null" # Open lf in the dir of current buffer.
-l = ":sh zellij run --floating -c -- lf > /dev/null"                           # Open lf.
+l = ":sh zellij run --floating -c -- lf > /dev/null" # Open lf.
 
 T = ":sh zellij run --floating -c --cwd $(dirname %{buffer_name}) -- fish > /dev/null"
 t = ":sh zellij run --floating -c -- fish > /dev/null"
@@ -74,3 +74,4 @@ K = ":reset-diff-change"
 q = ":quit-all"
 Q = ":quit-all!"
 x = ":write-quit"
+
