@@ -11,6 +11,18 @@ Host cetus-win
     User lubos
     ForwardAgent yes
 
+Host kraken-wsl
+    HostName localhost
+    User zoid
+    Port 2222
+    ProxyJump kraken-win
+    ForwardAgent yes
+
+Host kraken-win
+    HostName 10.2.10.108
+    User lubos
+    ForwardAgent yes
+
 # Set alternative access for Git repos for the environments where normal SSH
 # is blocked
 
