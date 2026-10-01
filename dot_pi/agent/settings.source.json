@@ -21,5 +21,8 @@
   ],
   "defaultProvider": "github-copilot",
   "defaultModel": "claude-opus-5.5",
-  "collapseChangelog": false
+  "collapseChangelog": false,
+  "defaultTools": [
+    "+codemode"
+  ]
 }
