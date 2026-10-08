@@ -5,7 +5,7 @@
     "git:github.com/huggingface/pi-llama",
     "npm:@99percentpeople/pi-thinking-fold@v0.1.8"
   ],
-  "lastChangelogVersion": "1.0.0",
+  "lastChangelogVersion": "1.1.0",
   "editorPaddingX": 1,
   "terminal": {
     "showTerminalProgress": true,
