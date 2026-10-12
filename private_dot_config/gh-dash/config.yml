@@ -23,7 +23,7 @@ repoPaths:
 
 keybindings:
   prs:
-    - key: ctrl+v
+    - key: F
       builtin: "approveWorkflows"
     - key: T
       name: Actions
