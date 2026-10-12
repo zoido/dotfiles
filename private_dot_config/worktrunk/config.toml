@@ -4,7 +4,7 @@ worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
 stage = "all"
 
 [commit.generation]
-command = "opencode run -m github-copilot/claude-haiku-4.5 --variant fast"
+command = "opencode run -m github-copilot/claude-haiku-5.5"
 
 [post-start]
 copy = "wt step copy-ignored"
