@@ -3,3 +3,4 @@ ui:
   hideFooter: true
   showDiffStats: true
   icons: ascii
+  theme: catppuccin_macchiato
