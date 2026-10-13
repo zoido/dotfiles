@@ -9,7 +9,7 @@ command = "codebook-lsp"
 # Go.
 [[language]]
 auto-format = true
-formatter = {command = "goimports"}
+formatter = { command = "goimports" }
 language-servers = ["hx-lsp", "codebook", "gopls", "golangci-lint-lsp"]
 name = "go"
 rulers = [100]
@@ -31,3 +31,8 @@ name = "typst"
 [[language]]
 language-servers = ["codebook", "hx-lsp", "marksman", "markdown-oxide"]
 name = "markdown"
+
+# Python.
+[[language]]
+name = "python"
+rulers = [88]
