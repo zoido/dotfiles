@@ -1,0 +1,3 @@
+--bind-try $HOME/.cache/go-build $HOME/.cache/go-build
+--bind-try $HOME/go/pkg/mod $HOME/go/pkg/mod
+--bind-try $HOME/.cache/golangci-lint $HOME/.cache/golangci-lint

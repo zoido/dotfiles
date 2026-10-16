@@ -1,0 +1,1 @@
+--ro-bind $HOME/.config/helix $HOME/.config/helix

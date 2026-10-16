@@ -1,0 +1,3 @@
+--ro-bind $HOME/.local/bin $HOME/.local/bin
+--ro-bind $HOME/go/bin $HOME/go/bin
+--ro-bind $HOME/.local/share/uv/tools $HOME/.local/share/uv/tools

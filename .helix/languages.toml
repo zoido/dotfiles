@@ -12,6 +12,8 @@ file-types = [
   "sh",
   { glob = "*.sh.tmpl" },
   { glob = "executable_op-ssh-sign.tmpl" },
+  { glob = "private_dot_bx/*" },
+  { glob = ".bx/*" },
 ]
 
 [[language]]
