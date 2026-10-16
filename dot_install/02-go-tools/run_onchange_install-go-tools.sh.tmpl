@@ -8,3 +8,13 @@ go install {{ . }}
 
 # pistol is a previewer for various file types.
 go install github.com/doronbehar/pistol/cmd/pistol@latest
+
+# bx is a bubblewrap wrapper with profiles. Its source is in this repository.
+# The hash below changes when the source changes, so chezmoi reinstalls it.
+{{- $bx := joinPath .chezmoi.sourceDir ".tools/bx" }}
+{{- $bxSource := "" }}
+{{- range concat (list (joinPath $bx "go.mod") (joinPath $bx "go.sum")) (glob (joinPath $bx "**/*.go")) }}
+{{- $bxSource = print $bxSource (include .) }}
+{{- end }}
+# bx source hash: {{ $bxSource | sha256sum }}
+go install -C {{ $bx | quote }} .

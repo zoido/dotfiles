@@ -1,0 +1,17 @@
+# Loaded first for every bx command. Later profiles and command-line flags
+# override it, for example --unshare-net turns the network off again.
+--die-with-parent
+--new-session
+--unshare-all
+--share-net
+
+# The system is read-only. Home is empty, and other profiles bind into it.
+--ro-bind / /
+--dev /dev
+--proc /proc
+--tmpfs /tmp
+--tmpfs /run
+--tmpfs $HOME
+
+--bind $PWD $PWD
+--chdir $PWD

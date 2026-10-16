@@ -1,0 +1,6 @@
+include code
+
+--ro-bind $HOME/.agents $HOME/.agents
+--bind $HOME/.pi/agent $HOME/.pi/agent
+--bind-try $HOME/.pi/agent/sessions $HOME/.pi/agent/sessions
+--ro-bind $HOME/.local/share/chezmoi/dot_pi/agent $HOME/.local/share/chezmoi/dot_pi/agent

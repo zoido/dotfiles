@@ -1,0 +1,6 @@
+include code
+
+--ro-bind $HOME/.config/opencode $HOME/.config/opencode
+--ro-bind $HOME/.agents $HOME/.agents
+--bind-try $HOME/.local/share/opencode $HOME/.local/share/opencode
+--bind-try $HOME/.local/state/opencode $HOME/.local/state/opencode

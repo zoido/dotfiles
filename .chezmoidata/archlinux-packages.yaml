@@ -6,6 +6,7 @@ packages:
   - aws-cli-v2
   - bash-language-server # LSP for bash scripts.
   - bat # A cat clone with syntax highlighting and Git integration.
+  - bubblewrap # Unprivileged sandboxing tool used by bx.
   - codebook-lsp # LSP spellchecker.
   - diffnav
   - difftastic # A structural diff tool that understands syntax and semantics of code.

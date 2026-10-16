@@ -1,0 +1,4 @@
+include go-cache
+include home-bin
+include ripgrep
+include helix
