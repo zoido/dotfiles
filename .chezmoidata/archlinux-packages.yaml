@@ -1,5 +1,6 @@
 packages:
   archlinux:
+  - amazon-ecr-credential-helper
   - aria2
   - atuin
   - aws-cli-v2
