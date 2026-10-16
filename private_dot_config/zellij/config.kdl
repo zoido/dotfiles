@@ -1,5 +1,7 @@
 show_startup_tips false
 show_release_notes false
+osc8_hyperlinks true
+mouse_hover_effects false
 
 plugins {
     compact-bar location="zellij:compact-bar" {
@@ -129,6 +131,7 @@ keybinds clear-defaults=true {
         bind "Alt l" { MoveFocusOrTab "right"; SwitchToMode "locked"; }
         bind "m" { SelectCommandAtScrollPosition; }
         bind "s" { SwitchToMode "locked"; }
+        bind "esc" { ScrollToBottom; SwitchToMode "locked"; }
     }
     search {
         bind "c" { SearchToggleOption "CaseSensitivity"; }
@@ -206,7 +209,7 @@ keybinds clear-defaults=true {
     shared_except "locked" "entersearch" {
         bind "enter" { SwitchToMode "locked"; }
     }
-    shared_except "locked" "entersearch" "renametab" "renamepane" {
+    shared_except "locked" "scroll" "entersearch" "renametab" "renamepane" {
         bind "esc" { SwitchToMode "locked"; }
     }
     shared_except "locked" "scroll" "entersearch" "renametab" "renamepane" "move" {
