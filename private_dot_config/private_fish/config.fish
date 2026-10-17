@@ -20,6 +20,11 @@ if status is-interactive
 
 end
 
-if command -q /usr/sbin/wsl2-ssh-agent
+set -l has_forwarded_agent false
+if set -q SSH_CONNECTION; and test -S "$SSH_AUTH_SOCK"
+    set has_forwarded_agent true
+end
+
+if not $has_forwarded_agent; and command -q /usr/sbin/wsl2-ssh-agent
     /usr/sbin/wsl2-ssh-agent | source
 end
