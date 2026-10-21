@@ -1,0 +1,157 @@
+#!/usr/bin/env bash
+#
+# rebase-and-push-pr
+#
+# Rebases a PR branch onto the latest remote target branch, re-signing every
+# commit, and force-pushes the result.
+#
+# The work happens in a new, detached worktree that is removed afterwards,
+# so local branches and existing worktrees are never used or changed.
+#
+# Usage: rebase-and-push-pr <pr-number>
+#
+# Run it from inside a clone of the PR's repository.
+#
+# Dependencies: gh, gum, git, jq
+#
+set -euo pipefail
+
+# State shared with the EXIT trap, which runs after main returns.
+wt_dir=""
+base_remote=""
+base=""
+head_remote=""
+head=""
+step="starting"
+
+# Verify that all required commands are available on PATH.
+# Exits with an error listing any missing commands.
+check_dependencies() {
+    local missing=()
+    for cmd in gh gum git jq; do
+        command -v "$cmd" &>/dev/null || missing+=("$cmd")
+    done
+    if [[ ${#missing[@]} -gt 0 ]]; then
+        echo "Missing required commands: ${missing[*]}"
+        exit 1
+    fi
+}
+
+usage() {
+    echo "Usage: $(basename "$0") <pr-number>" >&2
+    exit 1
+}
+
+# Print the name of the remote that points at the given GitHub repository,
+# e.g. "owner/repo". Fails if no remote matches.
+find_remote() {
+    local repo=${1,,} name url
+    while read -r name url _; do
+        if [[ ${url,,} =~ [:/]${repo}(\.git)?/?$ ]]; then
+            echo "$name"
+            return 0
+        fi
+    done < <(git remote -v)
+    gum log --level error "No remote points at $repo."
+    return 1
+}
+
+# Print the state of the worktree to help find out why a step failed.
+print_diagnostics() {
+    local status=$1
+
+    gum log --level error "Failed while $step (exit code $status)."
+    [[ -n "$wt_dir" && -d "$wt_dir" ]] || return 0
+
+    gum log --level error "Worktree: $wt_dir"
+    git --no-pager -C "$wt_dir" status --short || true
+
+    local refs=(HEAD) ref
+    for ref in "$head_remote/$head" "$base_remote/$base"; do
+        git -C "$wt_dir" rev-parse --verify --quiet "$ref" >/dev/null && refs+=("$ref")
+    done
+    gum log --level error "Recent history of ${refs[*]}:"
+    git --no-pager -C "$wt_dir" log --oneline --graph --decorate --max-count=20 "${refs[@]}" || true
+}
+
+# Print diagnostics on failure, then remove the worktree.
+cleanup() {
+    local status=$?
+    [[ $status -eq 0 ]] || print_diagnostics "$status"
+    [[ -n "$wt_dir" ]] || return 0
+    git -C "$wt_dir" rebase --abort &>/dev/null || true
+    git worktree remove --force "$wt_dir" || true
+}
+
+# Fetch the PR branch and the target branch from their remotes.
+fetch_branches() {
+    gum spin --show-output --title "Fetching $head_remote/$head and $base_remote/$base..." -- bash -c '
+        git fetch "$1" "$2" &&
+        git fetch "$3" "$4"
+    ' _ "$head_remote" "$head" "$base_remote" "$base"
+}
+
+# Create a new, detached worktree at the remote PR head.
+# Sets `wt_dir` to the worktree path.
+create_worktree() {
+    local number=$1
+    wt_dir=$(mktemp --directory --tmpdir "pr-$number-XXXXXX")
+    git worktree add --quiet --detach "$wt_dir" "$head_remote/$head"
+}
+
+# Rebase onto the remote target branch. The rebase is forced so every commit
+# is rewritten and re-signed.
+rebase() {
+    local number=$1
+    gum spin --show-output --title "Rebasing PR #$number onto $base_remote/$base..." -- \
+        git -C "$wt_dir" rebase --force-rebase --gpg-sign "$base_remote/$base"
+}
+
+# Force-push the rebased commits to the PR branch. The push only succeeds if
+# the remote PR branch still points at the commit fetched earlier.
+push() {
+    local number=$1 expected
+    expected=$(git rev-parse "$head_remote/$head")
+    gum spin --show-output --title "Pushing PR #$number..." -- \
+        git -C "$wt_dir" push --force-with-lease="refs/heads/$head:$expected" \
+        "$head_remote" "HEAD:refs/heads/$head"
+}
+
+main() {
+    [[ $# -eq 1 ]] || usage
+    local number=$1
+
+    check_dependencies
+
+    local pr_json base_repo head_repo title
+    step="reading the PR details"
+    pr_json=$(gh pr view "$number" --json baseRefName,headRefName,headRepository,headRepositoryOwner,title,url)
+    title=$(echo "$pr_json" | jq -r '.title')
+    base=$(echo "$pr_json" | jq -r '.baseRefName')
+    head=$(echo "$pr_json" | jq -r '.headRefName')
+    # Extract "owner/repo" from e.g. "https://github.com/owner/repo/pull/123".
+    base_repo=$(echo "$pr_json" | jq -r '.url | split("/") | .[3:5] | join("/")')
+    head_repo=$(echo "$pr_json" | jq -r '"\(.headRepositoryOwner.login)/\(.headRepository.name)"')
+
+    trap cleanup EXIT
+
+    step="finding the remotes"
+    base_remote=$(find_remote "$base_repo")
+    head_remote=$(find_remote "$head_repo")
+
+    step="fetching the branches"
+    fetch_branches
+
+    step="creating the worktree"
+    create_worktree "$number"
+
+    step="rebasing onto $base_remote/$base"
+    rebase "$number"
+
+    step="pushing to $head_remote/$head"
+    push "$number"
+
+    gum log --level info "PR #$number ($title) rebased onto $base_remote/$base and pushed."
+}
+
+main "$@"

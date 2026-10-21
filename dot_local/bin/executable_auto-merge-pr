@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+#
+# auto-merge-pr
+#
+# Enables auto merge with squash for a PR.
+#
+# Usage: auto-merge-pr <pr-number>
+#
+# Run it from inside a clone of the PR's repository.
+#
+# Dependencies: gh, gum
+#
+set -euo pipefail
+
+# Verify that all required commands are available on PATH.
+# Exits with an error listing any missing commands.
+check_dependencies() {
+    local missing=()
+    for cmd in gh gum; do
+        command -v "$cmd" &>/dev/null || missing+=("$cmd")
+    done
+    if [[ ${#missing[@]} -gt 0 ]]; then
+        echo "Missing required commands: ${missing[*]}"
+        exit 1
+    fi
+}
+
+usage() {
+    echo "Usage: $(basename "$0") <pr-number>" >&2
+    exit 1
+}
+
+main() {
+    [[ $# -eq 1 ]] || usage
+    local number=$1
+
+    check_dependencies
+
+    local title
+    title=$(gh pr view "$number" --json title --jq '.title')
+
+    gum spin --show-output --title "Enabling auto merge for PR #$number..." -- \
+        gh pr merge "$number" --auto --squash
+
+    gum log --level info "PR #$number ($title) set to auto merge."
+}
+
+main "$@"

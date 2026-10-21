@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+#
+# approve-and-merge-pr
+#
+# Rebases a PR onto the latest remote target branch and pushes it, then
+# approves the PR and enables auto merge.
+#
+# Usage: approve-and-merge-pr <pr-number>
+#
+# Run it from inside a clone of the PR's repository.
+#
+# Dependencies: gh, gum, rebase-and-push-pr, auto-merge-pr
+#
+set -euo pipefail
+
+# Verify that all required commands are available on PATH.
+# Exits with an error listing any missing commands.
+check_dependencies() {
+    local missing=()
+    for cmd in gh gum rebase-and-push-pr auto-merge-pr; do
+        command -v "$cmd" &>/dev/null || missing+=("$cmd")
+    done
+    if [[ ${#missing[@]} -gt 0 ]]; then
+        echo "Missing required commands: ${missing[*]}"
+        exit 1
+    fi
+}
+
+usage() {
+    echo "Usage: $(basename "$0") <pr-number>" >&2
+    exit 1
+}
+
+main() {
+    [[ $# -eq 1 ]] || usage
+    local number=$1
+
+    check_dependencies
+
+    local title
+    title=$(gh pr view "$number" --json title --jq '.title')
+
+    rebase-and-push-pr "$number"
+
+    gum spin --show-output --title "Approving PR #$number..." -- \
+        gh pr review "$number" --approve
+    gum log --level info "PR #$number ($title) approved."
+
+    auto-merge-pr "$number"
+}
+
+main "$@"

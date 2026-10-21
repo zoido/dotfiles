@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+#
+# confirm-pr
+#
+# Asks for confirmation of an action on a PR. The prompt shows the PR title
+# and wraps to the terminal width so that long titles are not clipped.
+#
+# Example: confirm-pr 123 "Auto merge"
+#   → "Auto merge PR 123: Some title?"
+#
+# Exits with zero if confirmed and non-zero otherwise.
+#
+# Usage: confirm-pr <pr-number> <action>
+#
+# Run it from inside a clone of the PR's repository.
+#
+# Dependencies: gh, gum
+#
+set -euo pipefail
+
+# Verify that all required commands are available on PATH.
+# Exits with an error listing any missing commands.
+check_dependencies() {
+    local missing=()
+    for cmd in gh gum; do
+        command -v "$cmd" &>/dev/null || missing+=("$cmd")
+    done
+    if [[ ${#missing[@]} -gt 0 ]]; then
+        echo "Missing required commands: ${missing[*]}"
+        exit 1
+    fi
+}
+
+usage() {
+    echo "Usage: $(basename "$0") <pr-number> <action>" >&2
+    exit 1
+}
+
+main() {
+    [[ $# -eq 2 ]] || usage
+    local number=$1 action=$2
+
+    check_dependencies
+
+    local title width prompt
+    title=$(gh pr view "$number" --json title --jq '.title')
+    width=$(( $(tput cols 2>/dev/null || echo 80) - 4 ))
+    prompt=$(fold -s -w "$width" <<<"$action PR $number: $title?")
+
+    gum confirm --default=no "$prompt"
+}
+
+main "$@"
