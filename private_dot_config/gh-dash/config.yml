@@ -31,7 +31,7 @@ keybindings:
     - key: M
       name: Auto Merge
       command: >
-        zellij run -c --floating --cwd {{.RepoPath}} --
+        zellij run -c --floating --cwd {{.RepoPath}} -- env GH_REPO={{.RepoName}}
         fish -c "
         confirm-pr {{.PrNumber}} 'Auto merge' || exit 0;
         auto-merge-pr {{.PrNumber}} || read -P 'Press enter to close...'
@@ -39,7 +39,7 @@ keybindings:
     - key: V
       name: Approve & Auto Merge
       command: >
-        zellij run -c --floating --cwd {{.RepoPath}} --
+        zellij run -c --floating --cwd {{.RepoPath}} -- env GH_REPO={{.RepoName}}
         fish -c "
         confirm-pr {{.PrNumber}} 'Rebase, approve & auto merge' || exit 0;
         approve-and-merge-pr {{.PrNumber}} || read -P 'Press enter to close...'
@@ -47,7 +47,7 @@ keybindings:
     - key: U
       name: Rebase, Re-sign & Push
       command: >
-        zellij run -c --floating --cwd {{.RepoPath}} --
+        zellij run -c --floating --cwd {{.RepoPath}} -- env GH_REPO={{.RepoName}}
         fish -c "
         confirm-pr {{.PrNumber}} 'Rebase, re-sign & force push' || exit 0;
         rebase-and-push-pr {{.PrNumber}} || read -P 'Press enter to close...'
