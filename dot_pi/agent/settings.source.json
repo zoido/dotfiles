@@ -3,8 +3,8 @@
   "packages": [
     "git:github.com/otahontas/pi-coding-agent-catppuccin",
     "git:github.com/huggingface/pi-llama",
-    "npm:@99percentpeople/pi-thinking-fold@v0.1.8",
-    "npm:pi-input-history"
+    "npm:@pi-lab/input-history@1.0.5",
+    "npm:@clapecho233/pi-smart-fold@0.2.3"
   ],
   "lastChangelogVersion": "1.4.0",
   "editorPaddingX": 1,
