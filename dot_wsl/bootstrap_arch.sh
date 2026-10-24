@@ -35,11 +35,6 @@ echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 locale-gen
 
-echo "Configuring docker..."
-pacman -S --noconfirm docker
-systemctl enable docker.socket
-usermod -aG docker zoid
-
 echo "Configuring ssh..."
 pacman -S --noconfirm openssh
 sed -i 's/#Port 22/Port 2222/' /etc/ssh/sshd_config

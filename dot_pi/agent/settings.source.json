@@ -24,5 +24,6 @@
   "defaultTools": [
     "+codemode"
   ],
-  "tuiMode": "regular"
+  "tuiMode": "regular",
+  "hideThinkingBlock": false
 }

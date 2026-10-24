@@ -24,6 +24,7 @@ file-types = [
 
 [[language]]
 name = "fish"
+auto-format = false
 file-types = [
   "fish",
   { glob = "*.fish.tmpl" },

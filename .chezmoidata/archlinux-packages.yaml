@@ -61,6 +61,7 @@ packages:
   - openssh
   - peco # A command-line interactive filtering tool.
   - pi-coding-agent-bin
+  - podman
   - procs
   - protobuf
   - protols # LSP for protobuf files.

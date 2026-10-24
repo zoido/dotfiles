@@ -15,4 +15,3 @@ packages:
   - "github.com/robinovitch61/kl@latest" # kl is an interactive Kubernetes log viewer for your terminal.
   - "github.com/stern/stern@latest" # stern is a tool for tailing multiple pods and containers in Kubernetes.
   - "mvdan.cc/gofumpt@latest" # gofumpt is a tool slightly stricter than gofmt.
-  - "sigs.k8s.io/kind@latest" # kind is a tool for running Kubernetes clusters in Docker.
