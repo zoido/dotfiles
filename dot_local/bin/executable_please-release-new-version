@@ -4,9 +4,9 @@
 #
 # Interactive release script for repositories using release-please.
 # Finds pending release PRs and runs the full release sequence for each:
-# rebase, push, approve, and auto-merge.
+# activate, approve, and auto-merge.
 #
-# Dependencies: gh, gum, jq, approve-and-merge-pr
+# Dependencies: gh, gum, jq, wt (worktrunk), git, auto-merge-pr
 #
 set -euo pipefail
 
@@ -14,7 +14,7 @@ set -euo pipefail
 # Exits with an error listing any missing commands.
 check_dependencies() {
     local missing=()
-    for cmd in gh gum jq approve-and-merge-pr; do
+    for cmd in gh gum jq wt git auto-merge-pr; do
         command -v "$cmd" &>/dev/null || missing+=("$cmd")
     done
     if [[ ${#missing[@]} -gt 0 ]]; then
@@ -45,6 +45,34 @@ choose_release_prs() {
         | gum choose --no-limit --header "Select PRs to release"
 }
 
+# Set up a worktree for a PR branch.
+# Sets `wt_dir` to the worktree path and `wt_created` to "true" when the
+# worktree did not exist before.
+setup_worktree() {
+    local number=$1
+
+    local wt_json
+    wt_json=$(wt switch --no-cd --format json "pr:$number") || true
+    wt_dir=$(echo "$wt_json" | jq -r '.path // empty')
+    if [[ -z "$wt_dir" ]]; then
+        gum log --level error "Could not create worktree for PR #$number."
+        return 1
+    fi
+    [[ $(echo "$wt_json" | jq -r '.action') == "created" ]] && wt_created=true
+    return 0
+}
+
+# Push an empty commit to trigger CI. Release-please PRs often have no CI
+# run until a new push event occurs.
+activate_pr() {
+    local number=$1
+
+    gum spin --show-output --title "Activating PR #$number..." -- bash -c '
+        git -C "$1" commit --allow-empty --message "Activate Release PR" &&
+        git -C "$1" push --force-with-lease
+    ' _ "$wt_dir"
+}
+
 # Mark the PR as ready for review. It is a no-op if the PR is not a draft.
 mark_ready() {
     local number=$1
@@ -53,10 +81,20 @@ mark_ready() {
         gh pr ready "$number" || true
 }
 
-# Process a single release PR.
-release_pr() {
+approve_pr() {
+    local number=$1
+
+    gum spin --show-output --title "Approving PR #$number..." -- \
+        gh pr review "$number" --approve
+}
+
+# Process a single release PR in a subshell.
+# Using () instead of {} runs the body in a subshell, scoping the EXIT trap
+# so this PR's worktree is cleaned up independently on success, error, or
+# interrupt.
+release_pr() (
     local choice=$1 prs_json=$2
-    local number title
+    local number title wt_dir="" wt_created=false
 
     # Extract PR number from choice string, e.g. "#123 Some title" → 123.
     number=$(echo "$choice" | cut -d' ' -f1 | tr -d '#')
@@ -64,11 +102,25 @@ release_pr() {
 
     gum log --level info "Processing PR #$number: $title"
 
+    # Remove this PR's worktree when the subshell exits, but only if this
+    # script created it.
+    cleanup() {
+        [[ $wt_created == true && -n "$wt_dir" ]] || return 0
+        local branch
+        branch=$(git -C "$wt_dir" branch --show-current 2>/dev/null || echo "unknown")
+        wt remove "$branch" 2>/dev/null || true
+        gum log --level info "Removed worktree for '$branch'."
+    }
+    trap cleanup EXIT
+
+    setup_worktree "$number"
+    activate_pr "$number"
     mark_ready "$number"
-    approve-and-merge-pr "$number"
+    approve_pr "$number"
+    auto-merge-pr "$number"
 
     gum log --level info "PR #$number ($title) released."
-}
+)
 
 main() {
     check_dependencies
