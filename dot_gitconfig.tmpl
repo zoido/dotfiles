@@ -82,9 +82,23 @@
 
 [delta]
     navigate = true
-	features = catppuccin-macchiato
+	features = catppuccin-macchiato{{ if lookPath "ov" }} ov{{ end }}
     line-numbers = true
     tabs = 4
+{{- if lookPath "ov" }}
+
+[delta "ov"]
+    pager = ov -F
+
+[delta "ov-diff"]
+    pager = ov -F --section-delimiter '^(commit|added:|removed:|renamed:|Δ)' --section-header --pattern '•'
+
+[delta "ov-log"]
+    pager = ov -F --section-delimiter '^commit' --section-header-num 3 --memory-limit 100
+
+[delta "ov-show"]
+    pager = ov -F --header 3
+{{- end }}
 
 [diff]
     tool = difftastic
@@ -137,6 +151,11 @@
 
 [pager]
     difftool = true
+{{- if lookPath "ov" }}
+    diff = DELTA_FEATURES=+ov-diff delta
+    log = DELTA_FEATURES=+ov-log delta
+    show = DELTA_FEATURES=+ov-show delta
+{{- end }}
 
 [pull]
     rebase = true

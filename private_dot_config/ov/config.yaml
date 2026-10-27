@@ -1,0 +1,5 @@
+General:
+  Style:
+    # Any key replaces the default slateblue background, so section lines keep the plain text style.
+    SectionLine:
+      Bold: false

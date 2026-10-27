@@ -25,17 +25,21 @@ end
 set -gx PATH $wsl_pruned_path
 {{- end }}
 
-if command -q ov
-    set -gx PAGER ov
-    set -gx MANPAGER $PAGER
-end
-
 # PATH
 fish_add_path --path "$HOME/go/bin"
 fish_add_path --path "$HOME/bin"
 fish_add_path --path "$HOME/.local/bin"
 fish_add_path --path --append /sbin
 fish_add_path --path --append "$HOME/.krew/bin"
+
+# Use ov as the pager when it is installed. See https://noborus.github.io/ov/.
+if command -q ov
+    set -gx PAGER 'ov -F'
+    set -gx MANPAGER "ov -F --section-delimiter '^[^\s]' --section-header"
+    set -gx BAT_PAGER 'ov -F -H3'
+    set -gx DELTA_PAGER 'ov -F'
+    set -gx PSQL_PAGER 'ov -F -C -d "|" -H1 --column-rainbow --align'
+end
 
 # Locale
 set -gx LANG en_US.UTF-8
