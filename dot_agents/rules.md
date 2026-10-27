@@ -12,6 +12,13 @@
 - Prefer `fd` rather than `find` if you search for files.
 - Prefer `rg` rather than `grep` if you search for patterns in files.
 
+# Significant paths
+
+- All code is in the `~/dev`. Direct sub repositories further organize git repositories.
+- `~/dev/gh` are random clones of the github repositories.
+- `~/dev/zoido` are my personal projects. Dirs matches `zoido/*` Github repos and `github.com/zoido/*` go packages.
+- `~/dev/h2o.ai` are my personal projects. Dirs matches `h2oai/*` Github repos and `github.com/h2oai/*` go packages.
+- `~dev/*/.worktrees` is where git worktrees are created (managed by worktrunk tool).
 
 # General Code Guidelines
 
