@@ -4,9 +4,9 @@ enter_accept = false
 sync_frequency = "5m"
 
 history_filter = [
-  "^cd ",
-  "^ll ",
-  "^ls ",
+  "^cd",
+  "^ll",
+  "^ls",
   "^z ",
   "^zi ",
   "^gco ",
@@ -18,6 +18,11 @@ history_filter = [
 ]
 
 search_mode = "daemon-fuzzy"
+
 [daemon]
 enabled = true
+sync_frequency = "5m"
 autostart = true
+
+[threads]
+enter_accept = true
