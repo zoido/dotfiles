@@ -1,5 +1,5 @@
 function git_parent_branch --description 'Find parent branch of current HEAD'
-    set -l current (git rev-parse --abbrev-ref HEAD)
+    set -l current (git branch --show-current)
 
     for candidate in (git for-each-ref --format='%(refname:short)' refs/heads/)
         if test "$candidate" = "$current"

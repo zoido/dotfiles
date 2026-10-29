@@ -6,9 +6,9 @@ function grename --description 'Rename branch locally and on origin'
     end
 
     # Rename branch locally.
-    git branch -m $argv[1] $argv[2]
+    git branch --move $argv[1] $argv[2]
     # Rename branch on origin remote.
-    if git push origin :$argv[1]
+    if git push origin --delete $argv[1]
         git push --set-upstream origin $argv[2]
     end
 end

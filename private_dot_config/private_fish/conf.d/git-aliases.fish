@@ -2,14 +2,12 @@
 abbr -a g git
 
 # Custom / Personal
-abbr -a gFC 'git reset HEAD && git checkout . && git clean -fd'
+abbr -a gFC 'git restore --staged --worktree . && git clean -fd'
 abbr -a ggg 'git switch -'
-abbr -a ggcm 'git switch (git_main_branch) && git pull && git fetch --all --tags --prune --jobs=10 && gh poi'
-abbr -a ggcd 'git switch (git_develop_branch) && git pull && git fetch --all --tags --prune --jobs=10 && gh poi'
+abbr -a ggswm 'git switch (git_main_branch) && git pull && git fetch --all --tags --prune --jobs=10 && gh poi'
+abbr -a ggswd 'git switch (git_develop_branch) && git pull && git fetch --all --tags --prune --jobs=10 && gh poi'
 abbr -a ggsw 'tv git-switch --inline'
 abbr -a pb --command git '(git_parent_branch)'
-abbr -a gcm 'git switch (git_main_branch)'
-abbr -a gcd 'git switch (git_develop_branch)'
 abbr -a gswm 'git switch (git_main_branch)'
 abbr -a gswd 'git switch (git_develop_branch)'
 abbr -a ggc 'tv git-log --inline'
@@ -24,15 +22,11 @@ abbr -a gb 'git branch'
 abbr -a gba 'git branch --all'
 abbr -a gbd 'git branch --delete'
 
-# Checkout
-abbr -a gco 'git checkout'
-abbr -a gcor 'git checkout --recurse-submodules'
-abbr -a gcb 'git checkout -b'
-abbr -a gcB 'git checkout -B'
-
-# Switch (modern checkout for branches)
+# Switch
 abbr -a gsw 'git switch'
 abbr -a gswc 'git switch --create'
+abbr -a gswC 'git switch --force-create'
+abbr -a gswr 'git switch --recurse-submodules'
 
 # Cherry-pick
 abbr -a gcp 'git cherry-pick'
@@ -56,9 +50,8 @@ abbr -a 'gcan!' 'git commit --verbose --all --no-edit --amend'
 
 # Diff
 abbr -a gd 'git diff'
-abbr -a gdca 'git diff --cached'
-abbr -a gdcw 'git diff --cached --word-diff'
 abbr -a gds 'git diff --staged'
+abbr -a gdsw 'git diff --staged --word-diff'
 abbr -a gdw 'git diff --word-diff'
 abbr -a gdup 'git diff @{upstream}'
 abbr -a gdt 'git diff-tree --no-commit-id --name-only -r'
@@ -131,7 +124,7 @@ abbr -a gsps 'git show --pretty=short --show-signature'
 
 # Stash
 abbr -a gsta 'git stash push'
-abbr -a gstall 'git stash --all'
+abbr -a gstall 'git stash push --all'
 abbr -a gstaa 'git stash apply'
 abbr -a gstc 'git stash clear'
 abbr -a gstd 'git stash drop'
