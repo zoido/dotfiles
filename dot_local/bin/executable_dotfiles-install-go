@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+
+chezmoi execute-template <"$(chezmoi source-path)/dot_install/02-go-tools/run_onchange_install-go-tools.sh.tmpl" | bash

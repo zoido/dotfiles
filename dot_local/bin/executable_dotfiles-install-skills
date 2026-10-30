@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+
+chezmoi execute-template <"$(chezmoi source-path)/dot_install/05-agent-skills/run_onchange_install-archlinux-packages.sh.tmpl" | bash
