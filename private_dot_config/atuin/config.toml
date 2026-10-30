@@ -26,3 +26,4 @@ autostart = true
 
 [threads]
 enter_accept = true
+capture = true
