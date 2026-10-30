@@ -11,6 +11,7 @@
 - User instructions always override this file.
 - Prefer `fd` rather than `find` if you search for files.
 - Prefer `rg` rather than `grep` if you search for patterns in files.
+- Do not use Python for ad-hoc work. Use `jq` for JSON in shell, the `edit` tool for file changes, and `codemode` for data processing or generating files.
 
 # Significant paths
 
