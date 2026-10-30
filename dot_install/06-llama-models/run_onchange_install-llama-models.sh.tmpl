@@ -1,0 +1,5 @@
+#!/bin/bash
+
+{{- range .packages.llama_models }}
+llama-tokenize -hf {{ . }} -p hi > /dev/null
+{{- end }}

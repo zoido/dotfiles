@@ -12,4 +12,5 @@ packages:
     local:
       - git-branch-stacking
       - go-code-guidelines
+      - local-classifiers
       - pr-guidelines

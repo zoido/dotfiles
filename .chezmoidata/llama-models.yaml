@@ -1,0 +1,4 @@
+packages:
+  llama_models:
+    - bottlecapai/ThinkingCap-gemma-4-26B-A4B-it-GGUF:MXFP4_MOE
+    - ggml-org/Clef-Flash-GGUF:Q4_K_M
