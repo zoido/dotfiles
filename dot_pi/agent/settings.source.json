@@ -2,7 +2,6 @@
   "theme": "catppuccin-macchiato",
   "packages": [
     "git:github.com/otahontas/pi-coding-agent-catppuccin",
-    "git:github.com/huggingface/pi-llama",
     "npm:@pi-lab/input-history@1.0.5",
     "npm:@clapecho233/pi-smart-fold@0.2.3",
     "npm:@juicesharp/rpiv-ask-user-question@2.15.0"
