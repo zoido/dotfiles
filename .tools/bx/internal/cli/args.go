@@ -8,42 +8,49 @@ import (
 
 // Invocation is a parsed bx command line.
 type Invocation struct {
-	// Profile is the profile named with @name, or empty when none was given.
-	Profile string
+	// Enable holds the profile names given as +name, in command-line order.
+	Enable []string
+	// Disable holds the profile names given as -name, in command-line order.
+	Disable []string
 	// BwrapArgs are extra arguments passed to bwrap unchanged.
 	BwrapArgs []string
 	// Command is the command and its arguments, or empty to start a shell.
 	Command []string
 }
 
-// ErrEmptyProfile is returned when the profile argument is a bare "@".
-var ErrEmptyProfile = errors.New("empty profile name after @")
+// ErrEmptyToggle is returned when a toggle argument is a bare "+" or "-".
+var ErrEmptyToggle = errors.New(`empty profile name after "+" or "-"`)
 
-// Parse splits args into the profile, extra bwrap arguments and the command.
+// Parse splits args into profile toggles, extra bwrap arguments and the
+// command.
 //
 // The accepted forms are:
 //
-//	[@profile] command [args...]
-//	[@profile] [bwrap args...] [-- command [args...]]
+//	[+name | -name ...] command [args...]
+//	[+name | -name ...] [bwrap args...] [-- command [args...]]
 func Parse(args []string) (Invocation, error) {
 	var inv Invocation
 
-	if len(args) > 0 && strings.HasPrefix(args[0], "@") {
-		inv.Profile = strings.TrimPrefix(args[0], "@")
-		if inv.Profile == "" {
-			return Invocation{}, ErrEmptyProfile
+	for len(args) > 0 {
+		arg := args[0]
+		switch {
+		case arg == "+" || arg == "-":
+			return Invocation{}, ErrEmptyToggle
+		case strings.HasPrefix(arg, "+"):
+			inv.Enable = append(inv.Enable, strings.TrimPrefix(arg, "+"))
+		case strings.HasPrefix(arg, "--"):
+			bwrapArgs, command, _ := cutArgs(args, "--")
+			inv.BwrapArgs = bwrapArgs
+			inv.Command = command
+			return inv, nil
+		case strings.HasPrefix(arg, "-"):
+			inv.Disable = append(inv.Disable, strings.TrimPrefix(arg, "-"))
+		default:
+			inv.Command = args
+			return inv, nil
 		}
 		args = args[1:]
 	}
-
-	if len(args) == 0 || !strings.HasPrefix(args[0], "-") {
-		inv.Command = args
-		return inv, nil
-	}
-
-	bwrapArgs, command, _ := cutArgs(args, "--")
-	inv.BwrapArgs = bwrapArgs
-	inv.Command = command
 	return inv, nil
 }
 

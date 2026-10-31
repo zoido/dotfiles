@@ -41,13 +41,37 @@ func TestParse(t *testing.T) {
 			args: []string{"git", "log", "--", "file"},
 			want: cli.Invocation{Command: []string{"git", "log", "--", "file"}},
 		},
-		"profile and command": {
-			args: []string{"@node", "npx", "foo"},
-			want: cli.Invocation{Profile: "node", Command: []string{"npx", "foo"}},
+		"enable and command": {
+			args: []string{"+node", "npx", "foo"},
+			want: cli.Invocation{Enable: []string{"node"}, Command: []string{"npx", "foo"}},
 		},
-		"profile only": {
-			args: []string{"@node"},
-			want: cli.Invocation{Profile: "node", Command: []string{}},
+		"enable only": {
+			args: []string{"+node"},
+			want: cli.Invocation{Enable: []string{"node"}},
+		},
+		"several enables keep order": {
+			args: []string{"+a", "+b", "+c", "ls"},
+			want: cli.Invocation{Enable: []string{"a", "b", "c"}, Command: []string{"ls"}},
+		},
+		"disable only": {
+			args: []string{"-net"},
+			want: cli.Invocation{Disable: []string{"net"}},
+		},
+		"mixed toggles": {
+			args: []string{"+a", "-b", "+c", "make"},
+			want: cli.Invocation{
+				Enable:  []string{"a", "c"},
+				Disable: []string{"b"},
+				Command: []string{"make"},
+			},
+		},
+		"toggles, bwrap flags and command": {
+			args: []string{"+node", "--unshare-net", "--", "npm", "test"},
+			want: cli.Invocation{
+				Enable:    []string{"node"},
+				BwrapArgs: []string{"--unshare-net"},
+				Command:   []string{"npm", "test"},
+			},
 		},
 		"bwrap flags and command": {
 			args: []string{"--bind", "a", "b", "--", "python", "t.py", "-v"},
@@ -68,17 +92,28 @@ func TestParse(t *testing.T) {
 			args: []string{"--", "-weird"},
 			want: cli.Invocation{BwrapArgs: []string{}, Command: []string{"-weird"}},
 		},
-		"profile, bwrap flags and command": {
-			args: []string{"@node", "--unshare-net", "--", "npm", "test"},
+		"command arguments are untouched": {
+			args: []string{"ls", "-la", "+x"},
+			want: cli.Invocation{Command: []string{"ls", "-la", "+x"}},
+		},
+		"special names are toggles": {
+			args: []string{"-.", "-..", "+.", "+.."},
 			want: cli.Invocation{
-				Profile:   "node",
-				BwrapArgs: []string{"--unshare-net"},
-				Command:   []string{"npm", "test"},
+				Enable:  []string{".", ".."},
+				Disable: []string{".", ".."},
 			},
 		},
-		"empty profile": {
-			args:    []string{"@", "ls"},
-			wantErr: cli.ErrEmptyProfile,
+		"special name before command": {
+			args: []string{"-.", "ls", "-la"},
+			want: cli.Invocation{Disable: []string{"."}, Command: []string{"ls", "-la"}},
+		},
+		"bare plus": {
+			args:    []string{"+", "ls"},
+			wantErr: cli.ErrEmptyToggle,
+		},
+		"bare dash": {
+			args:    []string{"-", "ls"},
+			wantErr: cli.ErrEmptyToggle,
 		},
 	}
 
