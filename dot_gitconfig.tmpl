@@ -17,8 +17,12 @@
 	insteadOf = https://github.com/zoido/
 
 [alias]
-    dft = difftool
-    dlog = "-c diff.external=difft log -p --ext-diff"
+    dlog = -c diff.external=difft log --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
+    ddiff = -c diff.external=difft diff
+    dl = -c diff.external=difft log -p --ext-diff
+    ds = -c diff.external=difft show --ext-diff
+    dft = -c diff.external=difft diff
 
 [spice "submit"]
     publish = false
@@ -101,20 +105,12 @@
 {{- end }}
 
 [diff]
-    tool = difftastic
-
     algorithm = histogram
     mnemonicPrefix = true
 	renames = copies
     indentHeuristic = true
 
     colorMoved = default
-
-[difftool]
-    prompt = false
-
-[difftool "difftastic"]
-    cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
 
 [fetch]
     prune = true
@@ -150,7 +146,6 @@
 
 
 [pager]
-    difftool = true
 {{- if lookPath "ov" }}
     diff = DELTA_FEATURES=+ov-diff delta
     log = DELTA_FEATURES=+ov-log delta
