@@ -1,5 +1,6 @@
 [include]
 	path = ~/.config/delta/themes/catppuccin.gitconfig
+	path = ~/.config/delta/themes/diffnav.gitconfig
 
 [user]
 	email = zoido@users.noreply.github.com
@@ -86,7 +87,7 @@
 
 [delta]
     navigate = true
-	features = catppuccin-macchiato{{ if lookPath "ov" }} ov{{ end }}
+	features = catppuccin-macchiato diffnav-macchiato{{ if lookPath "ov" }} ov{{ end }}
     line-numbers = true
     tabs = 4
 {{- if lookPath "ov" }}

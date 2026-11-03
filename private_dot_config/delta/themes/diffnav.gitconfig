@@ -1,0 +1,66 @@
+# Colors that diffnav passes to delta, derived from its bubbletint themes.
+# Use after the matching catppuccin-* feature so these styles take precedence.
+# The file labels contain raw ESC bytes. Their colors carry over to the file name.
+
+[delta "diffnav-frappe"]
+	file-style = "#38445f" bold "#38445f"
+	file-modified-label = "[38;2;229;200;144;48;2;56;68;95m "
+	file-removed-label = "[38;2;231;130;131;48;2;56;68;95m "
+	file-added-label = "[38;2;166;209;137;48;2;56;68;95m "
+	file-renamed-label = "[38;2;140;170;238;48;2;56;68;95mrenamed:"
+	file-decoration-style = "#38445f" box "#38445f"
+	hunk-header-style = "#b5bfe2"
+	hunk-header-file-style = "#b5bfe2" dim
+	hunk-header-line-number-style = "#1b212f"
+	hunk-header-decoration-style = "#1b212f" ol ul
+	line-numbers-left-style = "#1b212f" dim
+	line-numbers-right-style = "#1b212f" dim
+	line-numbers-zero-style = "#b5bfe2" dim
+	line-numbers-minus-style = "#e78283" "#2e191a"
+	line-numbers-plus-style = "#a6d189" "#21291b"
+	minus-style = syntax "#2e191a"
+	minus-emph-style = syntax "#734141"
+	plus-style = syntax "#21291b"
+	plus-emph-style = syntax "#536844"
+
+[delta "diffnav-macchiato"]
+	file-style = "#374561" bold "#374561"
+	file-modified-label = "[38;2;238;211;159;48;2;55;69;97m "
+	file-removed-label = "[38;2;237;135;150;48;2;55;69;97m "
+	file-added-label = "[38;2;166;218;149;48;2;55;69;97m "
+	file-renamed-label = "[38;2;138;173;243;48;2;55;69;97mrenamed:"
+	file-decoration-style = "#374561" box "#374561"
+	hunk-header-style = "#b8c0e0"
+	hunk-header-file-style = "#b8c0e0" dim
+	hunk-header-line-number-style = "#1b2230"
+	hunk-header-decoration-style = "#1b2230" ol ul
+	line-numbers-left-style = "#1b2230" dim
+	line-numbers-right-style = "#1b2230" dim
+	line-numbers-zero-style = "#b8c0e0" dim
+	line-numbers-minus-style = "#ed8796" "#2f1a1d"
+	line-numbers-plus-style = "#a6da95" "#212b1d"
+	minus-style = syntax "#2f1a1d"
+	minus-emph-style = syntax "#76434b"
+	plus-style = syntax "#212b1d"
+	plus-emph-style = syntax "#536d4a"
+
+[delta "diffnav-mocha"]
+	file-style = "#364764" bold "#364764"
+	file-modified-label = "[38;2;249;226;175;48;2;54;71;100m "
+	file-removed-label = "[38;2;243;139;168;48;2;54;71;100m "
+	file-added-label = "[38;2;166;227;161;48;2;54;71;100m "
+	file-renamed-label = "[38;2;137;179;250;48;2;54;71;100mrenamed:"
+	file-decoration-style = "#364764" box "#364764"
+	hunk-header-style = "#bac2de"
+	hunk-header-file-style = "#bac2de" dim
+	hunk-header-line-number-style = "#1b2331"
+	hunk-header-decoration-style = "#1b2331" ol ul
+	line-numbers-left-style = "#1b2331" dim
+	line-numbers-right-style = "#1b2331" dim
+	line-numbers-zero-style = "#bac2de" dim
+	line-numbers-minus-style = "#f38ba8" "#301b21"
+	line-numbers-plus-style = "#a6e3a1" "#212d20"
+	minus-style = syntax "#301b21"
+	minus-emph-style = syntax "#794554"
+	plus-style = syntax "#212d20"
+	plus-emph-style = syntax "#537150"
