@@ -11,6 +11,7 @@ abbr -a pb --command git '(git_parent_branch)'
 abbr -a gswm 'git switch (git_main_branch)'
 abbr -a gswd 'git switch (git_develop_branch)'
 abbr -a ggc 'tv git-log --inline'
+abbr -a dz --command git -- --color-moved=dimmed-zebra
 
 # Add
 abbr -a ga 'git add'
@@ -57,6 +58,13 @@ abbr -a gdup 'git diff @{upstream}'
 abbr -a gdt 'git diff-tree --no-commit-id --name-only -r'
 abbr -a gdp 'git diff (gBP)'
 
+abbr -a gdz 'git diff --color-moved=dimmed-zebra'
+abbr -a gdsz 'git diff --staged --color-moved=dimmed-zebra'
+abbr -a gdswz 'git diff --staged --word-diff --color-moved=dimmed-zebra'
+abbr -a gdwz 'git diff --word-diff --color-moved=dimmed-zebra'
+abbr -a gdupz 'git diff @{upstream} --color-moved=dimmed-zebra'
+abbr -a gdpz 'git diff (gBP) --color-moved=dimmed-zebra'
+
 abbr -a dn --position anywhere --set-cursor "% | diffnav"
 
 # Fetch
@@ -69,6 +77,7 @@ abbr -a glog 'git log --oneline --decorate --graph'
 abbr -a gloga 'git log --oneline --decorate --graph --all'
 abbr -a glg 'git log --stat'
 abbr -a glgp 'git log --stat --patch'
+abbr -a glgpz 'git log --stat --patch --color-moved=dimmed-zebra'
 
 # Merge
 abbr -a gm 'git merge'
@@ -120,6 +129,7 @@ abbr -a grmc 'git rm --cached'
 
 # Show
 abbr -a gsh 'git show'
+abbr -a gshz 'git show --color-moved=dimmed-zebra'
 abbr -a gsps 'git show --pretty=short --show-signature'
 
 # Stash
