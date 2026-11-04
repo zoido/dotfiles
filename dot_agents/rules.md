@@ -12,6 +12,7 @@
 - Prefer `fd` rather than `find` if you search for files.
 - Prefer `rg` rather than `grep` if you search for patterns in files.
 - Do not use Python for ad-hoc work. Use `jq` for JSON in shell, the `edit` tool for file changes, and `codemode` for data processing or generating files.
+- Do not edit the files unless explicitly asked. For example: Whne user asks to come up with plan do not start editing when you think you have enough info. Let user review and ask for explicit permission to proceed.
 
 # Significant paths
 
