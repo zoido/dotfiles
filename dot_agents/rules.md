@@ -1,4 +1,15 @@
 
+# Edit Permission (MUST follow)
+
+- Do not create, edit, move, or delete files unless the user explicitly asks you to change them.
+- Questions, explanations, investigations, reviews, and requests for a plan or proposal are read-only tasks.
+  - Answer or present the plan, then stop and wait.
+  - Do not start editing because you think you have enough information.
+- Requests that imply a change (for example "fix", "implement", "update", "refactor") count as explicit permission within their scope.
+- Permission covers only the scope the user approved. Ask before you change anything outside that scope.
+- If you are not sure that the user wants changes, ask first.
+- Running read-only commands (for example `rg`, `ls`, `git status`, `git diff`) is always allowed.
+
 # General Approach Guidelines
 
 - Think before acting. Read existing files before writing code. But prefer tools, skill or lsp that can provide the info..
@@ -12,7 +23,6 @@
 - Prefer `fd` rather than `find` if you search for files.
 - Prefer `rg` rather than `grep` if you search for patterns in files.
 - Do not use Python for ad-hoc work. Use `jq` for JSON in shell, the `edit` tool for file changes, and `codemode` for data processing or generating files.
-- Do not edit the files unless explicitly asked. For example: Whne user asks to come up with plan do not start editing when you think you have enough info. Let user review and ask for explicit permission to proceed.
 
 # Significant paths
 
