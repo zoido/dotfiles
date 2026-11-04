@@ -93,16 +93,16 @@
 {{- if lookPath "ov" }}
 
 [delta "ov"]
-    pager = ov -F
+    pager = ov -F --section-start -1
 
 [delta "ov-diff"]
-    pager = ov -F --section-delimiter '^(commit|added:|removed:|renamed:|Δ)' --section-header --pattern '•'
+    pager = ov -F --section-delimiter '^(commit|\\s*[\\x{f459}\\x{eadf}\\x{f457}]|\\s*renamed:|added:|removed:|Δ)' --section-header --section-header-num 3 --section-start -1 --pattern '•'
 
 [delta "ov-log"]
-    pager = ov -F --section-delimiter '^commit' --section-header-num 3 --memory-limit 100
+    pager = ov -F --section-delimiter '^commit' --section-start -1 --section-header-num 3 --memory-limit 100
 
 [delta "ov-show"]
-    pager = ov -F --header 3
+    pager = ov -F --header 3 --section-start -1
 {{- end }}
 
 [diff]
