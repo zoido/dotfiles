@@ -13,6 +13,7 @@ description: Use when writing, reviewing, or testing Go code. Covers idiomatic s
   - Read [recent-go-changes.md](recent-go-changes.md) for language and standard library changes in Go 1.25 – 1.27.
     These changes came after the model knowledge cutoff.
 - Prefer to use of `go doc` or LSP when you need documentation of the function, class, interface or any symbol
+- Do not wrap errors by default use `%v` instead of `%v` unless wrapping is explicit part of API.
 
 ## Testing
 
