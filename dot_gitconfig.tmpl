@@ -90,8 +90,8 @@
 	features = catppuccin-macchiato diffnav-macchiato{{ if lookPath "ov" }} ov{{ end }}
     line-numbers = true
     tabs = 4
-{{- if lookPath "ov" }}
 
+{{ if lookPath "ov" -}}
 [delta "ov"]
     pager = ov -F --section-start -1
 
@@ -120,10 +120,6 @@
 
 [gpg]
     format = ssh
-
-[gpg "ssh"]
-    {{ if ne .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign"{{ end -}}
-    {{ if eq .chezmoi.os "windows" }}program = "{{ .chezmoi.homeDir }}\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\op-ssh-sign.exe"{{ end }}
 
 [help]
     autocorrect = prompt
