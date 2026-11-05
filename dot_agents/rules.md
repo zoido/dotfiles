@@ -5,14 +5,30 @@
 - Questions, explanations, investigations, reviews, and requests for a plan or proposal are read-only tasks.
   - Answer or present the plan, then stop and wait.
   - Do not start editing because you think you have enough information.
-- Requests that imply a change (for example "fix", "implement", "update", "refactor") count as explicit permission within their scope.
+- Requests that imply a change (for example "fix", "implement", "update", "refactor") count as
+  explicit permission within their scope, unless the user asks for a plan first. Then the
+  "Plan approval" rules apply.
 - Permission covers only the scope the user approved. Ask before you change anything outside that scope.
 - If you are not sure that the user wants changes, ask first.
 - Running read-only commands (for example `rg`, `ls`, `git status`, `git diff`) is always allowed.
 
+## Plan approval
+
+- When the user asks for a plan first, the plan must be approved before any edit.
+- Approval is an explicit go-ahead with no new requirements, for example "go", "implement it",
+  or "looks good, do it".
+- If the reply adds, removes, or changes any requirement, it is not approval, even if it starts
+  with "ok", "alright", or "yes". Update the plan, show what changed, and stop.
+- If the reply both approves and asks for a change, treat it as a change request. Revise the
+  plan and wait.
+- All open questions in the plan must be answered before editing. A reply that answers only
+  some of them is not approval.
+- If you are not sure whether a reply is approval, treat it as a change request. Revise the
+  plan and wait.
+
 # General Approach Guidelines
 
-- Think before acting. Read existing files before writing code. But prefer tools, skill or lsp that can provide the info..
+- Think before acting. Read existing files before writing code. But prefer tools, skill or lsp that can provide the info.
 - Be concise in output but thorough in reasoning.
 - Prefer editing over rewriting whole files.
 - Do not re-read files you have already read unless the file may have changed.
