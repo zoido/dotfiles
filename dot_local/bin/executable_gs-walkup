@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# gs-walkup
+#
+# Runs a fish command on the current git-spice branch, then moves one branch
+# up the stack with `gs up` and runs it again, until `gs up` fails.
+# Stops at the first command failure, including a failure in any part of the
+# last pipeline.
+#
+# Usage: gs-walkup '<command>'
+#
+# Dependencies: fish, git-spice
+#
+set -euo pipefail
+
+cmd=${1:?usage: gs-walkup '<command>'}
+
+readonly PIPEFAIL_CHECK='for s in $pipestatus; test $s -eq 0; or exit $s; end'
+
+while true; do
+	fish -c "$cmd"$'\n'"$PIPEFAIL_CHECK"
+	git-spice up || break
+done
