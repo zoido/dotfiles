@@ -64,8 +64,8 @@ z = ":toggle soft-wrap.enable"           # On/Off soft-wrap.
 g = ":sh zellij run --floating --width 90%% --height 90%% -c -- gitu > /dev/null"
 B = ":sh zellij run --floating --width 90%% --height 90%% -c -- gitu blame %{buffer_name} > /dev/null"
 b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
-d = ":sh zellij run --floating --width 90%% --height 90%% -c -- fish -c 'git --paginate diff -- %{buffer_name} | delta --paging=always' > /dev/null"
-h = ":sh zellij run --floating --width 90%% --height 90%% -c -- fish -c 'git-hunk-at-line %{buffer_name} %{cursor_line} | delta --paging=always' > /dev/null"
+d = ":sh zellij run --floating --width 90%% --height 90%% -c -- fish -c 'git --no-pager diff -- %{buffer_name} | delta --paging=always --pager=ov' > /dev/null"
+h = ":sh zellij run --floating --width 90%% --height 90%% -c -- fish -c 'git-hunk-at-line %{buffer_name} %{cursor_line} | delta --paging=always --pager=ov' > /dev/null"
 K = ":reset-diff-change"
 
 
