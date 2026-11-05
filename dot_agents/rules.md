@@ -20,8 +20,10 @@
 - No sycophantic openers or closing fluff.
 - Keep solutions simple and direct.
 - User instructions always override this file.
-- Prefer `fd` rather than `find` if you search for files.
-- Prefer `rg` rather than `grep` if you search for patterns in files.
+- These rules apply only to shell commands run through the `bash` tool. They do not apply to the built-in `find` and `grep` tools, which already use `fd` and `rg` internally.
+  - In shell commands, use `fd` instead of `find` to search for files.
+  - In shell commands, use `rg` instead of `grep` to search for patterns in files.
+- Prefer the built-in `find` and `grep` tools for single searches. Use `fd` or `rg` in `bash` only when you need flags, pipes, or several searches in one command that the tools do not support.
 - Do not use Python for ad-hoc work. Use `jq` for JSON in shell, the `edit` tool for file changes, and `codemode` for data processing or generating files.
 
 # Significant paths
