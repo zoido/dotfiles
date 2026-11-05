@@ -1,7 +1,7 @@
 # General prompt
 
-set -g tide_left_prompt_items pwd git newline time character
-set -g tide_right_prompt_items status cmd_duration jai_jail shlvl context jobs direnv python rustc go kubectl terraform aws
+set -g tide_left_prompt_items context pwd git newline time character
+set -g tide_right_prompt_items status cmd_duration jai_jail shlvl jobs direnv python rustc go kubectl terraform aws
 # set -g tide_left_prompt_items pwd git newline character
 # set -g tide_right_prompt_items status cmd_duration context jobs direnv bun node python rustc java php pulumi ruby go gcloud kubectl distrobox toolbox terraform aws nix_shell crystal elixir zig time
 
