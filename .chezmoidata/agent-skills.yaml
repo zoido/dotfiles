@@ -3,12 +3,25 @@ packages:
     remote:
       - repo: AminBlg/SimpleEnglish
         skill: simple-english
+        version: v2.1.1
       - repo: max-sixty/worktrunk
         skill: wt-switch-create
+        version: v0.81.0
       - repo: max-sixty/worktrunk
         skill: worktrunk
+        version: v0.81.0
       - repo: anthropics/skills
         skill: skill-creator
+        version: b9e19e6f44773509fbdd7001d77ff41a49a486c1
+      - repo: kepano/obsidian-skills
+        skill: obsidian-cli
+        version: 3ccff5338ea700537839b21900aa5358a0402c98
+      - repo: kepano/obsidian-skills
+        skill: obsidian-bases
+        version: 3ccff5338ea700537839b21900aa5358a0402c98
+      - repo: kepano/obsidian-skills
+        skill: obsidian-markdown
+        version: 3ccff5338ea700537839b21900aa5358a0402c98
     local:
       - git-branch-stacking
       - go-code-guidelines

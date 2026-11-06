@@ -2,16 +2,19 @@
 
 set -e
 
+skills_dir=~/.agents/skills
 
+rm -rf "$skills_dir"
+mkdir -p "$skills_dir"
 
 {{ range .packages.skills.remote -}}
-gh skill install {{ .repo }} {{ .skill }} --dir ~/.agents/skills --force
+gh skill install {{ .repo }} {{ .skill }} --pin {{ .version }} --dir "$skills_dir" --force
 {{ end -}}
 
 
 {{ $sourceDir := .chezmoi.sourceDir }}
 
 {{ range .packages.skills.local -}}
-gh skill install --from-local {{ $sourceDir }}/dot_agents/skills {{.}} --dir ~/.agents/skills --force
+gh skill install --from-local {{ $sourceDir }}/dot_agents/skills {{.}} --dir "$skills_dir" --force
 {{ end -}}
 
