@@ -8,7 +8,7 @@ rm -rf "$skills_dir"
 mkdir -p "$skills_dir"
 
 {{ range .packages.skills.remote -}}
-gh skill install {{ .repo }} {{ .skill }} --pin {{ .version }} --dir "$skills_dir" --force
+gh skill install {{ .repo }} {{ .skill }} --pin {{ .commit }} --dir "$skills_dir" --force
 {{ end -}}
 
 
