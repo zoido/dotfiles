@@ -5,7 +5,7 @@ worktree-path = "{{ repo_path }}/../.worktrees/{{ repo }}/{{ branch | sanitize }
 stage = "all"
 
 [commit.generation]
-command = "opencode run -m github-copilot/claude-haiku-5.5"
+command = "pi -p --no-session --no-tools --no-extensions --no-skills --no-context-files --model github-copilot/claude-haiku-5.5"
 
 [post-start]
 copy = "wt step copy-ignored"
