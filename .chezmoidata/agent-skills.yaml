@@ -23,6 +23,8 @@ packages:
         skill: obsidian-markdown
         commit: 3ccff5338ea700537839b21900aa5358a0402c98 # main (2026-09-15)
     local:
+      - change-scope
+      - code-review
       - git-branch-stacking
       - go-code-guidelines
       - local-classifiers

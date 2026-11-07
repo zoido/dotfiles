@@ -51,7 +51,6 @@ name = "markdown"
 file-types = [
   "md",
   { glob = "*.md.tmpl" },
-  { glob = "symlink_dot_goosehints.tmpl" },
 ]
 
 [[language]]
