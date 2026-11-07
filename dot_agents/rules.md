@@ -38,6 +38,7 @@
 - User instructions always override this file.
 - If you have dedicated tools to search files and file contents (for example the `find` and `grep` tools in pi), use them for single searches. Use shell commands only when you need flags, pipes, or several searches in one command that the tools do not support.
 - In shell commands, use `fd` instead of `find` and `rg` instead of `grep`. This rule does not apply to dedicated search tools with the same names.
+- My primary shell is fish. My custom functions (for example `git_parent_branch`) exist only in fish. Call them with `fish -c '...'`. Fish abbreviations do not expand in `fish -c`, so use the full command. Commands that I should run myself must use fish syntax.
 - Do not use Python for ad-hoc work. Use `jq` for JSON in shell, the `edit` tool for file changes, and `codemode` for data processing or generating files.
 
 # Significant paths
