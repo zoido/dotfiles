@@ -22,6 +22,9 @@ packages:
       - repo: kepano/obsidian-skills
         skill: obsidian-markdown
         commit: 3ccff5338ea700537839b21900aa5358a0402c98 # main (2026-09-15)
+      - repo: agavra/tuicr
+        skill: tuicr
+        commit: 52a56e1a471960511c693f21a539c81ff934af55 # v0.28.0
     local:
       - change-scope
       - code-review
