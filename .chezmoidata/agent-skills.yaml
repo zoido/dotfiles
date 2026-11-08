@@ -25,13 +25,11 @@ packages:
       - repo: agavra/tuicr
         skill: tuicr
         commit: 52a56e1a471960511c693f21a539c81ff934af55 # v0.28.0
-      - repo: blader/humanizer
-        skill: humanizer
-        commit: 225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8 # v3.1.0
     local:
       - change-scope
       - code-review
       - git-branch-stacking
       - go-code-guidelines
+      - humanizer # Vendored from blader/humanizer v3.1.0 (225a6f3): gh skill cannot install a root-level SKILL.md.
       - local-classifiers
       - pr-guidelines
