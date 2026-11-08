@@ -67,6 +67,7 @@ packages:
   - protols # LSP for protobuf files.
   - python
   - python-pip
+  - qmd # Local search engine for markdown files.
   - reflector
   - ripgrep # Grep but faster.
   - s3cmd

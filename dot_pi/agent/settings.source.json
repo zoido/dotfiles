@@ -4,7 +4,8 @@
     "git:github.com/otahontas/pi-coding-agent-catppuccin",
     "npm:@pi-lab/input-history@1.0.5",
     "npm:@clapecho233/pi-smart-fold@0.2.3",
-    "npm:@juicesharp/rpiv-ask-user-question@2.15.0"
+    "npm:@juicesharp/rpiv-ask-user-question@2.15.0",
+    "npm:pi-memory@0.4.2"
   ],
   "lastChangelogVersion": "1.5.0",
   "editorPaddingX": 1,
