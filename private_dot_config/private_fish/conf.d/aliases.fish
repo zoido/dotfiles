@@ -64,8 +64,11 @@ abbr -a wtrf 'wt remove --force'
 abbr -a pi 'jai pi'
 abbr -a pic 'jai pi -c'
 abbr -a pir 'jai pi -r'
-abbr -a picr 'jai pi --tools -edit,-write,+set_exit_code "/review" --print'
-abbr -a picrt 'jai pi --tools -edit,-write,+set_exit_code "/tuicr-review" --print'
+abbr -a picr 'jai pi --tools -edit,-write "/review"'
+abbr -a picrt 'jai pi --tools -edit,-write "/tuicr-review"'
+# Non-interactive variants of the abbreviations above for scripts, for example `fish -c xpicr`.
+alias xpicr 'jai pi --tools -edit,-write,+set_exit_code "/review" --print'
+alias xpicrt 'jai pi --tools -edit,-write,+set_exit_code "/tuicr-review" --print'
 
 # Custom scripts
 abbr -a prnv please-release-new-version
