@@ -15,3 +15,5 @@ In the output, start the first line of each finding with the location as plain t
 ```
 path/to/file.ext:42 [bug] Short title
 ```
+
+If the `set_exit_code` tool is available, call it once after the review. Use `1` if at least one finding is a `bug` or a `risk`. Otherwise use `0`.

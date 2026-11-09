@@ -64,8 +64,8 @@ abbr -a wtrf 'wt remove --force'
 abbr -a pi 'jai pi'
 abbr -a pic 'jai pi -c'
 abbr -a pir 'jai pi -r'
-abbr -a picr 'jai pi --tools -edit,-write "/review" --print'
-abbr -a picrt 'jai pi --tools -edit,-write "/tuicr-review" --print'
+abbr -a picr 'jai pi --tools -edit,-write,+set_exit_code "/review" --print'
+abbr -a picrt 'jai pi --tools -edit,-write,+set_exit_code "/tuicr-review" --print'
 
 # Custom scripts
 abbr -a prnv please-release-new-version
