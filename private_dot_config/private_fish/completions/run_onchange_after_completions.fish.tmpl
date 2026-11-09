@@ -43,9 +43,10 @@ uv generate-shell-completion fish >"$completions_dir/uv.fish"
 atuin gen-completions --shell fish >"$completions_dir/atuin.fish"
 {{- end }}
 
-{{- if lookPath "gs"}}
-# gs version: {{ output "gs" "--version" | sha256sum }}
-gs shell completion fish >"$completions_dir/gs.fish"
+{{- if lookPath "git-spice"}}
+# git-spice version: {{ output "git-spice" "--version" | sha256sum }}
+git-spice shell completion fish >"$completions_dir/git-spice.fish"
+echo 'complete -c gs -w git-spice' >"$completions_dir/gs.fish"
 {{- end }}
 
 {{- if lookPath "vcluster"}}
