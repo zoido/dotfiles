@@ -73,6 +73,6 @@
 
 - When writing or reviewing Go code use `go-code-guidelines` skill.
 
-# Local Classifiers
+# Classifiers
 
-- When a task applies the same choice, bool, or score question to many items, such as triage, filtering, labeling, or flagging, use the `local-classifiers` skill.
+- When a task applies the same choice, bool, or score question to many items, such as triage, filtering, labeling, or flagging, use the `classifiers` skill.
