@@ -1,17 +1,17 @@
 ---
-description: Review code changes and post findings as tuicr comments
+description: Review code changes and post the review comments to tuicr
 argument-hint: "[commit | branch | PR number or URL]"
 ---
 
-Review code changes and give actionable feedback. This is a read-only task: do not edit, stage, commit, or check out anything. The only exception is the tuicr review session, where you add your findings as comments.
+Review code changes and give actionable feedback. This is a read-only task: do not edit, stage, commit, or check out anything. The only exception is the tuicr review session, where you add your review comments.
 
 Input: `$ARGUMENTS`
 
 1. Load the `change-scope` skill and follow it with the input above to find the changes.
 2. Load the `code-review` skill and follow it to review those changes.
-3. Post the findings to tuicr as described below.
+3. Post the comments to tuicr as described below.
 
-## Post findings to tuicr
+## Post comments to tuicr
 
 ### Pick the tuicr scope
 
@@ -47,29 +47,27 @@ Run all `tuicr` commands from the repository root.
    ```
 
    Kill it with `SIGKILL`. On a normal exit, tuicr deletes a session that has no comments. If the script prints no slug, tuicr found no changes for the scope or failed to start.
-3. If you still have no slug, print the findings in chat only, and say that the tuicr session could not be created.
+3. If you still have no slug, print the comments in chat only, and say that the tuicr session could not be created.
 
 ### Add the comments
 
-Add one comment for each finding. Use the `code-review` finding text, but drop the location from its first line:
+Add one tuicr comment for each `code-review` comment. Pass the comment type with `--type`, and pass only the comment text as the content. tuicr shows the type as a tag, so do not repeat the type or the location in the text:
 
 ```bash
 tuicr review add --session "<slug>" --repo . \
   --username "pi ($PI_MODEL)" \
+  --type <type> \
   --target-file <path> --line <line> [--end-line <line>] [--side old] \
-  "[<severity>] <short title>
-
-<what is wrong>
-
-Suggested fix: <fix>"
+  "<comment text>"
 ```
 
+- Use only the type ids from the `code-review` skill: `qq`, `optional`, `nit`, `issue`, `fyi`, `nice`. They replace the default tuicr types (`issue`, `suggestion`, `note`, `praise`) in the `tuicr` skill. If tuicr warns that a type is not configured, the comment is still stored. Tell me about the warning in the report.
 - Anchor each comment to lines that are in the diff. Use `--side old` only for removed lines.
-- If a finding has no line in the diff, omit `--line` to make a file-level comment.
-- If a finding is not about one file, omit `--target-file` to make a review-level comment.
-- If tuicr fails with `session does not contain file`, add the finding as a review-level comment and put `path:line` at the start of the text. tuicr does not add new files to an existing session.
+- If a comment has no line in the diff, omit `--line` to make a file-level comment.
+- If a comment is not about one file, omit `--target-file` to make a review-level comment.
+- If tuicr fails with `session does not contain file`, add it as a review-level comment and put `path:line` at the start of the text. tuicr does not add new files to an existing session.
 - Add each comment once. If a command fails, fix the arguments and retry only that comment.
 
 ### Report
 
-In chat, give the one-line scope summary, the session slug, and a short list of the findings: severity, `path:line`, and title. Then tell me the command that opens the review, for example `tuicr -w` or `tuicr pr 123`.
+In chat, give the one-line scope summary, the session slug, and a short list of the comments: type, `path:line`, and the first sentence of the text. Then tell me the command that opens the review, for example `tuicr -w` or `tuicr pr 123`.

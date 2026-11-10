@@ -1,2 +1,11 @@
 theme = "catppuccin-macchiato"
 diff_view = "side-by-side"
+
+comment_types = [
+  { id = "qq", definition = "a question; answer it, often with clearer code or a code comment", color = "yellow" },
+  { id = "optional", definition = "a possible improvement; not required, the author decides", color = "blue" },
+  { id = "nit", definition = "a small polish item; usually applied, can be skipped", color = "gray" },
+  { id = "issue", definition = "a problem that must be fixed before merge", color = "red" },
+  { id = "fyi", definition = "information for later; no change expected now", color = "cyan" },
+  { id = "nice", definition = "something done well; no action", color = "green" },
+]
