@@ -62,17 +62,18 @@
 # Version Control Instructions
 
 - For branches, use `lp/` prefix for branches in the h2oai organization and `z/` prefix in other repositories.
-- When stacking branches, use `git-spice` tool via `git-branch-stacking` skill for better management of dependent branches and PRs.
-- When using git worktrees use worktrunk tool via `worktrunk` skill.
-- For PR commit and PRs use `pr-guidelines` skill.
 - When one feature is split into multiple branches, use the `feature=` prefix.
   - Example: `lp/awesome-feature=refactoring-module`, `lp/awesome-feature=adding-tests`
   - Example: `z/awesome-feature=mixing-stats`, `z/awesome-feature=adding-visualizations`
 
-# Language Specific Guidelines
+# Writing
 
-- When writing or reviewing Go code use `go-code-guidelines` skill.
-
-# Classifiers
-
-- When a task applies the same choice, bool, or score question to many items, such as triage, filtering, labeling, or flagging, use the `classifiers` skill.
+- When you write or change documentation, use the `simple-english` and `humanizer` skills without being asked. Documentation includes:
+  - doc comments and code comments,
+  - written docs, for example READMEs, guides, and Markdown files,
+  - CLI help strings, flag descriptions, usage text, and user-facing error messages.
+- For substantial prose, for example a README, a guide, long help text, or a doc comment with more than one paragraph, load both skills before you write.
+- For short comments and help strings, load both skills once per session. After that, apply their rules without loading them again.
+- Commit messages and PR text follow the `pr-guidelines` skill.
+- Do not apply them to code identifiers, generated files, or text that I wrote and did not ask you to change.
+- When you use both skills, use `simple-english` first and then `humanizer`.

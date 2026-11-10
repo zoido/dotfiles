@@ -32,6 +32,8 @@ A diff alone is not enough. Code that looks wrong alone can be correct in contex
 
 **Behavior changes**: report every behavior change, and say if it looks unintentional.
 
+**Tests**: changed behavior without a test that covers it, or existing tests that no longer match the new behavior.
+
 **Structure**:
 
 - Does the code follow existing patterns, and use the abstractions the codebase already has?
@@ -40,6 +42,8 @@ A diff alone is not enough. Code that looks wrong alone can be correct in contex
 **Performance**: report only obvious problems, for example O(n²) on unbounded data, N+1 queries, or blocking I/O on hot paths.
 
 ## 3. Before you report an issue
+
+A false finding costs the reader more than a missed nit: they must disprove it, and it lowers their trust in the other findings. So:
 
 - Review only changed code. Do not review code that the change did not touch.
 - Be certain. If you are not sure, investigate. If you still cannot verify it, write "Not sure: …" and do not present it as a fact.
@@ -54,10 +58,12 @@ Start with a one-line summary of what you reviewed: the scope and the files.
 Then list the findings, the most severe first. Use this format for each finding:
 
 ```
-[severity] path/to/file.ext:line — short title
+path/to/file.ext:line [severity] Short title
 What is wrong, and the inputs, environment, or scenario that make it happen.
 Suggested fix (one or two lines, or a short snippet).
 ```
+
+Start the first line with the location as plain text, relative to the repository root. Do not put backticks, brackets, or other characters around it, so that terminals and editors can open it with a click.
 
 Severity levels:
 

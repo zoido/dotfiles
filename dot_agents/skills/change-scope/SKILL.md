@@ -1,6 +1,6 @@
 ---
 name: change-scope
-description: Use when a task needs the set of code changes to work on, for example a code review, a summary of changes, or a PR description. Finds the changes from a commit, branch, PR number or URL, or the local working tree, with a git-only fallback for PRs.
+description: Use when a task needs the set of code changes to work on, for example a code review, a summary of changes ("what changed", "summarize my changes", "what is new since main"), or a PR description. Finds the changes from a commit, branch, PR number or URL, or the local working tree, with a git-only fallback for PRs.
 ---
 
 # Change Scope
@@ -14,28 +14,45 @@ Pick the source from the input. If the input is ambiguous, use your judgement an
 | Input | Source |
 |---|---|
 | None | [Local changes](#local-changes) |
+| Local or remote branch name, for example `main` or `origin/main` | [Branch](#branch) |
 | Short or full commit SHA | `git show <sha>` |
-| Branch name | `git diff <branch>...HEAD` |
 | PR number, `#123`, or PR URL | [Pull request](#pull-request) |
 
-To tell a SHA from a branch name, check with `git rev-parse --verify --quiet <input>^{commit}` and `git show-ref --verify --quiet refs/heads/<input>`.
+Check for a branch first, and only then for a commit. A branch name also resolves as a commit, and `git show` would then show only its last commit.
+
+1. Local branch: `git show-ref --verify --quiet refs/heads/<input>`.
+2. Remote branch: `git show-ref --verify --quiet refs/remotes/<input>`.
+3. Commit: `git rev-parse --verify --quiet <input>^{commit}`.
+
+## Branch
+
+A branch can be the base to compare against ("what is new since main") or the branch to look at ("review z/foo"). Decide with `git merge-base --is-ancestor <branch> HEAD`:
+
+- It is an ancestor of `HEAD` and does not point at `HEAD`: it is the base. Use `git diff <branch>...HEAD` and `git log --oneline <branch>..HEAD`.
+- Otherwise it is the branch to look at. Compare it with its parent branch: `git diff <parent>...<branch>` and `git log --oneline <parent>..<branch>`. If git-spice tracks the branch, `gs ls --all` shows its parent. Otherwise use the [default branch](#default-branch).
+
+State which way you read it.
 
 ## Local changes
 
 Use the first step that has changes:
 
-1. Staged changes: `git diff --cached`.
-2. Unstaged changes, `git diff`, and untracked files from `git status --short`. Untracked files are not in the diff, so read them in full.
-3. The current branch against its parent branch:
+1. Uncommitted changes: `git diff HEAD` shows staged and unstaged changes together. Also list untracked files with `git status --short`. Untracked files are not in the diff, so read them in full.
+2. The current branch against its parent branch:
    ```sh
    fish -c 'git diff (git_parent_branch)...HEAD'
    ```
-   If `fish` or `git_parent_branch` is not available, or it prints nothing, use the default branch:
-   ```sh
-   git diff "$(git symbolic-ref --short refs/remotes/origin/HEAD)...HEAD"
-   ```
+   If `fish` or `git_parent_branch` is not available, or it prints nothing, use the [default branch](#default-branch): `git diff <default>...HEAD`.
 
 If no step has changes, say so and stop.
+
+## Default branch
+
+Use the first one that works:
+
+1. `git symbolic-ref --short refs/remotes/origin/HEAD`. This is often not set in local clones.
+2. `origin/main` or `origin/master`, whichever `git rev-parse --verify --quiet` finds.
+3. The local `main` or `master` branch.
 
 ## Pull request
 

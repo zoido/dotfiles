@@ -30,6 +30,7 @@ packages:
       - classifiers
       - code-review
       - git-branch-stacking
+      - gitmoji
       - go-code-guidelines
       - humanizer # Vendored from blader/humanizer v3.1.0 (225a6f3): gh skill cannot install a root-level SKILL.md.
       - pr-guidelines

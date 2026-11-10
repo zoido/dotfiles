@@ -19,9 +19,10 @@ Map the source that `change-scope` picked to tuicr arguments:
 
 | Source | tuicr arguments |
 |---|---|
-| Staged or unstaged changes | `-w` |
+| Uncommitted changes | `-w` |
 | Commit `<sha>` | `-r <sha>` |
-| Branch, or current branch against its parent | `-r <base>..HEAD` |
+| Base branch, or current branch against its parent | `-r <base>..HEAD` |
+| Branch to look at | `-r <parent>..<branch>` |
 | Pull request `<n>` | `pr <n>` |
 
 ### Find or create the session
@@ -50,7 +51,7 @@ Run all `tuicr` commands from the repository root.
 
 ### Add the comments
 
-Add one comment for each finding. Use the `code-review` finding text without the location line:
+Add one comment for each finding. Use the `code-review` finding text, but drop the location from its first line:
 
 ```bash
 tuicr review add --session "<slug>" --repo . \
