@@ -1,0 +1,9 @@
+matches:
+    - triggers: ["retrun"]
+      replace: "return"
+
+    - triggers: ["platfrom"]
+      replace: "platform"
+
+    - triggers: ["wokrspace"]
+      replace: "workspace"

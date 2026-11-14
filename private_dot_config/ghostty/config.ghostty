@@ -1,0 +1,14 @@
+font-size = 16
+font-family = "JetBrainsMono NF"
+
+theme = "Catppuccin Macchiato"
+window-decoration = none
+
+quit-after-last-window-closed = false
+window-inherit-working-directory = true
+
+
+
+quick-terminal-position = center
+quick-terminal-size = 50%,50%
+gtk-quick-terminal-namespace = ghostty-quick-terminal

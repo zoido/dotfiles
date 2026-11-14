@@ -1,0 +1,18 @@
+matches:
+  - trigger: ";;shrug"
+    replace: "¯\\_(ツ)_/¯"
+
+  - triggers: [";;tableflip", ";;flip", ";;tbflip"]
+    replace: "(╯°□°）╯︵ ┻━┻"
+
+  - trigger: ";;unflip"
+    replace: "┬─┬ ノ( ゜-゜ノ)"
+
+
+  - trigger: ";;treat"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: random
+        params:
+          choices: [🍬, 🍭, 🍫, 🍪, 🍩, 🍦, 🍨, 🍧, 🍮, 🍰, 🍯, 🥨, 🥞, 🧁, 🥧, 🍟, 🍔, 🍕, 🌭, 🥪, 🍝, 🍜, 🍲, 🍛, 🍣, 🍱, 🥟, 🍤, 🍙, 🍚, 🍘, 🍥, 🥠, 🍢, 🍡, 🍧, 🍨]

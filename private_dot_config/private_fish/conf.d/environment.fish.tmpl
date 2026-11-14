@@ -3,12 +3,12 @@ set -gx LESS '-M -i -R'
 set -gx LESSCHARSET utf-8
 set -gx LESSHISTSIZE 1000
 set -gx PAGER less
-set -gx EDITOR hx
+set -gx EDITOR helix
 set -gx MANPAGER $PAGER
 set -gx DELTA_PAGER less
 set -gx PISTOL_CHROMA_STYLE catppuccin-macchiato
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
-
+set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 {{- if .wsl }}
 set -gx BROWSER wsl-open
 

@@ -1,0 +1,42 @@
+matches:
+  - trigger: ;;lgtm
+    replace: "LGTM {{treat}}"
+    vars:
+      - name: treat
+        type: match
+        params:
+          trigger: ;;treat
+
+  - trigger: ;;tx.
+    replace: "{{tx}}"
+    vars:
+      - name: tx
+        type: random
+        params:
+          choices:
+            - "Thanks."
+            - "Thanks!"
+            - "Thank you."
+            - "Thank you!"
+
+  - trigger: ;;txch
+    replace: "{{chtx}}"
+    vars:
+      - name: chtx
+        type: random
+        params:
+          choices:
+            - "Thanks for the changes."
+            - "Thank you for the changes."
+
+  - trigger: ;;txlgtm
+    replace: "{{lgtm}}. {{tx}}"
+    vars:
+      - name: lgtm
+        type: match
+        params:
+          trigger: ;;lgtm
+      - name: tx
+        type: match
+        params:
+          trigger: ;;tx.

@@ -1,0 +1,247 @@
+matches:
+  - trigger: "[[today"
+    replace: "[[{{today}}]]"
+    vars:
+      - name: today
+        type: match
+        params:
+          trigger: ;;today
+
+  - trigger: "[[yday"
+    replace: "[[{{yday}}]]"
+    vars:
+      - name: yday
+        type: match
+        params:
+          trigger: ;;yday
+
+  - trigger: "[[tmrw"
+    replace: "[[{{tmrw}}]]"
+    vars:
+      - name: tmrw
+        type: match
+        params:
+          trigger: ;;tmrw
+
+  - trigger: "[[week"
+    replace: "[[{{week}}]]"
+    vars:
+      - name: week
+        type: match
+        params:
+          trigger: ;;week
+
+  - trigger: "[[pweek"
+    replace: "[[{{pweek}}]]"
+    vars:
+      - name: pweek
+        type: match
+        params:
+          trigger: ;;pweek
+
+  - trigger: "[[nweek"
+    replace: "[[{{nweek}}]]"
+    vars:
+      - name: nweek
+        type: match
+        params:
+          trigger: ;;nweek
+
+  - trigger: "[[year"
+    replace: "[[{{year}}]]"
+    vars:
+      - name: year
+        type: match
+        params:
+          trigger: ;;year
+
+  - trigger: "[[pyear"
+    replace: "[[{{pyear}}]]"
+    vars:
+      - name: pyear
+        type: match
+        params:
+          trigger: ;;pyear
+
+  - trigger: "[[nyear"
+    replace: "[[{{nyear}}]]"
+    vars:
+      - name: nyear
+        type: match
+        params:
+          trigger: ;;nyear
+
+  # Monday
+  - trigger: "[[tmon"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;mon
+
+  - trigger: "[[nmon"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nmon
+
+  - trigger: "[[pmon"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;pmon
+
+  # Tuesday
+  - trigger: "[[ttue"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;tue
+
+  - trigger: "[[ntue"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;ntue
+
+  - trigger: "[[ptue"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;ptue
+
+  # Wednesday
+  - trigger: "[[twed"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;wed
+
+  - trigger: "[[nwed"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nwed
+
+  - trigger: "[[pwed"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;pwed
+
+  # Thursday
+  - trigger: "[[tthu"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;thu
+
+  - trigger: "[[nthu"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nthu
+
+  - trigger: "[[pthu"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;pthu
+
+  # Friday
+  - trigger: "[[tfri"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;fri
+
+  - trigger: "[[nfri"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nfri
+
+  - trigger: "[[pfri"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;pfri
+
+  # Saturday
+  - trigger: "[[tsat"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;sat
+
+  - trigger: "[[nsat"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nsat
+
+  - trigger: "[[psat"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;psat
+
+  # Sunday
+  - trigger: "[[tsun"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;sun
+
+  - trigger: "[[nsun"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;nsun
+
+  - trigger: "[[psun"
+    replace: "[[{{val}}]]"
+    vars:
+      - name: val
+        type: match
+        params:
+          trigger: ;;psun

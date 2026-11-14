@@ -1,5 +1,7 @@
 packages:
   archlinux:
+  - 1password
+  - 1password-cli
   - amazon-ecr-credential-helper
   - aria2
   - atuin
@@ -16,6 +18,7 @@ packages:
   - duf # A disk usage utility written in Rust.
   - dust # A more intuitive version of 'du' in Rust.
   - easy-conflict # TUI merge conflict tool
+  - espanso-wayland-bin
   - exa # A modern replacement for 'ls'.
   - fd # A simple, fast and user-friendly alternative to 'find'.
   - fish
@@ -23,9 +26,10 @@ packages:
   - fish-lsp # LSP for Fish shell scripts.
   - fx # A tool for exploring and analyzing JSON data in the terminal.
   - fzf
+  - ghostty
   - git-delta # A syntax-highlighting pager for git and diff output.
-  - git-spice-bin # Managing stacks of git branches.
   - github-cli
+  - git-spice-bin # Managing stacks of git branches.
   - gitu # Magit like interface for git in the terminal.
   - go
   - golangci-lint
@@ -37,11 +41,12 @@ packages:
   - gum # Nice prompts for shell scripts.
   - helix
   - helm
-  - helm-ls # LSP for helm charts.
+  - helm-ls-bin # LSP for helm charts.
   - hexyl
   - htop
   - hx-lsp # Snippets LSP for Helix.
   - hyperfine # A command-line benchmarking tool.
+  - hyprpolkitagen
   - jai # Light-weight sandbox for AI agents
   - jedi-language-serve # Language server for jedi that is Python autocomplete.
   - jo # Build JSON objects from the command line.
@@ -49,15 +54,18 @@ packages:
   - k9s
   - kubectl
   - kubectx
-  - llama-cpp # Run LLMs locally
   - lazydocker
   - lazygit
   - libqalculate
+  - llama-cpp # Run LLMs locally
+  - mako # Wayland notofication daemon.
   - man-db
   - markdown-oxide # LSP for markdown PKMs
   - marksman # LSP for markdown files.
   - mc
   - most
+  - niri
+  - oo7  # Secret service provider.
   - openssh
   - peco # A command-line interactive filtering tool.
   - pi-coding-agent-bin
@@ -76,15 +84,19 @@ packages:
   - skaffold
   - socat
   - step-cli
+  - swaybg # Wayland background.
+  - swayidle # Wayland idle launcher.
+  - swaylock # Waylanf lock screen.
   - systemd-lsp # LSP for systemd unit files.
   - taplo-cli # LSP for TOML files.
-  - television
   - tealdeer # TLDR client.
+  - television
   - terraform
   - tfswitch
   - tinymist # LSP for typst
   - tombi # TOML formatter and linter.
   - traefik
+  - ttf-jetbrains-mono-nerd
   - tuicr # Code reviews from terminal.
   - typst
   - ty # Python type checker and language server.
@@ -92,13 +104,17 @@ packages:
   - urlscan # Read and interactively open explore URLs in the text.
   - uv
   - vcluster-bin
+  - vicinae-bin # Application launcher and command pallete.
   - viddy # Like 'watch' but with a nice UI and more features.
   - viu # Terminal image viewer.
   - vscode-json-languageserver
+  - waterfox-bin
   - wget
   - worktrunk-bin
+  - xdg-desktop-portal-gtk
   - xdg-util
   - xh # httpie compatible HTTP request CLI.
+  - xwayland-satellite
   - yaml-language-server # LSP for YAML files.
   - zellij
   - zoxide

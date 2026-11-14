@@ -1,16 +1,3 @@
-*
-
-!02-go-tools
-!03-python-tools
-
-{{- if eq .chezmoi.os "linux" }}
-!00-linux-packages
-!04-gh-extensions
-!05-agent-skills
-!10-linux
-{{- end }}
-
-{{- if eq .chezmoi.os "windows" }}
-!00-windows-packages
-!10-windows
-{{- end }}
+00-windows-packages
+10-windows
+06-llama-models

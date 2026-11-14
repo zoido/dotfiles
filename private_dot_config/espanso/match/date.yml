@@ -1,0 +1,285 @@
+matches:
+  - triggers: [";;date", ";;today",]
+    replace: "{{ today }}"
+    vars:
+      - name: today
+        type: date
+        params:
+          format: "%F"
+
+  - triggers: [";;tomorrow", ";;tmrw"]
+    replace: "{{ tomorrow }}"
+    vars:
+      - name: tomorrow
+        type: date
+        params:
+          format: "%F"
+          offset: 86400
+
+  - triggers: [";;yesterday", ";;yday"]
+    replace: "{{ yesterday }}"
+    vars:
+      - name: yesterday
+        type: date
+        params:
+          format: "%F"
+          offset: -86400
+
+  - trigger: ";;now"
+    replace: "{{ now }}"
+    vars:
+      - name: now
+        type: date
+        params:
+          format: "%R"
+
+  - trigger: ";;snow"
+    replace: "{{ now }}"
+    vars:
+      - name: now
+        type: date
+        params:
+          format: "%T"
+
+  - trigger: ";;ts"
+    replace: "{{ ts }}"
+    vars:
+      - name: ts
+        type: date
+        params:
+          format: "%+"
+
+  - trigger: ";;uts"
+    replace: "{{ uts }}"
+    vars:
+      - name: uts
+        type: date
+        params:
+          format: "%s"
+
+  - trigger: ";;week"
+    replace: "{{ week }}"
+    vars:
+      - name: week
+        type: date
+        params:
+          format: "%Y-W%V"
+
+  - trigger: ";;nweek"
+    replace: "{{ week }}"
+    vars:
+      - name: week
+        type: date
+        params:
+          format: "%Y-W%V"
+          offset: 604800
+
+  - trigger: ";;pweek"
+    replace: "{{ week }}"
+    vars:
+      - name: week
+        type: date
+        params:
+          format: "%Y-W%V"
+          offset: -604800
+
+  - trigger: ";;year"
+    replace: "{{ year }}"
+    vars:
+      - name: year
+        type: date
+        params:
+          format: "%Y"
+
+  - trigger: ";;nyear"
+    replace: "{{ year }}"
+    vars:
+      - name: year
+        type: date
+        params:
+          format: "%Y"
+          offset: 31536000
+
+  - trigger: ";;pyear"
+    replace: "{{ year }}"
+    vars:
+      - name: year
+        type: date
+        params:
+          format: "%Y"
+          offset: -31536000
+
+  # Monday
+  - trigger: ";;mon"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=0-d.weekday()))\""
+
+  - trigger: ";;nmon"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(0-d.weekday()) % 7 or 7))\""
+
+  - trigger: ";;pmon"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-0) % 7 or 7))\""
+
+  # Tuesday
+  - trigger: ";;tue"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=1-d.weekday()))\""
+
+  - trigger: ";;ntue"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(1-d.weekday()) % 7 or 7))\""
+
+  - trigger: ";;ptue"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-1) % 7 or 7))\""
+
+  # Wednesday
+  - trigger: ";;wed"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=2-d.weekday()))\""
+
+  - trigger: ";;nwed"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(2-d.weekday()) % 7 or 7))\""
+
+  - trigger: ";;pwed"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-2) % 7 or 7))\""
+
+  # Thursday
+  - trigger: ";;thu"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=3-d.weekday()))\""
+
+  - trigger: ";;nthu"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(3-d.weekday()) % 7 or 7))\""
+
+  - trigger: ";;pthu"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-3) % 7 or 7))\""
+
+  # Friday
+  - trigger: ";;fri"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=4-d.weekday()))\""
+
+  - trigger: ";;nfri"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(4-d.weekday()) % 7 or 7))\""
+
+  - trigger: ";;pfri"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-4) % 7 or 7))\""
+
+  # Saturday
+  - trigger: ";;sat"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=5-d.weekday()))\""
+
+  - trigger: ";;nsat"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(5-d.weekday()) % 7 or 7))\""
+
+  - trigger: ";;psat"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-5) % 7 or 7))\""
+
+  # Sunday
+  - trigger: ";;sun"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=6-d.weekday()))\""
+
+  - trigger: ";;nsun"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d + datetime.timedelta(days=(6-d.weekday()) % 7 or 7))\""
+
+  - trigger: ";;psun"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "python -c \"import datetime; d=datetime.date.today(); print(d - datetime.timedelta(days=(d.weekday()-6) % 7 or 7))\""
