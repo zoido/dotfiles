@@ -6,6 +6,8 @@ window-decoration = none
 
 quit-after-last-window-closed = false
 window-inherit-working-directory = true
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
 
 
 
