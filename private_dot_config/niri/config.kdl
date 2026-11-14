@@ -583,6 +583,11 @@ binds {
     Mod+Shift+Backslash { spawn "1password" "--quick-access";}
     Ctrl+Alt+Backslash { spawn "waterfox" "--browser";}
     Ctrl+Alt+Backspace { spawn "vicinae" "toggle";}
+    Mod+Control+V { spawn "vicinae" "vicinae://launch/clipboard/history" ;}
+    Mod+Control+Space { spawn "vicinae" "vicinae://launch/wm/switch-windows" ;}
+    Mod+Semicolon { spawn "vicinae" "vicinae://launch/core/search-emojis" ;}
+    Ctrl+Alt+Space { spawn "vicinae" "vicinae://launch/browser-extension/browse-bookmarks";}
+
 }
 
 gestures {
