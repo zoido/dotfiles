@@ -258,6 +258,14 @@ window-rule {
     open-floating true
 }
 
+// Float the Obsidian settings window.
+window-rule {
+    match app-id=r#"^md\.obsidian\.Obsidian$"# title=r#"^Settings - .* - Obsidian [0-9.]+$"#
+    open-floating true
+    default-column-width { proportion 0.6; }
+    default-window-height { proportion 0.7; }
+}
+
 layer-rule {
     match namespace="ghostty-quick-terminal"
 
