@@ -100,6 +100,7 @@ packages:
   - tuicr # Code reviews from terminal.
   - typst
   - ty # Python type checker and language server.
+  - udiskie # Automount removable media.
   - unzip
   - urlscan # Read and interactively open explore URLs in the text.
   - uv

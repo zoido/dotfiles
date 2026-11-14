@@ -1,0 +1,9 @@
+[Unit]
+Description=udiskie
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/udiskie --automount --notify --no-tray
+Restart=on-failure
