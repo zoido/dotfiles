@@ -19,6 +19,7 @@ The `setup.sh` script runs the numbered scripts in order.
 3. `30-mirrors.sh` installs `cachyos-rate-mirrors` and sets CZ as the entry country for mirror ranking. It turns off `reflector.timer`, turns on `cachyos-rate-mirrors.timer`, and ranks the mirrors once. This script needs the CachyOS repositories from step 2.
 4. `40-1password-browsers.sh` adds Waterfox to `/etc/1password/custom_allowed_browsers`. After this step, the 1Password browser extension can connect to the desktop app. Restart 1Password after you run it.
 5. `50-swayosd.sh` installs `swayosd` and turns on `swayosd-libinput-backend.service`. This system service reads the keyboard input and tells the swayosd server when you press Caps Lock or Num Lock. The server then shows the lock key state on the screen.
+6. `60-ly.sh` installs [Ly](https://wiki.archlinux.org/title/Ly), a display manager with a text interface. It turns off the login prompt (`getty@tty1.service`) on tty1 and turns on `ly@tty1.service` in its place. Ly starts on tty1 after the next reboot. The script does not start Ly at once, because that would stop a session that runs on tty1.
 
 ## Mirror ranking
 
