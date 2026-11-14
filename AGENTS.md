@@ -10,7 +10,7 @@ They are organized to be modular and reusable across different environments.
 
 ## Templates
 
-- Variables defined in [.chezmoi.yaml.tmpl](.chezmoi.yaml.tmpl): `{{ .wsl }}`, `{{ .codespaces }}`, `{{ .archlinux }}`
+- Variables defined in [.chezmoi.yaml.tmpl](.chezmoi.yaml.tmpl): `{{ .codespaces }}`, `{{ .archlinux }}`
 - Package lists in [.chezmoidata/](.chezmoidata/) (iterate with `{{- range .packages.archlinux }}`)
 - Reusable fragments in [.chezmoitemplates/](.chezmoitemplates/)
 

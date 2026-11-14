@@ -6,24 +6,3 @@ bootstrap.bat
 {{- if .codespaces }}
 dev
 {{- end }}
-
-
-{{- if eq .chezmoi.os "linux" }}
-.wsl
-.wslconfig
-AppData
-{{- end }}
-
-
-{{- if eq .chezmoi.os "windows" }}
-*
-!.config
-.config/fish
-!.copilot
-!.gitconfig
-!.install
-!.ssh
-!.wsl
-!.wslconfig
-!AppData
-{{- end }}

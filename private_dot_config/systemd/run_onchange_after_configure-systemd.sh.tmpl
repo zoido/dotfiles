@@ -8,6 +8,8 @@ systemctl --user enable hyprpolkitagent.service --now
 systemctl --user enable llama-server.service --now
 systemctl --user enable oo7-daemon.service --now
 
+systemctl --user enable podman.socket
+
 systemctl --user add-wants niri.service 1password.service
 systemctl --user add-wants niri.service espanso.service
 systemctl --user add-wants niri.service mako.service

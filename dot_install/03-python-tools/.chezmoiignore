@@ -1,9 +1,0 @@
-*
-
-{{- if eq .chezmoi.os "linux" }}
-!install-python-tools.sh
-{{- end }}
-
-{{- if eq .chezmoi.os "windows" }}
-!install-python-tools.bat
-{{- end }}

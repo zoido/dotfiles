@@ -6,10 +6,6 @@ packages=(
     {{ range .packages.archlinux -}}
     {{ . }}
     {{ end -}}
-    {{ if .wsl -}}
-    wsl2-ssh-agent
-    wsl-open
-    {{- end }}
 )
 
 install_yay() {
