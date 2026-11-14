@@ -66,6 +66,7 @@ packages:
   - mc
   - most
   - niri
+  - obsidian # Markdown knowledge base.
   - oo7  # Secret service provider.
   - openssh
   - otf-openmoji # Emoji font.
@@ -97,6 +98,7 @@ packages:
   - tinymist # LSP for typst
   - tombi # TOML formatter and linter.
   - traefik
+  - trash-cli # Optional dependency of Obsidian for moving files to trash.
   - ttf-jetbrains-mono-nerd
   - tuicr # Code reviews from terminal.
   - typst
