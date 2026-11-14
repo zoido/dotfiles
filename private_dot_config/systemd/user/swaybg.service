@@ -1,0 +1,9 @@
+[Unit]
+Description=swaybg
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/swaybg --mode fill --image %h/Pictures/swaybg
+Restart=on-failure
