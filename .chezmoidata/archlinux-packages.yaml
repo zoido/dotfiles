@@ -66,10 +66,10 @@ packages:
   - mc
   - most
   - niri
+  - noto-fonts-emoji # Emoji font.
   - obsidian # Markdown knowledge base.
   - oo7  # Secret service provider.
   - openssh
-  - otf-openmoji # Emoji font.
   - peco # A command-line interactive filtering tool.
   - pi-coding-agent-bin
   - podman
