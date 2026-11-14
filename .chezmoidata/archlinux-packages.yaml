@@ -72,6 +72,8 @@ packages:
   - openssh
   - peco # A command-line interactive filtering tool.
   - pi-coding-agent-bin
+  - pipewire # Audio and video server.
+  - pipewire-pulse # PulseAudio replacement on top of PipeWire.
   - podman
   - procs
   - protobuf
@@ -89,6 +91,7 @@ packages:
   - swaybg # Wayland background.
   - swayidle # Wayland idle launcher.
   - swaylock # Waylanf lock screen.
+  - swayosd # On-screen display for volume and brightness keys.
   - systemd-lsp # LSP for systemd unit files.
   - taplo-cli # LSP for TOML files.
   - tealdeer # TLDR client.
@@ -113,6 +116,8 @@ packages:
   - viu # Terminal image viewer.
   - vscode-json-languageserver
   - waterfox-bin
+  - wiremix # TUI audio mixer for PipeWire.
+  - wireplumber # Session manager for PipeWire.
   - wget
   - worktrunk-bin
   - xdg-desktop-portal-gtk

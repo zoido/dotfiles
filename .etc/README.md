@@ -18,6 +18,7 @@ The `setup.sh` script runs the numbered scripts in order.
 2. `20-cachyos-repo.sh` adds the CachyOS package repositories to `/etc/pacman.conf`. It uses the upstream [`cachyos-repo-add-script`](https://github.com/CachyOS/cachyos-repo-add-script). If the repositories are already there, it does nothing.
 3. `30-mirrors.sh` installs `cachyos-rate-mirrors` and sets CZ as the entry country for mirror ranking. It turns off `reflector.timer`, turns on `cachyos-rate-mirrors.timer`, and ranks the mirrors once. This script needs the CachyOS repositories from step 2.
 4. `40-1password-browsers.sh` adds Waterfox to `/etc/1password/custom_allowed_browsers`. After this step, the 1Password browser extension can connect to the desktop app. Restart 1Password after you run it.
+5. `50-swayosd.sh` installs `swayosd` and turns on `swayosd-libinput-backend.service`. This system service reads the keyboard input and tells the swayosd server when you press Caps Lock or Num Lock. The server then shows the lock key state on the screen.
 
 ## Mirror ranking
 
