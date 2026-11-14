@@ -3,6 +3,7 @@ set hidden!
 set drawbox
 
 set previewer pistol
+set cleaner ~/.config/lf/cleaner
 
 map ad push %mkdir<space>-p<space>
 map af push %touch<space>

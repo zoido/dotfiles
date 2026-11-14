@@ -1,0 +1,3 @@
+#!/bin/sh
+# Remove the image that the previewer drew with the kitty graphics protocol.
+exec kitten icat --clear --stdin no --transfer-mode memory </dev/null >/dev/tty

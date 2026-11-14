@@ -52,6 +52,7 @@ packages:
   - jo # Build JSON objects from the command line.
   - jq
   - k9s
+  - kitty # Provides 'kitten icat' to show images in the terminal.
   - kubectl
   - kubectx
   - lazydocker
