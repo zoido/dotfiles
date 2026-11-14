@@ -1,7 +1,7 @@
 input {
     keyboard {
         xkb {
-            // file 'path to zok'
+            layout "zok"
         }
         // Enable numlock on startup, omitting this setting disables it.
         numlock

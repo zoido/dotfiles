@@ -1,0 +1,72 @@
+
+partial default alphanumeric_keys
+xkb_symbols "basic" {
+
+    include "us"
+
+    include "level3(ralt_switch)"
+
+    name[Group1]= "zok";
+
+    key <TLDE> {        [     grave,    asciitilde,     U00B0,		dead_abovering  ]       };	// - - stupne -
+
+    key <AE01> {	[     exclam,	NoSymbol,	1,		NoSymbol	]	};
+    key <AE02> {	[     ecaron,	at,		2,		Ecaron		]	};
+    key <AE03> {	[     scaron,	numbersign,	3,		Scaron		]	};
+    key <AE04> {	[     ccaron,	dollar,		4,		Ccaron		]	};
+    key <AE05> {	[     rcaron,	percent,	5,		Rcaron		]	};
+    key <AE06> {	[     zcaron,	asciicircum,	6,		Zcaron		]	};
+    key <AE07> {	[     yacute,	ampersand,	7,		Yacute		]	};
+    key <AE08> {	[     aacute,	asterisk,	8,		Aacute		]	};
+    key <AE09> {	[     iacute,	parenleft,	9,		Iacute		]	};
+    key <AE10> {	[     eacute,	parenright,	0,		Eacute		]	};
+
+    key <AE11> {	[     minus,	underscore,	U2013,		U2212		]	};	// - - pomolcka minus
+    key <AE12> {	[     equal,	plus,		dead_acute,	dead_caron	]	};
+
+
+    key <BKSL> {	[     backslash,	bar,		dead_diaeresis,	dead_circumflex	]	};
+
+
+    key <AD01> {	[	  q,	Q, 		NoSymbol,	NoSymbol	]	};
+    key <AD02> {	[	  w,	W,		NoSymbol,	NoSymbol	]	};
+    key <AD03> {	[	  e,	E,		EuroSign,	NoSymbol	]	};
+    key <AD04> {	[	  r,	R,		U00AE,		NoSymbol	]	};	// - - registered -
+    key <AD05> {	[	  t,	T,		tcaron,		Tcaron		]	};
+    key <AD06> {	[	  y,	Y,		U00A5,		NoSymbol	]	};	// YEN
+    key <AD07> {	[	  u,	U,		uacute,		Uacute		]	};
+    key <AD08> {	[	  i,	I,		NoSymbol,	NoSymbol	]	};
+    key <AD09> {	[	  o,	O,		oacute,		Oacute		]	};
+    key <AD10> {	[	  p,	P,		NoSymbol,	NoSymbol	]	};
+    key <AD11> {	[ bracketleft,	braceleft,	uacute,		NoSymbol	]	};
+    key <AD12> {	[ bracketright,	braceright,	NoSymbol,	NoSymbol	]	};
+
+    key <AC01> {	[	  a,	A,		NoSymbol,	NoSymbol	]	};
+    key <AC02> {	[	  s,	S,		NoSymbol,	NoSymbol	]	};
+    key <AC03> {	[	  d,	D,		dcaron,		Dcaron		]	};
+    key <AC04> {	[	  f,	F,		NoSymbol,	NoSymbol	]	};
+    key <AC05> {	[	  g,	G,		NoSymbol,	NoSymbol	]	};
+    key <AC06> {	[	  h,	H,		NoSymbol,	NoSymbol	]	};
+    key <AC07> {	[	  j,	J,		NoSymbol,	NoSymbol	]	};
+    key <AC08> {	[	  k,	K,		NoSymbol,	NoSymbol	]	};
+    key <AC09> {	[	  l,	L,		U00A3,		NoSymbol	]	};	// Libry
+    key <AC10> {	[ semicolon,	colon,		uring,		Uring		]	};
+    key <AC11> {	[ apostrophe,	quotedbl,	U201E,		U201C		]	};	// ceske uvozovky
+
+    key <AB01> {	[	  z,	Z,		NoSymbol,	NoSymbol	]	};
+    key <AB02> {	[	  x,	X,		U00D7,		NoSymbol	]	};	// krizove krat
+    key <AB03> {	[	  c,	C,		U00A9,		NoSymbol	]	};	// copyright
+    key <AB04> {	[	  v,	V,		NoSymbol,	NoSymbol	]	};
+    key <AB05> {	[	  b,	B,		NoSymbol,	NoSymbol	]	};
+    key <AB06> {	[	  n,	N,		ncaron,		Ncaron		]	};
+    key <AB07> {	[	  m,	M,		NoSymbol,	NoSymbol	]	};
+    key <AB08> {	[     comma,	less,		NoSymbol,	U226A		]	};	// ostre mensi
+    key <AB09> {	[    period,	greater,	U2026,		U226B		]	};	// elipsa a ostre vetsi
+    key <AB10> {	[     slash,	question,	U00F7,		U00B1		]	};	// deleni plus-minus
+
+    key <LSGT> {	[ backslash,	bar,		ssharp,		dead_doubleacute]	};
+    
+    key <SPCE> {	[     space,    U00A0,         U2009,		space		]	};
+
+};
+
