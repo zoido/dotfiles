@@ -74,6 +74,7 @@ packages:
   - pi-coding-agent-bin
   - pipewire # Audio and video server.
   - pipewire-pulse # PulseAudio replacement on top of PipeWire.
+  - playerctl # Control media players from the command line.
   - podman
   - procs
   - protobuf
