@@ -62,6 +62,7 @@ packages:
   - markdown-oxide # LSP for markdown PKMs
   - marksman # LSP for markdown files.
   - niri
+  - nwg-displays # GUI for monitor layout and settings.
   - noto-fonts-emoji # Emoji font.
   - obsidian # Markdown knowledge base.
   - oo7  # Secret service provider.
