@@ -9,6 +9,13 @@
 # To make customization easier, this file contains some of the commonly used
 # parameters. Feel free to uncomment and tune them to fit your needs!
 
+# --- Keyboard layout
+
+# Espanso cannot detect the layout on Wayland. The layout must match the xkb
+# configuration of niri. Run .etc/70-xkb-zok.sh to install it in /etc/xkb.
+keyboard_layout:
+  layout: zok
+
 # --- Toggle key
 
 # Customize the key used to disable and enable espanso (when double tapped)
