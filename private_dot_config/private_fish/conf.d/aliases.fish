@@ -1,17 +1,17 @@
 abbr -a md 'mkdir -p'
 abbr -a rd rmdir
 
-# Better ls with exa
-if command -q exa
+# Better ls with eza
+if command -q eza
     alias lls=(command -v ls)
-    alias ls='exa'
-    alias lsa='exa -a'
-    alias lla='exa -la'
-    alias llG='exa -l --git'
-    alias lsG='exa --git'
-    alias lst='exa --tree'
-    alias lt='exa --tree'
-    alias llt='exa -l --tree'
+    alias ls='eza'
+    alias lsa='eza -a'
+    alias lla='eza -la'
+    alias llG='eza -l --git'
+    alias lsG='eza --git'
+    alias lst='eza --tree'
+    alias lt='eza --tree'
+    alias llt='eza -l --tree'
 end
 
 # Weather
@@ -21,23 +21,12 @@ abbr -a moon 'curl wttr.in/Moon'
 # Global pipe aliases (using abbr --position anywhere)
 abbr -a L --position anywhere --set-cursor "% | less"
 abbr -a LL --position anywhere --set-cursor "%  &| less"
-abbr -a M --position anywhere --set-cursor "% | most"
-abbr -a MM --position anywhere --set-cursor "%  &| most"
 abbr -a B --position anywhere --set-cursor "% | bat"
 abbr -a BA --position anywhere --set-cursor "% | bat -A"
 abbr -a BB --position anywhere --set-cursor "%  &| bat"
 abbr -a BBA --position anywhere --set-cursor "%  &| bat -A"
 abbr -a O --position anywhere --set-cursor "% | ov"
 abbr -a OO --position anywhere --set-cursor "%  &| ov"
-
-# Terraform
-abbr -a tf terraform
-abbr -a tfa 'terraform apply'
-abbr -a tfp 'terraform plan'
-abbr -a tfaaa 'terraform apply --auto-approve'
-abbr -a tfd 'terraform destroy'
-abbr -a tfdaa 'terraform destroy --auto-approve'
-abbr -a tfi 'terraform init'
 
 # Kubernetes
 abbr -a kube kubectl

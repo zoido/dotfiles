@@ -14,12 +14,11 @@ packages:
   - dive # A tool for exploring each layer in a Docker image.
   - docker
   - docker-buildx
-  - dog
   - duf # A disk usage utility written in Rust.
   - dust # A more intuitive version of 'du' in Rust.
   - easy-conflict # TUI merge conflict tool
   - espanso-wayland-bin
-  - exa # A modern replacement for 'ls'.
+  - eza # A modern replacement for 'ls'.
   - fd # A simple, fast and user-friendly alternative to 'find'.
   - fish
   - fisher # A plugin manager for the Fish shell.
@@ -36,7 +35,6 @@ packages:
   - golangci-lint-langserver-bin # LSP for golangci-lint.
   - gopls # LSP for Go files.
   - go-yq
-  - gping
   - grpc_cli
   - gum # Nice prompts for shell scripts.
   - helix
@@ -48,7 +46,7 @@ packages:
   - hyperfine # A command-line benchmarking tool.
   - imv # Image viewer for Wayland.
   - jai # Light-weight sandbox for AI agents
-  - jedi-language-serve # Language server for jedi that is Python autocomplete.
+  - jedi-language-server # Language server for jedi that is Python autocomplete.
   - jo # Build JSON objects from the command line.
   - jq
   - k9s
@@ -57,22 +55,17 @@ packages:
   - kiwix-tools # Command-line tools for Kiwix, for example 'kiwix-serve'.
   - kubectl
   - kubectx
-  - lazydocker
-  - lazygit
   - libqalculate
   - llama-cpp # Run LLMs locally
   - mako # Wayland notofication daemon.
   - man-db
   - markdown-oxide # LSP for markdown PKMs
   - marksman # LSP for markdown files.
-  - mc
-  - most
   - niri
   - noto-fonts-emoji # Emoji font.
   - obsidian # Markdown knowledge base.
   - oo7  # Secret service provider.
   - openssh
-  - peco # A command-line interactive filtering tool.
   - pi-coding-agent-bin
   - pipewire # Audio and video server.
   - pipewire-pulse # PulseAudio replacement on top of PipeWire.
@@ -86,12 +79,10 @@ packages:
   - qmd # Local search engine for markdown files.
   - reflector # Ranks the Arch mirrors.
   - ripgrep # Grep but faster.
-  - s3cmd
   - sabiql # Interactive wrapper around psql.
   - scooter # Interactive searc and replace tool.
   - shellcheck # Linter for shell scripts.
   - skaffold
-  - socat
   - soteria-git # Polkit authentication agent.
   - step-cli
   - swaybg # Wayland background.
@@ -102,8 +93,6 @@ packages:
   - taplo-cli # LSP for TOML files.
   - tealdeer # TLDR client.
   - television
-  - terraform
-  - tfswitch
   - tinymist # LSP for typst
   - tombi # TOML formatter and linter.
   - traefik
@@ -114,7 +103,6 @@ packages:
   - ty # Python type checker and language server.
   - udiskie # Automount removable media.
   - unzip
-  - urlscan # Read and interactively open explore URLs in the text.
   - uv
   - vcluster-bin
   - vicinae-bin # Application launcher and command pallete.
@@ -127,7 +115,7 @@ packages:
   - wget
   - worktrunk-bin
   - xdg-desktop-portal-gtk
-  - xdg-util
+  - xdg-utils
   - xh # httpie compatible HTTP request CLI.
   - xwayland-satellite
   - yaml-language-server # LSP for YAML files.
