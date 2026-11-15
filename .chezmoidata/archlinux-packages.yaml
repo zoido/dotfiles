@@ -46,7 +46,6 @@ packages:
   - htop
   - hx-lsp # Snippets LSP for Helix.
   - hyperfine # A command-line benchmarking tool.
-  - hyprpolkitagen
   - imv # Image viewer for Wayland.
   - jai # Light-weight sandbox for AI agents
   - jedi-language-serve # Language server for jedi that is Python autocomplete.
@@ -93,6 +92,7 @@ packages:
   - shellcheck # Linter for shell scripts.
   - skaffold
   - socat
+  - soteria-git # Polkit authentication agent.
   - step-cli
   - swaybg # Wayland background.
   - swayidle # Wayland idle launcher.

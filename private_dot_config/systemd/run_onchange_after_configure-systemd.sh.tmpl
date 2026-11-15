@@ -4,7 +4,6 @@ set -euo pipefail
 systemctl --user daemon-reload
 
 systemctl --user enable app-com.mitchellh.ghostty.service --now
-systemctl --user enable hyprpolkitagent.service --now
 systemctl --user enable llama-server.service --now
 systemctl --user enable oo7-daemon.service --now
 
@@ -17,6 +16,7 @@ systemctl --user enable podman.socket
 systemctl --user add-wants niri.service 1password.service
 systemctl --user add-wants niri.service espanso.service
 systemctl --user add-wants niri.service mako.service
+systemctl --user add-wants niri.service soteria.service
 systemctl --user add-wants niri.service swaybg.service
 systemctl --user add-wants niri.service swayidle.service
 systemctl --user add-wants niri.service swayosd.service

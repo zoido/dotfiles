@@ -1,0 +1,9 @@
+[Unit]
+Description=Soteria polkit authentication agent
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/lib/soteria-polkit/soteria
+Restart=on-failure
