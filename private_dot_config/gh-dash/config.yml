@@ -31,7 +31,7 @@ keybindings:
     - key: M
       name: Auto Merge
       command: >
-        zellij run -c --floating --cwd {{.RepoPath}} -- env GH_REPO={{.RepoName}}
+        ~/.sh/term-run --cwd {{.RepoPath}} -- env GH_REPO={{.RepoName}}
         fish -c "
         ~/.sh/confirm-pr {{.PrNumber}} 'Auto merge' || exit 0;
         ~/.sh/auto-merge-pr {{.PrNumber}} || read -P 'Press enter to close...'
@@ -39,7 +39,7 @@ keybindings:
     - key: V
       name: Approve & Auto Merge
       command: >
-        zellij run -c --floating --cwd {{.RepoPath}} -- env GH_REPO={{.RepoName}}
+        ~/.sh/term-run --cwd {{.RepoPath}} -- env GH_REPO={{.RepoName}}
         fish -c "
         ~/.sh/confirm-pr {{.PrNumber}} 'Rebase, approve & auto merge' || exit 0;
         ~/.sh/approve-and-merge-pr {{.PrNumber}} || read -P 'Press enter to close...'
@@ -47,7 +47,7 @@ keybindings:
     - key: U
       name: Rebase, Re-sign & Push
       command: >
-        zellij run -c --floating --cwd {{.RepoPath}} -- env GH_REPO={{.RepoName}}
+        ~/.sh/term-run --cwd {{.RepoPath}} -- env GH_REPO={{.RepoName}}
         fish -c "
         ~/.sh/confirm-pr {{.PrNumber}} 'Rebase, re-sign & force push' || exit 0;
         ~/.sh/rebase-and-push-pr {{.PrNumber}} || read -P 'Press enter to close...'
@@ -55,17 +55,17 @@ keybindings:
     - key: D
       name: Review (tuicr)
       command: >
-        zellij run -c --stacked --cwd {{.RepoPath}} -- fish -c "tuicr pr {{.PrNumber}}"
+        ~/.sh/term-run --cwd {{.RepoPath}} -- fish -c "tuicr pr {{.PrNumber}}"
     - key: z
       name: PR Branch Shell
       command: >
-        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch pr:{{.PrNumber}} -x fish" > /dev/null
+        ~/.sh/term-run --cwd {{.RepoPath}} -- fish -c "wt switch pr:{{.PrNumber}} -x fish"
     - key: Z
       name: Review Branch Shell
       command: >
         set output (git -C {{.RepoPath}} fetch --all 2>&1); or echo $output;
         set output (wt switch -C {{.RepoPath}} --create lp/review/{{.HeadRefName}} --base {{.HeadRefName}} 2>&1); or echo $output;
-        zellij run -c --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish" > /dev/null
+        ~/.sh/term-run --cwd {{.RepoPath}} -- fish -c "wt switch lp/review/{{.HeadRefName}} -x fish"
 
 theme:
   colors:

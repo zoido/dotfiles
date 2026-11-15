@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+#
+# term-run
+#
+# Runs a command in a new terminal window. The script picks the window type
+# from the environment:
+#
+#   - Inside zellij, it opens a new pane with `zellij run`.
+#   - Inside Ghostty, it opens a new Ghostty window.
+#   - If $TERMINAL is set, it opens a new window of that terminal.
+#   - In all other cases, it runs the command in the current terminal and
+#     waits for Enter when the command fails.
+#
+# The pane or window closes when the command exits.
+#
+# Usage: term-run [--name NAME] [--cwd DIR] [--] CMD [ARGS...]
+#
+#   --name NAME  Title of the pane or window. $TERMINAL and direct mode
+#                ignore it.
+#   --cwd DIR    Working directory of the command.
+#
+set -euo pipefail
+
+name=""
+cwd=""
+cmd=()
+
+die() {
+    echo "$(basename "$0"): $*" >&2
+    exit 1
+}
+
+usage() {
+    die "usage: $(basename "$0") [--name NAME] [--cwd DIR] [--] CMD [ARGS...]"
+}
+
+parse_args() {
+    while (($#)); do
+        case "$1" in
+            --name) name="${2:?--name needs a value}"; shift 2 ;;
+            --name=*) name="${1#*=}"; shift ;;
+            --cwd) cwd="${2:?--cwd needs a value}"; shift 2 ;;
+            --cwd=*) cwd="${1#*=}"; shift ;;
+            --) shift; break ;;
+            -*) die "unknown flag: $1" ;;
+            *) break ;;
+        esac
+    done
+
+    (($#)) || usage
+    cmd=("$@")
+}
+
+# Quotes each argument for /bin/sh and joins them with spaces.
+sh_quote() {
+    local arg out=()
+    for arg in "$@"; do
+        out+=("'${arg//\'/\'\\\'\'}'")
+    done
+    printf '%s' "${out[*]}"
+}
+
+run_zellij() {
+    local args=(run -c)
+    [[ -n $name ]] && args+=(--name "$name")
+    [[ -n $cwd ]] && args+=(--cwd "$cwd")
+    zellij "${args[@]}" -- "${cmd[@]}" >/dev/null
+}
+
+run_ghostty() {
+    local args=(+new-window)
+    [[ -n $cwd ]] && args+=(--working-directory="$cwd")
+    [[ -n $name ]] && args+=(--title="$name")
+    args+=(--command="$(sh_quote "${cmd[@]}")")
+    ghostty "${args[@]}" &>/dev/null &
+    disown
+}
+
+run_terminal() {
+    [[ -n $cwd ]] && cd "$cwd"
+    setsid -f "$TERMINAL" -e "${cmd[@]}" &>/dev/null
+}
+
+run_direct() {
+    [[ -n $cwd ]] && cd "$cwd"
+    local status=0
+    "${cmd[@]}" || status=$?
+    if ((status != 0)) && [[ -t 0 ]]; then
+        read -rp "Command failed with exit code $status. Press Enter to close..."
+    fi
+    return "$status"
+}
+
+main() {
+    parse_args "$@"
+
+    if [[ -n ${ZELLIJ:-} ]]; then
+        run_zellij
+    elif [[ ${TERM_PROGRAM:-} == ghostty ]]; then
+        run_ghostty
+    elif [[ -n ${TERMINAL:-} ]]; then
+        run_terminal
+    else
+        run_direct
+    fi
+}
+
+main "$@"

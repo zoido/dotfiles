@@ -33,12 +33,12 @@ w = ":w"
 f = ":format"
 R = [":reload-all", ":config-reload", ":lsp-restart"]
 
-"/" = ":sh zellij run --floating --width 90%% --height 90%% -c -- scooter > /dev/null" # Run scooter (find and replace).
-L = ":sh zellij run --floating -c -- lf $(dirname %{buffer_name}) > /dev/null" # Open lf in the dir of current buffer.
-l = ":sh zellij run --floating -c -- lf > /dev/null" # Open lf.
+"/" = ":sh ~/.sh/term-run -- scooter" # Run scooter (find and replace).
+L = ":sh ~/.sh/term-run -- lf $(dirname %{buffer_name})" # Open lf in the dir of current buffer.
+l = ":sh ~/.sh/term-run -- lf" # Open lf.
 
-T = ":sh zellij run --floating -c --cwd $(dirname %{buffer_name}) -- fish > /dev/null"
-t = ":sh zellij run --floating -c -- fish > /dev/null"
+T = ":sh ~/.sh/term-run --cwd $(dirname %{buffer_name}) -- fish"
+t = ":sh ~/.sh/term-run -- fish"
 
 k = "remove_selections" # Default binding conflicts with zellij.
 
@@ -61,11 +61,11 @@ z = ":toggle soft-wrap.enable"           # On/Off soft-wrap.
 [keys.normal.space.space.g]
 # Git helpers
 
-g = ":sh zellij run --floating --width 90%% --height 90%% -c -- gitu > /dev/null"
-B = ":sh zellij run --floating --width 90%% --height 90%% -c -- gitu blame %{buffer_name} > /dev/null"
+g = ":sh ~/.sh/term-run -- gitu"
+B = ":sh ~/.sh/term-run -- gitu blame %{buffer_name}"
 b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
-d = ":sh zellij run --floating --width 90%% --height 90%% -c -- fish -c 'git --no-pager diff -- %{buffer_name} | delta --paging=always --pager=ov' > /dev/null"
-h = ":sh zellij run --floating --width 90%% --height 90%% -c -- fish -c '~/.sh/git-hunk-at-line %{buffer_name} %{cursor_line} | delta --paging=always --pager=ov' > /dev/null"
+d = ":sh ~/.sh/term-run -- fish -c 'git --no-pager diff -- %{buffer_name} | delta --paging=always --pager=ov'"
+h = ":sh ~/.sh/term-run -- fish -c '~/.sh/git-hunk-at-line %{buffer_name} %{cursor_line} | delta --paging=always --pager=ov'"
 K = ":reset-diff-change"
 
 
