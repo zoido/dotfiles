@@ -6,7 +6,7 @@
 # Finds pending release PRs and runs the full release sequence for each:
 # activate, approve, and auto-merge.
 #
-# Dependencies: gh, gum, jq, wt (worktrunk), git, auto-merge-pr
+# Dependencies: gh, gum, jq, wt (worktrunk), git
 #
 set -euo pipefail
 
@@ -14,7 +14,7 @@ set -euo pipefail
 # Exits with an error listing any missing commands.
 check_dependencies() {
     local missing=()
-    for cmd in gh gum jq wt git auto-merge-pr; do
+    for cmd in gh gum jq wt git; do
         command -v "$cmd" &>/dev/null || missing+=("$cmd")
     done
     if [[ ${#missing[@]} -gt 0 ]]; then
@@ -117,7 +117,7 @@ release_pr() (
     activate_pr "$number"
     mark_ready "$number"
     approve_pr "$number"
-    auto-merge-pr "$number"
+    "$HOME/.sh/auto-merge-pr" "$number"
 
     gum log --level info "PR #$number ($title) released."
 )

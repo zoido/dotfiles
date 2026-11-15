@@ -9,7 +9,7 @@
 #
 # Run it from inside a clone of the PR's repository.
 #
-# Dependencies: gh, gum, rebase-and-push-pr, auto-merge-pr
+# Dependencies: gh, gum
 #
 set -euo pipefail
 
@@ -17,7 +17,7 @@ set -euo pipefail
 # Exits with an error listing any missing commands.
 check_dependencies() {
     local missing=()
-    for cmd in gh gum rebase-and-push-pr auto-merge-pr; do
+    for cmd in gh gum; do
         command -v "$cmd" &>/dev/null || missing+=("$cmd")
     done
     if [[ ${#missing[@]} -gt 0 ]]; then
@@ -40,13 +40,13 @@ main() {
     local title
     title=$(gh pr view "$number" --json title --jq '.title')
 
-    rebase-and-push-pr "$number"
+    "$HOME/.sh/rebase-and-push-pr" "$number"
 
     gum spin --show-output --title "Approving PR #$number..." -- \
         gh pr review "$number" --approve
     gum log --level info "PR #$number ($title) approved."
 
-    auto-merge-pr "$number"
+    "$HOME/.sh/auto-merge-pr" "$number"
 }
 
 main "$@"
