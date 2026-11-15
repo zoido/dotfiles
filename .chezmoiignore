@@ -6,3 +6,5 @@ bootstrap.bat
 {{- if .codespaces }}
 dev
 {{- end }}
+
+.config/vicinae.source

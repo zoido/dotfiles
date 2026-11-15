@@ -10,6 +10,11 @@
 
 {
    "$schema": "https://vicinae.com/schemas/config.json",
+   "encrypt_sensitive_data": true,
+   "favicon_service": "none",
+   "updates": {
+      "show_notice": false
+   },
    "font": {
       "rendering": "native",
       "normal": {
@@ -37,10 +42,43 @@
       },
       "floating_status_bar": true
    },
+   "favorites": [],
    "providers": {
+      "ai": {
+         "preferences": {
+            "providers": {
+               "llama-cpp": {
+                  "type": "llama-cpp",
+                  "fields": {
+                     "url": "http://localhost:9931"
+                  }
+               }
+            },
+            "defaultModel": "llama-cpp:bottlecapai/ThinkingCap-gemma-4-26B-A4B-it-GGUF:MXFP4_MOE",
+            "instructions": "",
+            "enableTools": true
+         },
+         "entrypoints": {
+            "chat": {
+               "enabled": false
+            }
+         }
+      },
       "applications": {
          "entrypoints": {
+            "espanso": {
+               "enabled": false
+            },
             "kitty": {
+               "enabled": false
+            },
+            "qv4l2": {
+               "enabled": false
+            },
+            "qvidcap": {
+               "enabled": false
+            },
+            "vicinae": {
                "enabled": false
             }
          }
@@ -58,6 +96,11 @@
             }
          }
       },
+      "calculator": {
+         "preferences": {
+            "backend": "qalculate"
+         }
+      },
       "clipboard": {
          "entrypoints": {
             "history": {
@@ -66,6 +109,7 @@
          }
       },
       "dictation": {
+         "enabled": false,
          "preferences": {
             "model": "local:parakeet-tdt-0.6b-v3-f16",
             "language": "auto",
@@ -75,6 +119,9 @@
          }
       },
       "files": {
+         "enabled": false
+      },
+      "font": {
          "enabled": false
       },
       "manage-shortcuts": {
@@ -97,6 +144,16 @@
                "enabled": false
             },
             "manage": {
+               "enabled": false
+            }
+         }
+      },
+      "system": {
+         "entrypoints": {
+            "set-default-browser": {
+               "enabled": false
+            },
+            "set-default-terminal": {
                "enabled": false
             }
          }
