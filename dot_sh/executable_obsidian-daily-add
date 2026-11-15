@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Adds a list item to a section of today's Obsidian daily note.
+# Usage: obsidian-daily-add <status> <heading> <text>
+# Each item ends with the current time.
+# Example: obsidian-daily-add " " Tasks "Buy milk" adds "- [ ] Buy milk (14:05)" under the Tasks heading.
+
+set -euo pipefail
+
+if [[ $# -ne 3 ]]; then
+	echo "Usage: obsidian-daily-add <status> <heading> <text>" >&2
+	exit 2
+fi
+
+status=$1
+heading=$2
+text=$3
+time=$(date +%H:%M)
+
+if [[ -z $text ]]; then
+	echo "Text is empty"
+	exit 1
+fi
+
+if ! command -v obsidian >/dev/null 2>&1; then
+	echo "Obsidian CLI not found"
+	exit 1
+fi
+
+if ! obsidian daily:append heading="$heading" content="- [$status] $text ($time)" >/dev/null 2>&1; then
+	echo "Could not add to the daily note. Is Obsidian running?"
+	exit 1
+fi
+
+echo "Added to $heading"

@@ -128,7 +128,7 @@
          "enabled": false
       },
       "scripts": {
-         "enabled": false
+         "enabled": true
       },
       "snippets": {
          "enabled": false,
