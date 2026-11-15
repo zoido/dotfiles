@@ -10,7 +10,7 @@
 
 {
    "$schema": "https://vicinae.com/schemas/config.json",
-   "encrypt_sensitive_data": true,
+   "encrypt_sensitive_data": false,
    "favicon_service": "none",
    "updates": {
       "show_notice": false
