@@ -85,10 +85,12 @@ packages:
   - python
   - python-pip
   - qmd # Local search engine for markdown files.
+  - reflector # Ranks the Arch mirrors.
   - ripgrep # Grep but faster.
   - s3cmd
   - sabiql # Interactive wrapper around psql.
   - scooter # Interactive searc and replace tool.
+  - shellcheck # Linter for shell scripts.
   - skaffold
   - socat
   - step-cli
