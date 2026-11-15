@@ -18,14 +18,26 @@ The `setup.sh` script runs the numbered scripts in order.
 2. `30-mirrors.sh` installs [reflector](https://wiki.archlinux.org/title/Reflector) and writes `/etc/xdg/reflector/reflector.conf`. Reflector takes the 10 most recently synced HTTPS mirrors from Czechia, Germany and Poland. It measures the download speed of each one and writes them to `/etc/pacman.d/mirrorlist`, fastest first. The script turns on `reflector.timer`, which updates the list once a week. Then it runs reflector once and shows the top of the list.
 3. `40-1password-browsers.sh` adds Waterfox to `/etc/1password/custom_allowed_browsers`. After this step, the 1Password browser extension can connect to the desktop app. Restart 1Password after you run it.
 4. `50-swayosd.sh` installs `swayosd` and turns on `swayosd-libinput-backend.service`. This system service reads the keyboard input and tells the swayosd server when you press Caps Lock or Num Lock. The server then shows the lock key state on the screen.
-5. `60-ly.sh` installs [Ly](https://wiki.archlinux.org/title/Ly), a display manager with a text interface. It turns off the login prompt (`getty@tty1.service`) on tty1 and turns on `ly@tty1.service` in its place. Ly starts on tty1 after the next reboot. The script does not start Ly at once, because that would stop a session that runs on tty1.
+5. `60-ly.sh` installs [Ly](https://wiki.archlinux.org/title/Ly), a display manager with a text interface. It turns off the login prompt (`getty@tty1.service`) on tty1 and turns on `ly@tty1.service` in its place. Ly starts on tty1 after the next reboot. The script does not start Ly at once, because that would stop a session that runs on tty1. The script also installs [oo7](https://github.com/linux-credentials/oo7) and adds `pam_oo7.so` to `/etc/pam.d/ly`. See [Unlock oo7 at login](#unlock-oo7-at-login).
 6. `70-xkb-zok.sh` copies the `zok` keyboard layout from `private_dot_config/xkb/symbols/zok` to `/etc/xkb/symbols/zok`. Espanso needs this copy. Run the script again after you change the layout.
 7. `80-dns-quad9.sh` sets up [systemd-resolved](https://wiki.archlinux.org/title/Systemd-resolved) to send all DNS queries to Quad9 over TLS. It writes `/etc/systemd/resolved.conf.d/quad9.conf`, links `/etc/resolv.conf` to the resolved stub file, and restarts `systemd-resolved.service`. Then it shows the DNS servers and resolves `archlinux.org` as a test.
-8. `90-ssh.sh` installs OpenSSH and writes `/etc/ssh/sshd_config.d/10-hardening.conf`. With this file, only the user `zoid` can log in, and only with a public key. Root cannot log in. The script tests the configuration with `sshd -t`, turns on `sshd.service`, and reloads it. If `~zoid/.ssh/authorized_keys` is missing or empty, the script shows a warning.
+8. `90-ssh.sh` installs OpenSSH and writes `/etc/ssh/sshd_config.d/10-hardening.conf`. With this file, only the user `zoid` can log in, and only with a public key. Root cannot log in. The script starts `sshdgenkeys.service` to create the missing host keys. Then it tests the configuration with `sshd -t`, turns on `sshd.service`, and reloads it. If `~zoid/.ssh/authorized_keys` is missing or empty, the script shows a warning.
 
 ## Keyboard layout for espanso
 
 Espanso has the `cap_dac_override` capability, so that it can read `/dev/input` and write `/dev/uinput`. Because of this capability, libxkbcommon ignores `$HOME` and `$XDG_CONFIG_HOME` in the espanso process. Espanso cannot read `~/.config/xkb`, so it reads the layout from `/etc/xkb`. Niri continues to use the copy in `~/.config/xkb`.
+
+## Unlock oo7 at login
+
+oo7 is the secret service, the program that keeps passwords for other apps. It locks its keyring until you give it your password. The `pam_oo7.so` module sends the password that you type in Ly to oo7, so the keyring unlocks when you log in. The script adds the module to three groups of lines in `/etc/pam.d/ly`:
+
+1. The `auth` line keeps the password while Ly checks it.
+2. The `session` line sends the password to oo7 after login. The `auto_start` option starts `oo7-daemon-login` if oo7 does not run yet.
+3. The `password` line changes the keyring password when you change your login password with `passwd`.
+
+Each line starts with `-`, so PAM skips it if the module is not installed. The script does not add a line again if it is already in the file. `/etc/pam.d/ly` is a backup file of the `ly` package. If a new version of Ly changes this file, pacman writes the new version to `/etc/pam.d/ly.pacnew` and keeps your file.
+
+The keyring unlocks only if its password is the same as your login password.
 
 ## DNS over TLS
 
