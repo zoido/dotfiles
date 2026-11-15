@@ -4,22 +4,20 @@ set -eo pipefail
 
 [[ ${EUID} -eq 0 ]] || exec sudo -- "$0" "$@"
 
-entry_country="CZ"
-env_file="/etc/conf.d/cachyos-rate-mirrors.env"
+conf_file="/etc/xdg/reflector/reflector.conf"
 
-pacman -S --needed --noconfirm rate-mirrors cachyos-rate-mirrors
+pacman -S --needed --noconfirm reflector
 
-mkdir -p "$(dirname "${env_file}")"
-touch "${env_file}"
-if grep -q '^RATE_MIRRORS_ENTRY_COUNTRY=' "${env_file}"; then
-    sed -i "s/^RATE_MIRRORS_ENTRY_COUNTRY=.*/RATE_MIRRORS_ENTRY_COUNTRY=${entry_country}/" "${env_file}"
-else
-    echo "RATE_MIRRORS_ENTRY_COUNTRY=${entry_country}" >> "${env_file}"
-fi
+mkdir -p "$(dirname "${conf_file}")"
+cat > "${conf_file}" << 'EOF'
+--save /etc/pacman.d/mirrorlist
+--protocol https
+--country Czechia,Germany,Poland
+--latest 10
+--sort rate
+EOF
+chmod 644 "${conf_file}"
 
-if systemctl cat reflector.timer &> /dev/null; then
-    systemctl disable --now reflector.timer
-fi
-
-systemctl enable cachyos-rate-mirrors.timer
-cachyos-rate-mirrors
+systemctl enable --now reflector.timer
+systemctl start reflector.service
+head -n 20 /etc/pacman.d/mirrorlist
