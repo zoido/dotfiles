@@ -587,6 +587,7 @@ binds {
     Mod+Control+Space { spawn "vicinae" "vicinae://launch/wm/switch-windows" ;}
     Mod+Semicolon { spawn "vicinae" "vicinae://launch/core/search-emojis" ;}
     Ctrl+Alt+Space { spawn "vicinae" "vicinae://launch/browser-extension/browse-bookmarks";}
+    Mod+N hotkey-overlay-title="Notification Actions: mako" { spawn-sh "~/.sh/mako-menu"; }
 
 }
 
