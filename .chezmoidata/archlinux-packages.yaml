@@ -54,6 +54,8 @@ packages:
   - jq
   - k9s
   - kitty # Provides 'kitten icat' to show images in the terminal.
+  - kiwix-desktop # Offline reader for Wikipedia and other web content.
+  - kiwix-tools # Command-line tools for Kiwix, for example 'kiwix-serve'.
   - kubectl
   - kubectx
   - lazydocker
