@@ -1,0 +1,10 @@
+[Unit]
+Description=Handy speech to text
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/handy --start-hidden
+Restart=on-failure
+RestartSec=3

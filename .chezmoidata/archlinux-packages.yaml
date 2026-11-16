@@ -38,6 +38,7 @@ packages:
   - go-yq
   - grpc_cli
   - gum # Nice prompts for shell scripts.
+  - handy-bin # Offline speech to text.
   - helix
   - helm
   - helm-ls-bin # LSP for helm charts.
@@ -119,6 +120,7 @@ packages:
   - wireplumber # Session manager for PipeWire.
   - wget
   - worktrunk-bin
+  - wtype # Wayland text input, used by Handy to paste.
   - xdg-desktop-portal-gnome # Screen sharing and screenshots for niri.
   - xdg-desktop-portal-gtk
   - xdg-utils

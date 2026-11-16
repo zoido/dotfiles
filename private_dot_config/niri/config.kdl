@@ -589,6 +589,14 @@ binds {
     Mod+Shift+Backslash { spawn "1password" "--quick-access";}
     Ctrl+Alt+Backslash { spawn "waterfox" "--browser";}
     Ctrl+Alt+Backspace { spawn "vicinae" "toggle";}
+    Ctrl+BackSpace repeat=false hotkey-overlay-title="Toggle Dictation: Handy" { spawn "handy" "--toggle-transcription"; }
+    // Push-to-talk for Handy. It needs niri newer than 26.04, which adds press and release binds.
+    // Handy has only a toggle, so both actions toggle. If Handy misses one, press the key once to fix it.
+    // To use it, remove the "/-" below and remove the Ctrl+BackSpace bind above.
+    /-Ctrl+BackSpace hotkey-overlay-title="Push to Talk: Handy" {
+        press { spawn "handy" "--toggle-transcription"; }
+        release { spawn "handy" "--toggle-transcription"; }
+    }
     Mod+Control+V { spawn "vicinae" "vicinae://launch/clipboard/history" ;}
     Mod+Control+Space { spawn "vicinae" "vicinae://launch/wm/switch-windows" ;}
     Mod+Semicolon { spawn "vicinae" "vicinae://launch/core/search-emojis" ;}
