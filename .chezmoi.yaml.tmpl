@@ -1,8 +1,6 @@
-{{- $codespaces := env "CODESPACES" | not | not -}}
 {{- $archlinux := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
 
 sourceDir: {{ .chezmoi.sourceDir }}
 
 data:
     archlinux: {{ $archlinux }}
-    codespaces: {{ $codespaces }}

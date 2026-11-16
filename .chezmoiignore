@@ -3,18 +3,10 @@ README.md
 bootstrap.sh
 bootstrap.bat
 
-{{- if .codespaces }}
-dev
-{{- end }}
-
 .config/vicinae.source
 
 .chezmoiscripts/*install-llama-models.sh
 
 {{- if not .archlinux }}
 .chezmoiscripts/*install-archlinux-packages.sh
-{{- end }}
-
-{{- if not .codespaces }}
-.chezmoiscripts/*install-codespaces-packages.sh
 {{- end }}
