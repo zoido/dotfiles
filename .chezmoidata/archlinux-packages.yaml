@@ -61,8 +61,10 @@ packages:
   - man-db
   - markdown-oxide # LSP for markdown PKMs
   - marksman # LSP for markdown files.
+  - mpv # Video player.
   - niri
   - nwg-displays # GUI for monitor layout and settings.
+  - noto-fonts # Sans font for mpv subtitles with wide script coverage.
   - noto-fonts-emoji # Emoji font.
   - obsidian # Markdown knowledge base.
   - oo7  # Secret service provider.
