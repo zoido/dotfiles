@@ -1,9 +1,0 @@
-*
-
-{{- if .archlinux }}
-!install-archlinux-packages.sh
-{{- end }}
-
-{{- if .codespaces }}
-!install-codespaces-packages.sh
-{{- end }}

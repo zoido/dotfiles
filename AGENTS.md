@@ -16,7 +16,7 @@ They are organized to be modular and reusable across different environments.
 
 ## Adding Packages
 
-Add to `.chezmoidata/*.yaml` → install scripts in `dot_install/` iterate over these lists.
+Add to `.chezmoidata/*.yaml` → install scripts in `.chezmoiscripts/` iterate over these lists.
 
 ## Editor Language Settings
 
