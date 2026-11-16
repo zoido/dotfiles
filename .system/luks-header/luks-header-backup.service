@@ -1,0 +1,46 @@
+[Unit]
+Description=Backup of the LUKS headers
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/luks-header-backup
+
+StateDirectory=luks-header
+StateDirectoryMode=0700
+
+Nice=19
+IOSchedulingClass=idle
+
+# cryptsetup must read the encrypted partitions, so PrivateDevices= is not set.
+# The unit can only read block devices of the NVMe (blkext) and SCSI or SATA
+# (sd) types, and it cannot write to them.
+DevicePolicy=closed
+DeviceAllow=block-blkext r
+DeviceAllow=block-sd r
+
+# cryptsetup puts its lock files in /run/cryptsetup. The "-" prefix lets the
+# unit start when the folder does not exist yet.
+ReadWritePaths=-/run/cryptsetup
+
+CapabilityBoundingSet=
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+PrivateNetwork=yes
+PrivateTmp=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectSystem=strict
+RemoveIPC=yes
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+UMask=0077

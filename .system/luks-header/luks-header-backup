@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Saves a copy of the LUKS header of each encrypted partition to
+# /var/lib/luks-header. It also writes partitions.txt there, which shows the
+# partition of each copy. Each line has the UUID, the partition, and the mapper
+# name.
+#
+# The luks-header-backup.service unit runs this script every day. The script
+# replaces a copy only when the header changed, for example after you add or
+# remove a key. It does not delete the copy of a partition that is gone.
+
+set -eo pipefail
+
+[[ ${EUID} -eq 0 ]] || exec sudo -- "$0" "$@"
+
+backup_dir="/var/lib/luks-header"
+partitions="${backup_dir}/partitions.txt"
+
+umask 077
+install -d -m 700 "${backup_dir}"
+tmp_dir="$(mktemp -d)"
+trap 'rm -rf -- "${tmp_dir}"' EXIT
+
+# The final file gets its content in a single rename, so a backup that runs at
+# the same time never reads a half-written file.
+replace_if_changed() {
+    local src="$1"
+    local dst="$2"
+
+    if cmp -s "${src}" "${dst}"; then
+        return 1
+    fi
+    install -m 600 "${src}" "${dst}.new"
+    mv -f -- "${dst}.new" "${dst}"
+}
+
+mapfile -t uuids < <(lsblk -nr -o UUID -Q 'FSTYPE=="crypto_LUKS"')
+
+if [[ ${#uuids[@]} -eq 0 ]]; then
+    echo "No LUKS partitions found."
+    exit 0
+fi
+
+for uuid in "${uuids[@]}"; do
+    device="/dev/disk/by-uuid/${uuid}"
+    image="${backup_dir}/${uuid}.img"
+
+    # cryptsetup refuses to write over an existing file, so it writes to an
+    # empty temporary folder.
+    cryptsetup luksHeaderBackup "${device}" --header-backup-file "${tmp_dir}/${uuid}.img"
+    if replace_if_changed "${tmp_dir}/${uuid}.img" "${image}"; then
+        echo "Saved the header of ${uuid} to ${image}."
+    else
+        echo "The header of ${uuid} did not change."
+    fi
+
+    partition="$(readlink -f "${device}")"
+    mapper="$(lsblk -nr -o NAME -Q 'TYPE=="crypt"' "${device}" | paste -sd, -)"
+    printf '%s %s %s\n' "${uuid}" "${partition}" "${mapper:--}" >> "${tmp_dir}/partitions.txt"
+done
+
+if replace_if_changed "${tmp_dir}/partitions.txt" "${partitions}"; then
+    echo "Updated ${partitions}."
+fi

@@ -27,6 +27,12 @@ Each script in this folder sets up one part of the system outside the home direc
 - If the user must do something after the script, for example restart an app or reboot, print it at the end of the script.
 - To read a file from this repository, find it relative to the script folder with `script_dir`. See `70-xkb-zok.sh`.
 
+## Files that a script installs
+
+- Put each file that a script installs in its own file in a folder with the name of the script, without the number. For example, `95-restic.sh` installs the files in `restic/`. Use this for helper scripts, systemd units, configuration templates, and text such as a README.
+- If a file is short and simple, write it in the script with a heredoc. A short configuration file in `/etc` is an example. See `30-mirrors.sh` and `80-dns-quad9.sh`.
+- If a file is long, or if it needs its own comments, use a separate file.
+
 ## Documentation
 
 - Document a script only inside the script. Do not add it to `README.md`. The README tells only what the folder is for.
