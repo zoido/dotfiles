@@ -6,6 +6,7 @@ packages:
   - aria2
   - atuin
   - aws-cli-v2
+  - bandwhich # Show network bandwidth use by process and connection.
   - bash-language-server # LSP for bash scripts.
   - bat # A cat clone with syntax highlighting and Git integration.
   - codebook-lsp # LSP spellchecker.
