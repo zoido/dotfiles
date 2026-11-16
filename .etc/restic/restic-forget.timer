@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily removal of old restic snapshots
+
+[Timer]
+OnCalendar=daily
+RandomizedDelaySec=30min
+Persistent=true
+Unit=restic@forget.service
+
+[Install]
+WantedBy=timers.target

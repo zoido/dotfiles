@@ -1,0 +1,47 @@
+[Unit]
+Description=Restic %i job
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+
+# The inhibitor lock stops a shutdown or a suspend while the job runs.
+ExecStart=systemd-inhibit --what=shutdown:sleep --who=restic --why="Restic %i job" /usr/local/bin/restic-job %i
+
+LoadCredentialEncrypted=restic-op-token
+StateDirectory=restic
+CacheDirectory=restic
+RuntimeDirectory=restic-%i
+RuntimeDirectoryMode=0700
+
+Nice=19
+IOSchedulingClass=idle
+
+# The job runs as root, but it can only read files that it does not own.
+# CAP_DAC_READ_SEARCH lets it read all files. Without CAP_DAC_OVERRIDE, it
+# cannot change them.
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH
+DevicePolicy=closed
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+PrivateDevices=yes
+PrivateTmp=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=read-only
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectProc=invisible
+ProtectSystem=strict
+RemoveIPC=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+UMask=0077

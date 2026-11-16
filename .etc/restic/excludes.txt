@@ -1,0 +1,45 @@
+# The paths and patterns that the hourly restic backup skips.
+#
+# 95-restic.sh copies this file to /etc/restic/excludes.txt one time and does
+# not change it after that. Edit the copy in /etc/restic.
+#
+# Write one pattern on each line. restic ignores empty lines and lines that
+# start with #. A pattern without a leading / matches at any depth.
+#
+# restic also skips each folder that has a CACHEDIR.TAG file, for example the
+# target folders of Rust projects. It also skips each folder that has a
+# .nobackup file. To skip a folder without a change to this file, run
+# "touch <folder>/.nobackup".
+
+# Caches and the trash.
+/home/*/.cache
+/home/*/.local/share/Trash
+/home/*/.mozilla/firefox/*/cache2
+/root/.cache
+
+# Files that package managers and build tools download or make again.
+/home/*/go/pkg/mod
+/home/*/.cargo/registry
+/home/*/.cargo/git
+/home/*/.rustup
+/home/*/.npm
+/home/*/.bun/install/cache
+node_modules
+__pycache__
+.venv
+
+# Games, containers, and virtual machines.
+/home/*/.steam
+/home/*/.local/share/Steam
+/home/*/.local/share/containers
+/var/lib/containers
+/var/lib/docker
+/var/lib/flatpak
+/var/lib/libvirt/images
+
+# System data that the system makes again.
+/var/lib/pacman/sync
+/var/lib/systemd/coredump
+
+# btrfs snapshots.
+.snapshots

@@ -1,0 +1,16 @@
+# The paths that the hourly restic backup includes.
+#
+# 95-restic.sh copies this file to /etc/restic/includes.txt one time and does
+# not change it after that. Edit the copy in /etc/restic.
+#
+# Write one path on each line. restic ignores empty lines and lines that start
+# with #.
+
+/etc
+/home
+/root
+/usr/local
+
+# /var/lib holds the data of system services and the package lists that
+# restic-job writes before each backup.
+/var/lib

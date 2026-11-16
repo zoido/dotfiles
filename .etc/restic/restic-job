@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Runs one scheduled restic job: backup, forget, or check.
+#
+# The restic@.service unit runs this script. You can also run it yourself, for
+# example "sudo restic-job backup".
+
+set -eo pipefail
+
+[[ ${EUID} -eq 0 ]] || exec sudo -- "$0" "$@"
+
+job="$1"
+conf_dir="/etc/restic"
+state_dir="/var/lib/restic"
+
+# The forget and check jobs lock the whole repository. The lock file makes a
+# job wait until the job before it is done. --retry-lock also makes restic wait
+# for a lock that "restic-sys" holds when you run it yourself.
+lock_file="${state_dir}/job.lock"
+retry_lock="30m"
+
+# These defaults apply if restic.env does not set the values.
+RESTIC_KEEP="--keep-hourly 24 --keep-daily 7 --keep-weekly 4 --keep-monthly 3"
+RESTIC_CHECK_SUBSET="5%"
+
+# restic.env is also a valid bash file. The script reads only the settings that
+# are not secrets. The variables are not exported, so restic gets the secrets
+# from op run in restic-sys.
+# shellcheck source=/dev/null
+source "${conf_dir}/restic.env"
+
+mkdir -p "${state_dir}"
+exec 9> "${lock_file}"
+flock 9
+
+case "${job}" in
+    backup)
+        # The package lists are in /var/lib, so the backup includes them. To
+        # install the same packages again, give the lists to pacman and to an
+        # AUR helper.
+        pacman -Qqen > "${state_dir}/pkglist-native.txt"
+        pacman -Qqem > "${state_dir}/pkglist-foreign.txt"
+
+        restic-sys --retry-lock "${retry_lock}" backup \
+            --files-from "${conf_dir}/includes.txt" \
+            --exclude-file "${conf_dir}/excludes.txt" \
+            --exclude-caches \
+            --exclude-if-present .nobackup \
+            --tag scheduled
+        ;;
+    forget)
+        read -ra keep <<< "${RESTIC_KEEP}"
+        restic-sys --retry-lock "${retry_lock}" forget --prune "${keep[@]}"
+        ;;
+    check)
+        restic-sys --retry-lock "${retry_lock}" check --read-data-subset="${RESTIC_CHECK_SUBSET}"
+        ;;
+    *)
+        echo "Usage: restic-job backup|forget|check" >&2
+        exit 2
+        ;;
+esac

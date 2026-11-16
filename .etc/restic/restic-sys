@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Runs restic as root with the repository and secrets from /etc/restic/restic.env.
+#
+# The script gets the 1Password service account token from systemd-creds. Then
+# op run replaces each op:// reference in restic.env with the secret, and the
+# script runs restic with the arguments that you give it. Example:
+#
+#   sudo restic-sys snapshots
+
+set -eo pipefail
+
+[[ ${EUID} -eq 0 ]] || exec sudo -- "$0" "$@"
+
+env_file="/etc/restic/restic.env"
+token_name="restic-op-token"
+token_file="/etc/credstore.encrypted/${token_name}"
+state_dir="/var/lib/restic"
+cache_dir="/var/cache/restic"
+
+if [[ -z ${RESTIC_SYS_SECRETS_LOADED} ]]; then
+    # In the systemd unit, LoadCredentialEncrypted= decrypts the token. When you
+    # run the script yourself, systemd-creds decrypts it.
+    if [[ -n ${CREDENTIALS_DIRECTORY} && -r ${CREDENTIALS_DIRECTORY}/${token_name} ]]; then
+        OP_SERVICE_ACCOUNT_TOKEN="$(< "${CREDENTIALS_DIRECTORY}/${token_name}")"
+    else
+        OP_SERVICE_ACCOUNT_TOKEN="$(systemd-creds decrypt --name="${token_name}" "${token_file}" -)"
+    fi
+
+    # op needs a configuration folder that it can write to, with mode 0700. With
+    # XDG_CONFIG_HOME, op finds the folder as its standard location and prints
+    # no warning. OP_CONFIG_DIR makes op print a warning on each run.
+    install -d -m 700 "${state_dir}/op"
+
+    export OP_SERVICE_ACCOUNT_TOKEN
+    export XDG_CONFIG_HOME="${state_dir}"
+    export RESTIC_SYS_SECRETS_LOADED=1
+
+    # Masking pipes the output of restic, so restic cannot show its progress
+    # bar. restic does not print the secrets, so the script turns masking off.
+    exec op run --no-masking --env-file="${env_file}" -- "$0" "$@"
+fi
+
+unset OP_SERVICE_ACCOUNT_TOKEN RESTIC_SYS_SECRETS_LOADED XDG_CONFIG_HOME
+
+# The Google client library reads the service account key only from a file.
+# The file goes to a folder in /run, which is in memory. The systemd unit gives
+# a private folder in RUNTIME_DIRECTORY and removes it when the unit stops.
+if [[ -n ${RUNTIME_DIRECTORY} ]]; then
+    key_dir="${RUNTIME_DIRECTORY}"
+else
+    key_dir="$(mktemp -d /run/restic-sys.XXXXXX)"
+    trap 'rm -rf -- "${key_dir}"' EXIT
+fi
+
+if [[ -n ${GCS_KEY_JSON} ]]; then
+    (umask 077 && printf '%s\n' "${GCS_KEY_JSON}" > "${key_dir}/gcs-key.json")
+    export GOOGLE_APPLICATION_CREDENTIALS="${key_dir}/gcs-key.json"
+fi
+unset GCS_KEY_JSON
+
+export RESTIC_CACHE_DIR="${cache_dir}"
+
+restic "$@"

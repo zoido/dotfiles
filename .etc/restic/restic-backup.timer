@@ -1,0 +1,11 @@
+[Unit]
+Description=Hourly restic backup
+
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=5min
+Persistent=true
+Unit=restic@backup.service
+
+[Install]
+WantedBy=timers.target
