@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installs OpenSSH and lets only the user zoid log in, and only with a public key.
+
 set -eo pipefail
 
 [[ ${EUID} -eq 0 ]] || exec sudo -- "$0" "$@"
@@ -10,6 +12,10 @@ conf_file="${conf_dir}/10-hardening.conf"
 
 pacman -S --needed --noconfirm openssh
 
+# The main /etc/ssh/sshd_config file reads the files in sshd_config.d/ in name
+# order. For most settings, sshd uses the first value that it finds. The file
+# name starts with 10-, so its values come before the values in the Arch file
+# 99-archlinux.conf.
 mkdir -p "${conf_dir}"
 cat > "${conf_file}" << EOF
 PermitRootLogin no
@@ -21,6 +27,7 @@ AllowUsers ${user}
 EOF
 chmod 644 "${conf_file}"
 
+# sshd -t fails if the host keys are missing, so the script creates them first.
 systemctl start sshdgenkeys.service
 sshd -t
 

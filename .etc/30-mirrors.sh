@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Installs reflector and keeps the pacman mirror list sorted by download speed.
+
 set -eo pipefail
 
 [[ ${EUID} -eq 0 ]] || exec sudo -- "$0" "$@"
@@ -18,6 +20,8 @@ cat > "${conf_file}" << 'EOF'
 EOF
 chmod 644 "${conf_file}"
 
+# The timer runs only once a week, so the script starts the service to update
+# the mirror list now.
 systemctl enable --now reflector.timer
 systemctl start reflector.service
 head -n 20 /etc/pacman.d/mirrorlist
