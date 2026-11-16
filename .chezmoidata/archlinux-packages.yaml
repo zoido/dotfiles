@@ -67,6 +67,7 @@ packages:
   - obsidian # Markdown knowledge base.
   - oo7  # Secret service provider.
   - openssh
+  - ouch # Compress and decompress many archive formats.
   - pi-coding-agent-bin
   - pipewire # Audio and video server.
   - pipewire-pulse # PulseAudio replacement on top of PipeWire.
