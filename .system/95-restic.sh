@@ -6,7 +6,7 @@
 # account token is encrypted with systemd-creds, and the TPM is used if the
 # machine has one. The script asks for the token if it is not stored yet.
 #
-# The script installs the files in .etc/restic. It copies restic.env,
+# The script installs the files in .system/restic. It copies restic.env,
 # includes.txt, and excludes.txt to /etc/restic only if they do not exist. You
 # edit these files for each machine. When you run the script again, it shows
 # how they differ from the defaults in the repository.

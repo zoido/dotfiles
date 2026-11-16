@@ -5,7 +5,7 @@ The scripts in this folder set up system files outside the home directory, for e
 To run all scripts in order, run `setup.sh`:
 
 ```sh
-~/.local/share/chezmoi/.etc/setup.sh
+~/.local/share/chezmoi/.system/setup.sh
 ```
 
 You can also run one script alone. Each script describes what it does in the comment at its top.

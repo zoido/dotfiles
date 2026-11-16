@@ -12,7 +12,7 @@
 # --- Keyboard layout
 
 # Espanso cannot detect the layout on Wayland. The layout must match the xkb
-# configuration of niri. Run .etc/70-xkb-zok.sh to install it in /etc/xkb.
+# configuration of niri. Run .system/70-xkb-zok.sh to install it in /etc/xkb.
 keyboard_layout:
   layout: zok
 
