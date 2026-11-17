@@ -1,10 +1,11 @@
 set icons
-set hidden!
+set nohidden
 set drawbox
 
 set previewer pistol
 set cleaner ~/.config/lf/cleaner
 
+map . set hidden!
 map ad push %mkdir<space>-p<space>
 map af push %touch<space>
 map T $~/.sh/term-run --cwd "$PWD" -- fish
