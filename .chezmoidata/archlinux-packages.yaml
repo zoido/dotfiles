@@ -17,7 +17,6 @@ packages:
   - docker
   - docker-buildx
   - duf # 'df' alternative.
-  - dust # 'du' alternative.
   - easy-conflict # Merge conflict TUI.
   - espanso-wayland-bin
   - eza # 'ls' alternative.
@@ -27,6 +26,7 @@ packages:
   - fish-lsp
   - fx # Interactive JSON viewer.
   - fzf
+  - gdu # 'du' alternative.
   - ghostty
   - git-delta # Syntax-highlighting pager for diffs.
   - github-cli
