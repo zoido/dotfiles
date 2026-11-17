@@ -8,6 +8,7 @@ set cleaner ~/.config/lf/cleaner
 map ad push %mkdir<space>-p<space>
 map af push %touch<space>
 map T $~/.sh/term-run --cwd "$PWD" -- fish
+map W &ghostty +new-window --working-directory="$PWD" --command=lf
 
 # Commands to use Zoxide.
 cmd z %{{
