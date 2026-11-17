@@ -4,15 +4,15 @@ packages:
   - "github.com/bufbuild/buf/cmd/buf@v1.75.0" # Buf is a tool for working with Protocol Buffers (protobuf) files.
   - "github.com/control-theory/gonzo/cmd/gonzo@v0.4.3" # gonzo is a powerful, real-time log analysis terminal UI inspired by k9s
   - "github.com/doronbehar/pistol/cmd/pistol@v0.6.0" # pistol is a previewer for various file types.
-  - "github.com/gokcehan/lf@v0.0.0-20261105225240-1d8a32edef37" # lf is a terminal file manager.
+  - "github.com/gokcehan/lf@v0.0.0-20261112140032-bdb4d901d15c" # lf is a terminal file manager.
   - "github.com/hionay/tailer/cmd/tailer@v0.1.1" # tailer prints timestamp rules when log activity slows down.
   - "github.com/karol-broda/snitch@v0.2.2" # snitch is a friendlier ss / netstat for humans. inspect network connections with a clean tui or styled tables.
   - "github.com/kevwan/tproxy@v0.9.2" # allows you inspect TCP connections.
   - "github.com/mr-karan/doggo/cmd/doggo@v1.4.2" # doggo is a command-line tool for DNS queries and testing.
   - "github.com/muandane/goji@v0.2.0" # goji is a tool for generating and validating conventional commit messages.
-  - "github.com/mvdan/xurls/cmd/xurls@v1.1.0"  # find URLs in text.
   - "github.com/noborus/ov@v0.55.0" # ov is a pager for viewing large files in the terminal.
   - "github.com/pranshuparmar/witr/cmd/witr@v0.3.4" # Why is this running?
   - "github.com/robinovitch61/kl@v0.9.1" # kl is an interactive Kubernetes log viewer for your terminal.
   - "github.com/stern/stern@v1.35.0" # stern is a tool for tailing multiple pods and containers in Kubernetes.
   - "mvdan.cc/gofumpt@v0.12.0" # gofumpt is a tool slightly stricter than gofmt.
+  - "mvdan.cc/xurls/v2/cmd/xurls@v2.6.0"  # find URLs in text.

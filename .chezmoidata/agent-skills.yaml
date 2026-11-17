@@ -3,25 +3,25 @@ packages:
     remote:
       - repo: AminBlg/SimpleEnglish
         skill: simple-english
-        commit: 32ea2d3f4404bfbff162c1861e5ae4f1bcc628b3 # v2.1.1
+        commit: 300432a9e4c473229a7049ab61b8ca2522d9214c # v2.1.2
       - repo: max-sixty/worktrunk
         skill: wt-switch-create
-        commit: e42f0f6fef2fdbd98fc92e5cd6c3cbea55b65b38 # v0.81.0
+        commit: 66f0bf981ec2fad1feef8a1d816f20710d2bdb0d # v0.82.0
       - repo: max-sixty/worktrunk
         skill: worktrunk
-        commit: e42f0f6fef2fdbd98fc92e5cd6c3cbea55b65b38 # v0.81.0
+        commit: 66f0bf981ec2fad1feef8a1d816f20710d2bdb0d # v0.82.0
       - repo: anthropics/skills
         skill: skill-creator
         commit: b9e19e6f44773509fbdd7001d77ff41a49a486c1 # main (2026-04-20)
       - repo: kepano/obsidian-skills
         skill: obsidian-cli
-        commit: 3ccff5338ea700537839b21900aa5358a0402c98 # main (2026-09-15)
+        commit: caf3e98cd22d810db164f26c9a442f0a280daa43 # main (2026-11-16)
       - repo: kepano/obsidian-skills
         skill: obsidian-bases
-        commit: 3ccff5338ea700537839b21900aa5358a0402c98 # main (2026-09-15)
+        commit: caf3e98cd22d810db164f26c9a442f0a280daa43 # main (2026-11-16)
       - repo: kepano/obsidian-skills
         skill: obsidian-markdown
-        commit: 3ccff5338ea700537839b21900aa5358a0402c98 # main (2026-09-15)
+        commit: caf3e98cd22d810db164f26c9a442f0a280daa43 # main (2026-11-16)
       - repo: agavra/tuicr
         skill: tuicr
         commit: 52a56e1a471960511c693f21a539c81ff934af55 # v0.28.0
