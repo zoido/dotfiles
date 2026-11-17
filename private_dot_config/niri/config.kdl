@@ -287,6 +287,21 @@ window-rule {
     }
 }
 
+// Blur the area behind the semi-transparent Ghostty windows.
+window-rule {
+    match app-id=r#"^com\.mitchellh\.ghostty$"#
+
+    // Keep the border from filling the area behind the transparent window.
+    draw-border-with-background false
+
+    background-effect {
+        xray false
+        blur true
+        noise 0.05
+        saturation 3
+    }
+}
+
 layer-rule {
     match namespace="ghostty-quick-terminal"
 

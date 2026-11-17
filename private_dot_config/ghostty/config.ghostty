@@ -3,6 +3,7 @@ font-family = "JetBrainsMono NF"
 
 theme = "Catppuccin Macchiato"
 window-decoration = none
+background-opacity = 0.85
 
 quit-after-last-window-closed = false
 window-inherit-working-directory = true
