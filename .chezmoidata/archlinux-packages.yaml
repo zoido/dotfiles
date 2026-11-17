@@ -2,6 +2,7 @@ packages:
   archlinux:
   - 1password
   - 1password-cli
+  - adw-gtk-theme # Libadwaita look for GTK 3 apps, with a dark variant.
   - amazon-ecr-credential-helper
   - aria2
   - atuin
@@ -71,6 +72,7 @@ packages:
   - noto-fonts-emoji
   - noto-fonts-extra # Extra widths and weights for Noto fonts.
   - nwg-displays # GUI for monitor layout and settings.
+  - nwg-look # GUI for GTK theme settings.
   - obsidian # Markdown knowledge base.
   - oo7 # Secret service provider.
   - openssh
