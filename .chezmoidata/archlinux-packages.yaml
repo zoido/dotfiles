@@ -6,49 +6,49 @@ packages:
   - aria2
   - atuin
   - aws-cli-v2
-  - bandwhich # Show network bandwidth use by process and connection.
-  - bash-language-server # LSP for bash scripts.
-  - bat # A cat clone with syntax highlighting and Git integration.
-  - codebook-lsp # LSP spellchecker.
+  - bandwhich # Network bandwidth use per process.
+  - bash-language-server
+  - bat # 'cat' with syntax highlighting.
+  - codebook-lsp # Spellchecker LSP.
   - diffnav
-  - difftastic # A structural diff tool that understands syntax and semantics of code.
-  - dive # A tool for exploring each layer in a Docker image.
+  - difftastic # Syntax-aware diff.
+  - dive # Explore Docker image layers.
   - docker
   - docker-buildx
-  - duf # A disk usage utility written in Rust.
-  - dust # A more intuitive version of 'du' in Rust.
-  - easy-conflict # TUI merge conflict tool
+  - duf # 'df' alternative.
+  - dust # 'du' alternative.
+  - easy-conflict # Merge conflict TUI.
   - espanso-wayland-bin
-  - eza # A modern replacement for 'ls'.
-  - fd # A simple, fast and user-friendly alternative to 'find'.
+  - eza # 'ls' alternative.
+  - fd # 'find' alternative.
   - fish
-  - fisher # A plugin manager for the Fish shell.
-  - fish-lsp # LSP for Fish shell scripts.
-  - fx # A tool for exploring and analyzing JSON data in the terminal.
+  - fisher # Fish plugin manager.
+  - fish-lsp
+  - fx # Interactive JSON viewer.
   - fzf
   - ghostty
-  - git-delta # A syntax-highlighting pager for git and diff output.
+  - git-delta # Syntax-highlighting pager for diffs.
   - github-cli
-  - git-spice-bin # Managing stacks of git branches.
-  - gitu # Magit like interface for git in the terminal.
+  - git-spice-bin # Stacked git branches.
+  - gitu # Magit-like git TUI.
   - go
   - golangci-lint
-  - golangci-lint-langserver-bin # LSP for golangci-lint.
-  - gopls # LSP for Go files.
+  - golangci-lint-langserver-bin
+  - gopls # Go LSP.
   - go-yq
   - grpc_cli
   - gum # Nice prompts for shell scripts.
   - handy-bin # Offline speech to text.
   - helix
   - helm
-  - helm-ls-bin # LSP for helm charts.
+  - helm-ls-bin
   - hexyl
   - htop
   - hx-lsp # Snippets LSP for Helix.
-  - hyperfine # A command-line benchmarking tool.
+  - hyperfine # Command-line benchmarking.
   - imv # Image viewer for Wayland.
-  - jai # Light-weight sandbox for AI agents
-  - jedi-language-server # Language server for jedi that is Python autocomplete.
+  - jai # Lightweight sandbox for AI agents.
+  - jedi-language-server # Python autocompletion LSP.
   - jo # Build JSON objects from the command line.
   - jq
   - k9s
@@ -59,78 +59,78 @@ packages:
   - kubectl
   - kubectx
   - libqalculate
-  - llama-cpp # Run LLMs locally
-  - mako # Wayland notofication daemon.
+  - llama-cpp # Run LLMs locally.
+  - mako # Wayland notification daemon.
   - man-db
-  - markdown-oxide # LSP for markdown PKMs
-  - marksman # LSP for markdown files.
+  - markdown-oxide # Markdown LSP for knowledge bases.
+  - marksman # Markdown LSP.
   - mpv # Video player.
   - niri
-  - nwg-displays # GUI for monitor layout and settings.
   - noto-fonts # Sans font for mpv subtitles with wide script coverage.
   - noto-fonts-cjk # Chinese, Japanese, and Korean fonts.
-  - noto-fonts-emoji # Emoji font.
+  - noto-fonts-emoji
   - noto-fonts-extra # Extra widths and weights for Noto fonts.
+  - nwg-displays # GUI for monitor layout and settings.
   - obsidian # Markdown knowledge base.
-  - oo7  # Secret service provider.
+  - oo7 # Secret service provider.
   - openssh
   - ouch # Compress and decompress many archive formats.
   - pi-coding-agent-bin
   - pipewire # Audio and video server.
-  - pipewire-pulse # PulseAudio replacement on top of PipeWire.
+  - pipewire-pulse # PulseAudio replacement on PipeWire.
   - playerctl # Control media players from the command line.
   - podman
   - procs
   - protobuf
-  - protols # LSP for protobuf files.
+  - protols # Protobuf LSP.
   - python
   - python-pip
   - qmd # Local search engine for markdown files.
-  - reflector # Ranks the Arch mirrors.
-  - ripgrep # Grep but faster.
+  - reflector # Ranks Arch mirrors.
+  - ripgrep # Fast 'grep' alternative.
   - sabiql # Interactive wrapper around psql.
-  - scooter # Interactive searc and replace tool.
-  - shellcheck # Linter for shell scripts.
+  - scooter # Interactive search and replace.
+  - shellcheck # Shell script linter.
   - skaffold
   - soteria-git # Polkit authentication agent.
   - step-cli
-  - swaybg # Wayland background.
-  - swayidle # Wayland idle launcher.
-  - swaylock # Waylanf lock screen.
+  - swaybg # Wayland wallpaper.
+  - swayidle # Wayland idle manager.
+  - swaylock # Wayland lock screen.
   - swayosd # On-screen display for volume and brightness keys.
-  - systemd-lsp # LSP for systemd unit files.
-  - taplo-cli # LSP for TOML files.
+  - systemd-lsp
+  - taplo-cli # TOML LSP.
   - tealdeer # TLDR client.
   - television
-  - tinymist # LSP for typst
+  - tinymist # Typst LSP.
   - tombi # TOML formatter and linter.
   - traefik
   - trash-cli # Optional dependency of Obsidian for moving files to trash.
   - ttf-jetbrains-mono-nerd
   - ttf-roboto
   - ttf-roboto-mono-nerd
-  - tuicr # Code reviews from terminal.
-  - typst
+  - tuicr # Code review TUI.
   - ty # Python type checker and language server.
+  - typst
   - udiskie # Automount removable media.
   - unzip
   - uv
   - vcluster-bin
-  - vicinae-bin # Application launcher and command pallete.
-  - viddy # Like 'watch' but with a nice UI and more features.
+  - vicinae-bin # Application launcher and command palette.
+  - viddy # 'watch' alternative.
   - viu # Terminal image viewer.
   - vscode-json-languageserver
   - waterfox-bin
+  - wget
   - wiremix # TUI audio mixer for PipeWire.
   - wireplumber # Session manager for PipeWire.
-  - wget
   - worktrunk-bin
   - wtype # Wayland text input, used by Handy to paste.
   - xdg-desktop-portal-gnome # Screen sharing and screenshots for niri.
   - xdg-desktop-portal-gtk
   - xdg-utils
-  - xh # httpie compatible HTTP request CLI.
+  - xh # HTTPie-compatible HTTP client.
   - xwayland-satellite
-  - yaml-language-server # LSP for YAML files.
+  - yaml-language-server
   - zellij
   - zoxide
