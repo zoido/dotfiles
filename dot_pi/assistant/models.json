@@ -1,0 +1,11 @@
+{
+  "providers": {
+    "llama.cpp": {
+      "modelOverrides": {
+        "google/gemma-4-12B-it-qat-q4_0-gguf:Q4_0": {
+          "contextWindow": 32768
+        }
+      }
+    }
+  }
+}
