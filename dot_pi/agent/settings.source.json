@@ -10,8 +10,7 @@
   "lastChangelogVersion": "1.5.2",
   "editorPaddingX": 1,
   "terminal": {
-    "showTerminalProgress": true,
-    "trueColor": true
+    "showTerminalProgress": true
   },
   "enableInstallTelemetry": false,
   "enabledModels": [
