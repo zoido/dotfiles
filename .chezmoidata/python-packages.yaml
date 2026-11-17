@@ -2,6 +2,7 @@ packages:
   python:
     - hatch==1.18.2
     - ipython==9.18.1
+    - mcp-server-fetch==2026.11.11
     - mitmproxy==12.3.1
     - pew==1.2.0
     - polysh==1.0.8

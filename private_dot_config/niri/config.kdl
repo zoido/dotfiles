@@ -273,6 +273,20 @@ window-rule {
     open-floating true
 }
 
+// Float the Pi assistant window.
+window-rule {
+    match app-id=r#"^dev\.zoid\.pi-assistant$"#
+    open-floating true
+    default-column-width { proportion 0.4; }
+    default-window-height { proportion 0.6; }
+
+    // Catppuccin Frappé mauve, so the window differs from other windows.
+    border {
+        active-color "#ca9ee6"
+        inactive-color "#665a7e"
+    }
+}
+
 layer-rule {
     match namespace="ghostty-quick-terminal"
 
@@ -582,6 +596,7 @@ binds {
 
     Mod+T { spawn "ghostty" "+toggle-quick-terminal"; }
     Ctrl+Alt+Return { spawn "ghostty" "+new-window"; }
+    Mod+Ctrl+Shift+A hotkey-overlay-title="Pi Assistant" { spawn-sh "ghostty --class=dev.zoid.pi-assistant --theme='Catppuccin Frappe' -e ~/.local/bin/pi-assistant"; }
     Mod+D repeat=false hotkey-overlay-title="Run an Application: vicinae" { spawn "vicinae" "toggle"; }
     Mod+Space repeat=false { spawn "vicinae" "toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }

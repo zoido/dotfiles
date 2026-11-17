@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "kagi": {
+      "command": "kagi",
+      "args": ["mcp", "--tools", "kagi_search,kagi_batch_search"],
+      "description": "Search the web with Kagi.",
+      "exposure": "hidden",
+      "toolExposure": {
+        "kagi_search": "direct",
+        "kagi_batch_search": "direct"
+      }
+    },
+    "fetch": {
+      "command": "mcp-server-fetch",
+      "description": "Read a web page and get its text as Markdown.",
+      "exposure": "direct"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "theme": "catppuccin-frappe",
+  "packages": [
+    "git:github.com/otahontas/pi-coding-agent-catppuccin",
+    "npm:@pi-lab/input-history@1.0.5",
+    "npm:@clapecho233/pi-smart-fold@0.2.3",
+    "npm:pi-memory@0.4.2"
+  ],
+  "editorPaddingX": 1,
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "enableInstallTelemetry": false,
+  "defaultProvider": "llama.cpp",
+  "defaultModel": "google/gemma-4-12B-it-qat-q4_0-gguf:Q4_0",
+  "defaultTools": [
+    "read",
+    "grep",
+    "find",
+    "ls"
+  ],
+  "tuiMode": "regular",
+  "hideThinkingBlock": false
+}

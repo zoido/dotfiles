@@ -52,6 +52,7 @@ packages:
   - jo # Build JSON objects from the command line.
   - jq
   - k9s
+  - kagi-cli # Kagi search from the command line. The Pi assistant uses its MCP server.
   - kitty # Provides 'kitten icat' to show images in the terminal.
   - kiwix-desktop # Offline reader for Wikipedia and other web content.
   - kiwix-tools # Command-line tools for Kiwix, for example 'kiwix-serve'.

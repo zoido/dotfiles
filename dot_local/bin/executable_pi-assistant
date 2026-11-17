@@ -1,0 +1,28 @@
+#!/bin/bash
+# Starts Pi as a personal assistant in the "assistant" jai jail.
+# Pi uses only the local llama.cpp model. It can read the Obsidian vault,
+# search the web with Kagi, and read web pages. It cannot change files or run
+# commands. Each start uses a new empty working directory.
+set -euo pipefail
+
+export PI_CODING_AGENT_DIR="$HOME/.pi/assistant"
+export PI_MEMORY_DIR="$PI_CODING_AGENT_DIR/memory"
+
+workdir=$(mktemp -d -t pi-assistant.XXXXXX)
+trap 'rm -rf "$workdir"' EXIT
+cd "$workdir"
+
+# jai gives Pi its own terminal and copies the window size at start. A new
+# Ghostty window can report a size of 0x0 for a moment, and Pi then draws
+# nothing. Wait up to two seconds for the real size.
+for _ in {1..40}; do
+	[[ $(stty size 2>/dev/null) != "0 0" ]] && break
+	sleep 0.05
+done
+
+jai -C assistant pi \
+	--session-dir "$PI_CODING_AGENT_DIR/sessions" \
+	--tools 'read,grep,find,ls,memory_*,scratchpad,mcp__kagi__*,mcp__fetch__*' \
+	--no-skills \
+	--no-prompt-templates \
+	"$@"
