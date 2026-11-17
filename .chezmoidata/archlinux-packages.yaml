@@ -68,7 +68,9 @@ packages:
   - niri
   - nwg-displays # GUI for monitor layout and settings.
   - noto-fonts # Sans font for mpv subtitles with wide script coverage.
+  - noto-fonts-cjk # Chinese, Japanese, and Korean fonts.
   - noto-fonts-emoji # Emoji font.
+  - noto-fonts-extra # Extra widths and weights for Noto fonts.
   - obsidian # Markdown knowledge base.
   - oo7  # Secret service provider.
   - openssh
@@ -105,6 +107,8 @@ packages:
   - traefik
   - trash-cli # Optional dependency of Obsidian for moving files to trash.
   - ttf-jetbrains-mono-nerd
+  - ttf-roboto
+  - ttf-roboto-mono-nerd
   - tuicr # Code reviews from terminal.
   - typst
   - ty # Python type checker and language server.
