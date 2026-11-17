@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+
+chezmoi execute-template <"$(chezmoi source-path)/.chezmoiscripts/run_onchange_06-install-llama-models.sh.tmpl" | bash
