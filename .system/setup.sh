@@ -16,6 +16,7 @@ scripts=(
     50-swayosd.sh
     60-ly.sh
     70-xkb-zok.sh
+    75-caps2esc.sh
     80-dns-quad9.sh
     90-ssh.sh
     95-restic.sh
