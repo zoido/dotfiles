@@ -43,6 +43,9 @@ window-rule {
 window-rule {
     match app-id=r#"^com\.mitchellh\.ghostty$"#
 
+    // Let Ghostty pick its own width, for example from window-width in its config.
+    default-column-width {}
+
     // Keep the border from filling the area behind the transparent window.
     draw-border-with-background false
 
