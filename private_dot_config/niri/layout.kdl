@@ -91,11 +91,11 @@ layout {
         on
 
         width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        active-color "#b7bdf8" // Catppuccin Macchiato Lavender
+        inactive-color "#494d64" // Catppuccin Macchiato Surface1
 
         // Color of the border around windows that request your attention.
-        urgent-color "#9b0000"
+        urgent-color "#ed8796" // Catppuccin Macchiato Red
 
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
@@ -139,7 +139,7 @@ layout {
         offset x=0 y=5
 
         // You can also change the shadow color and opacity.
-        color "#0007"
+        color "#18192677" // Catppuccin Macchiato Crust
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
