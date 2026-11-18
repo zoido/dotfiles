@@ -1,14 +1,5 @@
-
-Host cetus-wsl
-    HostName localhost
-    User zoid
-    Port 2222
-    ProxyJump cetus-win
-    ForwardAgent yes
-
-Host cetus-win
+Host cetus
     HostName 10.2.10.120
-    User lubos
     ForwardAgent yes
 
 Host kraken
