@@ -1,0 +1,85 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://niri-wm.github.io/niri/Configuration:-Window-Rules
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Float the Obsidian settings and community plugins windows.
+window-rule {
+    match app-id=r#"^md\.obsidian\.Obsidian$"# title=r#"^(Settings|Community plugins) - .* - Obsidian [0-9.]+$"#
+    open-floating true
+    default-column-width { proportion 0.6; }
+    default-window-height { proportion 0.7; }
+}
+
+// Float the nwg-displays monitor settings window.
+window-rule {
+    match app-id=r#"^nwg-displays$"#
+    open-floating true
+}
+
+// Float the Pi assistant window.
+window-rule {
+    match app-id=r#"^dev\.zoid\.pi-assistant$"#
+    open-floating true
+    default-column-width { proportion 0.4; }
+    default-window-height { proportion 0.6; }
+
+    // Catppuccin Frappé mauve, so the window differs from other windows.
+    border {
+        active-color "#ca9ee6"
+        inactive-color "#665a7e"
+    }
+}
+
+// Blur the area behind the semi-transparent Ghostty windows.
+window-rule {
+    match app-id=r#"^com\.mitchellh\.ghostty$"#
+
+    // Keep the border from filling the area behind the transparent window.
+    draw-border-with-background false
+
+    background-effect {
+        xray false
+        blur true
+        noise 0.05
+        saturation 3
+    }
+}
+
+layer-rule {
+    match namespace="ghostty-quick-terminal"
+
+    shadow {
+        on
+        // off
+        softness 40
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+        color "#00000064"
+        // inactive-color "#00000064"
+    }
+
+    background-effect {
+        xray true
+        blur true
+        noise 0.05
+        saturation 3
+    }
+
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
