@@ -9,7 +9,7 @@ set -eo pipefail
 
 [[ ${EUID} -eq 0 ]] || exec sudo -- "$0" "$@"
 
-browser="waterfox"
+browser="waterfox-bin"
 config_dir="/etc/1password"
 config_file="${config_dir}/custom_allowed_browsers"
 
