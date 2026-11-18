@@ -8,7 +8,6 @@ set -gx MANPAGER $PAGER
 set -gx DELTA_PAGER less
 set -gx PISTOL_CHROMA_STYLE catppuccin-macchiato
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
-set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
 # PATH
 fish_add_path --path "$HOME/go/bin"
@@ -24,6 +23,10 @@ if command -q ov
     set -gx BAT_PAGER 'ov -F -H3'
     set -gx DELTA_PAGER 'ov -F'
     set -gx PSQL_PAGER 'ov -F -C -d "|" -H1 --column-rainbow --align'
+end
+
+if not set -q SSH_CONNECTION
+    set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 end
 
 # Locale
