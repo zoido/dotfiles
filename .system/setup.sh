@@ -9,6 +9,7 @@ set -eo pipefail
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 scripts=(
+    05-user.sh
     10-timesync.sh
     20-locale.sh
     30-mirrors.sh
