@@ -16,6 +16,8 @@ src_dir="${script_dir}/luks-header"
 service="luks-header-backup.service"
 timer="luks-header-backup.timer"
 
+pacman -S --needed --noconfirm cryptsetup diffutils
+
 install -Dm755 "${src_dir}/luks-header-backup" /usr/local/bin/luks-header-backup
 install -Dm644 "${src_dir}/${service}" "/etc/systemd/system/${service}"
 install -Dm644 "${src_dir}/${timer}" "/etc/systemd/system/${timer}"

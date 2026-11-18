@@ -6,10 +6,10 @@
 # account token is encrypted with systemd-creds, and the TPM is used if the
 # machine has one. The script asks for the token if it is not stored yet.
 #
-# The script installs the files in .system/restic. It copies restic.env,
-# includes.txt, and excludes.txt to /etc/restic only if they do not exist. You
-# edit these files for each machine. When you run the script again, it shows
-# how they differ from the defaults in the repository.
+# The script installs the files in .system/backup/restic. It copies
+# restic.env, includes.txt, and excludes.txt to /etc/restic only if they do not
+# exist. You edit these files for each machine. When you run the script again,
+# it shows how they differ from the defaults in the repository.
 #
 # The script enables the timers only after you fill in restic.env and the
 # repository exists.
@@ -26,7 +26,7 @@ token_name="restic-op-token"
 token_file="/etc/credstore.encrypted/${token_name}"
 timers=(restic-backup.timer restic-forget.timer restic-check.timer)
 
-pacman -S --needed --noconfirm restic
+pacman -S --needed --noconfirm diffutils restic
 
 # 1password-cli is in the AUR, so pacman cannot install it.
 if ! command -v op > /dev/null; then

@@ -2,6 +2,8 @@
 
 Each script in this folder sets up one part of the system outside the home directory. `setup.sh` runs the scripts in the order of its `scripts` list.
 
+The scripts in `backup/` set up backups. Only some machines need them, so `setup.sh` does not run them, and the user runs them by hand. They follow the same rules as the other scripts. Their files are in `backup/`, next to the script.
+
 ## Add a script
 
 1. Create `NN-name.sh`. `NN` is a two-digit number that shows the position of the script in the run order. Use a free number between the numbers of the scripts that run before and after it.
@@ -20,6 +22,8 @@ Each script in this folder sets up one part of the system outside the home direc
 
 4. Add the file name to the `scripts` list in `setup.sh`, at its position in the run order.
 
+If the script sets up backups, create it in `backup/` and skip step 4. Give it a number after the numbers of the scripts in `setup.sh`.
+
 ## Rules for scripts
 
 - A script must give the same result when you run it more than once. For example, use `pacman -S --needed`, and do not add a line to a file if the line is already there.
@@ -29,7 +33,7 @@ Each script in this folder sets up one part of the system outside the home direc
 
 ## Files that a script installs
 
-- Put each file that a script installs in its own file in a folder with the name of the script, without the number. For example, `95-restic.sh` installs the files in `restic/`. Use this for helper scripts, systemd units, configuration templates, and text such as a README.
+- Put each file that a script installs in its own file in a folder with the name of the script, without the number. For example, `backup/95-restic.sh` installs the files in `backup/restic/`. Use this for helper scripts, systemd units, configuration templates, and text such as a README.
 - If a file is short and simple, write it in the script with a heredoc. A short configuration file in `/etc` is an example. See `30-mirrors.sh` and `80-dns-quad9.sh`.
 - If a file is long, or if it needs its own comments, use a separate file.
 

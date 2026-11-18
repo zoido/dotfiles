@@ -20,8 +20,6 @@ scripts=(
     75-caps2esc.sh
     80-dns-quad9.sh
     90-ssh.sh
-    95-restic.sh
-    96-luks-header.sh
 )
 
 for script in "${scripts[@]}"; do

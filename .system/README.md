@@ -9,3 +9,5 @@ To run all scripts in order, run `setup.sh`:
 ```
 
 You can also run one script alone. Each script describes what it does in the comment at its top.
+
+The scripts in `backup/` set up backups. Only some machines need them, so `setup.sh` does not run them. Run each one yourself on the machines that need it.
