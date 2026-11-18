@@ -11,16 +11,17 @@ input {
     // Omitting settings disables them, or leaves them at their default values.
     // All commented-out settings here are examples, not defaults.
     touchpad {
-        tap
-        // dwt
-        // dwtp
-        // drag false
+        // tap
+        dwt
+        dwtp
+        drag true
         // drag-lock
-        // natural-scroll
+        natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
-        // disabled-on-external-mouse
+        disabled-on-external-mouse
+        click-method "click-finger"
     }
 
     mouse {
