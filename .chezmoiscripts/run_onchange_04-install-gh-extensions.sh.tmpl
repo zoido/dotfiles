@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail
+{{- template "gh-auth-guard.sh" . }}
 
 # Upgrade all existing extensions.
 gh extension upgrade --all
