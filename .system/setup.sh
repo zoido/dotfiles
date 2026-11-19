@@ -19,6 +19,7 @@ scripts=(
     70-xkb-zok.sh
     75-caps2esc.sh
     80-dns-quad9.sh
+    85-docker.sh
     90-ssh.sh
 
     laptop/setup.sh
