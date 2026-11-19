@@ -6,15 +6,13 @@ systemctl --user daemon-reload
 systemctl --user enable app-com.mitchellh.ghostty.service --now
 systemctl --user enable llama-server.service --now
 systemctl --user enable oo7-daemon.service --now
-
-systemctl --user enable pipewire.socket --now
 systemctl --user enable pipewire-pulse.socket --now
+systemctl --user enable pipewire.socket --now
 systemctl --user enable wireplumber.service --now
 
 systemctl --user enable podman.socket
 
 systemctl --user add-wants niri.service 1password.service
-systemctl --user add-wants niri.service batsignal.service
 systemctl --user add-wants niri.service espanso.service
 systemctl --user add-wants niri.service handy.service
 systemctl --user add-wants niri.service mako.service
@@ -25,3 +23,6 @@ systemctl --user add-wants niri.service swayosd.service
 systemctl --user add-wants niri.service udiskie.service
 systemctl --user add-wants niri.service vicinae.service
 
+{{- if .laptop }}
+systemctl --user add-wants niri.service batsignal.service
+{{- end }}

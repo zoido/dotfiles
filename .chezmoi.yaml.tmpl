@@ -1,6 +1,8 @@
 {{- $archlinux := and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
+{{- $laptop := promptBoolOnce . "laptop" "Is this machine a laptop" -}}
 
 sourceDir: {{ .chezmoi.sourceDir }}
 
 data:
     archlinux: {{ $archlinux }}
+    laptop: {{ $laptop }}
