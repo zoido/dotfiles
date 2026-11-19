@@ -20,6 +20,8 @@ scripts=(
     75-caps2esc.sh
     80-dns-quad9.sh
     90-ssh.sh
+
+    laptop/setup.sh
 )
 
 for script in "${scripts[@]}"; do

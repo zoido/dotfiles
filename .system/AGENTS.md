@@ -2,6 +2,8 @@
 
 Each script in this folder sets up one part of the system outside the home directory. `setup.sh` runs the scripts in the order of its `scripts` list.
 
+The scripts in `laptop/` set up laptops. `setup.sh` runs `laptop/setup.sh` last. That script reads `~/.config/zoido/host/laptop`, and it runs the scripts in its own `scripts` list only if the file contains `true`. Chezmoi writes this file from the `laptop` value in the chezmoi configuration. If the file is missing, `laptop/setup.sh` stops with an error.
+
 The scripts in `backup/` set up backups. Only some machines need them, so `setup.sh` does not run them, and the user runs them by hand. They follow the same rules as the other scripts. Their files are in `backup/`, next to the script.
 
 ## Add a script
@@ -21,6 +23,8 @@ The scripts in `backup/` set up backups. Only some machines need them, so `setup
    ```
 
 4. Add the file name to the `scripts` list in `setup.sh`, at its position in the run order.
+
+If the script sets up only laptops, create it in `laptop/`. Name it `5NN-name.sh`, with a three-digit number from 500 to 599, and add it to the `scripts` list in `laptop/setup.sh`.
 
 If the script sets up backups, create it in `backup/` and skip step 4. Give it a number after the numbers of the scripts in `setup.sh`.
 
