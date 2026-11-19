@@ -10,6 +10,7 @@ packages:
   - bandwhich # Network bandwidth use per process.
   - bash-language-server
   - bat # 'cat' with syntax highlighting.
+  - batsignal # Battery monitor daemon.
   - codebook-lsp # Spellchecker LSP.
   - diffnav
   - difftastic # Syntax-aware diff.
