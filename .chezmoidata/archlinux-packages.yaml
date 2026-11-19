@@ -2,6 +2,7 @@ packages:
   archlinux:
   - 1password
   - 1password-cli
+  - acpi # Battery, power, and thermal readings.
   - adw-gtk-theme # Libadwaita look for GTK 3 apps, with a dark variant.
   - amazon-ecr-credential-helper
   - aria2
@@ -52,6 +53,7 @@ packages:
   - jai # Lightweight sandbox for AI agents.
   - jedi-language-server # Python autocompletion LSP.
   - jo # Build JSON objects from the command line.
+  - jolt # Battery and energy monitor TUI.
   - jq
   - k9s
   - kagi-cli # Kagi search from the command line. The Pi assistant uses its MCP server.
