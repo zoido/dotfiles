@@ -20,6 +20,7 @@ laptop_file="$(getent passwd "${owner}" | cut -d: -f6)/.config/zoido/host/laptop
 
 scripts=(
     500-upower.sh
+    510-iwd.sh
 )
 
 if [[ ! -f ${laptop_file} ]]; then
