@@ -1,5 +1,6 @@
 abbr -a md 'mkdir -p'
 abbr -a rd rmdir
+abbr -a se sudoedit
 
 # Better ls with eza
 if command -q eza
