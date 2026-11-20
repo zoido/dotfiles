@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# lf-thumb-pdf
+#
+# Shows a preview of a PDF file in the lf preview pane. The script prints the
+# title, the author, and the number of pages. Below them, it draws the first
+# page with the kitty graphics protocol. It keeps the pages in
+# ~/.cache/lf/thumbs.
+#
+# Usage: lf-thumb-pdf FILE WIDTH HEIGHT X Y
+#
+# pistol calls this script. WIDTH, HEIGHT, X, and Y give the size and the
+# position of the preview pane in terminal cells. The script always exits with
+# status 1, so that lf runs the cleaner, which removes the image.
+
+file=$1
+width=$2
+height=$3
+x=$4
+y=$5
+
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/lf/thumbs"
+thumb="$cache_dir/$(printf '%s %s' "$(realpath "$file")" "$(stat -Lc '%Y %s' "$file")" |
+	sha256sum | cut -c1-32).jpg"
+
+# shellcheck disable=SC2016 # The $ signs are exiftool tags and Perl variables.
+info=$(exiftool -q -q \
+	-p '$Title' \
+	-p '$Author' \
+	-p '${PageCount;$_ .= $_ == 1 ? " page" : " pages"}' \
+	"$file")
+printf '%s\n\n' "$info"
+lines=$(($(printf '%s\n' "$info" | wc -l) + 1))
+
+if [ ! -s "$thumb" ]; then
+	mkdir -p "$cache_dir"
+	pdftoppm -f 1 -l 1 -singlefile -jpeg -scale-to 1024 "$file" "$thumb.$$" \
+		>/dev/null 2>&1 && mv "$thumb.$$.jpg" "$thumb"
+	rm -f "$thumb.$$.jpg"
+fi
+
+if [ -s "$thumb" ] && [ $((height - lines)) -gt 0 ]; then
+	kitten icat --clear --stdin no --transfer-mode memory \
+		--place "${width}x$((height - lines))@${x}x$((y + lines))" \
+		"$thumb" </dev/null >/dev/tty
+fi
+
+exit 1

@@ -13,6 +13,7 @@ file-types = [
   { glob = "*.sh.tmpl" },
   { glob = "executable_op-ssh-sign.tmpl" },
   { glob = "executable_cleaner" },
+  { glob = "executable_lf-thumb-*" },
   { glob = "executable_mako-menu" },
   { glob = "executable_pi-assistant" },
 ]

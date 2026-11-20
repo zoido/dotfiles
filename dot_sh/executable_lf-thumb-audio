@@ -1,0 +1,57 @@
+#!/bin/sh
+#
+# lf-thumb-audio
+#
+# Shows a preview of an audio file in the lf preview pane. The script prints
+# the artist, the title, the album, the duration, and the format of the file.
+# If the file has embedded cover art, the script draws it below them with the
+# kitty graphics protocol. It keeps the cover art in ~/.cache/lf/thumbs.
+#
+# Usage: lf-thumb-audio FILE WIDTH HEIGHT X Y
+#
+# pistol calls this script. WIDTH, HEIGHT, X, and Y give the size and the
+# position of the preview pane in terminal cells. The script always exits with
+# status 1, so that lf runs the cleaner, which removes the image.
+
+file=$1
+width=$2
+height=$3
+x=$4
+y=$5
+
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/lf/thumbs"
+thumb="$cache_dir/$(printf '%s %s' "$(realpath "$file")" "$(stat -Lc '%Y %s' "$file")" |
+	sha256sum | cut -c1-32)-cover"
+
+# exiftool drops a template line if a tag in it is missing. The file name always
+# exists, so ${Filename;...} builds a line from the tags that the file has.
+# shellcheck disable=SC2016 # The $ signs are exiftool tags and Perl variables.
+info=$(exiftool -q -q \
+	-p '${Filename;$_ = join " - ", grep { length } $self->GetValue("Artist"), $self->GetValue("Title")}' \
+	-p '$Album' \
+	-p '${Filename;
+		my $d = $self->GetValue("Duration", "ValueConv");
+		my $r = $self->GetValue("SampleRate");
+		$_ = join " · ", grep { length }
+			($d >= 3600 ? sprintf("%d:%02d:%02d", $d / 3600, $d / 60 % 60, $d % 60) : $d ? sprintf("%d:%02d", $d / 60, $d % 60) : ""),
+			$self->GetValue("FileType"),
+			($r ? $r / 1000 . " kHz" : ""),
+			$self->GetValue("AudioBitrate")}' \
+	"$file" | sed '/^$/d')
+printf '%s\n\n' "$info"
+lines=$(($(printf '%s\n' "$info" | wc -l) + 1))
+
+if [ ! -s "$thumb" ]; then
+	mkdir -p "$cache_dir"
+	exiftool -b -Picture "$file" >"$thumb.$$" 2>/dev/null && [ -s "$thumb.$$" ] &&
+		mv "$thumb.$$" "$thumb"
+	rm -f "$thumb.$$"
+fi
+
+if [ -s "$thumb" ] && [ $((height - lines)) -gt 0 ]; then
+	kitten icat --clear --stdin no --transfer-mode memory \
+		--place "${width}x$((height - lines))@${x}x$((y + lines))" \
+		"$thumb" </dev/null >/dev/tty
+fi
+
+exit 1

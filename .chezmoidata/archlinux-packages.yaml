@@ -23,6 +23,7 @@ packages:
   - espanso-wayland-bin
   - eza # 'ls' alternative.
   - fd # 'find' alternative.
+  - ffmpegthumbnailer # Video thumbnails for lf previews.
   - fish
   - fisher # Fish plugin manager.
   - fish-lsp
@@ -80,11 +81,13 @@ packages:
   - oo7 # Secret service provider.
   - openssh
   - ouch # Compress and decompress many archive formats.
+  - perl-image-exiftool # Provides 'exiftool' for lf previews.
   - pi-coding-agent-bin
   - pipewire # Audio and video server.
   - pipewire-pulse # PulseAudio replacement on PipeWire.
   - playerctl # Control media players from the command line.
   - podman
+  - poppler # Provides 'pdftoppm' for PDF previews in lf.
   - procs
   - protobuf
   - protols # Protobuf LSP.
