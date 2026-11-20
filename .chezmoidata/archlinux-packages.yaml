@@ -6,6 +6,7 @@ packages:
   - adw-gtk-theme # Libadwaita look for GTK 3 apps, with a dark variant.
   - amazon-ecr-credential-helper
   - aria2
+  - atril # Document viewer for PDF, DjVu, and PostScript.
   - atuin
   - aws-cli-v2
   - bandwhich # Network bandwidth use per process.
@@ -16,6 +17,7 @@ packages:
   - diffnav
   - difftastic # Syntax-aware diff.
   - dive # Explore Docker image layers.
+  - djvulibre # DjVu support for Atril.
   - docker
   - docker-buildx
   - duf # 'df' alternative.
@@ -64,6 +66,7 @@ packages:
   - kubectl
   - kubectx
   - libqalculate
+  - libspectre # PostScript support for Atril.
   - llama-cpp # Run LLMs locally.
   - mako # Wayland notification daemon.
   - man-db
