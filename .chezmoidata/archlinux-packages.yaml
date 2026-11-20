@@ -103,6 +103,7 @@ packages:
   - scooter # Interactive search and replace.
   - shellcheck # Shell script linter.
   - skaffold
+  - slides # Terminal presentation tool.
   - soteria-git # Polkit authentication agent.
   - step-cli
   - swaybg # Wayland wallpaper.
