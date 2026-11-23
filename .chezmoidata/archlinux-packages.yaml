@@ -13,7 +13,9 @@ packages:
   - bash-language-server
   - bat # 'cat' with syntax highlighting.
   - batsignal # Battery monitor daemon.
+  - chafa # Image-to-text converter, optional dependency of Offpunk.
   - codebook-lsp # Spellchecker LSP.
+  - curl # Optional dependency of Offpunk for HTTP requests.
   - diffnav
   - difftastic # Syntax-aware diff.
   - dive # Explore Docker image layers.
@@ -68,6 +70,7 @@ packages:
   - libqalculate
   - libspectre # PostScript support for Atril.
   - llama-cpp # Run LLMs locally.
+  - lynx # Text web browser.
   - mako # Wayland notification daemon.
   - man-db
   - markdown-oxide # Markdown LSP for knowledge bases.
@@ -81,6 +84,7 @@ packages:
   - nwg-displays # GUI for monitor layout and settings.
   - nwg-look # GUI for GTK theme settings.
   - obsidian # Markdown knowledge base.
+  - offpunk # Offline command-line browser for the web, Gemini, Gopher, and feeds.
   - oo7 # Secret service provider.
   - openssh
   - ouch # Compress and decompress many archive formats.
@@ -95,7 +99,13 @@ packages:
   - protobuf
   - protols # Protobuf LSP.
   - python
+  - python-beautifulsoup4 # HTML parser, optional dependency of Offpunk.
+  - python-charset-normalizer # Character encoding detector, optional dependency of Offpunk.
+  - python-cryptography # Optional dependency of Offpunk for Gemini certificates.
+  - python-feedparser # RSS and Atom parser, optional dependency of Offpunk.
   - python-pip
+  - python-readability-lxml # Article text extractor, optional dependency of Offpunk.
+  - python-setproctitle # Process title support, optional dependency of Offpunk.
   - qmd # Local search engine for markdown files.
   - reflector # Ranks Arch mirrors.
   - ripgrep # Fast 'grep' alternative.
@@ -136,6 +146,7 @@ packages:
   - wget
   - wiremix # TUI audio mixer for PipeWire.
   - wireplumber # Session manager for PipeWire.
+  - wl-clipboard # Wayland clipboard utilities, optional dependency of Offpunk.
   - worktrunk-bin
   - wtype # Wayland text input, used by Handy to paste.
   - xdg-desktop-portal-gnome # Screen sharing and screenshots for niri.
