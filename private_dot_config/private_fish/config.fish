@@ -21,10 +21,3 @@ if status is-interactive
 end
 
 
-# Inhibit sleep while connected
-if status is-login
-    and set -q SSH_CONNECTION
-    and not set -q INHIBITED_BY_SSH
-    set -gx INHIBITED_BY_SSH 1
-    exec systemd-inhibit --what=sleep --why="Active SSH session" -- fish -l
-end
