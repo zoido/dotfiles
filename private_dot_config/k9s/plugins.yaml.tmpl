@@ -1,0 +1,22 @@
+plugins:
+  stern:
+    shortCut: Ctrl-L
+    description: "Stern logs in new window"
+    scopes:
+      - po
+      - deploy
+      - sts
+      - ds
+      - rs
+    command: {{ .chezmoi.homeDir }}/.sh/term-run
+    background: true
+    args:
+      - --name
+      - "stern: $NAME"
+      - stern
+      - "^$NAME(-|$)"
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --tail=100
