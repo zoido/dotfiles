@@ -273,19 +273,19 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
-
-    Mod+Shift+T { spawn "obsidian" "daily" "paneType=window"; }
-    Ctrl+Alt+Return { spawn "ghostty" "+new-window"; }
-    Mod+E hotkey-overlay-title="File Manager: lf" { spawn "ghostty" "+new-window" "--command=lf"; }
-    Mod+Ctrl+Shift+A hotkey-overlay-title="Pi Assistant" { spawn-sh "ghostty --class=dev.zoid.pi-assistant --theme='Catppuccin Frappe' -e ~/.local/bin/pi-assistant"; }
-    Mod+D repeat=false hotkey-overlay-title="Run an Application: vicinae" { spawn "vicinae" "toggle"; }
-    Mod+Space repeat=false { spawn "vicinae" "toggle"; }
+    // Mod+Shift+P { power-off-monitors; }
+    //
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
+    Mod+Shift+T { spawn "obsidian" "daily" "paneType=window"; }
+    Mod+E hotkey-overlay-title="File Manager: lf" { spawn "ghostty" "+new-window" "--command=lf"; }
+
     Mod+Shift+Backslash { spawn "1password" "--quick-access";}
+
+    Ctrl+Alt+Return { spawn "ghostty" "+new-window"; }
     Ctrl+Alt+Backslash { spawn "waterfox" "--browser";}
     Ctrl+Alt+Backspace { spawn "vicinae" "toggle";}
+
     Ctrl+BackSpace repeat=false hotkey-overlay-title="Toggle Dictation: Handy" { spawn "handy" "--toggle-transcription"; }
     // Push-to-talk for Handy. It needs niri newer than 26.04, which adds press and release binds.
     // Handy has only a toggle, so both actions toggle. If Handy misses one, press the key once to fix it.
@@ -294,10 +294,15 @@ binds {
         press { spawn "handy" "--toggle-transcription"; }
         release { spawn "handy" "--toggle-transcription"; }
     }
+
     Mod+Control+V { spawn "vicinae" "vicinae://launch/clipboard/history" ;}
     Mod+Control+Space { spawn "vicinae" "vicinae://launch/wm/switch-windows" ;}
     Mod+Semicolon { spawn "vicinae" "vicinae://launch/core/search-emojis" ;}
-    Ctrl+Alt+Space { spawn "vicinae" "vicinae://launch/browser-extension/browse-bookmarks";}
     Mod+N hotkey-overlay-title="Notification Actions: mako" { spawn-sh "~/.sh/mako-menu"; }
+
+    Mod+Ctrl+Shift+A hotkey-overlay-title="Pi Assistant" { spawn-sh "ghostty --class=dev.zoid.pi-assistant --theme='Catppuccin Frappe' -e ~/.local/bin/pi-assistant"; }
+
+    Mod+Shift+O { focus-workspace "pleasure";}
+    Mod+Shift+P { focus-workspace "productivity";}
 
 }

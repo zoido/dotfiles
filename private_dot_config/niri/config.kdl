@@ -98,6 +98,7 @@ gestures {
 }
 
 include "layout.kdl"
+include "workspaces.kdl"
 include "rules.kdl"
 include "binds.kdl"
 
