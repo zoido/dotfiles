@@ -52,6 +52,10 @@ keybindings:
         ~/.sh/confirm-pr {{.PrNumber}} 'Rebase, re-sign & force push' || exit 0;
         ~/.sh/rebase-and-push-pr {{.PrNumber}} || read -P 'Press enter to close...'
         "
+    - key: d
+      name: Diff
+      command: >
+        ~/.sh/term-run --cwd {{.RepoPath}} -- fish -c "gh pr diff {{.PrNumber}} -R {{.RepoName}} | diffnav"
     - key: D
       name: Review (tuicr)
       command: >
