@@ -57,29 +57,6 @@ window-rule {
     }
 }
 
-layer-rule {
-    match namespace="ghostty-quick-terminal"
-
-    shadow {
-        on
-        // off
-        softness 40
-        spread 5
-        offset x=0 y=5
-        draw-behind-window true
-        color "#00000064"
-        // inactive-color "#00000064"
-    }
-
-    background-effect {
-        xray true
-        blur true
-        noise 0.05
-        saturation 3
-    }
-
-}
-
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {

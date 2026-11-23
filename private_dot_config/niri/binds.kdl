@@ -275,7 +275,7 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 
-    Mod+T { spawn "ghostty" "+toggle-quick-terminal"; }
+    Mod+Shift+T { spawn "obsidian" "daily" "paneType=window"; }
     Ctrl+Alt+Return { spawn "ghostty" "+new-window"; }
     Mod+E hotkey-overlay-title="File Manager: lf" { spawn "ghostty" "+new-window" "--command=lf"; }
     Mod+Ctrl+Shift+A hotkey-overlay-title="Pi Assistant" { spawn-sh "ghostty --class=dev.zoid.pi-assistant --theme='Catppuccin Frappe' -e ~/.local/bin/pi-assistant"; }
