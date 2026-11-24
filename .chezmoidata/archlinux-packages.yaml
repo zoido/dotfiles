@@ -62,6 +62,7 @@ packages:
   - jq
   - k9s
   - kagi-cli # Kagi search from the command line. The Pi assistant uses its MCP server.
+  - kanshi # Dynamix output configuration with wayland.
   - kitty # Provides 'kitten icat' to show images in the terminal.
   - kiwix-desktop # Offline reader for Wikipedia and other web content.
   - kiwix-tools # Command-line tools for Kiwix, for example 'kiwix-serve'.
