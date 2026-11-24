@@ -11,7 +11,7 @@ pacman -S --needed --noconfirm interception-tools interception-caps2esc
 # The udevmon service reads this job and starts caps2esc for each input device
 # that has a Caps Lock key.
 install -Dm644 /dev/stdin /etc/interception/udevmon.d/caps2esc.yaml <<'EOF'
-- JOB: intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE
+- JOB: intercept -g $DEVNODE | caps2esc -m 1 | uinput -d $DEVNODE
   DEVICE:
     EVENTS:
       EV_KEY: [KEY_CAPSLOCK]
