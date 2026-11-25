@@ -3,5 +3,13 @@
     "alt+e",
     "ctrl+e"
   ],
-  "app.clipboard.pasteImage": []
+  "app.clipboard.pasteImage": [],
+  "tui.input.newLine": [
+    "enter",
+    "shift+enter",
+    "ctrl+j"
+  ],
+  "tui.input.submit": [
+    "ctrl+enter"
+  ]
 }

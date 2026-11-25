@@ -20,3 +20,6 @@ shell-integration-features = sudo,cursor,ssh-env,ssh-terminfo
 quick-terminal-position = center
 quick-terminal-size = 50%,50%
 gtk-quick-terminal-namespace = ghostty-quick-terminal
+
+# Pass Ctrl+Enter through to programs.
+keybind = ctrl+enter=unbind
