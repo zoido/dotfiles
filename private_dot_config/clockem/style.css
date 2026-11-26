@@ -1,0 +1,19 @@
+* {
+    background-color: transparent;
+    color: #cad3f5;
+    font-family: "JetBrainsMono NF", sans-serif;
+}
+
+.clock-top {
+    font-size: 72px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(24, 25, 38, 0.7);
+}
+
+.clock-bottom {
+    font-size: 24px;
+    font-weight: 500;
+    color: #b8c0e0;
+    margin-bottom: 24px;
+    text-shadow: 0 1px 6px rgba(24, 25, 38, 0.7);
+}

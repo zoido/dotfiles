@@ -1,0 +1,9 @@
+[Unit]
+Description=clockem
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/clockem
+Restart=on-failure

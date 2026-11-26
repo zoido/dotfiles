@@ -14,6 +14,7 @@ packages:
   - bat # 'cat' with syntax highlighting.
   - batsignal # Battery monitor daemon.
   - chafa # Image-to-text converter, optional dependency of Offpunk.
+  - clockem-git # Desktop clock widget for Wayland.
   - codebook-lsp # Spellchecker LSP.
   - curl # Optional dependency of Offpunk for HTTP requests.
   - diffnav
