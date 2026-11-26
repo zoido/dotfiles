@@ -37,7 +37,7 @@ pacman -S --needed --noconfirm iwd impala
 mkdir -p "$(dirname "${conf_file}")"
 cat > "${conf_file}" << 'EOF'
 [General]
-AddressRandomization=once
+AddressRandomization=network
 AddressRandomizationRange=full
 EnableNetworkConfiguration=true
 EOF
