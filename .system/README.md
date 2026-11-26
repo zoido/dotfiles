@@ -13,3 +13,5 @@ You can also run one script alone. Each script describes what it does in the com
 The scripts in `laptop/` set up laptops. `setup.sh` runs them only if `~/.config/zoido/host/laptop` contains `true`. Chezmoi writes this file from your answer to the laptop question, so run `chezmoi apply` before `setup.sh`.
 
 The scripts in `backup/` set up backups. Only some machines need them, so `setup.sh` does not run them. Run each one yourself on the machines that need it.
+
+The scripts in `optional/` set up optional features. Only some machines need them, so `setup.sh` does not run them. Run each one yourself on the machines that need it.

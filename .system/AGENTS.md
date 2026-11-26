@@ -6,6 +6,8 @@ The scripts in `laptop/` set up laptops. `setup.sh` runs `laptop/setup.sh` last.
 
 The scripts in `backup/` set up backups. Only some machines need them, so `setup.sh` does not run them, and the user runs them by hand. They follow the same rules as the other scripts. Their files are in `backup/`, next to the script.
 
+The scripts in `optional/` set up optional features that only some machines need. `setup.sh` does not run them, and the user runs them by hand. They have no numeric prefix, because they do not run in a fixed order. They follow the same rules as the other scripts.
+
 ## Add a script
 
 1. Create `NN-name.sh`. `NN` is a two-digit number that shows the position of the script in the run order. Use a free number between the numbers of the scripts that run before and after it.
@@ -27,6 +29,8 @@ The scripts in `backup/` set up backups. Only some machines need them, so `setup
 If the script sets up only laptops, create it in `laptop/`. Name it `5NN-name.sh`, with a three-digit number from 500 to 599, and add it to the `scripts` list in `laptop/setup.sh`.
 
 If the script sets up backups, create it in `backup/` and skip step 4. Give it a number after the numbers of the scripts in `setup.sh`.
+
+If the script sets up an optional feature, create it in `optional/` as `name.sh`, without a number, and skip step 4. If it installs files, put them in `optional/<name>/`.
 
 ## Rules for scripts
 
