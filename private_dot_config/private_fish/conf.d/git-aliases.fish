@@ -12,7 +12,7 @@ abbr -a gswm 'git switch (git_main_branch)'
 abbr -a gswd 'git switch (git_develop_branch)'
 abbr -a ggc 'tv git-log --inline'
 abbr -a dz --command git -- --color-moved=dimmed-zebra
-
+abbr -a ggl 'git log -1 --format=%s\n\n%b'
 # Add
 abbr -a ga 'git add'
 abbr -a gaa 'git add --all'
