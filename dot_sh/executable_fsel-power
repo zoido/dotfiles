@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Runs a power action (sleep, restart, or shutdown) directly or via fsel.
+
+set -euo pipefail
+
+action=${1:-}
+action=${action#"${action%%[![:space:]]*}"}
+action=${action%"${action##*[![:space:]]}"}
+
+case "$action" in
+    sleep | restart | shutdown) ;;
+    *)
+        fsel_args=(--dmenu --only-match)
+        if [[ -n $action ]]; then
+            fsel_args+=(-ss "$action")
+        fi
+        action=$(printf '%s\n' sleep restart shutdown | fsel "${fsel_args[@]}") || exit 0
+        ;;
+esac
+
+case "$action" in
+    sleep) systemctl sleep ;;
+    restart) systemctl reboot ;;
+    shutdown) systemctl poweroff ;;
+esac

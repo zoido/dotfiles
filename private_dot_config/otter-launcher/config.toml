@@ -97,6 +97,12 @@ prefix = "mon"
 cmd = "$HOME/.sh/fsel-kanshi"
 
 [[modules]]
+description = "power actions"
+prefix = "pwr"
+cmd = '$HOME/.sh/fsel-power "{}"'
+with_argument = true
+
+[[modules]]
 description = "add note to daily note"
 prefix = "in"
 cmd = '$HOME/.sh/obsidian-daily-add n Notes "{}"'
