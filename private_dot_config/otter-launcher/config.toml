@@ -92,6 +92,12 @@ prefix = "not"
 cmd = "$HOME/.sh/mako-menu"
 
 [[modules]]
+description = "add note to daily note"
+prefix = "in"
+cmd = '$HOME/.sh/obsidian-daily-add n Notes "{}"'
+with_argument = true
+
+[[modules]]
 description = "open lf in zoxide dir"
 prefix = "lf"
 cmd = 'dir=$(zoxide query -- {}) && ghostty +new-window --working-directory="$dir" --command=lf'
