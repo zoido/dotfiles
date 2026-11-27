@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+# Switches the active kanshi display profile using fsel.
+
+set -euo pipefail
+
+config="${XDG_CONFIG_HOME:-$HOME/.config}/kanshi/config"
+
+if ! status=$(kanshictl status 2>&1); then
+    notify-send "Kanshi" "The kanshi daemon is not running."
+    exit 1
+fi
+
+current=$(sed -n 's/^Current profile: //p' <<<"$status")
+
+declare -A seen_files=()
+declare -A seen_profiles=()
+profiles=()
+
+collect_profiles() {
+    local file=$1
+    [[ -r $file ]] || return 0
+    [[ -z ${seen_files[$file]:-} ]] || return 0
+    seen_files[$file]=1
+
+    local dir line pattern expanded name
+    dir=$(dirname "$file")
+    while IFS= read -r line || [[ -n $line ]]; do
+        line=${line%%#*}
+        if [[ $line =~ ^[[:space:]]*include[[:space:]]+(.+)$ ]]; then
+            pattern=${BASH_REMATCH[1]}
+            pattern=${pattern%"${pattern##*[![:space:]]}"}
+            pattern=${pattern#\"}
+            pattern=${pattern%\"}
+            pattern=${pattern/#\~/$HOME}
+            if [[ $pattern != /* ]]; then
+                pattern="$dir/$pattern"
+            fi
+            shopt -s nullglob
+            for expanded in $pattern; do
+                collect_profiles "$expanded"
+            done
+            shopt -u nullglob
+        elif [[ $line =~ ^[[:space:]]*profile[[:space:]]+\"([^\"]+)\"[[:space:]]*\{ ]]; then
+            name=${BASH_REMATCH[1]}
+            if [[ -z ${seen_profiles[$name]:-} ]]; then
+                seen_profiles[$name]=1
+                profiles+=("$name")
+            fi
+        elif [[ $line =~ ^[[:space:]]*profile[[:space:]]+([^[:space:]\{]+)[[:space:]]*\{ ]]; then
+            name=${BASH_REMATCH[1]}
+            if [[ -z ${seen_profiles[$name]:-} ]]; then
+                seen_profiles[$name]=1
+                profiles+=("$name")
+            fi
+        fi
+    done <"$file"
+}
+
+collect_profiles "$config"
+
+if (( ${#profiles[@]} == 0 )); then
+    notify-send "Kanshi" "No named profiles exist in $config."
+    exit 0
+fi
+
+choice=$(
+    for name in "${profiles[@]}"; do
+        if [[ $name == "$current" ]]; then
+            printf '%s\t%s (active)\n' "$name" "$name"
+        else
+            printf '%s\t%s\n' "$name" "$name"
+        fi
+    done | fsel --dmenu --only-match --delimiter=$'\t' --with-nth=2 --match-nth=2 --accept-nth=1
+) || exit 0
+
+[[ -n $choice ]] || exit 0
+
+if ! err=$(kanshictl switch "$choice" 2>&1); then
+    notify-send "Kanshi" "$err"
+    exit 1
+fi

@@ -92,6 +92,11 @@ prefix = "not"
 cmd = "$HOME/.sh/mako-menu"
 
 [[modules]]
+description = "switch display profile"
+prefix = "mon"
+cmd = "$HOME/.sh/fsel-kanshi"
+
+[[modules]]
 description = "add note to daily note"
 prefix = "in"
 cmd = '$HOME/.sh/obsidian-daily-add n Notes "{}"'
