@@ -6,6 +6,7 @@
     "npm:@clapecho233/pi-smart-fold@0.2.3",
     "npm:pi-memory@0.4.2"
   ],
+  "lastChangelogVersion": "999.999.999",
   "editorPaddingX": 1,
   "terminal": {
     "showTerminalProgress": true

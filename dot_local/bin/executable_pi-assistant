@@ -7,6 +7,7 @@ set -euo pipefail
 
 export PI_CODING_AGENT_DIR="$HOME/.pi/assistant"
 export PI_MEMORY_DIR="$PI_CODING_AGENT_DIR/memory"
+export PI_SKIP_VERSION_CHECK=1
 
 workdir=$(mktemp -d -t pi-assistant.XXXXXX)
 trap 'rm -rf "$workdir"' EXIT
