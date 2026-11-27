@@ -88,3 +88,17 @@ unbind_proc = true
 description = "notification actions"
 prefix = "not"
 cmd = "$HOME/.sh/mako-menu"
+
+[[modules]]
+description = "open lf in zoxide dir"
+prefix = "lf"
+cmd = 'dir=$(zoxide query -- {}) && ghostty +new-window --working-directory="$dir" --command=lf'
+with_argument = true
+unbind_proc = true
+
+[[modules]]
+description = "open terminal in zoxide dir"
+prefix = "t"
+cmd = 'dir=$(zoxide query -- {}) && ghostty +new-window --working-directory="$dir"'
+with_argument = true
+unbind_proc = true
