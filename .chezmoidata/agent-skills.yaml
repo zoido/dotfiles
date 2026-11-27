@@ -6,25 +6,25 @@ packages:
         commit: 300432a9e4c473229a7049ab61b8ca2522d9214c # v2.1.2
       - repo: max-sixty/worktrunk
         skill: wt-switch-create
-        commit: 66f0bf981ec2fad1feef8a1d816f20710d2bdb0d # v0.82.0
+        commit: da19a7ac8fc58b33e49ae840e5bb24f4de0661cc # v0.83.0
       - repo: max-sixty/worktrunk
         skill: worktrunk
-        commit: 66f0bf981ec2fad1feef8a1d816f20710d2bdb0d # v0.82.0
+        commit: da19a7ac8fc58b33e49ae840e5bb24f4de0661cc # v0.83.0
       - repo: anthropics/skills
         skill: skill-creator
-        commit: b9e19e6f44773509fbdd7001d77ff41a49a486c1 # main (2026-04-20)
+        commit: e4bb5d960d87126ff3b3a8af1a104b7db67560ba # main (2026-11-16)
       - repo: kepano/obsidian-skills
         skill: obsidian-cli
-        commit: caf3e98cd22d810db164f26c9a442f0a280daa43 # main (2026-11-16)
+        commit: a53f5910cd68e7bad88ea52f2f4eb95b9aa40800 # 1.2.3
       - repo: kepano/obsidian-skills
         skill: obsidian-bases
-        commit: caf3e98cd22d810db164f26c9a442f0a280daa43 # main (2026-11-16)
+        commit: a53f5910cd68e7bad88ea52f2f4eb95b9aa40800 # 1.2.3
       - repo: kepano/obsidian-skills
         skill: obsidian-markdown
-        commit: caf3e98cd22d810db164f26c9a442f0a280daa43 # main (2026-11-16)
+        commit: a53f5910cd68e7bad88ea52f2f4eb95b9aa40800 # 1.2.3
       - repo: agavra/tuicr
         skill: tuicr
-        commit: 52a56e1a471960511c693f21a539c81ff934af55 # v0.28.0
+        commit: 502c435dbd1f4d4814e580eb476dad19f478cd70 # v0.30.0
     local:
       - change-scope
       - classifiers
@@ -32,5 +32,5 @@ packages:
       - git-branch-stacking
       - gitmoji
       - go-code-guidelines
-      - humanizer # Vendored from blader/humanizer v3.1.0 (225a6f3): gh skill cannot install a root-level SKILL.md.
+      - humanizer # Vendored from blader/humanizer v4.0.0 (b48c832): gh skill cannot install a root-level SKILL.md.
       - pr-guidelines
