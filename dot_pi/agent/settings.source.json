@@ -25,6 +25,7 @@
     "+codemode"
   ],
   "tuiMode": "regular",
+  "treeFilterMode": "no-tools",
   "hideThinkingBlock": false,
   "extensionChangelogVersions": {
     "{\"source\":\"npm:pi-memory@0.4.2\",\"scope\":\"user\"}": "0.4.2"
