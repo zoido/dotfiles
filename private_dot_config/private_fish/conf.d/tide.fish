@@ -125,7 +125,7 @@ set -g tide_jai_jail_color yellow
 set -g tide_shlvl_bg_color normal
 set -g tide_shlvl_color normal
 set -g tide_shlvl_icon ''
-set -g tide_shlvl_threshold 2
+set -g tide_shlvl_threshold 4
 
 # OS
 set -g tide_os_bg_color normal
