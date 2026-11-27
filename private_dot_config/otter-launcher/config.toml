@@ -7,6 +7,8 @@ external_editor = "hx"
 
 # Catppuccin Macchiato colors.
 [interface]
+suggestion_mode = "list"
+suggestion_position = "bottom"
 header_color = "#b7bdf8"           # Lavender
 prompt_sign_color = "#c6a0f6"      # Mauve
 placeholder_color = "#6e738d"      # Overlay0
