@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Toggles a floating Ghostty popup window for launcher commands.
+
+set -euo pipefail
+
+app_id="dev.zoid.launcher"
+
+existing_id=$(
+    niri msg -j windows | jq -r --arg app_id "$app_id" '.[] | select(.app_id == $app_id) | .id' | head -n 1
+) || true
+
+if [[ -n $existing_id ]]; then
+    niri msg action close-window --id "$existing_id"
+    exit 0
+fi
+
+exec ghostty --class="$app_id" -e "$@"

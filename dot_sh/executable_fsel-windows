@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Switches focus to a niri window chosen with fsel.
+
+set -euo pipefail
+
+if [[ -z ${NIRI_SOCKET:-} ]]; then
+    shopt -s nullglob
+    sockets=("${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"/niri.*.sock)
+    shopt -u nullglob
+    for sock in "${sockets[@]}"; do
+        if NIRI_SOCKET="$sock" niri msg version >/dev/null 2>&1; then
+            export NIRI_SOCKET="$sock"
+            break
+        fi
+    done
+fi
+
+choice=$(
+    niri msg -j windows \
+        | jq -r '.[] | select(.app_id != "dev.zoid.launcher") | "\(.id)\t\(.app_id // "")\t\(.title // "")"' \
+        | fsel --dmenu --only-match --delimiter=$'\t' --with-nth=2,3 --match-nth=2,3 --accept-nth=1
+) || exit 0
+
+[[ -n $choice ]] || exit 0
+niri msg action focus-window --id "$choice"

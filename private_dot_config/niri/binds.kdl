@@ -284,7 +284,7 @@ binds {
 
     Ctrl+Alt+Return { spawn "ghostty" "+new-window"; }
     Ctrl+Alt+Backslash { spawn "waterfox" "--browser";}
-    Ctrl+Alt+Backspace { spawn "vicinae" "toggle";}
+    Ctrl+Alt+Backspace hotkey-overlay-title="Launcher: otter-launcher" { spawn-sh "~/.sh/fsel-popup otter-launcher"; }
 
     Ctrl+BackSpace repeat=false hotkey-overlay-title="Toggle Dictation: Handy" { spawn "handy" "--toggle-transcription"; }
     // Push-to-talk for Handy. It needs niri newer than 26.04, which adds press and release binds.
@@ -295,10 +295,10 @@ binds {
         release { spawn "handy" "--toggle-transcription"; }
     }
 
-    Mod+Control+V { spawn "vicinae" "vicinae://launch/clipboard/history" ;}
-    Mod+Control+Space { spawn "vicinae" "vicinae://launch/wm/switch-windows" ;}
-    Mod+Semicolon { spawn "vicinae" "vicinae://launch/core/search-emojis" ;}
-    Mod+N hotkey-overlay-title="Notification Actions: mako" { spawn-sh "~/.sh/mako-menu"; }
+    Mod+Control+V hotkey-overlay-title="Clipboard History: fsel" { spawn-sh "~/.sh/fsel-popup ~/.sh/fsel-clipboard"; }
+    Mod+Control+Space hotkey-overlay-title="Switch Windows: fsel" { spawn-sh "~/.sh/fsel-popup ~/.sh/fsel-windows"; }
+    Mod+Semicolon hotkey-overlay-title="Emoji Picker: fsel" { spawn-sh "~/.sh/fsel-popup ~/.sh/fsel-emoji"; }
+    Mod+N hotkey-overlay-title="Notification Actions: mako" { spawn-sh "~/.sh/fsel-popup ~/.sh/mako-menu"; }
 
     Mod+Ctrl+Shift+A hotkey-overlay-title="Pi Assistant" { spawn-sh "ghostty --class=dev.zoid.pi-assistant --theme='Catppuccin Frappe' -e ~/.local/bin/pi-assistant"; }
 

@@ -33,7 +33,7 @@ Keep the plain file endings in each `file-types` list. Helix replaces the built-
 Put each script in one of two folders:
 
 - [dot_local/bin/](dot_local/bin/) installs to `~/.local/bin`, which is on `PATH`. Put commands here that I run by hand in a shell. Small shims that stand in for a program name (`gs`, `hx`) also go here.
-- [dot_sh/](dot_sh/) installs to `~/.sh`, which is not on `PATH`. Put helpers here that only config files or other scripts run, for example from key bindings, gh-dash, Helix, niri, or vicinae.
+- [dot_sh/](dot_sh/) installs to `~/.sh`, which is not on `PATH`. Put helpers here that only config files or other scripts run, for example from key bindings, gh-dash, Helix, niri, or otter-launcher.
 
 ## Testing
 

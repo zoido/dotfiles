@@ -1,0 +1,85 @@
+[general]
+height = 0
+empty_module = "apps"
+default_module = "search"
+cheatsheet_entry = "?"
+external_editor = "hx"
+
+# Catppuccin Macchiato colors.
+[interface]
+header_color = "#b7bdf8"           # Lavender
+prompt_sign_color = "#c6a0f6"      # Mauve
+placeholder_color = "#6e738d"      # Overlay0
+prefix_color = "#b7bdf8"           # Lavender
+description_color = "#cad3f5"      # Text
+selection_prefix_color = "#f5bde6" # Pink
+list_prefix_color = "#494d64"      # Surface1
+indicator_color = "#f5a97f"        # Peach
+separator_color = "#494d64"        # Surface1
+
+header = """
+$(
+load=$(awk 'NR == 1 {print $1"%"}' /proc/loadavg)
+mem=$(free -h | awk 'NR == 2 {print $3}' | sed 's/Gi/0G/')
+
+left="$USER@$HOSTNAME"
+left="> $left"
+right="> $load%  > $mem"
+
+gap=$(( COLUMNS - ${#left} - ${#right} ))
+(( gap < 0 )) && gap=0
+
+printf '\x1b[34;1m> \x1b[0m%s@%s%*s\x1b[31;1m> \x1b[0m%s  \x1b[33;1m> \x1b[0m%s' "$USER" "$HOSTNAME" "$gap" '' "$load" "$mem")"""
+
+[[modules]]
+description = "kagi search"
+prefix = "kk"
+cmd = "xdg-open https://kagi.com/search?q='{}'"
+with_argument = true
+url_encode = true
+unbind_proc = true
+
+[[modules]]
+description = "search archwiki"
+prefix = "aw"
+cmd = "xdg-open https://wiki.archlinux.org/index.php?search='{}'"
+with_argument = true
+url_encode = true
+unbind_proc = true
+
+[[modules]]
+description = "Browse apps with fsel"
+prefix = "apps"
+cmd = "fsel -d"
+
+[[modules]]
+description = "Search apps with fsel"
+prefix = "search"
+cmd = 'fsel -d -ss "{}"'
+with_argument = true
+
+[[modules]]
+description = "Launch app directly"
+prefix = "app"
+cmd = 'fsel -d -p "{}"'
+with_argument = true
+
+[[modules]]
+description = "clipboard history"
+prefix = "cl"
+cmd = "$HOME/.sh/fsel-clipboard"
+
+[[modules]]
+description = "switch window"
+prefix = "win"
+cmd = "$HOME/.sh/fsel-windows"
+
+[[modules]]
+description = "pick emoji"
+prefix = "em"
+cmd = "$HOME/.sh/fsel-emoji"
+
+[[modules]]
+description = "notification actions"
+prefix = "not"
+cmd = "$HOME/.sh/mako-menu"

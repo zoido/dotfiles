@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Picks a clipboard entry with fsel and pastes it after the popup closes.
+
+set -euo pipefail
+
+if ! entries=$(cclip list 2>/dev/null); then
+    notify-send "Clipboard" "cclipd is not running or its database does not exist."
+    exit 1
+fi
+
+if [[ -z $entries ]]; then
+    notify-send "Clipboard" "Clipboard history is empty."
+    exit 0
+fi
+
+fsel --cclip || exit 0
+
+setsid -f sh -c 'sleep 0.2; exec wtype -M shift -k Insert -m shift' </dev/null >/dev/null 2>&1

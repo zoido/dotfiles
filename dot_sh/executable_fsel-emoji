@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Picks an emoji with fsel, remembers recent picks at the top, copies it, and types it.
+
+set -euo pipefail
+
+emoji_file="/usr/share/rofi-emoji/all_emojis.txt"
+if [[ ! -r $emoji_file ]]; then
+    echo "Emoji list not found: $emoji_file" >&2
+    exit 1
+fi
+
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/fsel-emoji"
+recent_file="$state_dir/recent"
+
+selection=$(
+    {
+        if [[ -r $recent_file ]]; then
+            cat "$recent_file"
+        fi
+        cat "$emoji_file"
+    } \
+        | awk -F'\t' '!seen[$1]++' \
+        | fsel --dmenu --only-match --delimiter=$'\t' --with-nth=1,4 --match-nth=1,4,5
+) || exit 0
+
+[[ -n $selection ]] || exit 0
+emoji=${selection%%$'\t'*}
+
+mkdir -p "$state_dir"
+tmp_file=$(mktemp "$state_dir/recent.XXXXXX")
+{
+    printf '%s\n' "$selection"
+    if [[ -r $recent_file ]]; then
+        cat "$recent_file"
+    fi
+} | awk -F'\t' '!seen[$1]++ && ++count <= 100' >"$tmp_file"
+mv "$tmp_file" "$recent_file"
+
+printf '%s' "$emoji" | wl-copy
+printf '%s' "$emoji" | wl-copy --primary
+setsid -f sh -c 'sleep 0.2; exec wtype -M shift -k Insert -m shift' </dev/null >/dev/null 2>&1

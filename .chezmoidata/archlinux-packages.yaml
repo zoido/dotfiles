@@ -13,6 +13,7 @@ packages:
   - bash-language-server
   - bat # 'cat' with syntax highlighting.
   - batsignal # Battery monitor daemon.
+  - cclip # Wayland clipboard manager daemon and CLI.
   - chafa # Image-to-text converter, optional dependency of Offpunk.
   - codebook-lsp # Spellchecker LSP.
   - curl # Optional dependency of Offpunk for HTTP requests.
@@ -31,6 +32,7 @@ packages:
   - fish
   - fisher # Fish plugin manager.
   - fish-lsp
+  - fsel-bin # TUI app launcher and fuzzy finder.
   - fx # Interactive JSON viewer.
   - fzf
   - gdu # 'du' alternative.
@@ -88,6 +90,7 @@ packages:
   - offpunk # Offline command-line browser for the web, Gemini, Gopher, and feeds.
   - oo7 # Secret service provider.
   - openssh
+  - otter-launcher # Keyboard-driven TUI launcher front-end.
   - ouch # Compress and decompress many archive formats.
   - perl-image-exiftool # Provides 'exiftool' for lf previews.
   - pi-coding-agent-bin
@@ -110,6 +113,7 @@ packages:
   - qmd # Local search engine for markdown files.
   - reflector # Ranks Arch mirrors.
   - ripgrep # Fast 'grep' alternative.
+  - rofi-emoji # Provides the emoji list used by fsel-emoji.
   - sabiql # Interactive wrapper around psql.
   - scooter # Interactive search and replace.
   - shellcheck # Shell script linter.
@@ -139,7 +143,6 @@ packages:
   - unzip
   - uv
   - vcluster-bin
-  - vicinae-bin # Application launcher and command palette.
   - viddy # 'watch' alternative.
   - viu # Terminal image viewer.
   - vscode-json-languageserver

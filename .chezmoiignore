@@ -3,7 +3,6 @@ README.md
 bootstrap.sh
 bootstrap.bat
 
-.config/vicinae.source
 
 .chezmoiscripts/*install-llama-models.sh
 

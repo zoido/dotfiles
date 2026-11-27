@@ -5,7 +5,7 @@ choice=$(
     {
         echo "all: Dismiss all"
         makoctl list -j | jq -r '.[] | "\(.id): \(.app_name) - \(.summary)"'
-    } | vicinae dmenu --placeholder "Notification"
+    } | fsel --dmenu --only-match
 ) || exit 0
 [[ -n $choice ]] || exit 0
 
@@ -19,7 +19,7 @@ action=$(
     {
         makoctl list -j | jq -r --argjson id "$id" '.[] | select(.id == $id) | .actions // {} | to_entries[] | "\(.key): \(.value)"'
         echo "dismiss: Dismiss"
-    } | vicinae dmenu --navigation-title "Notification actions"
+    } | fsel --dmenu --only-match
 ) || exit 0
 [[ -n $action ]] || exit 0
 

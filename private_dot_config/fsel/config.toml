@@ -1,0 +1,30 @@
+terminal_launcher = "ghostty -e"
+selection_marker = "▌"
+show_input_count = false
+show_panel_titles = false
+show_input_border = false
+show_input_prompt = false
+input_panel_style = "command"
+show_main_border = false
+pin_icon = "*"
+
+# Catppuccin Macchiato colors.
+highlight_color = "rgb(198,160,246)"                # Mauve
+main_border_color = "rgb(73,77,100)"                # Surface1
+items_border_color = "rgb(73,77,100)"               # Surface1
+input_border_color = "rgb(183,189,248)"             # Lavender
+items_selection_background_color = "rgb(54,58,79)"  # Surface0
+main_text_color = "rgb(165,173,203)"                # Subtext0
+items_text_color = "rgb(202,211,245)"               # Text
+input_text_color = "rgb(202,211,245)"               # Text
+header_title_color = "rgb(183,189,248)"             # Lavender
+pin_color = "rgb(245,169,127)"                      # Peach
+pinned_text_color = "rgb(238,212,159)"              # Yellow
+pinned_highlight_color = "rgb(245,169,127)"         # Peach
+pinned_selection_background_color = "rgb(54,58,79)" # Surface0
+
+[app_launcher]
+filter_actions = true
+auto_hide_duplicates = true
+
+
