@@ -77,7 +77,8 @@ cmd = "$HOME/.sh/fsel-windows"
 [[modules]]
 description = "pick emoji"
 prefix = "em"
-cmd = "$HOME/.sh/fsel-emoji"
+cmd = "$HOME/.sh/fsel-popup --class dev.zoid.launcher.emoji $HOME/.sh/fsel-emoji"
+unbind_proc = true
 
 [[modules]]
 description = "notification actions"

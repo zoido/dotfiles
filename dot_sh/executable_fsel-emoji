@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
-# Picks an emoji with fsel, remembers recent picks at the top, copies it, and types it.
+# Picks an emoji with fsel, previews it in a side panel, remembers recent picks, and pastes it.
 
 set -euo pipefail
+
+if [[ ${1:-} == --preview ]]; then
+    emoji=${2%%$'\t'*}
+    [[ -n $emoji ]] || exit 0
+    cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/fsel-emoji"
+    mkdir -p "$cache_dir"
+    png="$cache_dir/$(printf '%s' "$emoji" | cksum | cut -d' ' -f1).png"
+    if [[ ! -f $png ]]; then
+        pango-view -q --no-display --background=transparent --font="Noto Color Emoji 128" --text="$emoji" --output="$png"
+    fi
+    exec cat "$png"
+fi
 
 emoji_file="/usr/share/rofi-emoji/all_emojis.txt"
 if [[ ! -r $emoji_file ]]; then
@@ -20,7 +32,9 @@ selection=$(
         cat "$emoji_file"
     } \
         | awk -F'\t' '!seen[$1]++' \
-        | fsel --dmenu --only-match --delimiter=$'\t' --with-nth=1,4 --match-nth=1,4,5
+        | FSEL_DMENU_TITLE_PANEL_HEIGHT_PERCENT=0 \
+          fsel --dmenu --only-match --delimiter=$'\t' --with-nth=1,4 --match-nth=1,4,5 \
+          --panel "Emoji:right:35:$0 --preview {}"
 ) || exit 0
 
 [[ -n $selection ]] || exit 0

@@ -17,7 +17,7 @@ fi
 
 choice=$(
     niri msg -j windows \
-        | jq -r '.[] | select(.app_id != "dev.zoid.launcher") | "\(.id)\t\(.app_id // "")\t\(.title // "")"' \
+        | jq -r '.[] | select((.app_id // "") | test("^dev\\.zoid\\.launcher(\\.|$)") | not) | "\(.id)\t\(.app_id // "")\t\(.title // "")"' \
         | fsel --dmenu --only-match --delimiter=$'\t' --with-nth=2,3 --match-nth=2,3 --accept-nth=1
 ) || exit 0
 

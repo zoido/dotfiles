@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # Toggles a floating Ghostty popup window for launcher commands.
+# Usage: fsel-popup [--class <app_id>] <command> [args...]
 
 set -euo pipefail
 
 app_id="dev.zoid.launcher"
+if [[ ${1:-} == --class ]]; then
+    app_id=$2
+    shift 2
+fi
 
 existing_id=$(
     niri msg -j windows | jq -r --arg app_id "$app_id" '.[] | select(.app_id == $app_id) | .id' | head -n 1

@@ -27,7 +27,7 @@ window-rule {
 
 // Float the launcher popup window with Ghostty's transparent blur effect.
 window-rule {
-    match app-id=r#"^dev\.zoid\.launcher$"#
+    match app-id=r#"^dev\.zoid\.launcher(\.|$)"#
     open-floating true
     default-column-width { fixed 500; }
     default-window-height { fixed 430; }
@@ -39,6 +39,13 @@ window-rule {
         noise 0.05
         saturation 3
     }
+}
+
+// Give the emoji picker more room for its preview panel.
+window-rule {
+    match app-id=r#"^dev\.zoid\.launcher\.emoji$"#
+    default-column-width { fixed 760; }
+    default-window-height { fixed 520; }
 }
 
 // Float the Pi assistant window.
