@@ -282,15 +282,15 @@ binds {
 
     Mod+Shift+Backslash { spawn "1password" "--quick-access";}
 
-    Ctrl+Alt+Return { spawn "ghostty" "+new-window"; }
-    Ctrl+Alt+Backslash { spawn "waterfox" "--browser";}
-    Ctrl+Alt+Backspace hotkey-overlay-title="Launcher: otter-launcher" { spawn-sh "~/.sh/fsel-popup otter-launcher"; }
+    Mod+Return { spawn "ghostty" "+new-window"; }
+    Mod+B { spawn "waterfox" "--browser"; }
+    Mod+Space hotkey-overlay-title="Launcher: otter-launcher" { spawn-sh "~/.sh/fsel-popup otter-launcher"; }
 
-    Ctrl+BackSpace repeat=false hotkey-overlay-title="Toggle Dictation: Handy" { spawn "handy" "--toggle-transcription"; }
+    Mod+BackSpace repeat=false hotkey-overlay-title="Toggle Dictation: Handy" { spawn "handy" "--toggle-transcription"; }
     // Push-to-talk for Handy. It needs niri newer than 26.04, which adds press and release binds.
     // Handy has only a toggle, so both actions toggle. If Handy misses one, press the key once to fix it.
-    // To use it, remove the "/-" below and remove the Ctrl+BackSpace bind above.
-    /-Ctrl+BackSpace hotkey-overlay-title="Push to Talk: Handy" {
+    // To use it, remove the "/-" below and remove the Mod+BackSpace bind above.
+    /-Mod+BackSpace hotkey-overlay-title="Push to Talk: Handy" {
         press { spawn "handy" "--toggle-transcription"; }
         release { spawn "handy" "--toggle-transcription"; }
     }
