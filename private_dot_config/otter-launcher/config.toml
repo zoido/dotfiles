@@ -75,7 +75,8 @@ cmd = "$HOME/.sh/fsel-clipboard"
 [[modules]]
 description = "switch window"
 prefix = "win"
-cmd = "$HOME/.sh/fsel-windows"
+cmd = "$HOME/.sh/fsel-popup --class dev.zoid.launcher.windows $HOME/.sh/fsel-windows"
+unbind_proc = true
 
 [[modules]]
 description = "pick emoji"

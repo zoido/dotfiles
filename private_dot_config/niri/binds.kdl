@@ -296,7 +296,7 @@ binds {
     }
 
     Mod+Control+V hotkey-overlay-title="Clipboard History: fsel" { spawn-sh "~/.sh/fsel-popup ~/.sh/fsel-clipboard"; }
-    Mod+Control+Space hotkey-overlay-title="Switch Windows: fsel" { spawn-sh "~/.sh/fsel-popup ~/.sh/fsel-windows"; }
+    Mod+Control+Space hotkey-overlay-title="Switch Windows: fsel" { spawn-sh "~/.sh/fsel-popup --class dev.zoid.launcher.windows ~/.sh/fsel-windows"; }
     Mod+Semicolon hotkey-overlay-title="Emoji Picker: fsel" { spawn-sh "~/.sh/fsel-popup --class dev.zoid.launcher.emoji ~/.sh/fsel-emoji"; }
     Mod+N hotkey-overlay-title="Notification Actions: mako" { spawn-sh "~/.sh/fsel-popup ~/.sh/mako-menu"; }
 

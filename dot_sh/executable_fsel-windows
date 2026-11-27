@@ -15,10 +15,13 @@ if [[ -z ${NIRI_SOCKET:-} ]]; then
     done
 fi
 
+apps=$(fsel --stdout 2>/dev/null || echo '[]')
+workspaces=$(niri msg -j workspaces)
+
 choice=$(
     niri msg -j windows \
-        | jq -r '.[] | select((.app_id // "") | test("^dev\\.zoid\\.launcher(\\.|$)") | not) | "\(.id)\t\(.app_id // "")\t\(.title // "")"' \
-        | fsel --dmenu --only-match --delimiter=$'\t' --with-nth=2,3 --match-nth=2,3 --accept-nth=1
+        | jq -r --argjson apps "$apps" --argjson workspaces "$workspaces" -f "$HOME/.sh/fsel-windows.jq" \
+        | fsel --dmenu --only-match --delimiter=$'\t' --with-nth=2 --match-nth=2 --accept-nth=1
 ) || exit 0
 
 [[ -n $choice ]] || exit 0

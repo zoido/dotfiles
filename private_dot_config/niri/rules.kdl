@@ -48,6 +48,13 @@ window-rule {
     default-window-height { fixed 520; }
 }
 
+// Give the window switcher room for long window titles.
+window-rule {
+    match app-id=r#"^dev\.zoid\.launcher\.windows$"#
+    default-column-width { fixed 1100; }
+    default-window-height { fixed 520; }
+}
+
 // Float the Pi assistant window.
 window-rule {
     match app-id=r#"^dev\.zoid\.pi-assistant$"#
